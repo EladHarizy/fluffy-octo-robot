@@ -1,3 +1,5 @@
 *.csproj
-obj/*
-bin/*
+/obj
+/bin
+/obj/*
+/bib/*
