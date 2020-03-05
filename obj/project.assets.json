@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Lenovo1\\.nuget\\packages\\": {}
+    "/home/abraham/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lenovo1\\Documents\\fluffy-otco-robot\\fluffy-octo-robot1.csproj",
-      "projectName": "fluffy-octo-robot1",
-      "projectPath": "C:\\Users\\Lenovo1\\Documents\\fluffy-otco-robot\\fluffy-octo-robot1.csproj",
-      "packagesPath": "C:\\Users\\Lenovo1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo1\\Documents\\fluffy-otco-robot\\obj\\",
+      "projectUniqueName": "/home/abraham/Documents/fluffy-octo-robot/fluffy-octo-robot.csproj",
+      "projectName": "fluffy-octo-robot",
+      "projectPath": "/home/abraham/Documents/fluffy-octo-robot/fluffy-octo-robot.csproj",
+      "packagesPath": "/home/abraham/.nuget/packages/",
+      "outputPath": "/home/abraham/Documents/fluffy-octo-robot/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Lenovo1\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/abraham/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -56,7 +56,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.102/RuntimeIdentifierGraph.json"
       }
     }
   }
