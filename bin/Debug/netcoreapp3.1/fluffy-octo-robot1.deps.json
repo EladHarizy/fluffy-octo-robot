@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "fluffy-octo-robot1/1.0.0": {
+        "runtime": {
+          "fluffy-octo-robot1.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "fluffy-octo-robot1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
