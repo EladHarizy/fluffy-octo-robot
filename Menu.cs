@@ -19,8 +19,9 @@ namespace FluffyOctoRobot {
 			}
 		}
 
+		// Function that first calls print, then inputs an option, and calls the Execute method of the corresponding option (using polymorphism)
 		public Option Prompt() {
-
+			// TODO
 		}
 	}
 }
