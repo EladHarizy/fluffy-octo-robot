@@ -24,7 +24,7 @@ namespace FluffyOctoRobot {
 
 			int i = 0;
 			foreach (Option option in options) {
-				Console.WriteLine("\t{1} - {0}", options[i].Label, ++i);
+				Console.WriteLine("\t{1} - {0}", option.Label, ++i);
 			}
 			Console.WriteLine();
 		}
