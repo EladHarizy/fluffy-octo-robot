@@ -1,6 +1,5 @@
-# C# MiniProject
+# Fluffy Octo-Robot
 
-Abraham Murciano ()
-Elad Harizy (209927094)
+#### A C# mini-project by Abraham Murciano (910015) and Elad Harizy (209927094).
 
-This is our first file
+Fluffy Octo-Robot is a program that manages teh rental of villas.
