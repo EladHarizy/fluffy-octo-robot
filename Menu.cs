@@ -4,22 +4,25 @@ using System.Collections.Generic;
 namespace FluffyOctoRobot {
 	partial class Menu {
 		// The question or prompt that will be displayed to the user
-		private string intro;
+		public string Intro {
+			get;
+			private set;
+		}
 
 		// The list of options that will be displayed to the user
 		private List<Option> options = new List<Option>();
 
 		// Constructor that takes any number of options
 		public Menu(string intro, params Option[] options) {
-			this.intro = intro;
+			this.Intro = intro;
 			foreach (Option option in options) {
 				this.options.Add(option);
 			}
 		}
 
-		private void Intro() {
+		private void PrintIntro() {
 			Console.Clear();
-			Console.WriteLine(intro);
+			Console.WriteLine(Intro);
 		}
 
 		// Function that prints all the options and labels them with a number (starting from 1)
@@ -51,7 +54,7 @@ namespace FluffyOctoRobot {
 
 		// Function that calls print, then inputs an option, and executes the function of the corresponding option
 		public void Init() {
-			Intro();
+			PrintIntro();
 			bool repeat;
 			do {
 				PrintOptions();
