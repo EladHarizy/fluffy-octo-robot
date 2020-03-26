@@ -49,7 +49,7 @@ namespace FluffyOctoRobot {
 			}
 		}
 
-		// Function that calls print, then inputs an option, and executes the function of the corresponding option
+		// Function that calls intro, then calls printOptions, then inputs an option, and executes the function of the corresponding option
 		public void Init() {
 			Intro();
 			bool repeat;
