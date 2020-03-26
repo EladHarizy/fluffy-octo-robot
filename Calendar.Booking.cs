@@ -2,35 +2,35 @@ using System;
 namespace FluffyOctoRobot {
 	partial class Calendar {
 		class Booking {
-			// duration of visit
+			//  Duration of visit
 			public int Duration {
 				get;
 				private set;
 			}
 
-			//date of first night of stay
-			private DateTime dateTime;
-
-			//constructor that takes in initial date and duration
-			public Booking(DateTime dt, int duration) {
-				Console.Write("Enter Start Date: ");
-				DateTime choice;
-				try {
-					choice = DateTime.Parse(Console.ReadLine());
-					if (choice < DateTime.Now) {
-						throw new System.IO.InvalidDataException();
-					}
-					Duration = duration;
-					this.dateTime = dt;
-				} catch {
-
-				}
+			// Date of first night of stay
+			public DateTime Start {
+				get;
+				private set;
 			}
 
-			// returns the end date
-			DateTime endDate() {
-				DateTime newDate = dateTime.AddDays(Duration);
-				return (newDate);
+			// Constructor that takes in initial date and duration
+			public Booking(DateTime start, int duration) {
+				// Check to see if the start date is not in the past
+				if (start < DateTime.Now.Date) {
+					throw new System.ArgumentOutOfRangeException("Error: Booking cannot be before current date");
+				}
+				// Check to see if duration is at least one day
+				if (duration < 1) {
+					throw new System.ArgumentOutOfRangeException("Error: Duration must be at least one night");
+				}
+				Start = start.Date;
+				Duration = duration;
+			}
+
+			// Returns the end date
+			public DateTime End() {
+				return Start.AddDays(Duration);
 			}
 		}
 	}

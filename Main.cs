@@ -12,7 +12,15 @@ namespace FluffyOctoRobot {
 						// They can be accessed in the lambda by args[i]
 					},
 					(Object[] args) => {
-						Console.WriteLine(args[0]);
+						while (true) {
+							Console.Write("Enter Start Date: ");
+							try {
+								DateTime startDate = DateTime.Parse(Console.ReadLine());
+								break;
+							} catch (FormatException) {
+								Console.Write("Error: Invalid date format");
+							}
+						}
 						// Elad, this is for you. This is what should execute when the user picks option a
 						return true; // True because we want the menu to repeat once the option does its task
 					}
