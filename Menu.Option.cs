@@ -3,9 +3,9 @@ using System;
 namespace FluffyOctoRobot {
 	partial class Menu {
 		public class Option {
-			protected string label;
 			public string Label {
-				get => label;
+				get;
+				private set;
 			}
 
 			// A function that will be called when the user chooses this option
@@ -21,7 +21,7 @@ namespace FluffyOctoRobot {
 
 			// Constructor
 			public Option(string label, Object[] args, Func<Object[], bool> function) {
-				this.label = label;
+				Label = label;
 				this.args = args;
 				this.function = function;
 			}
