@@ -2,26 +2,27 @@ using System;
 namespace FluffyOctoRobot {
 	partial class Calendar {
 		class Booking {
-			// duration of visit
-			//	private int duration;
+			//  Duration of visit
 			public int Duration {
 				get;
 				private set;
 			}
 
-			//date of first night of stay
-			private DateTime dateTime;
-
-			//constructor that takes in initial date and duration
-			public Booking(DateTime dt, int duration) {
-				Duration = duration;
-				this.dateTime = dt;
+			// Date of first night of stay
+			public DateTime Start {
+				get;
+				private set;
 			}
 
-			// returns the end date
-			DateTime endDate() {
-				DateTime newDate = dateTime.AddDays(Duration);
-				return (newDate);
+			// Constructor that takes in initial date and duration
+			public Booking(DateTime start, int duration) {
+				Duration = duration;
+				Start = start;
+			}
+
+			// Returns the end date
+			public DateTime End() {
+				return Start.AddDays(Duration);
 			}
 		}
 	}
