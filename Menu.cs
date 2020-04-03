@@ -4,27 +4,30 @@ using System.Collections.Generic;
 namespace FluffyOctoRobot {
 	partial class Menu {
 		// The question or prompt that will be displayed to the user
-		private string intro;
+		public string Intro {
+			get;
+			set;
+		}
 
 		// The list of options that will be displayed to the user
 		private List<Option> options = new List<Option>();
 
 		// Constructor that takes any number of options
 		public Menu(string intro, params Option[] options) {
-			this.intro = intro;
+			Intro = intro;
 			foreach (Option option in options) {
-				this.options.Add(option);
+				AddOption(option);
 			}
 		}
 
-		private void Intro() {
+		private void PrintIntro() {
 			Console.Clear();
-			Console.WriteLine(intro);
+			Console.WriteLine(Intro);
 		}
 
 		// Function that prints all the options and labels them with a number (starting from 1)
 		private void PrintOptions() {
-			Console.WriteLine();
+			Console.WriteLine("-------------");
 			int i = 0;
 			foreach (Option option in options) {
 				Console.WriteLine("{1} - {0}", option.Label, ++i);
@@ -40,18 +43,27 @@ namespace FluffyOctoRobot {
 				try {
 					choice = Int32.Parse(Console.ReadLine());
 					if (choice < 1 || choice > options.Count) {
-						throw new System.IO.InvalidDataException();
+						throw new ApplicationException();
 					}
+					Console.WriteLine("-------------");
 					return choice - 1; // Minus 1 because options are displayed from 1
-				} catch (Exception e) when(e is FormatException || e is System.IO.InvalidDataException) {
+				} catch (Exception e) when(e is FormatException || e is ApplicationException) {
 					Console.WriteLine("Error: Input must be an integer between 1 and {0}.", options.Count);
 				}
 			}
 		}
 
+		private void AddOption(Option option) {
+			options.Add(option);
+		}
+
+		public void AddOption(string label, Func<bool> function) {
+			AddOption(new Option(label, function));
+		}
+
 		// Function that calls intro, then calls printOptions, then inputs an option, and executes the function of the corresponding option
 		public void Init() {
-			Intro();
+			PrintIntro();
 			bool repeat;
 			do {
 				PrintOptions();
