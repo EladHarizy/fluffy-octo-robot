@@ -3,9 +3,9 @@ using System;
 namespace FluffyOctoRobot {
 	partial class Menu {
 		public class Option {
-			protected string label;
 			public string Label {
-				get => label;
+				get;
+				private set;
 			}
 
 			// A function that will be called when the user chooses this option
