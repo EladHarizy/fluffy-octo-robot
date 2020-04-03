@@ -18,7 +18,7 @@ namespace FluffyOctoRobot {
 
 			// Constructor
 			public Option(string label, Func<bool> function) {
-				this.label = label;
+				this.Label = label;
 				this.function = function;
 			}
 		}
