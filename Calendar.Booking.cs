@@ -21,9 +21,6 @@ namespace FluffyOctoRobot {
 
 			// Constructor that takes in initial date and duration
 			public Booking(DateTime start, int duration) {
-				if (start < DateTime.Now.Date) {
-					throw new ApplicationException("Error: Booking cannot be before current date.");
-				}
 				if (duration < 1) {
 					throw new ApplicationException("Error: Duration must be at least one night.");
 				}
