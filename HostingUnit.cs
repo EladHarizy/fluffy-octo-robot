@@ -11,6 +11,12 @@ namespace FluffyOctoRobot {
 
 		private Calendar calendar;
 
+		// Default constructor. Sets available_from to the start of the next year
+		public HostingUnit() : this(new DateTime(DateTime.Now.Year + 1, 1, 1)) {}
+
+		// Constructor. Takes a start date and sets the calendar to a year long
+		public HostingUnit(DateTime available_from) : this(available_from, available_from.AddYears(1)) {}
+
 		// Constructor. Takes two dates which indicate the period of time in which the unit is available
 		HostingUnit(DateTime available_from, DateTime available_until) {
 			if (id_counter >= 99999999) {
