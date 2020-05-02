@@ -6,6 +6,7 @@ namespace FluffyOctoRobot {
 	partial class Calendar {
 
 		// The list of Bookings
+		// We were given the green light to continue using a list implementation rather than a matrix, since we already implemented all the methods with a list in the first assignment.
 		private List<Booking> bookings = new List<Booking>();
 
 		private DateTime start_date;
