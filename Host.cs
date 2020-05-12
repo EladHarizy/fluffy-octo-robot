@@ -1,14 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 namespace FluffyOctoRobot {
     public class Host {
         private int HostKey;
         private List<HostingUnit> units = new List<HostingUnit>();
-
-        //not sure what this does
-        //   internal List<HostingUnit> Units { get => units; set => units = value; }
 
         // Host constructor
         Host(int HKey, short numberOfHostingUnits) {
@@ -17,6 +15,35 @@ namespace FluffyOctoRobot {
             for (int i = 1; i <= numberOfHostingUnits; ++i) {
                 units.Add(new HostingUnit());
             }
+        }
+
+        public override string ToString() {
+            StringBuilder sb = new StringBuilder();
+            foreach (HostingUnit unit in units) {
+                sb.AppendLine("-------------");
+                sb.AppendLine(unit.ID);
+                sb.AppendLine();
+                sb.AppendLine(unit.ToString());
+                sb.AppendLine();
+            }
+            return sb.ToString();
+        }
+
+        private long SubmitRequest(GuestRequest guestReq) {
+            // TODO
+            return -1;
+        }
+
+        public int AnnualOccupancy() {
+            int sum = 0;
+            foreach (HostingUnit unit in units) {
+                sum += unit.AnnualOccupancy();
+            }
+            return sum;
+        }
+
+        public void SortUnits() {
+            units.Sort();
         }
     }
 
