@@ -4,10 +4,16 @@ namespace FluffyOctoRobot {
 	class main {
 		static Random rand = new Random(DateTime.Now.Millisecond);
 
-		private static GuestRequest CreateRandomRequest() {
-			GuestRequest gs = new GuestRequest();
-
-			return gs;
+		private static GuestRequest CreateRandomRequest(DateTime start_date, DateTime end_date) {
+			RandomDate date_generator = new RandomDate(start_date, end_date);
+			DateTime date1 = date_generator.Next();
+			DateTime date2 = date_generator.Next();
+			if (date1 > date2) {
+				DateTime temp = date2;
+				date2 = date1;
+				date1 = temp;
+			}
+			return new GuestRequest(date1, date2);
 		}
 		static void Main(string[] args) {
 			List<Host> lsHosts;
