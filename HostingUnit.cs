@@ -18,7 +18,7 @@ namespace FluffyOctoRobot {
 		public HostingUnit(DateTime available_from) : this(available_from, available_from.AddYears(1)) {}
 
 		// Constructor. Takes two dates which indicate the period of time in which the unit is available
-		HostingUnit(DateTime available_from, DateTime available_until) {
+		public HostingUnit(DateTime available_from, DateTime available_until) {
 			if (id_counter >= 99999999) {
 				throw new ApplicationException("Error: All possible IDs have been allocated. Unable to create any more hosting units.");
 			}

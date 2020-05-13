@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FluffyOctoRobot {
 	class main {
@@ -16,40 +17,38 @@ namespace FluffyOctoRobot {
 			return new GuestRequest(date1, date2);
 		}
 		static void Main(string[] args) {
-			List<Host> lsHosts;
-			lsHosts = new List<Host>() {
+			List<Host> hosts = new List<Host>() {
 				new Host(1, rand.Next(1, 5)),
 					new Host(2, rand.Next(1, 5)),
 					new Host(3, rand.Next(1, 5)),
 					new Host(4, rand.Next(1, 5)),
 					new Host(5, rand.Next(1, 5))
 			};
-			for (int i = 0; i < 100; i++) {
-				foreach (var host in lsHosts) {
-					GuestRequest gs1 = CreateRandomRequest();
-					GuestRequest gs2 = CreateRandomRequest();
-					GuestRequest gs3 = CreateRandomRequest();
-					switch (rand.Next(1, 4)) {
-						case 1:
-							host.AssignRequests(gs1);
-							break;
-						case 2:
-							host.AssignRequests(gs1, gs2);
-							break;
-						case 3:
-							host.AssignRequests(gs1, gs2, gs3);
-							break;
-						default:
-							break;
+			DateTime start_date = new DateTime(DateTime.Now.Year + 1, 1, 1);
+			DateTime end_date = new DateTime(DateTime.Now.Year + 2, 1, 1);
+
+			for (int i = 0; i < 100; ++i) {
+				foreach (Host host in hosts) {
+					GuestRequest gr1 = CreateRandomRequest(start_date, end_date);
+					int requests = rand.Next(1, 4);
+					if (requests == 1) {
+						host.AssignRequests(gr1);
+					} else if (requests == 2) {
+						GuestRequest gr2 = CreateRandomRequest(start_date, end_date);
+						host.AssignRequests(gr1, gr2);
+					} else {
+						GuestRequest gr2 = CreateRandomRequest(start_date, end_date);
+						GuestRequest gr3 = CreateRandomRequest(start_date, end_date);
+						host.AssignRequests(gr1, gr2, gr3);
 					}
 				}
 			}
+
 			//Create dictionary for all units <unitkey, occupancy_percentage>
-			Dictionary<long, float> dict = new Dictionary<long, float>();
-			foreach (var host in lsHosts) {
-				//test Host IEnuramble is ok
+			Dictionary<string, double> dict = new Dictionary<string, double>();
+			foreach (Host host in hosts) {
 				foreach (HostingUnit unit in host) {
-					dict[unit.HostingUnitKey] = unit.GetAnnualBusyPrecentege();
+					dict[unit.ID] = unit.OccupancyPercentage();
 				}
 			}
 			//get max value in dictionary
@@ -58,7 +57,7 @@ namespace FluffyOctoRobot {
 			long maxKey =
 				dict.FirstOrDefault(x => x.Value == dict.Values.Max()).Key;
 			//find the Host that its unit has the maximum occupancy percentage
-			foreach (var host in lsHosts) {
+			foreach (var host in hosts) {
 				//test indexer of Host
 				for (int i = 0; i < host.HostingUnitCollection.Count; i++) {
 					if (host[i].HostingUnitKey == maxKey) {
