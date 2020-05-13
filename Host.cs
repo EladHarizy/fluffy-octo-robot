@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace FluffyOctoRobot {
-	public class Host {
+	public class Host : IEnumerable<HostingUnit> {
 		private int HostKey;
 		private List<HostingUnit> units = new List<HostingUnit>();
 
@@ -72,10 +72,14 @@ namespace FluffyOctoRobot {
 			}
 		}
 
-		public IEnumerator GetEnumerator() {
+		public IEnumerator<HostingUnit> GetEnumerator() {
 			return units.GetEnumerator();
 		}
 
+		IEnumerator IEnumerable.GetEnumerator() {
+			// call the generic version of the method
+			return this.GetEnumerator();
+		}
 	}
 
 }
