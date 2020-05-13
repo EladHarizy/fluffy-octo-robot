@@ -1,7 +1,7 @@
 using System;
 
 namespace FluffyOctoRobot {
-	class GuestRequest {
+	public class GuestRequest {
 		// First date of the stay
 		private DateTime start_date;
 		public DateTime StartDate {
@@ -23,6 +23,10 @@ namespace FluffyOctoRobot {
 
 		public override string ToString() {
 			return "Start: " + StartDate.ToString("dd/MM/yyyy") + "\t\t" + EndDate.ToString("dd/MM/yyyy") + "\t\t" + (Approved ? "" : "Not ") + "Approved";
+		}
+
+		public int Duration {
+			get => (end_date - start_date).Days;
 		}
 	}
 }

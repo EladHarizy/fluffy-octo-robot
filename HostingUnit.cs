@@ -1,7 +1,7 @@
 using System;
 
 namespace FluffyOctoRobot {
-	class HostingUnit : IComparable<HostingUnit> {
+	public class HostingUnit : IComparable<HostingUnit> {
 		private static int id_counter = 0;
 
 		private int id;
@@ -62,5 +62,15 @@ namespace FluffyOctoRobot {
 			}
 			return 0;
 		}
+
+		//returns start date and duration
+		public bool Available(DateTime start_date, int duration) {
+			return calendar.Overlaps(start_date, duration);
+		}
+
+		public bool Available(GuestRequest guest_request) {
+			return calendar.Overlaps(guest_request.StartDate, guest_request.Duration);
+		}
+
 	}
 }
