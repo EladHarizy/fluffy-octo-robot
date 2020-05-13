@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FluffyOctoRobot {
 	class main {
@@ -13,6 +14,9 @@ namespace FluffyOctoRobot {
 				DateTime temp = date2;
 				date2 = date1;
 				date1 = temp;
+			}
+			if (date2 == date1) {
+				date2.AddDays(1);
 			}
 			return new GuestRequest(date1, date2);
 		}
@@ -51,24 +55,25 @@ namespace FluffyOctoRobot {
 					dict[unit.ID] = unit.OccupancyPercentage();
 				}
 			}
+
 			//get max value in dictionary
-			float maxVal = dict.Values.Max();
+			double max_val = dict.Values.Max();
+
 			//get max value key name in dictionary
-			long maxKey =
-				dict.FirstOrDefault(x => x.Value == dict.Values.Max()).Key;
+			string max_key = dict.FirstOrDefault(x => x.Value == dict.Values.Max()).Key;
+
 			//find the Host that its unit has the maximum occupancy percentage
-			foreach (var host in hosts) {
-				//test indexer of Host
-				for (int i = 0; i < host.HostingUnitCollection.Count; i++) {
-					if (host[i].HostingUnitKey == maxKey) {
-						//sort this host by occupancy of its units
-						host.SortUnits();
-						//print this host detailes
-						Console.WriteLine("**** Details of the Host with the
-most occupied unit:\n");
-						Console.WriteLine(host);
-						break;
-					}
+			foreach (Host host in hosts) {
+				if (host[max_key] != null) {
+					//sort this host by occupancy of its units
+					host.SortUnits();
+					//print this host detailes
+					Console.WriteLine("**** Details of the Host with the most occupied unit:\n");
+					Console.WriteLine(host);
+					break;
 				}
+
 			}
 		}
+	}
+}
