@@ -29,9 +29,14 @@ namespace FluffyOctoRobot {
             return sb.ToString();
         }
 
-        private long SubmitRequest(GuestRequest guestReq) {
-            // TODO
-            return -1;
+        private static Random random = new Random();
+
+        private string SubmitRequest(GuestRequest guest_request) {
+            List<HostingUnit> available_units = units.FindAll(unit => unit.Available(guest_request));
+            if (available_units.Count != 0) {
+                return available_units[random.Next(available_units.Count)].ID;
+            }
+            return "";
         }
 
         public int AnnualOccupancy() {
@@ -44,6 +49,16 @@ namespace FluffyOctoRobot {
 
         public void SortUnits() {
             units.Sort();
+        }
+
+        public bool AssignRequests(params GuestRequest[] requests) {
+            bool accepted = true;
+            foreach (GuestRequest request in requests) {
+                if (SubmitRequest(request) == "") {
+                    accepted = false;
+                }
+            }
+            return accepted;
         }
     }
 
