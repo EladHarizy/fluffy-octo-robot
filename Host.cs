@@ -60,6 +60,19 @@ namespace FluffyOctoRobot {
             }
             return accepted;
         }
+
+        public HostingUnit this [string ID] {
+            get {
+                foreach (HostingUnit unit in units) {
+                    if (unit.ID == ID) {
+                        return unit;
+                    }
+                }
+                return null;
+            }
+        }
+
+        public HostingUnit IEnumerable
     }
 
 }
