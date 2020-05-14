@@ -16,7 +16,7 @@ namespace FluffyOctoRobot {
 				date1 = temp;
 			}
 			if (date2 == date1) {
-				date2.AddDays(1);
+				date2 = date2.AddDays(1);
 			}
 			return new GuestRequest(date1, date2);
 		}
