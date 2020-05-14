@@ -69,7 +69,7 @@ namespace FluffyOctoRobot {
 		}
 
 		public bool Available(GuestRequest guest_request) {
-			return calendar.Overlaps(guest_request.StartDate, guest_request.Duration);
+			return !calendar.Overlaps(guest_request.StartDate, guest_request.Duration);
 		}
 
 	}

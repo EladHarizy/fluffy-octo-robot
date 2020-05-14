@@ -67,7 +67,7 @@ namespace FluffyOctoRobot {
 				if (host[max_key] != null) {
 					//sort this host by occupancy of its units
 					host.SortUnits();
-					//print this host detailes
+					//print this host details
 					Console.WriteLine("**** Details of the Host with the most occupied unit:\n");
 					Console.WriteLine(host);
 					break;

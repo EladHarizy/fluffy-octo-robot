@@ -21,22 +21,26 @@ namespace FluffyOctoRobot {
 
 		public override string ToString() {
 			StringBuilder sb = new StringBuilder();
+			sb.AppendLine("=============");
+			sb.AppendLine("Host ID - " + ID.ToString());
 			foreach (HostingUnit unit in units) {
 				sb.AppendLine("-------------");
-				sb.AppendLine(unit.ID);
+				sb.AppendLine("Hosting unit ID - " + unit.ID);
 				sb.AppendLine();
 				sb.AppendLine(unit.ToString());
-				sb.AppendLine();
 			}
 			return sb.ToString();
 		}
 
 		private static Random random = new Random();
 
+		// Assign an arbitrary hosting unit to the request, and return the unit's ID
 		private string SubmitRequest(GuestRequest guest_request) {
 			List<HostingUnit> available_units = units.FindAll(unit => unit.Available(guest_request));
 			if (available_units.Count != 0) {
-				return available_units[random.Next(available_units.Count)].ID;
+				HostingUnit unit = available_units[random.Next(available_units.Count)];
+				unit.ApproveRequest(guest_request);
+				return unit.ID;
 			}
 			return "";
 		}
