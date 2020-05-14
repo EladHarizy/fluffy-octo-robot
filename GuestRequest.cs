@@ -28,5 +28,16 @@ namespace FluffyOctoRobot {
 		public int Duration {
 			get => (end_date - start_date).Days;
 		}
+
+		public GuestRequest(DateTime start_date, int duration) {
+			StartDate = start_date;
+			EndDate = StartDate.AddDays(duration);
+		}
+
+		public GuestRequest(DateTime start_date, DateTime end_date) {
+			StartDate = start_date;
+			EndDate = end_date;
+		}
+
 	}
 }
