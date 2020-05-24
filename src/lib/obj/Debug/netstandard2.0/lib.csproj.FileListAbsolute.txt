@@ -1,8 +1,0 @@
-/home/abraham/Documents/fluffy-octo-robot/src/lib/bin/Debug/netstandard2.0/lib.deps.json
-/home/abraham/Documents/fluffy-octo-robot/src/lib/bin/Debug/netstandard2.0/lib.dll
-/home/abraham/Documents/fluffy-octo-robot/src/lib/bin/Debug/netstandard2.0/lib.pdb
-/home/abraham/Documents/fluffy-octo-robot/src/lib/obj/Debug/netstandard2.0/lib.csprojAssemblyReference.cache
-/home/abraham/Documents/fluffy-octo-robot/src/lib/obj/Debug/netstandard2.0/lib.AssemblyInfoInputs.cache
-/home/abraham/Documents/fluffy-octo-robot/src/lib/obj/Debug/netstandard2.0/lib.AssemblyInfo.cs
-/home/abraham/Documents/fluffy-octo-robot/src/lib/obj/Debug/netstandard2.0/lib.dll
-/home/abraham/Documents/fluffy-octo-robot/src/lib/obj/Debug/netstandard2.0/lib.pdb
