@@ -1,0 +1,14 @@
+/home/abraham/Documents/fluffy-octo-robot/src/presentation/bin/Debug/netcoreapp3.1/presentation
+/home/abraham/Documents/fluffy-octo-robot/src/presentation/bin/Debug/netcoreapp3.1/presentation.deps.json
+/home/abraham/Documents/fluffy-octo-robot/src/presentation/bin/Debug/netcoreapp3.1/presentation.runtimeconfig.json
+/home/abraham/Documents/fluffy-octo-robot/src/presentation/bin/Debug/netcoreapp3.1/presentation.runtimeconfig.dev.json
+/home/abraham/Documents/fluffy-octo-robot/src/presentation/bin/Debug/netcoreapp3.1/presentation.dll
+/home/abraham/Documents/fluffy-octo-robot/src/presentation/bin/Debug/netcoreapp3.1/presentation.pdb
+/home/abraham/Documents/fluffy-octo-robot/src/presentation/bin/Debug/netcoreapp3.1/lib.dll
+/home/abraham/Documents/fluffy-octo-robot/src/presentation/bin/Debug/netcoreapp3.1/lib.pdb
+/home/abraham/Documents/fluffy-octo-robot/src/presentation/obj/Debug/netcoreapp3.1/presentation.csprojAssemblyReference.cache
+/home/abraham/Documents/fluffy-octo-robot/src/presentation/obj/Debug/netcoreapp3.1/presentation.AssemblyInfoInputs.cache
+/home/abraham/Documents/fluffy-octo-robot/src/presentation/obj/Debug/netcoreapp3.1/presentation.AssemblyInfo.cs
+/home/abraham/Documents/fluffy-octo-robot/src/presentation/obj/Debug/netcoreapp3.1/presentation.csproj.CopyComplete
+/home/abraham/Documents/fluffy-octo-robot/src/presentation/obj/Debug/netcoreapp3.1/presentation.dll
+/home/abraham/Documents/fluffy-octo-robot/src/presentation/obj/Debug/netcoreapp3.1/presentation.pdb

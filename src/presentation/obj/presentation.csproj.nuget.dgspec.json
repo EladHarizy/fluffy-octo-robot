@@ -1,0 +1,115 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/abraham/Documents/fluffy-octo-robot/src/presentation/presentation.csproj": {}
+  },
+  "projects": {
+    "/home/abraham/Documents/fluffy-octo-robot/src/lib/lib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/abraham/Documents/fluffy-octo-robot/src/lib/lib.csproj",
+        "projectName": "lib",
+        "projectPath": "/home/abraham/Documents/fluffy-octo-robot/src/lib/lib.csproj",
+        "packagesPath": "/home/abraham/.nuget/packages/",
+        "outputPath": "/home/abraham/Documents/fluffy-octo-robot/src/lib/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/abraham/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.103/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/abraham/Documents/fluffy-octo-robot/src/presentation/presentation.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/abraham/Documents/fluffy-octo-robot/src/presentation/presentation.csproj",
+        "projectName": "presentation",
+        "projectPath": "/home/abraham/Documents/fluffy-octo-robot/src/presentation/presentation.csproj",
+        "packagesPath": "/home/abraham/.nuget/packages/",
+        "outputPath": "/home/abraham/Documents/fluffy-octo-robot/src/presentation/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/abraham/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "/home/abraham/Documents/fluffy-octo-robot/src/lib/lib.csproj": {
+                "projectPath": "/home/abraham/Documents/fluffy-octo-robot/src/lib/lib.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.103/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
