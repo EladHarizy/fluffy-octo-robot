@@ -3,11 +3,10 @@ using System.Text;
 
 namespace lib {
 	public class HostingUnit : IComparable<HostingUnit> {
-		private static int id_counter = 0;
-
-		private int id;
-		public string ID {
-			get => id.ToString("D8");
+		private static IDGenerator id_generator = new IDGenerator(8);
+		public ID ID {
+			get;
+			private set;
 		}
 
 		private Calendar calendar;
@@ -20,11 +19,8 @@ namespace lib {
 
 		// Constructor. Takes two dates which indicate the period of time in which the unit is available
 		public HostingUnit(DateTime available_from, DateTime available_until) {
-			if (id_counter >= 99999999) {
-				throw new ApplicationException("Error: All possible IDs have been allocated. Unable to create any more hosting units.");
-			}
+			ID = id_generator.Next();
 			calendar = new Calendar(available_from, available_until);
-			id = ++id_counter;
 		}
 
 		public override string ToString() {
