@@ -2,6 +2,14 @@ using System;
 
 namespace lib {
 	public class GuestRequest {
+		private static IDGenerator id_generator = new IDGenerator(8);
+		public ID ID {
+			get;
+			private set;
+		}
+
+		private Guest guest;
+
 		// First date of the stay
 		private DateTime start_date;
 		public DateTime StartDate {
@@ -29,13 +37,16 @@ namespace lib {
 			get => (end_date - start_date).Days;
 		}
 
-		public GuestRequest(DateTime start_date, int duration) {
+		public GuestRequest(DateTime start_date) {
+			ID = id_generator.Next();
 			StartDate = start_date;
+		}
+
+		public GuestRequest(DateTime start_date, int duration) : this(start_date) {
 			EndDate = StartDate.AddDays(duration);
 		}
 
-		public GuestRequest(DateTime start_date, DateTime end_date) {
-			StartDate = start_date;
+		public GuestRequest(DateTime start_date, DateTime end_date) : this(start_date) {
 			EndDate = end_date;
 		}
 	}
