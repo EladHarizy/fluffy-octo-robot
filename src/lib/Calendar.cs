@@ -9,36 +9,33 @@ namespace lib {
 		// We were given the green light to continue using a list implementation rather than a matrix, since we already implemented all the methods with a list in the first assignment.
 		private List<Booking> bookings = new List<Booking>();
 
-		private DateTime start_date;
-		public DateTime StartDate {
-			get => start_date;
-			private set => start_date = value.Date;
+		public Date StartDate {
+			get;
+			private set;
 		}
 
-		private DateTime end_date;
-		public DateTime EndDate {
-			get => end_date;
-			private set => end_date = value.Date;
+		public Date EndDate {
+			get;
+			private set;
 		}
 
-		public Calendar() : this(new DateTime(DateTime.Now.Year + 1, 1, 1)) {}
+		public Calendar() : this(new Date(Date.Today.Year + 1, 1, 1)) {}
 
-		public Calendar(DateTime start) : this(start, start.AddYears(1)) {}
+		public Calendar(Date start) : this(start, start.AddYears(1)) {}
 
-		public Calendar(DateTime start, DateTime end) {
-			if (end.Date <= start.Date) {
+		public Calendar(Date start, Date end) {
+			if (end <= start) {
 				throw new ApplicationException("Error: End date must be after start date.");
 			}
 			StartDate = start;
 			EndDate = end;
 		}
 
-		public void AddToCalendar(DateTime start, DateTime end) {
-			AddToCalendar(start, (end.Date - start.Date).Days);
+		public void AddToCalendar(Date start, Date end) {
+			AddToCalendar(start, (end - start).Days);
 		}
 
-		public void AddToCalendar(DateTime start, int duration) {
-			start = start.Date;
+		public void AddToCalendar(Date start, int duration) {
 			if (start.AddDays(duration) >= EndDate || start < StartDate) {
 				throw new ApplicationException("Error: This booking is out of range of the calendar.");
 			}
@@ -50,7 +47,7 @@ namespace lib {
 			bookings.Add(new Booking(start, duration));
 		}
 
-		public bool Overlaps(DateTime start, int duration) {
+		public bool Overlaps(Date start, int duration) {
 			return Overlaps(new Booking(start, duration));
 		}
 

@@ -4,19 +4,18 @@ namespace lib {
 	public class RandomDate {
 		private int days;
 
-		private DateTime start_date;
-		public DateTime StartDate {
-			get => start_date;
-			set => start_date = value.Date;
+		public Date StartDate {
+			get;
+			set;
 		}
 
-		public RandomDate(DateTime start_date, DateTime end_date) {
+		public RandomDate(Date start_date, Date end_date) {
 			StartDate = start_date;
-			days = (end_date.Date - StartDate).Days;
+			days = (end_date - StartDate).Days;
 		}
 
 		static private Random random = new Random();
-		public DateTime Next() {
+		public Date Next() {
 			return StartDate.AddDays(random.Next(days));
 		}
 	}

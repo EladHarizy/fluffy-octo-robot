@@ -5,14 +5,14 @@ using lib;
 
 namespace presentation {
 	class main {
-		static Random rand = new Random(DateTime.Now.Millisecond);
+		static Random rand = new Random();
 
-		private static GuestRequest CreateRandomRequest(DateTime start_date, DateTime end_date) {
+		private static GuestRequest CreateRandomRequest(Date start_date, Date end_date) {
 			RandomDate date_generator = new RandomDate(start_date, end_date);
-			DateTime date1 = date_generator.Next();
-			DateTime date2 = date_generator.Next();
+			Date date1 = date_generator.Next();
+			Date date2 = date_generator.Next();
 			if (date1 > date2) {
-				DateTime temp = date2;
+				Date temp = date2;
 				date2 = date1;
 				date1 = temp;
 			}
@@ -29,8 +29,8 @@ namespace presentation {
 					new Host(rand.Next(1, 5)),
 					new Host(rand.Next(1, 5))
 			};
-			DateTime start_date = new DateTime(DateTime.Now.Year + 1, 1, 1);
-			DateTime end_date = new DateTime(DateTime.Now.Year + 2, 1, 1);
+			Date start_date = new Date(Date.Today.Year + 1, 1, 1);
+			Date end_date = new Date(Date.Today.Year + 2, 1, 1);
 
 			for (int i = 0; i < 100; ++i) {
 				foreach (Host host in hosts) {

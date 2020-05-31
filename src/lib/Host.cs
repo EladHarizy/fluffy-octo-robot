@@ -14,9 +14,9 @@ namespace lib {
 		private List<HostingUnit> units = new List<HostingUnit>();
 
 		// Host constructor
-		public Host(int hosting_units) : this(hosting_units, new DateTime(DateTime.Now.Year + 1, 1, 1), new DateTime(DateTime.Now.Year + 2, 1, 1)) {}
+		public Host(int hosting_units) : this(hosting_units, new Date(Date.Today.Year + 1, 1, 1), new Date(Date.Today.Year + 2, 1, 1)) {}
 
-		public Host(int hosting_units, DateTime start_date, DateTime end_date) {
+		public Host(int hosting_units, Date start_date, Date end_date) {
 			ID = id_generator.Next();
 
 			for (int i = 1; i <= hosting_units; ++i) {
