@@ -21,6 +21,7 @@ namespace presentation {
 			}
 			return new GuestRequest(date1, date2);
 		}
+
 		static void Main(string[] args) {
 			List<Host> hosts = new List<Host>() {
 				new Host(rand.Next(1, 5)),
