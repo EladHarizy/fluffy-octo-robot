@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using exceptions;
 
 namespace lib {
 	partial class Menu {
@@ -43,7 +44,7 @@ namespace lib {
 				try {
 					choice = Int32.Parse(Console.ReadLine());
 					if (choice < 1 || choice > options.Count) {
-						throw new ApplicationException();
+						throw new InvalidOptionException();
 					}
 					Console.WriteLine("-------------");
 					return choice - 1; // Minus 1 because options are displayed from 1

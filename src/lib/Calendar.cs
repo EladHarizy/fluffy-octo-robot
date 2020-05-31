@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using exceptions;
 
 namespace lib {
 	partial class Calendar {
@@ -25,7 +26,7 @@ namespace lib {
 
 		public Calendar(Date start, Date end) {
 			if (end <= start) {
-				throw new ApplicationException("Error: End date must be after start date.");
+				throw new NonPositiveDurationException("Error: End date must be after start date.");
 			}
 			StartDate = start;
 			EndDate = end;
@@ -37,11 +38,11 @@ namespace lib {
 
 		public void AddToCalendar(Date start, int duration) {
 			if (start.AddDays(duration) >= EndDate || start < StartDate) {
-				throw new ApplicationException("Error: This booking is out of range of the calendar.");
+				throw new BookingOutOfRangeException("Error: This booking is out of range of the calendar.");
 			}
 
 			if (Overlaps(start, duration)) {
-				throw new ApplicationException("Error: This booking overlaps with an existing booking.");
+				throw new BookingOverlapException("Error: This booking overlaps with an existing booking.");
 			}
 
 			bookings.Add(new Booking(start, duration));
