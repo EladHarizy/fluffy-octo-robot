@@ -5,14 +5,19 @@ using System.Text;
 
 namespace lib {
 	public class Host : IEnumerable<HostingUnit> {
-		private int ID;
+		private static IDGenerator id_generator = new IDGenerator(8);
+		public ID ID {
+			get;
+			private set;
+		}
+
 		private List<HostingUnit> units = new List<HostingUnit>();
 
 		// Host constructor
-		public Host(int key, int hosting_units) : this(key, hosting_units, new DateTime(DateTime.Now.Year + 1, 1, 1), new DateTime(DateTime.Now.Year + 2, 1, 1)) {}
+		public Host(int hosting_units) : this(hosting_units, new DateTime(DateTime.Now.Year + 1, 1, 1), new DateTime(DateTime.Now.Year + 2, 1, 1)) {}
 
-		public Host(int key, int hosting_units, DateTime start_date, DateTime end_date) {
-			ID = key;
+		public Host(int hosting_units, DateTime start_date, DateTime end_date) {
+			ID = id_generator.Next();
 
 			for (int i = 1; i <= hosting_units; ++i) {
 				units.Add(new HostingUnit(start_date, end_date));
@@ -40,7 +45,7 @@ namespace lib {
 			if (available_units.Count != 0) {
 				HostingUnit unit = available_units[random.Next(available_units.Count)];
 				unit.ApproveRequest(guest_request);
-				return unit.ID;
+				return unit.ID.ToString();
 			}
 			return "";
 		}
@@ -70,7 +75,7 @@ namespace lib {
 		public HostingUnit this [string ID] {
 			get {
 				foreach (HostingUnit unit in units) {
-					if (unit.ID == ID) {
+					if (unit.ID.ToString() == ID) {
 						return unit;
 					}
 				}
