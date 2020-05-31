@@ -1,9 +1,7 @@
 using System;
 
 namespace lib {
-
 	public class RandomDate {
-
 		private int days;
 
 		private DateTime start_date;
@@ -21,7 +19,5 @@ namespace lib {
 		public DateTime Next() {
 			return StartDate.AddDays(random.Next(days));
 		}
-
 	}
-
 }
