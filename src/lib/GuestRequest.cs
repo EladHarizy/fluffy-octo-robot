@@ -11,17 +11,15 @@ namespace lib {
 		private Guest guest;
 
 		// First date of the stay
-		private DateTime start_date;
-		public DateTime StartDate {
-			get => start_date;
-			set => start_date = value.Date;
+		public Date StartDate {
+			get;
+			private set;
 		}
 
 		// Next day after the guest leaves
-		private DateTime end_date;
-		public DateTime EndDate {
-			get => end_date;
-			set => end_date = value.Date;
+		public Date EndDate {
+			get;
+			private set;
 		}
 
 		public bool Approved {
@@ -34,19 +32,19 @@ namespace lib {
 		}
 
 		public int Duration {
-			get => (end_date - start_date).Days;
+			get => (EndDate - StartDate).Days;
 		}
 
-		public GuestRequest(DateTime start_date) {
+		public GuestRequest(Date start_date) {
 			ID = id_generator.Next();
 			StartDate = start_date;
 		}
 
-		public GuestRequest(DateTime start_date, int duration) : this(start_date) {
+		public GuestRequest(Date start_date, int duration) : this(start_date) {
 			EndDate = StartDate.AddDays(duration);
 		}
 
-		public GuestRequest(DateTime start_date, DateTime end_date) : this(start_date) {
+		public GuestRequest(Date start_date, Date end_date) : this(start_date) {
 			EndDate = end_date;
 		}
 	}
