@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 
 namespace lib {
 	public class HostingUnit : IComparable<HostingUnit> {
@@ -27,7 +28,12 @@ namespace lib {
 		}
 
 		public override string ToString() {
-			return calendar.Occupancy();
+			StringBuilder sb = new StringBuilder();
+			sb.AppendLine("Host Name: " + Owner);
+			sb.AppendLine("Unit Name: " + HostingUnitName);
+			sb.AppendLine("Occupied at these times:");
+			sb.AppendLine(calendar.Occupancy());
+			return sb.ToString();
 		}
 
 		// Adds the event to the calendar if available, marks request as accepted and returns true
@@ -65,11 +71,16 @@ namespace lib {
 
 		//returns start date and duration
 		public bool Available(DateTime start_date, int duration) {
-			return calendar.Overlaps(start_date, duration);
+			return !calendar.Overlaps(start_date, duration);
 		}
 
 		public bool Available(GuestRequest guest_request) {
 			return !calendar.Overlaps(guest_request.StartDate, guest_request.Duration);
+		}
+		Host Owner;
+		public string HostingUnitName {
+			get;
+			private set;
 		}
 
 	}
