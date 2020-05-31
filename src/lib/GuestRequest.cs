@@ -38,6 +38,5 @@ namespace lib {
 			StartDate = start_date;
 			EndDate = end_date;
 		}
-
 	}
 }
