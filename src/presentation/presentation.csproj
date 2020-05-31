@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\lib\lib.csproj" />
+    <ProjectReference Include="..\business\business.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
