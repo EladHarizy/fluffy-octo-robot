@@ -72,6 +72,12 @@ namespace lib {
 			return accepted;
 		}
 
+		public HostingUnit this [ID ID] {
+			get {
+				return this [ID.ToString()];
+			}
+		}
+
 		public HostingUnit this [string ID] {
 			get {
 				foreach (HostingUnit unit in units) {
