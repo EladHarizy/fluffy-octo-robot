@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace lib {
 	public class GuestRequest {
@@ -9,6 +10,12 @@ namespace lib {
 		}
 
 		private Guest guest;
+
+		// Date that the request was created
+		public Date CreationDate {
+			get;
+			private set;
+		}
 
 		// First date of the stay
 		public Date StartDate {
@@ -22,17 +29,24 @@ namespace lib {
 			private set;
 		}
 
+		public int Duration {
+			get => (EndDate - StartDate).Days;
+		}
+
 		public bool Approved {
 			get;
 			set;
 		}
 
-		public override string ToString() {
-			return "Start: " + StartDate.ToString("dd/MM/yyyy") + "\t\t" + EndDate.ToString("dd/MM/yyyy") + "\t\t" + (Approved ? "" : "Not ") + "Approved";
+		public bool Active {
+			get;
+			set;
 		}
 
-		public int Duration {
-			get => (EndDate - StartDate).Days;
+		public HashSet<City> Region;
+
+		public override string ToString() {
+			return "Start: " + StartDate.ToString("dd/MM/yyyy") + "\t\t" + EndDate.ToString("dd/MM/yyyy") + "\t\t" + (Approved ? "" : "Not ") + "Approved";
 		}
 
 		public GuestRequest(Date start_date) {
