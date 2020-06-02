@@ -37,7 +37,7 @@ namespace lib {
 		public bool ApproveRequest(GuestRequest guest_request) {
 			try {
 				calendar.AddToCalendar(guest_request.StartDate, guest_request.EndDate);
-				guest_request.Approved = true;
+				guest_request.Active = false;
 				return true;
 			} catch (ApplicationException) {
 				return false;

@@ -19,7 +19,7 @@ namespace presentation {
 			if (date2 == date1) {
 				date2 = date2.AddDays(1);
 			}
-			return new GuestRequest(date1, date2);
+			return new GuestRequest(new Guest("Bob", "Smith", "bob@smith.com"), date1, date2, 1, 0, null, null, null);
 		}
 
 		static void Main(string[] args) {
