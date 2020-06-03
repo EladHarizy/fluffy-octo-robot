@@ -4,14 +4,12 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace lib {
-	public class Host : IEnumerable<HostingUnit> {
+	public class Host : Person, IEnumerable<HostingUnit> {
 		private static IDGenerator id_generator = new IDGenerator(8);
-		public ID ID {
-			get;
-			private set;
-		}
 
 		private List<HostingUnit> units = new List<HostingUnit>();
+
+		private static Random random = new Random();
 
 		// Host constructor
 		public Host(int hosting_units) : this(hosting_units, new Date(Date.Today.Year + 1, 1, 1), new Date(Date.Today.Year + 2, 1, 1)) {}
@@ -24,20 +22,29 @@ namespace lib {
 			}
 		}
 
-		public override string ToString() {
+		public override string ToString(int tabs) {
 			StringBuilder sb = new StringBuilder();
-			sb.AppendLine("=============");
-			sb.AppendLine("Host ID - " + ID.ToString());
+
+			sb.Append('\t', tabs);
+			sb.Append("Host Details");
+			sb.Append('\n');
+
+			sb.Append('\t', tabs);
+			sb.Append("------------");
+			sb.Append('\n');
+
+			sb.Append(base.ToString(tabs));
+
+			sb.Append('\t', tabs);
+			sb.Append("Hosting Units:");
+			sb.Append('\n');
 			foreach (HostingUnit unit in units) {
-				sb.AppendLine("-------------");
-				sb.AppendLine("Hosting unit ID - " + unit.ID);
-				sb.AppendLine();
-				sb.AppendLine(unit.ToString());
+				sb.Append(unit.ToString( /*tabs + 1*/ ));
+				sb.Append('\n');
 			}
+
 			return sb.ToString();
 		}
-
-		private static Random random = new Random();
 
 		// Assign an arbitrary hosting unit to the request, and return the unit's ID
 		private string SubmitRequest(GuestRequest guest_request) {
