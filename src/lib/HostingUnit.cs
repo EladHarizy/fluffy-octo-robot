@@ -12,13 +12,13 @@ namespace lib {
 		private Calendar calendar;
 
 		// Default constructor. Sets available_from to the start of the next year
-		public HostingUnit() : this(new DateTime(DateTime.Now.Year + 1, 1, 1)) {}
+		public HostingUnit() : this(new Date(Date.Today.Year + 1, 1, 1)) {}
 
 		// Constructor. Takes a start date and sets the calendar to a year long
-		public HostingUnit(DateTime available_from) : this(available_from, available_from.AddYears(1)) {}
+		public HostingUnit(Date available_from) : this(available_from, available_from.AddYears(1)) {}
 
 		// Constructor. Takes two dates which indicate the period of time in which the unit is available
-		public HostingUnit(DateTime available_from, DateTime available_until) {
+		public HostingUnit(Date available_from, Date available_until) {
 			ID = id_generator.Next();
 			calendar = new Calendar(available_from, available_until);
 		}
@@ -37,7 +37,7 @@ namespace lib {
 		public bool ApproveRequest(GuestRequest guest_request) {
 			try {
 				calendar.AddToCalendar(guest_request.StartDate, guest_request.EndDate);
-				guest_request.Approved = true;
+				guest_request.Active = false;
 				return true;
 			} catch (ApplicationException) {
 				return false;
@@ -66,7 +66,7 @@ namespace lib {
 		}
 
 		//returns start date and duration
-		public bool Available(DateTime start_date, int duration) {
+		public bool Available(Date start_date, int duration) {
 			return !calendar.Overlaps(start_date, duration);
 		}
 
