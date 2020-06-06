@@ -38,9 +38,15 @@ namespace lib {
 			sb.Append('\t', tabs);
 			sb.Append("Hosting Units:");
 			sb.Append('\n');
+			bool first_element = true;
 			foreach (HostingUnit unit in units) {
-				sb.Append(unit.ToString( /*tabs + 1*/ ));
-				sb.Append('\n');
+				if (!first_element) {
+					sb.Append("====================\n"); // Same length as "Hosting Unit Details"
+				} else {
+					first_element = false;
+				}
+				sb.Append(unit.ToString(tabs + 1));
+				sb.Append('\t', tabs + 1);
 			}
 
 			return sb.ToString();

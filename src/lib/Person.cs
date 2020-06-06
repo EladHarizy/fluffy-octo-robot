@@ -35,7 +35,7 @@ namespace lib {
 			}
 		}
 
-		public virtual string ToString() {
+		public override string ToString() {
 			return ToString(0);
 		}
 

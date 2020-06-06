@@ -11,6 +11,13 @@ namespace lib {
 
 		private Calendar calendar;
 
+		private Host Owner;
+
+		public string HostingUnitName {
+			get;
+			private set;
+		}
+
 		// Default constructor. Sets available_from to the start of the next year
 		public HostingUnit() : this(new Date(Date.Today.Year + 1, 1, 1)) {}
 
@@ -24,11 +31,34 @@ namespace lib {
 		}
 
 		public override string ToString() {
+			return ToString(0);
+		}
+
+		public string ToString(int tabs) {
 			StringBuilder sb = new StringBuilder();
-			sb.AppendLine("Host Name: " + Owner);
-			sb.AppendLine("Unit Name: " + HostingUnitName);
-			sb.AppendLine("Occupied at these times:");
-			sb.AppendLine(calendar.Occupancy());
+
+			sb.Append('\t', tabs);
+			sb.Append("Hosting Unit Details");
+			sb.Append('\n');
+
+			sb.Append('\t', tabs);
+			sb.Append("--------------------");
+			sb.Append('\n');
+
+			sb.Append('\t', tabs);
+			sb.Append("Host Name:\t");
+			sb.Append(Owner.Name);
+			sb.Append('\n');
+
+			sb.Append('\t', tabs);
+			sb.Append("Unit Name:\t");
+			sb.Append(HostingUnitName);
+			sb.Append('\n');
+
+			sb.Append('\t', tabs);
+			sb.Append("Occupied on:");
+			sb.Append(Tabulator.Tabulate(calendar.Occupancy(), tabs + 1));
+
 			return sb.ToString();
 		}
 
@@ -73,11 +103,5 @@ namespace lib {
 		public bool Available(GuestRequest guest_request) {
 			return !calendar.Overlaps(guest_request.StartDate, guest_request.Duration);
 		}
-		Host Owner;
-		public string HostingUnitName {
-			get;
-			private set;
-		}
-
 	}
 }
