@@ -86,16 +86,10 @@ namespace lib {
 		public int CompareTo(HostingUnit h) {
 			double this_percentage = OccupancyPercentage();
 			double that_percentage = h.OccupancyPercentage();
-			if (this_percentage < that_percentage) {
-				return -1;
-			}
-			if (this_percentage > that_percentage) {
-				return 1;
-			}
-			return 0;
+			return this_percentage.CompareTo(that_percentage);
 		}
 
-		//returns start date and duration
+		// Returns start date and duration
 		public bool Available(Date start_date, int duration) {
 			return !calendar.Overlaps(start_date, duration);
 		}

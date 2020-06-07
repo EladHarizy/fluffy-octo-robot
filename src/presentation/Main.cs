@@ -74,7 +74,6 @@ namespace presentation {
 					Console.WriteLine(host);
 					break;
 				}
-
 			}
 		}
 	}
