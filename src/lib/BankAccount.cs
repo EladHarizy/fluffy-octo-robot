@@ -1,5 +1,5 @@
 namespace lib {
-	class BankAccount {
+	public class BankAccount {
 		public BankBranch Branch {
 			get;
 			private set;
