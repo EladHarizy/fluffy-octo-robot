@@ -33,19 +33,19 @@ namespace lib {
 			get => phones.AsReadOnly();
 		}
 
+		public Person(ID id, string first_name, string last_name, string email) {
+			ID = id;
+			FirstName = first_name;
+			LastName = last_name;
+			Email = new MailAddress(email);
+		}
+
 		public virtual void AddPhone(string phone) {
 			phones.Add(new PhoneNumber(phone));
 		}
 
 		public override string ToString() {
 			return ToString(0);
-		}
-
-		public Person(ID id, string first_name, string last_name, string email) {
-			ID = id;
-			FirstName = first_name;
-			LastName = last_name;
-			Email = new MailAddress(email);
 		}
 
 		public virtual string ToString(int tabs) {

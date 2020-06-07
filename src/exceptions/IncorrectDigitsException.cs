@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace exceptions {
-	public class TooManyDigitsException : Exception {
+	public class IncorrectDigitsException : Exception {
 		public int N {
 			get;
 			private set;
@@ -17,12 +17,12 @@ namespace exceptions {
 			get => message;
 		}
 
-		public TooManyDigitsException(int n, int digits) {
+		public IncorrectDigitsException(int n, int digits) {
 			N = n;
 			Digits = digits;
 		}
 
-		public TooManyDigitsException(int n, int digits, string message) : this(n, digits) {
+		public IncorrectDigitsException(int n, int digits, string message) : this(n, digits) {
 			this.message = message;
 		}
 	}

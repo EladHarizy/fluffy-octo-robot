@@ -23,15 +23,30 @@ namespace presentation {
 		}
 
 		static void Main(string[] args) {
+			BankBranch branch = new BankBranch(new ID(10, 3), "Discount Bank", new ID(800, 3), new City("Jerusalem"));
 			List<Host> hosts = new List<Host>() {
-				new Host(rand.Next(1, 5)),
-					new Host(rand.Next(1, 5)),
-					new Host(rand.Next(1, 5)),
-					new Host(rand.Next(1, 5)),
-					new Host(rand.Next(1, 5))
+				new Host("Alice", "Alderson", "alice@fluffy-octo-robot.com", branch, 999999),
+					new Host("Bob", "Barkley", "bob@fluffy-octo-robot.com", branch, 349853),
+					new Host("Charlie", "Clemands", "charlie@fluffy-octo-robot.com", branch, 492234),
+					new Host("Dave", "Davidson", "dave@fluffy-octo-robot.com", branch, 673567),
+					new Host("Elliott", "Edwards", "elliott@fluffy-octo-robot.com", branch, 236909)
 			};
+
 			Date start_date = new Date(Date.Today.Year + 1, 1, 1);
 			Date end_date = new Date(Date.Today.Year + 2, 1, 1);
+
+			hosts[0].Add(new HostingUnit(hosts[0], "Alice's Wonderland", start_date, end_date));
+			hosts[0].Add(new HostingUnit(hosts[0], "Alice's Other Wonderland", start_date, end_date));
+
+			hosts[1].Add(new HostingUnit(hosts[1], "Bob's Bungalow", start_date, end_date));
+
+			hosts[2].Add(new HostingUnit(hosts[2], "Chalie's Chapel", start_date, end_date));
+			hosts[2].Add(new HostingUnit(hosts[2], "Chalie's Chalet", start_date, end_date));
+			hosts[2].Add(new HostingUnit(hosts[2], "Chalie's Cave", start_date, end_date));
+
+			hosts[3].Add(new HostingUnit(hosts[3], "Dave's Dorm", start_date, end_date));
+
+			hosts[4].Add(new HostingUnit(hosts[4], "Elliott's Eggplant", start_date, end_date));
 
 			for (int i = 0; i < 100; ++i) {
 				foreach (Host host in hosts) {
@@ -62,7 +77,7 @@ namespace presentation {
 			double max_val = dict.Values.Max();
 
 			//get max value key name in dictionary
-			ID max_key = dict.FirstOrDefault(x => x.Value == dict.Values.Max()).Key;
+			ID max_key = dict.FirstOrDefault(x => x.Value == max_val).Key;
 
 			//find the Host that its unit has the maximum occupancy percentage
 			foreach (Host host in hosts) {

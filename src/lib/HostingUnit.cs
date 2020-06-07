@@ -35,6 +35,8 @@ namespace lib {
 		// Constructor. Takes an ID, host, and two dates which indicate the period of time in which the unit is available
 		public HostingUnit(ID id, Host host, string hosting_unit_name, Date available_from, Date available_until) {
 			ID = id;
+			this.host = host;
+			HostingUnitName = hosting_unit_name;
 			calendar = new Calendar(available_from, available_until);
 		}
 
@@ -65,6 +67,7 @@ namespace lib {
 
 			sb.Append('\t', tabs);
 			sb.Append("Occupied on:");
+			sb.Append('\n');
 			sb.Append(Tabulator.Tabulate(calendar.Occupancy(), tabs + 1));
 
 			return sb.ToString();

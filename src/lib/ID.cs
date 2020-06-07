@@ -3,22 +3,28 @@ using exceptions;
 
 namespace lib {
 	public class ID {
-		private int id;
+		public int Number {
+			get;
+			private set;
+		}
 
-		private int digits;
+		public int Digits {
+			get;
+			private set;
+		}
 
 		public override string ToString() {
-			return id.ToString("D" + digits.ToString());
+			return Number.ToString("D" + Digits.ToString());
 		}
 
 		public ID(int id, int digits = 0) {
 			if (digits <= 0) {
 				digits = id.Digits();
 			} else if (digits < id.Digits()) {
-				throw new TooManyDigitsException(id, digits);
+				throw new IncorrectDigitsException(id, digits);
 			}
-			this.id = id;
-			this.digits = digits;
+			Number = id;
+			Digits = digits;
 		}
 	}
 }
