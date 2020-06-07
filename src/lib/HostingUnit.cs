@@ -11,22 +11,30 @@ namespace lib {
 
 		private Calendar calendar;
 
-		private Host Owner;
+		private Host host;
 
 		public string HostingUnitName {
 			get;
 			private set;
 		}
 
-		// Default constructor. Sets available_from to the start of the next year
-		public HostingUnit() : this(new Date(Date.Today.Year + 1, 1, 1)) {}
+		// Constructor. Does not take an ID. Generates a new ID
+		public HostingUnit(
+			Host host,
+			string hosting_unit_name,
+			Date available_from,
+			Date available_until
+		) : this(
+			id_generator.Next(),
+			host,
+			hosting_unit_name,
+			available_from,
+			available_until
+		) {}
 
-		// Constructor. Takes a start date and sets the calendar to a year long
-		public HostingUnit(Date available_from) : this(available_from, available_from.AddYears(1)) {}
-
-		// Constructor. Takes two dates which indicate the period of time in which the unit is available
-		public HostingUnit(Date available_from, Date available_until) {
-			ID = id_generator.Next();
+		// Constructor. Takes an ID, host, and two dates which indicate the period of time in which the unit is available
+		public HostingUnit(ID id, Host host, string hosting_unit_name, Date available_from, Date available_until) {
+			ID = id;
 			calendar = new Calendar(available_from, available_until);
 		}
 
@@ -47,7 +55,7 @@ namespace lib {
 
 			sb.Append('\t', tabs);
 			sb.Append("Host Name:\t");
-			sb.Append(Owner.Name);
+			sb.Append(host.Name);
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);
