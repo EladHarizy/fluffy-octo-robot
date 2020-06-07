@@ -52,6 +52,13 @@ namespace lib {
 
 		public string ToString(int tabs) {
 			StringBuilder sb = new StringBuilder();
+			sb.Append('\t', tabs);
+			sb.Append("Guest Details");
+			sb.Append("\n");
+
+			sb.Append('\t', tabs);
+			sb.Append("-------------");
+			sb.Append("\n");
 
 			sb.Append('\t', tabs);
 			sb.Append("ID:\t\t");
