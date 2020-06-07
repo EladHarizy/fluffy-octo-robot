@@ -3,6 +3,13 @@ using System.Text;
 
 namespace lib {
 	public class BankBranch {
+
+		BankBranch(int bank_id, string bank_name, int branch_id, string branch_city) {
+			this.bank_id = bank_id;
+			BankName = bank_name;
+			this.branch_id = branch_id;
+			BranchCity = branch_city;
+		}
 		private int bank_id;
 		public string BankID {
 			get => bank_id.ToString("D4");

@@ -13,5 +13,36 @@ namespace lib {
 			LastName = last_name;
 			Email = new MailAddress(email);
 		}
+
+		public override string ToString() {
+			return ToString(0);
+		}
+
+		public string ToString(int tabs) {
+			StringBuilder sb = new StringBuilder();
+			sb.Append('\t', tabs);
+			sb.Append("Guest Details");
+			sb.Append("\n");
+
+			sb.Append('\t', tabs);
+			sb.Append("-------------");
+			sb.Append("\n");
+
+			sb.Append('\t', tabs);
+			sb.Append("ID:\t\t");
+			sb.Append(ID);
+			sb.Append('\n');
+
+			sb.Append('\t', tabs);
+			sb.Append("Name:\t");
+			sb.Append(Name);
+			sb.Append('\n');
+
+			sb.Append('\t', tabs);
+			sb.Append("Email:\t");
+			sb.Append(Email);
+
+			return sb.ToString();
+		}
 	}
 }
