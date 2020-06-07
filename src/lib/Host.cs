@@ -4,43 +4,99 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace lib {
-	public class Host : IEnumerable<HostingUnit> {
-		private int ID;
+	public class Host : Person, IEnumerable<HostingUnit>, ICollection<HostingUnit> {
+		private static IDGenerator id_generator = new IDGenerator(8);
+
 		private List<HostingUnit> units = new List<HostingUnit>();
 
-		// Host constructor
-		public Host(int key, int hosting_units) : this(key, hosting_units, new DateTime(DateTime.Now.Year + 1, 1, 1), new DateTime(DateTime.Now.Year + 2, 1, 1)) {}
+		private BankAccount bank_account;
 
-		public Host(int key, int hosting_units, DateTime start_date, DateTime end_date) {
-			ID = key;
-
-			for (int i = 1; i <= hosting_units; ++i) {
-				units.Add(new HostingUnit(start_date, end_date));
-			}
+		public bool CollectionClearance {
+			get;
+			private set;
 		}
 
-		public override string ToString() {
+		// Used to randomly select an available unit
+		private static Random random = new Random();
+
+		public int Count {
+			get => units.Count;
+		}
+
+		public bool IsReadOnly {
+			get => false;
+		}
+
+		// Host constructor
+		public Host(
+			string first_name,
+			string last_name,
+			string email,
+			BankBranch bank_branch,
+			int account_number
+		) : this(
+			id_generator.Next(),
+			first_name,
+			last_name,
+			email,
+			new BankAccount(bank_branch, account_number),
+			true // collection clearance default
+		) {}
+
+		public Host(
+			ID id,
+			string first_name,
+			string last_name,
+			string email,
+			BankAccount bank_account,
+			bool collection_clearance
+		) : base(
+			id,
+			first_name,
+			last_name,
+			email
+		) {
+			this.bank_account = bank_account;
+			CollectionClearance = collection_clearance;
+		}
+
+		public override string ToString(int tabs) {
 			StringBuilder sb = new StringBuilder();
-			sb.AppendLine("=============");
-			sb.AppendLine("Host ID - " + ID.ToString());
+
+			sb.Append('\t', tabs);
+			sb.Append("Host Details");
+			sb.Append('\n');
+
+			sb.Append('\t', tabs);
+			sb.Append("------------");
+			sb.Append('\n');
+
+			sb.Append(base.ToString(tabs));
+
+			sb.Append('\t', tabs);
+			sb.Append("Hosting Units:");
+			sb.Append('\n');
+			bool first_element = true;
 			foreach (HostingUnit unit in units) {
-				sb.AppendLine("-------------");
-				sb.AppendLine("Hosting unit ID - " + unit.ID);
-				sb.AppendLine();
-				sb.AppendLine(unit.ToString());
+				if (!first_element) {
+					sb.Append("====================\n"); // Same length as "Hosting Unit Details"
+				} else {
+					first_element = false;
+				}
+				sb.Append(unit.ToString(tabs + 1));
+				sb.Append('\t', tabs + 1);
 			}
+
 			return sb.ToString();
 		}
 
-		private static Random random = new Random();
-
 		// Assign an arbitrary hosting unit to the request, and return the unit's ID
 		private string SubmitRequest(GuestRequest guest_request) {
-			List<HostingUnit> available_units = units.FindAll(unit => unit.Available(guest_request));
+			IList<HostingUnit> available_units = units.FindAll(unit => unit.Available(guest_request));
 			if (available_units.Count != 0) {
 				HostingUnit unit = available_units[random.Next(available_units.Count)];
 				unit.ApproveRequest(guest_request);
-				return unit.ID;
+				return unit.ID.ToString();
 			}
 			return "";
 		}
@@ -67,10 +123,16 @@ namespace lib {
 			return accepted;
 		}
 
+		public HostingUnit this [ID ID] {
+			get {
+				return this [ID.ToString()];
+			}
+		}
+
 		public HostingUnit this [string ID] {
 			get {
 				foreach (HostingUnit unit in units) {
-					if (unit.ID == ID) {
+					if (unit.ID.ToString() == ID) {
 						return unit;
 					}
 				}
@@ -86,6 +148,25 @@ namespace lib {
 			// call the generic version of the method
 			return this.GetEnumerator();
 		}
-	}
 
+		public void Add(HostingUnit unit) {
+			units.Add(unit);
+		}
+
+		public void Clear() {
+			units.Clear();
+		}
+
+		public bool Contains(HostingUnit unit) {
+			return units.Contains(unit);
+		}
+
+		public void CopyTo(HostingUnit[] array, int index) {
+			units.CopyTo(array, index);
+		}
+
+		public bool Remove(HostingUnit unit) {
+			return units.Remove(unit);
+		}
+	}
 }

@@ -1,33 +1,76 @@
 using System;
+using System.Text;
 
 namespace lib {
 	public class HostingUnit : IComparable<HostingUnit> {
-		private static int id_counter = 0;
-
-		private int id;
-		public string ID {
-			get => id.ToString("D8");
+		private static IDGenerator id_generator = new IDGenerator(8);
+		public ID ID {
+			get;
+			private set;
 		}
 
 		private Calendar calendar;
 
-		// Default constructor. Sets available_from to the start of the next year
-		public HostingUnit() : this(new DateTime(DateTime.Now.Year + 1, 1, 1)) {}
+		private Host host;
 
-		// Constructor. Takes a start date and sets the calendar to a year long
-		public HostingUnit(DateTime available_from) : this(available_from, available_from.AddYears(1)) {}
+		public string HostingUnitName {
+			get;
+			private set;
+		}
 
-		// Constructor. Takes two dates which indicate the period of time in which the unit is available
-		public HostingUnit(DateTime available_from, DateTime available_until) {
-			if (id_counter >= 99999999) {
-				throw new ApplicationException("Error: All possible IDs have been allocated. Unable to create any more hosting units.");
-			}
+		// Constructor. Does not take an ID. Generates a new ID
+		public HostingUnit(
+			Host host,
+			string hosting_unit_name,
+			Date available_from,
+			Date available_until
+		) : this(
+			id_generator.Next(),
+			host,
+			hosting_unit_name,
+			available_from,
+			available_until
+		) {}
+
+		// Constructor. Takes an ID, host, and two dates which indicate the period of time in which the unit is available
+		public HostingUnit(ID id, Host host, string hosting_unit_name, Date available_from, Date available_until) {
+			ID = id;
+			this.host = host;
+			HostingUnitName = hosting_unit_name;
 			calendar = new Calendar(available_from, available_until);
-			id = ++id_counter;
 		}
 
 		public override string ToString() {
-			return calendar.Occupancy();
+			return ToString(0);
+		}
+
+		public string ToString(int tabs) {
+			StringBuilder sb = new StringBuilder();
+
+			sb.Append('\t', tabs);
+			sb.Append("Hosting Unit Details");
+			sb.Append('\n');
+
+			sb.Append('\t', tabs);
+			sb.Append("--------------------");
+			sb.Append('\n');
+
+			sb.Append('\t', tabs);
+			sb.Append("Host Name:\t");
+			sb.Append(host.Name);
+			sb.Append('\n');
+
+			sb.Append('\t', tabs);
+			sb.Append("Unit Name:\t");
+			sb.Append(HostingUnitName);
+			sb.Append('\n');
+
+			sb.Append('\t', tabs);
+			sb.Append("Occupied on:");
+			sb.Append('\n');
+			sb.Append(Tabulator.Tabulate(calendar.Occupancy(), tabs + 1));
+
+			return sb.ToString();
 		}
 
 		// Adds the event to the calendar if available, marks request as accepted and returns true
@@ -35,7 +78,7 @@ namespace lib {
 		public bool ApproveRequest(GuestRequest guest_request) {
 			try {
 				calendar.AddToCalendar(guest_request.StartDate, guest_request.EndDate);
-				guest_request.Approved = true;
+				guest_request.Active = false;
 				return true;
 			} catch (ApplicationException) {
 				return false;
@@ -54,23 +97,16 @@ namespace lib {
 		public int CompareTo(HostingUnit h) {
 			double this_percentage = OccupancyPercentage();
 			double that_percentage = h.OccupancyPercentage();
-			if (this_percentage < that_percentage) {
-				return -1;
-			}
-			if (this_percentage > that_percentage) {
-				return 1;
-			}
-			return 0;
+			return this_percentage.CompareTo(that_percentage);
 		}
 
-		//returns start date and duration
-		public bool Available(DateTime start_date, int duration) {
-			return calendar.Overlaps(start_date, duration);
+		// Returns start date and duration
+		public bool Available(Date start_date, int duration) {
+			return !calendar.Overlaps(start_date, duration);
 		}
 
 		public bool Available(GuestRequest guest_request) {
 			return !calendar.Overlaps(guest_request.StartDate, guest_request.Duration);
 		}
-
 	}
 }

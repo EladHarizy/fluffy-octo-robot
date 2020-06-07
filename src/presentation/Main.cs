@@ -5,32 +5,48 @@ using lib;
 
 namespace presentation {
 	class main {
-		static Random rand = new Random(DateTime.Now.Millisecond);
+		static Random rand = new Random();
 
-		private static GuestRequest CreateRandomRequest(DateTime start_date, DateTime end_date) {
+		private static GuestRequest CreateRandomRequest(Date start_date, Date end_date) {
 			RandomDate date_generator = new RandomDate(start_date, end_date);
-			DateTime date1 = date_generator.Next();
-			DateTime date2 = date_generator.Next();
+			Date date1 = date_generator.Next();
+			Date date2 = date_generator.Next();
 			if (date1 > date2) {
-				DateTime temp = date2;
+				Date temp = date2;
 				date2 = date1;
 				date1 = temp;
 			}
 			if (date2 == date1) {
 				date2 = date2.AddDays(1);
 			}
-			return new GuestRequest(date1, date2);
+			return new GuestRequest(new Guest("Bob", "Smith", "bob@smith.com"), date1, date2, 1, 0, null, null, null);
 		}
+
 		static void Main(string[] args) {
+			BankBranch branch = new BankBranch(new ID(10, 3), "Discount Bank", new ID(800, 3), new City("Jerusalem"));
 			List<Host> hosts = new List<Host>() {
-				new Host(1, rand.Next(1, 5)),
-					new Host(2, rand.Next(1, 5)),
-					new Host(3, rand.Next(1, 5)),
-					new Host(4, rand.Next(1, 5)),
-					new Host(5, rand.Next(1, 5))
+				new Host("Alice", "Alderson", "alice@fluffy-octo-robot.com", branch, 999999),
+					new Host("Bob", "Barkley", "bob@fluffy-octo-robot.com", branch, 349853),
+					new Host("Charlie", "Clemands", "charlie@fluffy-octo-robot.com", branch, 492234),
+					new Host("Dave", "Davidson", "dave@fluffy-octo-robot.com", branch, 673567),
+					new Host("Elliott", "Edwards", "elliott@fluffy-octo-robot.com", branch, 236909)
 			};
-			DateTime start_date = new DateTime(DateTime.Now.Year + 1, 1, 1);
-			DateTime end_date = new DateTime(DateTime.Now.Year + 2, 1, 1);
+
+			Date start_date = new Date(Date.Today.Year + 1, 1, 1);
+			Date end_date = new Date(Date.Today.Year + 2, 1, 1);
+
+			hosts[0].Add(new HostingUnit(hosts[0], "Alice's Wonderland", start_date, end_date));
+			hosts[0].Add(new HostingUnit(hosts[0], "Alice's Other Wonderland", start_date, end_date));
+
+			hosts[1].Add(new HostingUnit(hosts[1], "Bob's Bungalow", start_date, end_date));
+
+			hosts[2].Add(new HostingUnit(hosts[2], "Chalie's Chapel", start_date, end_date));
+			hosts[2].Add(new HostingUnit(hosts[2], "Chalie's Chalet", start_date, end_date));
+			hosts[2].Add(new HostingUnit(hosts[2], "Chalie's Cave", start_date, end_date));
+
+			hosts[3].Add(new HostingUnit(hosts[3], "Dave's Dorm", start_date, end_date));
+
+			hosts[4].Add(new HostingUnit(hosts[4], "Elliott's Eggplant", start_date, end_date));
 
 			for (int i = 0; i < 100; ++i) {
 				foreach (Host host in hosts) {
@@ -50,7 +66,7 @@ namespace presentation {
 			}
 
 			//Create dictionary for all units <unitkey, occupancy_percentage>
-			Dictionary<string, double> dict = new Dictionary<string, double>();
+			Dictionary<ID, double> dict = new Dictionary<ID, double>();
 			foreach (Host host in hosts) {
 				foreach (HostingUnit unit in host) {
 					dict[unit.ID] = unit.OccupancyPercentage();
@@ -61,7 +77,7 @@ namespace presentation {
 			double max_val = dict.Values.Max();
 
 			//get max value key name in dictionary
-			string max_key = dict.FirstOrDefault(x => x.Value == dict.Values.Max()).Key;
+			ID max_key = dict.FirstOrDefault(x => x.Value == max_val).Key;
 
 			//find the Host that its unit has the maximum occupancy percentage
 			foreach (Host host in hosts) {
@@ -73,7 +89,6 @@ namespace presentation {
 					Console.WriteLine(host);
 					break;
 				}
-
 			}
 		}
 	}

@@ -1,4 +1,6 @@
 using System;
+using exceptions;
+
 namespace lib {
 	partial class Calendar {
 		private class Booking {
@@ -9,22 +11,22 @@ namespace lib {
 			}
 
 			// Date of first night of stay
-			public DateTime Start {
+			public Date Start {
 				get;
 				private set;
 			}
 
 			// Returns the end date
-			public DateTime End {
+			public Date End {
 				get => Start.AddDays(Duration);
 			}
 
 			// Constructor that takes in initial date and duration
-			public Booking(DateTime start, int duration) {
+			public Booking(Date start, int duration) {
 				if (duration < 1) {
-					throw new ApplicationException("Error: Duration must be at least one night.");
+					throw new NonPositiveDurationException("Error: Duration must be at least one night.");
 				}
-				Start = start.Date;
+				Start = start;
 				Duration = duration;
 			}
 
