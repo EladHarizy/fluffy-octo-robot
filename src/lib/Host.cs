@@ -4,14 +4,20 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace lib {
-	public class Host : IEnumerable<HostingUnit> {
+	public class Host : Person, IEnumerable<HostingUnit> {
 		private static IDGenerator id_generator = new IDGenerator(8);
-		public ID ID {
+
+		private List<HostingUnit> units = new List<HostingUnit>();
+
+		private BankAccount bank_account;
+
+		public bool CollectionClearance {
 			get;
 			private set;
 		}
 
-		private List<HostingUnit> units = new List<HostingUnit>();
+		// Used to randomly select an available unit
+		private static Random random = new Random();
 
 		// Host constructor
 		public Host(int hosting_units) : this(hosting_units, new Date(Date.Today.Year + 1, 1, 1), new Date(Date.Today.Year + 2, 1, 1)) {}
@@ -24,24 +30,39 @@ namespace lib {
 			}
 		}
 
-		public override string ToString() {
+		public override string ToString(int tabs) {
 			StringBuilder sb = new StringBuilder();
-			sb.AppendLine("=============");
-			sb.AppendLine("Host ID - " + ID.ToString());
+
+			sb.Append('\t', tabs);
+			sb.Append("Host Details");
+			sb.Append('\n');
+
+			sb.Append('\t', tabs);
+			sb.Append("------------");
+			sb.Append('\n');
+
+			sb.Append(base.ToString(tabs));
+
+			sb.Append('\t', tabs);
+			sb.Append("Hosting Units:");
+			sb.Append('\n');
+			bool first_element = true;
 			foreach (HostingUnit unit in units) {
-				sb.AppendLine("-------------");
-				sb.AppendLine("Hosting unit ID - " + unit.ID);
-				sb.AppendLine();
-				sb.AppendLine(unit.ToString());
+				if (!first_element) {
+					sb.Append("====================\n"); // Same length as "Hosting Unit Details"
+				} else {
+					first_element = false;
+				}
+				sb.Append(unit.ToString(tabs + 1));
+				sb.Append('\t', tabs + 1);
 			}
+
 			return sb.ToString();
 		}
 
-		private static Random random = new Random();
-
 		// Assign an arbitrary hosting unit to the request, and return the unit's ID
 		private string SubmitRequest(GuestRequest guest_request) {
-			List<HostingUnit> available_units = units.FindAll(unit => unit.Available(guest_request));
+			IList<HostingUnit> available_units = units.FindAll(unit => unit.Available(guest_request));
 			if (available_units.Count != 0) {
 				HostingUnit unit = available_units[random.Next(available_units.Count)];
 				unit.ApproveRequest(guest_request);

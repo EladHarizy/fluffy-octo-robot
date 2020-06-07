@@ -202,6 +202,7 @@ namespace lib {
 			sb.Append('\t', tabs);
 			sb.Append("Desired amenities:\t");
 			sb.Append(string.Join(", ", DesiredAmenities));
+			sb.Append('\n');
 
 			return sb.ToString();
 		}
