@@ -93,7 +93,7 @@ namespace lib {
 			Date.Today,
 			start_date,
 			end_date,
-			true,
+			true, // Initailizes active to true
 			adults,
 			children,
 			region,
@@ -102,7 +102,19 @@ namespace lib {
 		) {}
 
 		// Constructor with all the values for restoring an old guest request from storage
-		public GuestRequest(ID id, Guest guest, Date creation_date, Date start_date, Date end_date, bool active, int adults, int children, HashSet<City> region, HashSet<UnitType> desired_unit_types, HashSet<Amenity> desired_amenities) {
+		public GuestRequest(
+			ID id,
+			Guest guest,
+			Date creation_date,
+			Date start_date,
+			Date end_date,
+			bool active,
+			int adults,
+			int children,
+			HashSet<City> region,
+			HashSet<UnitType> desired_unit_types,
+			HashSet<Amenity> desired_amenities
+		) {
 			ID = id;
 			Guest = guest;
 			CreationDate = creation_date;

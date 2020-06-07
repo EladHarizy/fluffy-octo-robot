@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace lib {
-	public class Host : Person, IEnumerable<HostingUnit> {
+	public class Host : Person, IEnumerable<HostingUnit>, ICollection<HostingUnit> {
 		private static IDGenerator id_generator = new IDGenerator(8);
 
 		private List<HostingUnit> units = new List<HostingUnit>();
@@ -19,15 +19,45 @@ namespace lib {
 		// Used to randomly select an available unit
 		private static Random random = new Random();
 
+		public int Count {
+			get => units.Count;
+		}
+
+		public bool IsReadOnly {
+			get => false;
+		}
+
 		// Host constructor
-		public Host(int hosting_units) : this(hosting_units, new Date(Date.Today.Year + 1, 1, 1), new Date(Date.Today.Year + 2, 1, 1)) {}
+		public Host(
+			string first_name,
+			string last_name,
+			string email,
+			BankBranch bank_branch,
+			int account_number
+		) : this(
+			id_generator.Next(),
+			first_name,
+			last_name,
+			email,
+			new BankAccount(bank_branch, account_number),
+			true // collection clearance default
+		) {}
 
-		public Host(int hosting_units, Date start_date, Date end_date) {
-			ID = id_generator.Next();
-
-			for (int i = 1; i <= hosting_units; ++i) {
-				units.Add(new HostingUnit(start_date, end_date));
-			}
+		public Host(
+			ID id,
+			string first_name,
+			string last_name,
+			string email,
+			BankAccount bank_account,
+			bool collection_clearance
+		) : base(
+			id,
+			first_name,
+			last_name,
+			email
+		) {
+			this.bank_account = bank_account;
+			CollectionClearance = collection_clearance;
 		}
 
 		public override string ToString(int tabs) {
@@ -118,6 +148,25 @@ namespace lib {
 			// call the generic version of the method
 			return this.GetEnumerator();
 		}
-	}
 
+		public void Add(HostingUnit unit) {
+			units.Add(unit);
+		}
+
+		public void Clear() {
+			units.Clear();
+		}
+
+		public bool Contains(HostingUnit unit) {
+			return units.Contains(unit);
+		}
+
+		public void CopyTo(HostingUnit[] array, int index) {
+			units.CopyTo(array, index);
+		}
+
+		public bool Remove(HostingUnit unit) {
+			return units.Remove(unit);
+		}
+	}
 }
