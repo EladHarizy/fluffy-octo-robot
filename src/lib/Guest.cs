@@ -19,7 +19,7 @@ namespace lib {
 			return ToString(0);
 		}
 
-		public string ToString(int tabs) {
+		public override string ToString(int tabs) {
 			StringBuilder sb = new StringBuilder();
 			sb.Append('\t', tabs);
 			sb.Append("Guest Details");
@@ -29,19 +29,7 @@ namespace lib {
 			sb.Append("-------------");
 			sb.Append("\n");
 
-			sb.Append('\t', tabs);
-			sb.Append("ID:\t\t");
-			sb.Append(ID);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Name:\t");
-			sb.Append(Name);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Email:\t");
-			sb.Append(Email);
+			sb.Append(base.ToString(tabs));
 
 			return sb.ToString();
 		}
