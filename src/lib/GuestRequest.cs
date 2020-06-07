@@ -163,51 +163,51 @@ namespace lib {
 			sb.Append("\n");
 
 			sb.Append('\t', tabs);
-			sb.Append("ID:\t\t\t\t\t");
+			sb.Append("ID:\t\t\t");
 			sb.Append(ID);
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);
-			sb.Append("Guest:\t\t\t\n");
+			sb.Append("Guest:\t\t\n");
 			sb.Append(Guest.ToString(tabs + 1));
 
 			sb.Append('\t', tabs);
-			sb.Append("Created on:\t\t\t");
+			sb.Append("Created on:\t\t");
 			sb.Append(CreationDate.ToString("dd/MM/yyyy"));
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);
-			sb.Append("Start date:\t\t\t");
+			sb.Append("Start date:\t\t");
 			sb.Append(StartDate.ToString("dd/MM/yyyy"));
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);
-			sb.Append("End date:\t\t\t");
+			sb.Append("End date:\t\t");
 			sb.Append(EndDate.ToString("dd/MM/yyyy"));
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);
-			sb.Append("Active:\t\t\t\t");
+			sb.Append("Active:\t\t\t");
 			sb.Append(Active ? "Yes" : "No");
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);
-			sb.Append("Adults:\t\t\t\t");
+			sb.Append("Adults:\t\t\t");
 			sb.Append(Adults);
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);
-			sb.Append("Children:\t\t\t");
+			sb.Append("Children:\t\t");
 			sb.Append(Children);
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);
-			sb.Append("Region:\t\t\t\t");
+			sb.Append("Region:\t\t\t");
 			sb.Append(string.Join(", ", Region));
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);
-			sb.Append("Unit types:\t\t\t");
+			sb.Append("Unit types:\t\t");
 			sb.Append(string.Join(", ", DesiredUnitTypes));
 			sb.Append('\n');
 

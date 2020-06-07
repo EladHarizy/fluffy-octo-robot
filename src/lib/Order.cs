@@ -55,7 +55,7 @@ namespace lib {
 			sb.Append("\n");
 
 			sb.Append('\t', tabs);
-			sb.Append("Order ID:\t\t\t");
+			sb.Append("Order ID:\t\t");
 			sb.Append(ID);
 			sb.Append('\n');
 
@@ -70,7 +70,7 @@ namespace lib {
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);
-			sb.Append("Status:\t\t\t\t");
+			sb.Append("Status:\t\t\t");
 			sb.Append(status);
 			sb.Append("\n");
 

@@ -52,7 +52,7 @@ namespace lib {
 			StringBuilder sb = new StringBuilder();
 
 			sb.Append('\t', tabs);
-			sb.Append("ID:\t\t");
+			sb.Append("ID:\t");
 			sb.Append(ID);
 			sb.Append('\n');
 

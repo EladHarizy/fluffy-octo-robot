@@ -59,7 +59,7 @@ namespace lib {
 			sb.Append("\n");
 
 			sb.Append('\t', tabs);
-			sb.Append("Bank Name:\t\t");
+			sb.Append("Bank Name:\t");
 			sb.Append(BankName);
 			sb.Append("\n");
 
