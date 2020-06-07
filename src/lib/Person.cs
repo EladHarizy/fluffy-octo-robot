@@ -1,6 +1,6 @@
+using System.Collections.Generic;
+using System.Net.Mail;
 using System.Text;
-using System.Text.RegularExpressions;
-using exceptions;
 
 namespace lib {
 	public abstract class Person {
@@ -23,16 +23,18 @@ namespace lib {
 			get => FirstName + ' ' + LastName;
 		}
 
-		protected string email;
-		public virtual string Email {
-			get => email;
-			set {
-				string regex = @"^(?=[A-Z0-9][A-Z0-9@._%+-]{5,253}$)[A-Z0-9._%+-]{1,64}@(?:(?=[A-Z0-9-]{1,63}\.)[A-Z0-9]+(?:-[A-Z0-9]+)*\.){1,8}[A-Z]{2,63}$";
-				if (!Regex.Match(value, regex, RegexOptions.IgnoreCase).Success) {
-					throw new InvalidEmailException(value);
-				}
-				email = value;
-			}
+		public MailAddress Email {
+			get;
+			protected set;
+		}
+
+		protected List<PhoneNumber> phones = new List<PhoneNumber>();
+		public virtual IList<PhoneNumber> Phones {
+			get => phones.AsReadOnly();
+		}
+
+		public virtual void AddPhone(string phone) {
+			phones.Add(new PhoneNumber(phone));
 		}
 
 		public override string ToString() {

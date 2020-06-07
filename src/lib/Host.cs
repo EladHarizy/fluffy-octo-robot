@@ -9,6 +9,14 @@ namespace lib {
 
 		private List<HostingUnit> units = new List<HostingUnit>();
 
+		private BankAccount bank_account;
+
+		public bool CollectionClearance {
+			get;
+			private set;
+		}
+
+		// Used to randomly select an available unit
 		private static Random random = new Random();
 
 		// Host constructor
@@ -54,7 +62,7 @@ namespace lib {
 
 		// Assign an arbitrary hosting unit to the request, and return the unit's ID
 		private string SubmitRequest(GuestRequest guest_request) {
-			List<HostingUnit> available_units = units.FindAll(unit => unit.Available(guest_request));
+			IList<HostingUnit> available_units = units.FindAll(unit => unit.Available(guest_request));
 			if (available_units.Count != 0) {
 				HostingUnit unit = available_units[random.Next(available_units.Count)];
 				unit.ApproveRequest(guest_request);

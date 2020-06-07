@@ -1,3 +1,5 @@
+using System.Net.Mail;
+
 namespace lib {
 	public class Guest : Person {
 		private static IDGenerator id_generator = new IDGenerator(8);
@@ -9,7 +11,7 @@ namespace lib {
 		public Guest(string first_name, string last_name, string email) : this() {
 			FirstName = first_name;
 			LastName = last_name;
-			Email = email;
+			Email = new MailAddress(email);
 		}
 	}
 }
