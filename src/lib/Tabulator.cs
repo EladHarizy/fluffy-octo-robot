@@ -2,7 +2,7 @@ using System.IO;
 using System.Text;
 
 namespace lib {
-	static class Tabulator : ICloneable<Tabulator> {
+	static class Tabulator {
 		public static string Tabulate(string str, int tabs) {
 			StringBuilder sb = new StringBuilder();
 			using(StringReader reader = new StringReader(str)) {

@@ -1,7 +1,7 @@
 using exceptions;
 
 namespace lib {
-	class IDGenerator : ICloneable<IDGenerator> {
+	class IDGenerator {
 		private int counter;
 
 		public int Digits {
@@ -20,13 +20,6 @@ namespace lib {
 				throw new IDOverflowException();
 			}
 			return new ID(counter, Digits);
-		}
-
-		public IDGenerator Clone() {
-			IDGenerator other = (IDGenerator) this.MemberwiseClone();
-			other.counter = counter;
-			other.Digits = Digits;
-			return other;
 		}
 	}
 }

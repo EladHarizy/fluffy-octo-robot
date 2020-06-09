@@ -76,5 +76,16 @@ namespace lib {
 
 			return sb.ToString();
 		}
+
+		public Order Clone() {
+			Order other = (Order) this.MemberwiseClone();
+			other.ID = ID.Clone();
+			other.hosting_unit = hosting_unit.Clone();
+			other.guest_request = guest_request.Clone();
+			other.status = status.Clone();
+			other.CreationDate = CreationDate;
+			other.OrderDate = OrderDate;
+			return other;
+		}
 	}
 }

@@ -2,7 +2,7 @@ using System;
 
 namespace lib {
 	partial class Menu {
-		public class Option : ICloneable<Option> {
+		public class Option {
 			public string Label {
 				get;
 				private set;

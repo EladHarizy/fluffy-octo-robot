@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using exceptions;
 
 namespace lib {
-	partial class Menu : ICloneable<Menu> {
+	partial class Menu {
 		// The question or prompt that will be displayed to the user
 		public string Intro {
 			get;
@@ -71,13 +71,6 @@ namespace lib {
 				int index = Read();
 				repeat = options[index].Execute();
 			} while (repeat);
-		}
-
-		public Menu Clone() {
-			Menu other = (Menu) this.MemberwiseClone();
-			other.Intro = Intro;
-			other.options = options.ConvertAll(item => item.Clone());
-			return other;
 		}
 	}
 }
