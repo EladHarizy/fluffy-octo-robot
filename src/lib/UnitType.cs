@@ -1,5 +1,5 @@
 namespace lib {
-	public class UnitType {
+	public class UnitType : ICloneable<UnitType> {
 		public string Name {
 			get;
 			private set;

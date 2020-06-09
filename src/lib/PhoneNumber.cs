@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 using exceptions;
 
 namespace lib {
-	public class PhoneNumber {
+	public class PhoneNumber : ICloneable<PhoneNumber> {
 		private string number;
 		public string Number {
 			get => number;

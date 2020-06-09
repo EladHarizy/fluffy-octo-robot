@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace lib {
-	public class Host : Person, IEnumerable<HostingUnit>, ICollection<HostingUnit> {
+	public class Host : Person, IEnumerable<HostingUnit>, ICollection<HostingUnit>, ICloneable<Host> {
 		private static IDGenerator id_generator = new IDGenerator(8);
 
 		private List<HostingUnit> units = new List<HostingUnit>();
@@ -167,6 +167,18 @@ namespace lib {
 
 		public bool Remove(HostingUnit unit) {
 			return units.Remove(unit);
+		}
+
+		public Host Clone() {
+			Host other = (Host) this.MemberwiseClone();
+			other.FirstName = FirstName;
+			other.LastName = LastName;
+			other.ID = ID.Clone();
+			other.Email = Email.Clone();
+			other.units = HostingUnit.Clone();
+			other.bank_account = bank_account.Clone();
+			other.CollectionClearance = CollectionClearance;
+			return other;
 		}
 	}
 }

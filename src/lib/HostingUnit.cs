@@ -2,7 +2,7 @@ using System;
 using System.Text;
 
 namespace lib {
-	public class HostingUnit : IComparable<HostingUnit> {
+	public class HostingUnit : IComparable<HostingUnit>, ICloneable<HostingUnit> {
 		private static IDGenerator id_generator = new IDGenerator(8);
 		public ID ID {
 			get;

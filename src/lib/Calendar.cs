@@ -4,7 +4,7 @@ using System.Text;
 using exceptions;
 
 namespace lib {
-	partial class Calendar {
+	partial class Calendar : ICloneable<Calendar> {
 
 		// The list of Bookings
 		// We were given the green light to continue using a list implementation rather than a matrix, since we already implemented all the methods with a list in the first assignment.
@@ -91,6 +91,13 @@ namespace lib {
 
 		public int Days() {
 			return (EndDate - StartDate).Days;
+		}
+
+		public Calendar Clone() {
+			Calendar other = (Calendar) this.MemberwiseClone();
+			other.StartDate = StartDate;
+			other.EndDate = EndDate;
+			return other;
 		}
 	}
 }

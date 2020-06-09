@@ -2,7 +2,7 @@ using System.Text;
 using exceptions;
 
 namespace lib {
-	public class BankBranch {
+	public class BankBranch : ICloneable<BankBranch> {
 
 		public string BankName {
 			get;
@@ -84,6 +84,16 @@ namespace lib {
 			sb.Append("\n");
 
 			return sb.ToString();
+		}
+
+		public BankBranch Clone() {
+			BankBranch other = (BankBranch) this.MemberwiseClone();
+			other.BankName = BankName;
+			other.BranchAddress = BranchAddress;
+			other.BranchCity = BranchCity.Clone();
+			other.BankID = BankID.Clone();
+			other.BranchID = BranchID.Clone();
+			return other;
 		}
 	}
 }

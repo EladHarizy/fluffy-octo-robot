@@ -2,7 +2,7 @@ using System.Net.Mail;
 using System.Text;
 
 namespace lib {
-	public class Guest : Person {
+	public class Guest : Person, ICloneable<Guest> {
 		private static IDGenerator id_generator = new IDGenerator(8);
 
 		public Guest(string first_name, string last_name, string email) : base(id_generator.Next(), first_name, last_name, email) {}
@@ -26,6 +26,15 @@ namespace lib {
 			sb.Append(base.ToString(tabs));
 
 			return sb.ToString();
+		}
+
+		public Guest Clone() {
+			Guest other = (Guest) this.MemberwiseClone();
+			other.FirstName = FirstName;
+			other.LastName = LastName;
+			other.ID = ID.Clone();
+			other.Email = Email;
+			return other;
 		}
 	}
 }

@@ -2,7 +2,7 @@ using System;
 using exceptions;
 
 namespace lib {
-	public class ID {
+	public class ID : ICloneable<ID> {
 		public int Number {
 			get;
 			private set;

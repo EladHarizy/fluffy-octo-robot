@@ -3,7 +3,7 @@ using exceptions;
 
 namespace lib {
 	partial class Calendar {
-		private class Booking {
+		private class Booking : ICloneable<Booking> {
 			//  Duration of visit
 			public int Duration {
 				get;
@@ -35,6 +35,13 @@ namespace lib {
 				// Two bookings will overlap iff one starts inside the other
 				return (this.Start >= booking.Start && this.Start < booking.End)
 					|| (booking.Start >= this.Start && booking.Start < this.End);
+			}
+
+			public Booking Clone() {
+				Booking other = (Booking) this.MemberwiseClone();
+				other.Duration = Duration;
+				other.Start = Start;
+				return other;
 			}
 		}
 	}

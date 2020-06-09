@@ -4,7 +4,7 @@ using System.Text;
 using exceptions;
 
 namespace lib {
-	public class GuestRequest {
+	public class GuestRequest : ICloneable<GuestRequest> {
 		private static IDGenerator id_generator = new IDGenerator(8);
 		public ID ID {
 			get;
@@ -217,6 +217,21 @@ namespace lib {
 			sb.Append('\n');
 
 			return sb.ToString();
+		}
+
+		public GuestRequest Clone() {
+			GuestRequest other = (GuestRequest) this.MemberwiseClone();
+			other.ID = ID.Clone();
+			other.Guest = Guest.Clone();
+			other.CreationDate = CreationDate;
+			other.StartDate = StartDate;
+			other.EndDate = EndDate;
+			other.Active = Active;
+			other.Adults = Adults;
+			other.Children = Children;
+			other.Region = Region;
+			other.DesiredUnitTypes = DesiredUnitTypes;
+			other.DesiredAmenities = DesiredAmenities;
 		}
 	}
 }

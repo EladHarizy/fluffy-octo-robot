@@ -1,5 +1,5 @@
 namespace lib {
-	public class City {
+	public class City : ICloneable<City> {
 		public string Name {
 			get;
 			private set;
@@ -11,6 +11,10 @@ namespace lib {
 
 		public override string ToString() {
 			return Name;
+		}
+
+		public City Clone() {
+			return new City(Name);
 		}
 	}
 }

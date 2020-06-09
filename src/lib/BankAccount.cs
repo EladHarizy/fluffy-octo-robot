@@ -1,5 +1,7 @@
+using System;
+
 namespace lib {
-	public class BankAccount {
+	public class BankAccount : ICloneable<BankAccount> {
 		public BankBranch Branch {
 			get;
 			private set;
@@ -16,5 +18,12 @@ namespace lib {
 		}
 
 		public BankAccount(BankBranch branch, string account_number) : this(branch, int.Parse(account_number)) {}
+
+		public BankAccount Clone() {
+			BankAccount other = (BankAccount) this.MemberwiseClone();
+			other.Branch = Branch.Clone();
+			other.AccountNumber = AccountNumber.Clone();
+			return other;
+		}
 	}
 }

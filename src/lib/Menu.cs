@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using exceptions;
 
 namespace lib {
-	partial class Menu {
+	partial class Menu : ICloneable<Menu> {
 		// The question or prompt that will be displayed to the user
 		public string Intro {
 			get;

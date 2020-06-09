@@ -1,7 +1,7 @@
 using exceptions;
 
 namespace lib {
-	class IDGenerator {
+	class IDGenerator : ICloneable<IDGenerator> {
 		private int counter;
 
 		public int Digits {

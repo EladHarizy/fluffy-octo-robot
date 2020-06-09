@@ -1,5 +1,5 @@
 namespace lib {
-    public class Status {
+    public class Status : ICloneable<Status> {
         public string Name {
             get;
             private set;
