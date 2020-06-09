@@ -108,5 +108,14 @@ namespace lib {
 		public bool Available(GuestRequest guest_request) {
 			return !calendar.Overlaps(guest_request.StartDate, guest_request.Duration);
 		}
+
+		public HostingUnit Clone() {
+			HostingUnit other = (HostingUnit) this.MemberwiseClone();
+			other.ID = ID.Clone();
+			other.calendar = calendar.Clone();
+			other.host = host.Clone();
+			other.HostingUnitName = HostingUnitName;
+			return other;
+		}
 	}
 }
