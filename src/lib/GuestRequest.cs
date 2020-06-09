@@ -67,7 +67,7 @@ namespace lib {
 			set;
 		}
 
-		public HashSet<UnitType> DesiredUnitTypes {
+		public HashSet<Unit.UnitType> DesiredUnitTypes {
 			get;
 			set;
 		}
@@ -85,7 +85,7 @@ namespace lib {
 			int adults,
 			int children,
 			HashSet<City> region,
-			HashSet<UnitType> desired_unit_types,
+			HashSet<Unit.UnitType> desired_unit_types,
 			HashSet<Amenity> desired_amenities
 		) : this(
 			id_generator.Next(),
@@ -112,7 +112,7 @@ namespace lib {
 			int adults,
 			int children,
 			HashSet<City> region,
-			HashSet<UnitType> desired_unit_types,
+			HashSet<Unit.UnitType> desired_unit_types,
 			HashSet<Amenity> desired_amenities
 		) {
 			ID = id;
@@ -136,7 +136,7 @@ namespace lib {
 			int adults,
 			int children,
 			HashSet<City> region,
-			HashSet<UnitType> desired_unit_types,
+			HashSet<Unit.UnitType> desired_unit_types,
 			HashSet<Amenity> desired_amenities
 		) : this(
 			guest,
