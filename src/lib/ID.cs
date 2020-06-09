@@ -26,5 +26,12 @@ namespace lib {
 			Number = id;
 			Digits = digits;
 		}
+
+		public ID Clone() {
+			ID other = (ID) this.MemberwiseClone();
+			other.Number = Number;
+			other.Digits = Digits;
+			return other;
+		}
 	}
 }
