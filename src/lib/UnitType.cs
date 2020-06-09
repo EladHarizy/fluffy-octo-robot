@@ -12,5 +12,8 @@ namespace lib {
 		public override string ToString() {
 			return Name;
 		}
+		public UnitType Clone() {
+			return new UnitType(Name);
+		}
 	}
 }
