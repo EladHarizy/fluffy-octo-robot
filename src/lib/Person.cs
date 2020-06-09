@@ -3,7 +3,7 @@ using System.Net.Mail;
 using System.Text;
 
 namespace lib {
-	public abstract class Person : ICloneable<Person> {
+	public abstract class Person {
 		public virtual ID ID {
 			get;
 			protected set;

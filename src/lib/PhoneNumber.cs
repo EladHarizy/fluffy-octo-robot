@@ -22,5 +22,9 @@ namespace lib {
 		public override string ToString() {
 			return Number;
 		}
+
+		public PhoneNumber Clone() {
+			return new PhoneNumber(number);
+		}
 	}
 }
