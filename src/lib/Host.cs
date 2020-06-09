@@ -176,7 +176,7 @@ namespace lib {
 			other.LastName = LastName;
 			other.ID = ID.Clone();
 			other.Email = new MailAddress(Email.Address, Email.DisplayName);
-			other.units = units.Clone();
+			other.units = units.ConvertAll(item => item.Clone());
 			other.bank_account = bank_account.Clone();
 			other.CollectionClearance = CollectionClearance;
 			return other;

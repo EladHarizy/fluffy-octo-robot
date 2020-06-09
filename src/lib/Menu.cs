@@ -72,5 +72,12 @@ namespace lib {
 				repeat = options[index].Execute();
 			} while (repeat);
 		}
+
+		public Menu Clone() {
+			Menu other = (Menu) this.MemberwiseClone();
+			other.Intro = Intro;
+			other.options = options.ConvertAll(item => item.Clone());
+			return other;
+		}
 	}
 }
