@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mail;
 using System.Text;
 
 namespace lib {
@@ -174,8 +175,8 @@ namespace lib {
 			other.FirstName = FirstName;
 			other.LastName = LastName;
 			other.ID = ID.Clone();
-			other.Email = Email.Clone();
-			other.units = HostingUnit.Clone();
+			other.Email = new MailAddress(Email.Address, Email.DisplayName);
+			other.units = units.Clone();
 			other.bank_account = bank_account.Clone();
 			other.CollectionClearance = CollectionClearance;
 			return other;

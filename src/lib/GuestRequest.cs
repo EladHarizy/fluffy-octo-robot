@@ -232,6 +232,7 @@ namespace lib {
 			other.Region = Region;
 			other.DesiredUnitTypes = DesiredUnitTypes;
 			other.DesiredAmenities = DesiredAmenities;
+			return other;
 		}
 	}
 }

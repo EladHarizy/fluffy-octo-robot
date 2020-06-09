@@ -21,5 +21,12 @@ namespace lib {
 			}
 			return new ID(counter, Digits);
 		}
+
+		public IDGenerator Clone() {
+			IDGenerator other = (IDGenerator) this.MemberwiseClone();
+			other.counter = counter;
+			other.Digits = Digits;
+			return other;
+		}
 	}
 }
