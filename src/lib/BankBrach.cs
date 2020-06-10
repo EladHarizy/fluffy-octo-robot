@@ -3,41 +3,38 @@ using exceptions;
 
 namespace lib {
 	public class BankBranch {
+		public ID BankID { get; }
 
-		public string BankName {
-			get;
-		}
+		public ID BranchID { get; }
 
-		public string BranchAddress {
-			get;
-		}
+		public string BankName { get; }
 
-		public City BranchCity {
-			get;
-		}
+		public string BranchAddress { get; }
 
-		public ID BankID {
-			get;
-		}
-
-		public ID BranchID {
-			get;
-		}
+		public City BranchCity { get; }
 
 		public BankBranch(ID bank_id, string bank_name, ID branch_id, City branch_city) {
-			if (bank_id.Digits != 3) {
-				throw new IncorrectDigitsException(bank_id.Number, bank_id.Digits, "Error: Bank ID must be three digits.");
+			if (bank_id.Digits != 2) {
+				if (bank_id.Digits < 2) {
+					bank_id = new ID(bank_id, 2);
+				} else {
+					throw new IncorrectDigitsException(bank_id.Number, bank_id.Digits, "Error: Bank ID must be at most two digits.");
+				}
 			}
 			BankID = bank_id;
 
 			BankName = bank_name;
 
 			if (branch_id.Digits != 3) {
-				throw new IncorrectDigitsException(branch_id.Number, branch_id.Digits, "Error: Branch ID must be three digits.");
-			}
-			BranchID = branch_id;
+				if (branch_id.Digits < 3) {
+					branch_id = new ID(branch_id, 3);
+				} else {
+					throw new IncorrectDigitsException(branch_id.Number, branch_id.Digits, "Error: Branch ID must be three digits.");
+				}
+				BranchID = branch_id;
 
-			BranchCity = branch_city;
+				BranchCity = branch_city;
+			}
 		}
 
 		public string ToString(int tabs) {

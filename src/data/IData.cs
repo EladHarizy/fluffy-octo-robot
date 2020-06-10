@@ -3,11 +3,11 @@ using lib;
 
 namespace data {
 	interface IData {
-		IDataAccessor<Amenity, string> Amenity { get; }
+		IDataAccessorReadOnly<Amenity, string> Amenity { get; }
 
-		IDataAccessor<BankBranch, Tuple<ID, ID>> BankBranch { get; }
+		IDataAccessorReadOnly<BankBranch, Tuple<ID, ID>> BankBranch { get; }
 
-		IDataAccessor<City, string> City { get; }
+		IDataAccessorReadOnly<City, string> City { get; }
 
 		IDataAccessor<Guest, ID> Guest { get; }
 
@@ -19,8 +19,8 @@ namespace data {
 
 		IDataAccessor<Order, ID> Order { get; }
 
-		IDataAccessor<Order.Status, string> OrderStatus { get; }
+		IDataAccessorReadOnly<Order.Status, string> OrderStatus { get; }
 
-		IDataAccessor<Unit.UnitType, string> UnitType { get; }
+		IDataAccessorReadOnly<Unit.UnitType, string> UnitType { get; }
 	}
 }

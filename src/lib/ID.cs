@@ -15,6 +15,8 @@ namespace lib {
 			return Number.ToString("D" + Digits.ToString());
 		}
 
+		public ID(string id, int digits = 0) : this(int.Parse(id), digits) {}
+
 		public ID(int id, int digits = 0) {
 			if (digits <= 0) {
 				digits = id.Digits();
@@ -26,7 +28,7 @@ namespace lib {
 		}
 
 		public static implicit operator ID(string str) {
-			return new ID(int.Parse(str), str.Length);
+			return new ID(str, str.Length);
 		}
 
 		public static implicit operator ID(int n) {
