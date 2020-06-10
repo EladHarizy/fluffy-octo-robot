@@ -21,6 +21,7 @@ namespace lib {
 
 		public EmailAddress Email {
 			get;
+			set;
 		}
 
 		protected HashSet<PhoneNumber> phones = new HashSet<PhoneNumber>();

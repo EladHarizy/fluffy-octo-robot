@@ -17,5 +17,13 @@ namespace lib {
 		public Amenity Clone() {
 			return new Amenity(Name);
 		}
+
+		public static implicit operator Amenity(string name) {
+			return new Amenity(name);
+		}
+
+		public static implicit operator string(Amenity amenity) {
+			return amenity.Name;
+		}
 	}
 }
