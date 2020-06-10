@@ -2,7 +2,7 @@ using System;
 using System.Text;
 
 namespace lib {
-	public class Order : ICloneable<Order> {
+	public partial class Order : ICloneable<Order> {
 		private static IDGenerator id_generator = new IDGenerator(8);
 		public ID ID {
 			get;
@@ -18,7 +18,7 @@ namespace lib {
 			get => guest_request.ID;
 		}
 
-		public Status Status {
+		public Status OrderStatus {
 			get;
 			set;
 		}
@@ -39,7 +39,7 @@ namespace lib {
 			ID = id;
 			this.hosting_unit = hosting_unit;
 			this.guest_request = guest_request;
-			Status = status;
+			OrderStatus = status;
 			CreationDate = creation_date;
 			OrderDate = order_date;
 		}
@@ -75,14 +75,14 @@ namespace lib {
 
 			sb.Append('\t', tabs);
 			sb.Append("Status:\t\t\t");
-			sb.Append(Status);
+			sb.Append(OrderStatus);
 			sb.Append("\n");
 
 			return sb.ToString();
 		}
 
 		public Order Clone() {
-			return new Order(ID, hosting_unit.Clone(), guest_request.Clone(), Status, CreationDate, OrderDate);
+			return new Order(ID, hosting_unit.Clone(), guest_request.Clone(), OrderStatus, CreationDate, OrderDate);
 		}
 	}
 }

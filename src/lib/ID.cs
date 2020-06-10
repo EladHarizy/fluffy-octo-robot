@@ -24,5 +24,17 @@ namespace lib {
 			Number = id;
 			Digits = digits;
 		}
+
+		public static implicit operator ID(string str) {
+			return new ID(int.Parse(str), str.Length);
+		}
+
+		public static implicit operator ID(int n) {
+			return new ID(n);
+		}
+
+		public static implicit operator string(ID id) {
+			return id.ToString();
+		}
 	}
 }

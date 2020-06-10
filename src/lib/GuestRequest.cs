@@ -76,7 +76,7 @@ namespace lib {
 			set;
 		}
 
-		public HashSet<UnitType> DesiredUnitTypes {
+		public HashSet<Unit.UnitType> DesiredUnitTypes {
 			get;
 			set;
 		}
@@ -94,7 +94,7 @@ namespace lib {
 			int adults,
 			int children,
 			HashSet<City> region,
-			HashSet<UnitType> desired_unit_types,
+			HashSet<Unit.UnitType> desired_unit_types,
 			HashSet<Amenity> desired_amenities
 		) : this(
 			id_generator.Next(),
@@ -102,7 +102,7 @@ namespace lib {
 			Date.Today,
 			start_date,
 			end_date,
-			true, // Initailizes active to true
+			true, // Initializes active to true
 			adults,
 			children,
 			region,
@@ -121,7 +121,7 @@ namespace lib {
 			int adults,
 			int children,
 			HashSet<City> region,
-			HashSet<UnitType> desired_unit_types,
+			HashSet<Unit.UnitType> desired_unit_types,
 			HashSet<Amenity> desired_amenities
 		) {
 			ID = id;
@@ -145,7 +145,7 @@ namespace lib {
 			int adults,
 			int children,
 			HashSet<City> region,
-			HashSet<UnitType> desired_unit_types,
+			HashSet<Unit.UnitType> desired_unit_types,
 			HashSet<Amenity> desired_amenities
 		) : this(
 			guest,
@@ -229,7 +229,7 @@ namespace lib {
 		}
 
 		public GuestRequest Clone() {
-			return new GuestRequest(ID, Guest.Clone(), CreationDate, StartDate, EndDate, Active, Adults, Children, (HashSet<City>) Region.Clone(), (HashSet<UnitType>) DesiredUnitTypes.Clone(), (HashSet<Amenity>) DesiredAmenities.Clone());
+			return new GuestRequest(ID, Guest.Clone(), CreationDate, StartDate, EndDate, Active, Adults, Children, (HashSet<City>) Region.Clone(), (HashSet<Unit.UnitType>) DesiredUnitTypes.Clone(), (HashSet<Amenity>) DesiredAmenities.Clone());
 		}
 	}
 }
