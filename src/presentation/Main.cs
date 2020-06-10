@@ -25,11 +25,56 @@ namespace presentation {
 		static void Main(string[] args) {
 			BankBranch branch = new BankBranch(new ID(10, 3), "Discount Bank", new ID(800, 3), new City("Jerusalem"));
 			List<Host> hosts = new List<Host>() {
-				new Host("Alice", "Alderson", "alice@fluffy-octo-robot.com", branch, 999999),
-					new Host("Bob", "Barkley", "bob@fluffy-octo-robot.com", branch, 349853),
-					new Host("Charlie", "Clemands", "charlie@fluffy-octo-robot.com", branch, 492234),
-					new Host("Dave", "Davidson", "dave@fluffy-octo-robot.com", branch, 673567),
-					new Host("Elliott", "Edwards", "elliott@fluffy-octo-robot.com", branch, 236909)
+				new Host(
+						"Alice",
+						"Alderson",
+						"alice@fluffy-octo-robot.com",
+						new HashSet<PhoneNumber> {
+							"+441234456654",
+							"+350 543 45334"
+						},
+						branch,
+						999999
+					),
+					new Host(
+						"Bob",
+						"Barkley",
+						"bob@fluffy-octo-robot.com",
+						new HashSet<PhoneNumber> {
+							"+441234456654",
+							"00350 543 45334"
+						},
+						branch,
+						349853
+					),
+					new Host(
+						"Charlie",
+						"Clemands",
+						"charlie@fluffy-octo-robot.com",
+						new HashSet<PhoneNumber>(),
+						branch,
+						492234
+					),
+					new Host(
+						"Dave",
+						"Davidson",
+						"dave@fluffy-octo-robot.com",
+						new HashSet<PhoneNumber> {
+							"00441234456654"
+						},
+						branch,
+						673567
+					),
+					new Host(
+						"Elliott",
+						"Edwards",
+						"elliott@fluffy-octo-robot.com",
+						new HashSet<PhoneNumber> {
+							"+350 543 45334"
+						},
+						branch,
+						236909
+					)
 			};
 
 			Date start_date = new Date(Date.Today.Year + 1, 1, 1);

@@ -3,7 +3,6 @@ namespace lib {
 		public class UnitType {
 			public string Name {
 				get;
-				private set;
 			}
 
 			public UnitType(string name) {

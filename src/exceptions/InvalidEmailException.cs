@@ -9,9 +9,7 @@ namespace exceptions {
 
 		public InvalidEmailException() {}
 
-		public InvalidEmailException(string email) {
-			Email = email;
-		}
+		public InvalidEmailException(string email) : this(email, "Error: Invalid email address " + email + '.') {}
 
 		public InvalidEmailException(string email, string message) : base(message) {
 			Email = email;

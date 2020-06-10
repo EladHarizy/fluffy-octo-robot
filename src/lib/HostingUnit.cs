@@ -2,7 +2,7 @@ using System;
 using System.Text;
 
 namespace lib {
-	public class HostingUnit : IComparable<HostingUnit> {
+	public class HostingUnit : IComparable<HostingUnit>, ICloneable<HostingUnit> {
 		private static IDGenerator id_generator = new IDGenerator(8);
 		public ID ID {
 			get;
@@ -28,16 +28,15 @@ namespace lib {
 			id_generator.Next(),
 			host,
 			hosting_unit_name,
-			available_from,
-			available_until
+			new Calendar(available_from, available_until)
 		) {}
 
 		// Constructor. Takes an ID, host, and two dates which indicate the period of time in which the unit is available
-		public HostingUnit(ID id, Host host, string hosting_unit_name, Date available_from, Date available_until) {
+		public HostingUnit(ID id, Host host, string hosting_unit_name, Calendar calendar) {
 			ID = id;
 			this.host = host;
 			HostingUnitName = hosting_unit_name;
-			calendar = new Calendar(available_from, available_until);
+			this.calendar = calendar;
 		}
 
 		public override string ToString() {
@@ -107,6 +106,10 @@ namespace lib {
 
 		public bool Available(GuestRequest guest_request) {
 			return !calendar.Overlaps(guest_request.StartDate, guest_request.Duration);
+		}
+
+		public HostingUnit Clone() {
+			return new HostingUnit(ID, host, HostingUnitName, calendar.Clone());
 		}
 	}
 }

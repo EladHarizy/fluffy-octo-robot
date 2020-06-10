@@ -4,34 +4,43 @@ using System.Text;
 using exceptions;
 
 namespace lib {
-	public class GuestRequest {
+	public class GuestRequest : ICloneable<GuestRequest> {
 		private static IDGenerator id_generator = new IDGenerator(8);
 		public ID ID {
 			get;
-			private set;
 		}
 
 		public Guest Guest {
 			get;
-			set;
 		}
 
 		// Date that the request was created
 		public Date CreationDate {
 			get;
-			private set;
 		}
 
 		// First date of the stay
+		private Date start_date;
 		public Date StartDate {
-			get;
-			private set;
+			get => start_date;
+			set {
+				if (value < Date.Today) {
+					throw new PastDateException();
+				}
+				start_date = value;
+			}
 		}
 
 		// Next day after the guest leaves
+		private Date end_date;
 		public Date EndDate {
-			get;
-			private set;
+			get => end_date;
+			set {
+				if (value <= StartDate) {
+					throw new NonPositiveDurationException();
+				}
+				end_date = value;
+			}
 		}
 
 		public int Duration {
@@ -93,7 +102,7 @@ namespace lib {
 			Date.Today,
 			start_date,
 			end_date,
-			true, // Initailizes active to true
+			true, // Initializes active to true
 			adults,
 			children,
 			region,
@@ -217,6 +226,10 @@ namespace lib {
 			sb.Append('\n');
 
 			return sb.ToString();
+		}
+
+		public GuestRequest Clone() {
+			return new GuestRequest(ID, Guest.Clone(), CreationDate, StartDate, EndDate, Active, Adults, Children, (HashSet<City>) Region.Clone(), (HashSet<Unit.UnitType>) DesiredUnitTypes.Clone(), (HashSet<Amenity>) DesiredAmenities.Clone());
 		}
 	}
 }

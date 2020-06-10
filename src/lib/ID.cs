@@ -1,15 +1,14 @@
+using System;
 using exceptions;
 
 namespace lib {
 	public class ID {
 		public int Number {
 			get;
-			private set;
 		}
 
 		public int Digits {
 			get;
-			private set;
 		}
 
 		public override string ToString() {
@@ -24,6 +23,18 @@ namespace lib {
 			}
 			Number = id;
 			Digits = digits;
+		}
+
+		public static implicit operator ID(string str) {
+			return new ID(int.Parse(str), str.Length);
+		}
+
+		public static implicit operator ID(int n) {
+			return new ID(n);
+		}
+
+		public static implicit operator string(ID id) {
+			return id.ToString();
 		}
 	}
 }

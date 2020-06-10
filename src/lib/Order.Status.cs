@@ -3,7 +3,6 @@ namespace lib {
 		public class Status {
 			public string Name {
 				get;
-				private set;
 			}
 
 			public Status(string name) {

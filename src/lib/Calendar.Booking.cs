@@ -7,13 +7,11 @@ namespace lib {
 			//  Duration of visit
 			public int Duration {
 				get;
-				private set;
 			}
 
 			// Date of first night of stay
 			public Date Start {
 				get;
-				private set;
 			}
 
 			// Returns the end date
