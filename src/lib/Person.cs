@@ -3,26 +3,17 @@ using System.Text;
 
 namespace lib {
 	public abstract class Person {
-		public virtual ID ID {
-			get;
-		}
+		public virtual ID ID { get; }
 
-		public virtual string FirstName {
-			get;
-		}
+		public virtual string FirstName { get; }
 
-		public virtual string LastName {
-			get;
-		}
+		public virtual string LastName { get; }
 
 		public virtual string Name {
 			get => FirstName + ' ' + LastName;
 		}
 
-		public EmailAddress Email {
-			get;
-			set;
-		}
+		public EmailAddress Email { get; set; }
 
 		protected HashSet<PhoneNumber> phones = new HashSet<PhoneNumber>();
 		public virtual IReadOnlyCollection<PhoneNumber> Phones {
