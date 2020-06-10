@@ -18,20 +18,14 @@ namespace lib {
 			get => guest_request.ID;
 		}
 
-		public Status OrderStatus {
-			get;
-			set;
-		}
+		public Status OrderStatus { get; set; }
 
 		public Date CreationDate {
 			get;
 		}
 
 		// Email delivery date to customer (We'll have to come up with a more descriptive name for this variable)
-		public Date? OrderDate {
-			get;
-			set;
-		}
+		public Date? OrderDate { get; set; }
 
 		public Order(HostingUnit hosting_unit, GuestRequest guest_request) : this(id_generator.Next(), hosting_unit, guest_request, new Status("Not Addressed"), Date.Today, null) {}
 

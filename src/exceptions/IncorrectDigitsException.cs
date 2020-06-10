@@ -2,15 +2,9 @@
 
 namespace exceptions {
 	public class IncorrectDigitsException : Exception {
-		public int N {
-			get;
-			private set;
-		}
+		public int N { get; private set; }
 
-		public int Digits {
-			get;
-			private set;
-		}
+		public int Digits { get; private set; }
 
 		private string message;
 		public override string Message {

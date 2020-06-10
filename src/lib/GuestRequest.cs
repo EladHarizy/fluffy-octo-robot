@@ -48,10 +48,7 @@ namespace lib {
 		}
 
 		// A guest request is active when it has not yet been assigned to a hosting unit
-		public bool Active {
-			get;
-			set;
-		}
+		public bool Active { get; set; }
 
 		private int adults;
 		public int Adults {
@@ -71,20 +68,11 @@ namespace lib {
 			private set => children = Math.Max(0, value);
 		}
 
-		public HashSet<City> Region {
-			get;
-			set;
-		}
+		public HashSet<City> Region { get; set; }
 
-		public HashSet<Unit.UnitType> DesiredUnitTypes {
-			get;
-			set;
-		}
+		public HashSet<Unit.UnitType> DesiredUnitTypes { get; set; }
 
-		public HashSet<Amenity> DesiredAmenities {
-			get;
-			set;
-		}
+		public HashSet<Amenity> DesiredAmenities { get; set; }
 
 		// Constructor with only some values for creating a new guest request
 		public GuestRequest(

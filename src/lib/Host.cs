@@ -14,10 +14,7 @@ namespace lib {
 			get;
 		}
 
-		public bool CollectionClearance {
-			get;
-			private set;
-		}
+		public bool CollectionClearance { get; private set; }
 
 		// Used to randomly select an available unit
 		private static Random random = new Random();

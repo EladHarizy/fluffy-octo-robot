@@ -4,19 +4,13 @@ using System.Text;
 namespace lib {
 	public class HostingUnit : IComparable<HostingUnit>, ICloneable<HostingUnit> {
 		private static IDGenerator id_generator = new IDGenerator(8);
-		public ID ID {
-			get;
-			private set;
-		}
+		public ID ID { get; private set; }
 
 		private Calendar calendar;
 
 		private Host host;
 
-		public string HostingUnitName {
-			get;
-			private set;
-		}
+		public string HostingUnitName { get; private set; }
 
 		// Constructor. Does not take an ID. Generates a new ID
 		public HostingUnit(

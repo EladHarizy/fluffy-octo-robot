@@ -3,10 +3,7 @@ using System;
 namespace lib {
 	partial class Menu {
 		public class Option {
-			public string Label {
-				get;
-				private set;
-			}
+			public string Label { get; private set; }
 
 			// A function that will be called when the user chooses this option
 			// It should take  an array of Objects and return a bool indicating if the menu should be displayed again

@@ -10,15 +10,9 @@ namespace lib {
 		// We were given the green light to continue using a list implementation rather than a matrix, since we already implemented all the methods with a list in the first assignment.
 		private List<Booking> bookings = new List<Booking>();
 
-		public Date StartDate {
-			get;
-			private set;
-		}
+		public Date StartDate { get; private set; }
 
-		public Date EndDate {
-			get;
-			private set;
-		}
+		public Date EndDate { get; private set; }
 
 		public Calendar(Date start, Date end) {
 			if (end <= start) {

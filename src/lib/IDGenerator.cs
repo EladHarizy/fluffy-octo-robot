@@ -4,10 +4,7 @@ namespace lib {
 	class IDGenerator {
 		private int counter;
 
-		public int Digits {
-			get;
-			private set;
-		}
+		public int Digits { get; private set; }
 
 		public IDGenerator(int digits) {
 			Digits = digits;

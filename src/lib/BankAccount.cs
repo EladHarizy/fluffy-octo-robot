@@ -2,15 +2,9 @@ using System;
 
 namespace lib {
 	public class BankAccount : ICloneable<BankAccount> {
-		public BankBranch Branch {
-			get;
-			private set;
-		}
+		public BankBranch Branch { get; private set; }
 
-		public ID AccountNumber {
-			get;
-			private set;
-		}
+		public ID AccountNumber { get; private set; }
 
 		public BankAccount(BankBranch branch, ID account_number) {
 			Branch = branch;

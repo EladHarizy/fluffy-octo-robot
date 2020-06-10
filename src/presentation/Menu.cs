@@ -5,10 +5,7 @@ using exceptions;
 namespace lib {
 	partial class Menu {
 		// The question or prompt that will be displayed to the user
-		public string Intro {
-			get;
-			set;
-		}
+		public string Intro { get; set; }
 
 		// The list of options that will be displayed to the user
 		private List<Option> options = new List<Option>();

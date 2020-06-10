@@ -3,14 +3,9 @@ using lib;
 
 namespace data {
 	interface IDataAccessor<T, K> {
-		ICollection<T> All {
-			get;
-		}
+		ICollection<T> All { get; }
 
-		T this [K key] {
-			get;
-			set;
-		}
+		T this [K key] { get; set; }
 
 		void Add(K key, T obj);
 

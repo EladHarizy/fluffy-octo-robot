@@ -2,10 +2,7 @@ using System;
 
 namespace exceptions {
 	public class NonPositiveException : Exception {
-		public int Number {
-			get;
-			private set;
-		}
+		public int Number { get; private set; }
 
 		public NonPositiveException() : base("Error: Expected a positive number.") {}
 

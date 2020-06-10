@@ -2,10 +2,7 @@ using System;
 
 namespace exceptions {
 	public class InvalidPhoneException : Exception {
-		public string Phone {
-			get;
-			private set;
-		}
+		public string Phone { get; private set; }
 
 		public InvalidPhoneException() {}
 
