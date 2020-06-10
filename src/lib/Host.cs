@@ -8,9 +8,11 @@ namespace lib {
 	public class Host : Person, IEnumerable<HostingUnit>, ICollection<HostingUnit>, ICloneable<Host> {
 		private static IDGenerator id_generator = new IDGenerator(8);
 
-		private List<HostingUnit> units = new List<HostingUnit>();
+		private List<HostingUnit> units;
 
-		private BankAccount bank_account;
+		public BankAccount BankAccount {
+			get;
+		}
 
 		public bool CollectionClearance {
 			get;
@@ -33,13 +35,16 @@ namespace lib {
 			string first_name,
 			string last_name,
 			string email,
+			HashSet<PhoneNumber> phones,
 			BankBranch bank_branch,
 			int account_number
 		) : this(
 			id_generator.Next(),
 			first_name,
 			last_name,
-			email,
+			new EmailAddress(email),
+			phones,
+			new List<HostingUnit>(),
 			new BankAccount(bank_branch, account_number),
 			true // collection clearance default
 		) {}
@@ -48,16 +53,20 @@ namespace lib {
 			ID id,
 			string first_name,
 			string last_name,
-			string email,
+			EmailAddress email,
+			HashSet<PhoneNumber> phones,
+			List<HostingUnit> units,
 			BankAccount bank_account,
 			bool collection_clearance
 		) : base(
 			id,
 			first_name,
 			last_name,
-			email
+			email,
+			phones
 		) {
-			this.bank_account = bank_account;
+			this.units = units;
+			BankAccount = bank_account;
 			CollectionClearance = collection_clearance;
 		}
 
@@ -171,15 +180,7 @@ namespace lib {
 		}
 
 		public Host Clone() {
-			Host other = (Host) this.MemberwiseClone();
-			other.FirstName = FirstName;
-			other.LastName = LastName;
-			other.ID = ID.Clone();
-			other.Email = new MailAddress(Email.Address, Email.DisplayName);
-			other.units = units.ConvertAll(item => item.Clone());
-			other.bank_account = bank_account.Clone();
-			other.CollectionClearance = CollectionClearance;
-			return other;
+			return new Host(ID, FirstName, LastName, Email, (HashSet<PhoneNumber>) phones.Clone(), (List<HostingUnit>) units.Clone(), BankAccount, CollectionClearance);
 		}
 	}
 }

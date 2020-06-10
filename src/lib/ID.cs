@@ -2,15 +2,13 @@ using System;
 using exceptions;
 
 namespace lib {
-	public class ID : ICloneable<ID> {
+	public class ID {
 		public int Number {
 			get;
-			private set;
 		}
 
 		public int Digits {
 			get;
-			private set;
 		}
 
 		public override string ToString() {
@@ -25,13 +23,6 @@ namespace lib {
 			}
 			Number = id;
 			Digits = digits;
-		}
-
-		public ID Clone() {
-			ID other = (ID) this.MemberwiseClone();
-			other.Number = Number;
-			other.Digits = Digits;
-			return other;
 		}
 	}
 }

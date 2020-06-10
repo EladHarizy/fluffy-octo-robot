@@ -9,9 +9,7 @@ namespace exceptions {
 
 		public InvalidPhoneException() {}
 
-		public InvalidPhoneException(string phone) {
-			Phone = phone;
-		}
+		public InvalidPhoneException(string phone) : this(phone, "Error: Invalid phone number " + phone + '.') {}
 
 		public InvalidPhoneException(string phone, string message) : base(message) {
 			Phone = phone;

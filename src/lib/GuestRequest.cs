@@ -8,30 +8,39 @@ namespace lib {
 		private static IDGenerator id_generator = new IDGenerator(8);
 		public ID ID {
 			get;
-			private set;
 		}
 
 		public Guest Guest {
 			get;
-			set;
 		}
 
 		// Date that the request was created
 		public Date CreationDate {
 			get;
-			private set;
 		}
 
 		// First date of the stay
+		private Date start_date;
 		public Date StartDate {
-			get;
-			private set;
+			get => start_date;
+			set {
+				if (value < Date.Today) {
+					throw new PastDateException();
+				}
+				start_date = value;
+			}
 		}
 
 		// Next day after the guest leaves
+		private Date end_date;
 		public Date EndDate {
-			get;
-			private set;
+			get => end_date;
+			set {
+				if (value <= StartDate) {
+					throw new NonPositiveDurationException();
+				}
+				end_date = value;
+			}
 		}
 
 		public int Duration {
@@ -220,19 +229,7 @@ namespace lib {
 		}
 
 		public GuestRequest Clone() {
-			GuestRequest other = (GuestRequest) this.MemberwiseClone();
-			other.ID = ID.Clone();
-			other.Guest = Guest.Clone();
-			other.CreationDate = CreationDate;
-			other.StartDate = StartDate;
-			other.EndDate = EndDate;
-			other.Active = Active;
-			other.Adults = Adults;
-			other.Children = Children;
-			other.Region = Region;
-			other.DesiredUnitTypes = DesiredUnitTypes;
-			other.DesiredAmenities = DesiredAmenities;
-			return other;
+			return new GuestRequest(ID, Guest.Clone(), CreationDate, StartDate, EndDate, Active, Adults, Children, (HashSet<City>) Region.Clone(), (HashSet<UnitType>) DesiredUnitTypes.Clone(), (HashSet<Amenity>) DesiredAmenities.Clone());
 		}
 	}
 }

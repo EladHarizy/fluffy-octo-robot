@@ -6,7 +6,6 @@ namespace lib {
 		private static IDGenerator id_generator = new IDGenerator(8);
 		public ID ID {
 			get;
-			private set;
 		}
 
 		private HostingUnit hosting_unit;
@@ -19,25 +18,30 @@ namespace lib {
 			get => guest_request.ID;
 		}
 
-		public Status status {
+		public Status Status {
 			get;
 			set;
 		}
 
 		public Date CreationDate {
 			get;
-			private set;
 		}
 
 		// Email delivery date to customer (We'll have to come up with a more descriptive name for this variable)
-		public Date OrderDate {
+		public Date? OrderDate {
 			get;
-			private set;
+			set;
 		}
 
-		Order(HostingUnit hosting_unit, GuestRequest guest_request) {
+		public Order(HostingUnit hosting_unit, GuestRequest guest_request) : this(id_generator.Next(), hosting_unit, guest_request, new Status("Not Addressed"), Date.Today, null) {}
+
+		public Order(ID id, HostingUnit hosting_unit, GuestRequest guest_request, Status status, Date creation_date, Date? order_date) {
+			ID = id;
 			this.hosting_unit = hosting_unit;
 			this.guest_request = guest_request;
+			Status = status;
+			CreationDate = creation_date;
+			OrderDate = order_date;
 		}
 
 		public override string ToString() {
@@ -71,21 +75,14 @@ namespace lib {
 
 			sb.Append('\t', tabs);
 			sb.Append("Status:\t\t\t");
-			sb.Append(status);
+			sb.Append(Status);
 			sb.Append("\n");
 
 			return sb.ToString();
 		}
 
 		public Order Clone() {
-			Order other = (Order) this.MemberwiseClone();
-			other.ID = ID.Clone();
-			other.hosting_unit = hosting_unit.Clone();
-			other.guest_request = guest_request.Clone();
-			other.status = status.Clone();
-			other.CreationDate = CreationDate;
-			other.OrderDate = OrderDate;
-			return other;
+			return new Order(ID, hosting_unit.Clone(), guest_request.Clone(), Status, CreationDate, OrderDate);
 		}
 	}
 }

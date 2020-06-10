@@ -1,4 +1,4 @@
-using System.Net.Mail;
+using System.Collections.Generic;
 using System.Text;
 
 namespace lib {
@@ -7,7 +7,7 @@ namespace lib {
 
 		public Guest(string first_name, string last_name, string email) : base(id_generator.Next(), first_name, last_name, email) {}
 
-		public Guest(ID id, string first_name, string last_name, string email) : base(id, first_name, last_name, email) {}
+		public Guest(ID id, string first_name, string last_name, EmailAddress email, HashSet<PhoneNumber> phones) : base(id, first_name, last_name, email, phones) {}
 
 		public override string ToString() {
 			return ToString(0);
@@ -29,12 +29,7 @@ namespace lib {
 		}
 
 		public Guest Clone() {
-			Guest other = (Guest) this.MemberwiseClone();
-			other.FirstName = FirstName;
-			other.LastName = LastName;
-			other.ID = ID.Clone();
-			other.Email = Email;
-			return other;
+			return new Guest(ID, FirstName, LastName, Email, (HashSet<PhoneNumber>) phones.Clone());
 		}
 	}
 }

@@ -2,20 +2,19 @@ using System.Text.RegularExpressions;
 using exceptions;
 
 namespace lib {
-	public class PhoneNumber : ICloneable<PhoneNumber> {
-		private string number;
+	public class PhoneNumber {
+		private const string regex = @"(?:00|\+)(?:1|[2-9]\d{1,2})\d{5,14}";
+
 		public string Number {
-			get => number;
-			set {
-				string regex = @"(?:00|\+)(?:1|[2-9]\d{1,2})\d{5,14}";
-				if (!Regex.Match(value, regex, RegexOptions.IgnoreCase).Success) {
-					throw new InvalidPhoneException(value);
-				}
-				number = value;
-			}
+			get;
 		}
 
 		public PhoneNumber(string number) {
+			number = Regex.Replace(number, @"^00", "+");
+			number = Regex.Replace(number, @"[ -]", "");
+			if (!Regex.Match(number, regex, RegexOptions.IgnoreCase).Success) {
+				throw new InvalidPhoneException(number);
+			}
 			Number = number;
 		}
 
@@ -23,8 +22,12 @@ namespace lib {
 			return Number;
 		}
 
-		public PhoneNumber Clone() {
-			return new PhoneNumber(number);
+		public static implicit operator PhoneNumber(string str) {
+			return new PhoneNumber(str);
+		}
+
+		public static implicit operator string(PhoneNumber phone_number) {
+			return phone_number.Number;
 		}
 	}
 }

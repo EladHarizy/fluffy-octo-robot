@@ -4,7 +4,7 @@ using System.Text;
 using exceptions;
 
 namespace lib {
-	partial class Calendar : ICloneable<Calendar> {
+	public partial class Calendar : ICloneable<Calendar> {
 
 		// The list of Bookings
 		// We were given the green light to continue using a list implementation rather than a matrix, since we already implemented all the methods with a list in the first assignment.
@@ -19,10 +19,6 @@ namespace lib {
 			get;
 			private set;
 		}
-
-		public Calendar() : this(new Date(Date.Today.Year + 1, 1, 1)) {}
-
-		public Calendar(Date start) : this(start, start.AddYears(1)) {}
 
 		public Calendar(Date start, Date end) {
 			if (end <= start) {
@@ -94,10 +90,9 @@ namespace lib {
 		}
 
 		public Calendar Clone() {
-			Calendar other = (Calendar) this.MemberwiseClone();
-			other.StartDate = StartDate;
-			other.EndDate = EndDate;
-			return other;
+			Calendar calendar = new Calendar(StartDate, EndDate);
+			calendar.bookings = (List<Booking>) bookings.Clone();
+			return calendar;
 		}
 	}
 }

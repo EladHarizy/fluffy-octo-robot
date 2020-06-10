@@ -28,16 +28,15 @@ namespace lib {
 			id_generator.Next(),
 			host,
 			hosting_unit_name,
-			available_from,
-			available_until
+			new Calendar(available_from, available_until)
 		) {}
 
 		// Constructor. Takes an ID, host, and two dates which indicate the period of time in which the unit is available
-		public HostingUnit(ID id, Host host, string hosting_unit_name, Date available_from, Date available_until) {
+		public HostingUnit(ID id, Host host, string hosting_unit_name, Calendar calendar) {
 			ID = id;
 			this.host = host;
 			HostingUnitName = hosting_unit_name;
-			calendar = new Calendar(available_from, available_until);
+			this.calendar = calendar;
 		}
 
 		public override string ToString() {
@@ -110,12 +109,7 @@ namespace lib {
 		}
 
 		public HostingUnit Clone() {
-			HostingUnit other = (HostingUnit) this.MemberwiseClone();
-			other.ID = ID.Clone();
-			other.calendar = calendar.Clone();
-			other.host = host.Clone();
-			other.HostingUnitName = HostingUnitName;
-			return other;
+			return new HostingUnit(ID, host, HostingUnitName, calendar.Clone());
 		}
 	}
 }

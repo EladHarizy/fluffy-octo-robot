@@ -2,49 +2,41 @@ using System.Text;
 using exceptions;
 
 namespace lib {
-	public class BankBranch : ICloneable<BankBranch> {
+	public class BankBranch {
 
 		public string BankName {
 			get;
-			private set;
 		}
 
 		public string BranchAddress {
 			get;
-			private set;
 		}
 
 		public City BranchCity {
 			get;
-			private set;
 		}
 
-		private ID bank_id;
 		public ID BankID {
-			get => bank_id;
-			private set {
-				if (value.Digits != 3) {
-					throw new IncorrectDigitsException(value.Number, value.Digits, "Error: Bank ID must be three digits.");
-				}
-				bank_id = value;
-			}
+			get;
 		}
 
-		private ID branch_id;
 		public ID BranchID {
-			get => branch_id;
-			private set {
-				if (value.Digits != 3) {
-					throw new IncorrectDigitsException(value.Number, value.Digits, "Error: Branch ID must be three digits.");
-				}
-				branch_id = value;
-			}
+			get;
 		}
 
 		public BankBranch(ID bank_id, string bank_name, ID branch_id, City branch_city) {
-			this.BankID = bank_id;
+			if (bank_id.Digits != 3) {
+				throw new IncorrectDigitsException(bank_id.Number, bank_id.Digits, "Error: Bank ID must be three digits.");
+			}
+			BankID = bank_id;
+
 			BankName = bank_name;
-			this.BranchID = branch_id;
+
+			if (branch_id.Digits != 3) {
+				throw new IncorrectDigitsException(branch_id.Number, branch_id.Digits, "Error: Branch ID must be three digits.");
+			}
+			BranchID = branch_id;
+
 			BranchCity = branch_city;
 		}
 
@@ -84,16 +76,6 @@ namespace lib {
 			sb.Append("\n");
 
 			return sb.ToString();
-		}
-
-		public BankBranch Clone() {
-			BankBranch other = (BankBranch) this.MemberwiseClone();
-			other.BankName = BankName;
-			other.BranchAddress = BranchAddress;
-			other.BranchCity = BranchCity.Clone();
-			other.BankID = BankID.Clone();
-			other.BranchID = BranchID.Clone();
-			return other;
 		}
 	}
 }
