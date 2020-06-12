@@ -1,7 +1,7 @@
 using exceptions;
 
 namespace lib {
-	class IDGenerator {
+	internal class IDGenerator {
 		private int counter;
 
 		public int Digits { get; private set; }

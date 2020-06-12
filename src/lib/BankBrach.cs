@@ -13,7 +13,7 @@ namespace lib {
 
 		public City BranchCity { get; }
 
-		public BankBranch(ID bank_id, string bank_name, ID branch_id, City branch_city) {
+		public BankBranch(ID bank_id, string bank_name, ID branch_id, string branch_address, City branch_city) {
 			if (bank_id.Digits != 2) {
 				if (bank_id.Digits < 2) {
 					bank_id = new ID(bank_id, 2);
@@ -31,10 +31,10 @@ namespace lib {
 				} else {
 					throw new IncorrectDigitsException(branch_id.Number, branch_id.Digits, "Error: Branch ID must be three digits.");
 				}
-				BranchID = branch_id;
-
-				BranchCity = branch_city;
 			}
+			BranchID = branch_id;
+			BranchAddress = branch_address;
+			BranchCity = branch_city;
 		}
 
 		public string ToString(int tabs) {

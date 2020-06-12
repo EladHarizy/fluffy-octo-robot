@@ -4,7 +4,7 @@ using System.Linq;
 using lib;
 
 namespace presentation {
-	class main {
+	internal class main {
 		static Random rand = new Random();
 
 		private static GuestRequest CreateRandomRequest(Date start_date, Date end_date) {

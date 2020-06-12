@@ -2,7 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\lib\lib.csproj" />
-    <ProjectReference Include="..\data_source\data_source.csproj" />
+    <ProjectReference Include="..\exceptions\exceptions.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

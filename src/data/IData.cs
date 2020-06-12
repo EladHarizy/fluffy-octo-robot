@@ -2,25 +2,25 @@
 using lib;
 
 namespace data {
-	interface IData {
-		IDataAccessorReadOnly<Amenity, string> Amenity { get; }
+	public interface IData {
+		DataAccessorReadOnly<string, Amenity> Amenity { get; }
 
-		IDataAccessorReadOnly<BankBranch, Tuple<ID, ID>> BankBranch { get; }
+		DataAccessorReadOnly<Tuple<ID, ID>, BankBranch> BankBranch { get; }
 
-		IDataAccessorReadOnly<City, string> City { get; }
+		DataAccessorReadOnly<string, City> City { get; }
 
-		IDataAccessor<Guest, ID> Guest { get; }
+		DataAccessor<ID, Guest> Guest { get; }
 
-		IDataAccessor<GuestRequest, ID> GuestRequest { get; }
+		DataAccessor<ID, GuestRequest> GuestRequest { get; }
 
-		IDataAccessor<Host, ID> Host { get; }
+		DataAccessor<ID, Host> Host { get; }
 
-		IDataAccessor<HostingUnit, ID> HostingUnit { get; }
+		DataAccessor<ID, HostingUnit> HostingUnit { get; }
 
-		IDataAccessor<Order, ID> Order { get; }
+		DataAccessor<ID, Order> Order { get; }
 
-		IDataAccessorReadOnly<Order.Status, string> OrderStatus { get; }
+		DataAccessorReadOnly<string, Order.Status> OrderStatus { get; }
 
-		IDataAccessorReadOnly<Unit.UnitType, string> UnitType { get; }
+		DataAccessorReadOnly<string, Unit.UnitType> UnitType { get; }
 	}
 }
