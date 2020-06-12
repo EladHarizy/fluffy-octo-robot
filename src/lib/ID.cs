@@ -11,10 +11,6 @@ namespace lib {
 			get;
 		}
 
-		public override string ToString() {
-			return Number.ToString("D" + Digits.ToString());
-		}
-
 		public ID(string id, int digits = 0) : this(int.Parse(id), digits) {}
 
 		public ID(int id, int digits = 0) {
@@ -25,6 +21,21 @@ namespace lib {
 			}
 			Number = id;
 			Digits = digits;
+		}
+
+		public override string ToString() {
+			return Number.ToString("D" + Digits.ToString());
+		}
+
+		public override bool Equals(object obj) {
+			return obj is ID id && Number == id.Number && Digits == id.Digits;
+		}
+
+		public override int GetHashCode() {
+			int hashCode = -169179105;
+			hashCode = hashCode * -1521134295 + Number.GetHashCode();
+			hashCode = hashCode * -1521134295 + Digits.GetHashCode();
+			return hashCode;
 		}
 
 		public static implicit operator ID(string str) {
