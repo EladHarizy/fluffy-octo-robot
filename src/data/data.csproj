@@ -5,6 +5,7 @@
     <ProjectReference Include="..\Lib\Lib.DataTypes\Lib.DataTypes.csproj" />
     <ProjectReference Include="..\Lib\Lib.Entities\Lib.Entities.csproj" />
     <ProjectReference Include="..\Lib\Lib.Extensions\Lib.Extensions.csproj" />
+    <ProjectReference Include="..\Lib\Lib.Exceptions\Lib.Exceptions.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
