@@ -1,75 +1,75 @@
 <cities>
-	<city>Acre</city>
-	<city>Afula</city>
-	<city>Arad</city>
-	<city>Arraba</city>
-	<city>Ashdod</city>
-	<city>Ashkelon</city>
-	<city>Baqa al-Gharbiyye</city>
-	<city>Bat Yam</city>
-	<city>Beersheba</city>
-	<city>Beit She&apos;an</city>
-	<city>Beit Shemesh</city>
-	<city>Bnei Brak</city>
-	<city>Dimona</city>
-	<city>Eilat</city>
-	<city>El&apos;ad</city>
-	<city>Giv&apos;at Shmuel</city>
-	<city>Givatayim</city>
-	<city>Hadera</city>
-	<city>Haifa</city>
-	<city>Herzliya</city>
-	<city>Hod HaSharon</city>
-	<city>Holon</city>
-	<city>Jerusalem</city>
-	<city>Kafr Qasim</city>
-	<city>Karmiel</city>
-	<city>Kfar Saba</city>
-	<city>Kfar Yona</city>
-	<city>Kiryat Ata</city>
-	<city>Kiryat Bialik</city>
-	<city>Kiryat Gat</city>
-	<city>Kiryat Malakhi</city>
-	<city>Kiryat Motzkin</city>
-	<city>Kiryat Ono</city>
-	<city>Kiryat Shmona</city>
-	<city>Kiryat Yam</city>
-	<city>Lod</city>
-	<city>Ma&apos;alot-Tarshiha</city>
-	<city>Migdal HaEmek</city>
-	<city>Modi&apos;in-Maccabim-Re&apos;ut</city>
-	<city>Nahariya</city>
-	<city>Nazareth</city>
-	<city>Nesher</city>
-	<city>Ness Ziona</city>
-	<city>Netanya</city>
-	<city>Netivot</city>
-	<city>Nof HaGalil</city>
-	<city>Ofakim</city>
-	<city>Or Akiva</city>
-	<city>Or Yehuda</city>
-	<city>Petah Tikva</city>
-	<city>Qalansawe</city>
-	<city>Ra&apos;anana</city>
-	<city>Rahat</city>
-	<city>Ramat Gan</city>
-	<city>Ramat HaSharon</city>
-	<city>Ramla</city>
-	<city>Rehovot</city>
-	<city>Rishon LeZion</city>
-	<city>Rosh HaAyin</city>
-	<city>Safed</city>
-	<city>Sakhnin</city>
-	<city>Sderot</city>
-	<city>Shefa-&apos;Amr</city>
-	<city>Tamra</city>
-	<city>Tayibe</city>
-	<city>Tel Aviv-Yafo</city>
-	<city>Tiberias</city>
-	<city>Tira</city>
-	<city>Tirat Carmel</city>
-	<city>Umm al-Fahm</city>
-	<city>Yavne</city>
-	<city>Yehud-Monosson</city>
-	<city>Yokneam Illit</city>
+	<name>Acre</name>
+	<name>Afula</name>
+	<name>Arad</name>
+	<name>Arraba</name>
+	<name>Ashdod</name>
+	<name>Ashkelon</name>
+	<name>Baqa al-Gharbiyye</name>
+	<name>Bat Yam</name>
+	<name>Beersheba</name>
+	<name>Beit She&apos;an</name>
+	<name>Beit Shemesh</name>
+	<name>Bnei Brak</name>
+	<name>Dimona</name>
+	<name>Eilat</name>
+	<name>El&apos;ad</name>
+	<name>Giv&apos;at Shmuel</name>
+	<name>Givatayim</name>
+	<name>Hadera</name>
+	<name>Haifa</name>
+	<name>Herzliya</name>
+	<name>Hod HaSharon</name>
+	<name>Holon</name>
+	<name>Jerusalem</name>
+	<name>Kafr Qasim</name>
+	<name>Karmiel</name>
+	<name>Kfar Saba</name>
+	<name>Kfar Yona</name>
+	<name>Kiryat Ata</name>
+	<name>Kiryat Bialik</name>
+	<name>Kiryat Gat</name>
+	<name>Kiryat Malakhi</name>
+	<name>Kiryat Motzkin</name>
+	<name>Kiryat Ono</name>
+	<name>Kiryat Shmona</name>
+	<name>Kiryat Yam</name>
+	<name>Lod</name>
+	<name>Ma&apos;alot-Tarshiha</name>
+	<name>Migdal HaEmek</name>
+	<name>Modi&apos;in-Maccabim-Re&apos;ut</name>
+	<name>Nahariya</name>
+	<name>Nazareth</name>
+	<name>Nesher</name>
+	<name>Ness Ziona</name>
+	<name>Netanya</name>
+	<name>Netivot</name>
+	<name>Nof HaGalil</name>
+	<name>Ofakim</name>
+	<name>Or Akiva</name>
+	<name>Or Yehuda</name>
+	<name>Petah Tikva</name>
+	<name>Qalansawe</name>
+	<name>Ra&apos;anana</name>
+	<name>Rahat</name>
+	<name>Ramat Gan</name>
+	<name>Ramat HaSharon</name>
+	<name>Ramla</name>
+	<name>Rehovot</name>
+	<name>Rishon LeZion</name>
+	<name>Rosh HaAyin</name>
+	<name>Safed</name>
+	<name>Sakhnin</name>
+	<name>Sderot</name>
+	<name>Shefa-&apos;Amr</name>
+	<name>Tamra</name>
+	<name>Tayibe</name>
+	<name>Tel Aviv-Yafo</name>
+	<name>Tiberias</name>
+	<name>Tira</name>
+	<name>Tirat Carmel</name>
+	<name>Umm al-Fahm</name>
+	<name>Yavne</name>
+	<name>Yehud-Monosson</name>
+	<name>Yokneam Illit</name>
 </cities>

@@ -2,10 +2,11 @@ using System;
 using System.Linq;
 using System.Xml.Linq;
 using Lib.DataTypes;
+using Lib.Exceptions;
 using Lib.Interfaces;
 
 namespace data {
-	public class DataAccessor<T> : DataAccessorReadOnly<ID, T> where T : IIndexed<ID> {
+	public class DataAccessor<T> : DataAccessorReadOnly<ID, T> where T : IIndexed {
 		// An XElement which represents the root of the XML file
 		private readonly XElement root;
 
@@ -25,9 +26,10 @@ namespace data {
 		}
 
 		public void Add(T obj) {
-			if (obj.Key() == null) {
-				obj.Key(next_key());
+			if (obj.Key() != null) {
+				throw new ObjectInDBException(obj, "Object with ID " + obj.Key() + " already exits in the database.");
 			}
+			obj.Key(next_key());
 			if (cache != null) {
 				cache.Add(obj.Key(), copy(obj));
 			}
@@ -44,6 +46,9 @@ namespace data {
 		}
 
 		public void Update(T obj) {
+			if (obj.Key() == null) {
+				throw new ObjectNotInDBException(obj, "This object does not exits in the database.");
+			}
 			ID key = obj.Key();
 			if (cache != null) {
 				cache[key] = copy(obj);
@@ -63,8 +68,9 @@ namespace data {
 			return collection_xml.Elements().First(element => xml_matches_key(element, key));
 		}
 
+		// Retrieves the last assigned ID from the XML file, and returns a new ID for the next number, updating the XML as well
 		private ID next_key() {
-			XElement xml_id = root.Element("next_id");
+			XElement xml_id = root.Element("current_id");
 			string current_str = xml_id.Value;
 			ID next_id = new ID(int.Parse(current_str) + 1, current_str.Length);
 			xml_id.Value = next_id;

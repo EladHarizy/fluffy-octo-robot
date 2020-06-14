@@ -5,7 +5,7 @@ using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
-	public partial class HostingUnit : IComparable<HostingUnit>, ICloneable<HostingUnit>, IIndexed<ID> {
+	public partial class HostingUnit : IComparable<HostingUnit>, ICloneable<HostingUnit>, IIndexed {
 		public ID ID { get; private set; }
 
 		private Calendar calendar;

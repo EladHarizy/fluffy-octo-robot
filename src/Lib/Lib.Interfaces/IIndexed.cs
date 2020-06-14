@@ -1,5 +1,7 @@
+using Lib.DataTypes;
+
 namespace Lib.Interfaces {
-	public interface IIndexed<TKey> : IIndexedReadOnly<TKey> {
-		void Key(TKey key);
+	public interface IIndexed : IIndexedReadOnly<ID> {
+		void Key(ID key);
 	}
 }

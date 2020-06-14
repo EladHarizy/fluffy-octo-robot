@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Text;
 using Lib.DataTypes;
+using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
-	public abstract class Person : IIndexed<ID> {
+	public abstract class Person : IIndexed {
 		public virtual ID ID { get; set; }
 
 		public virtual string FirstName { get; }
@@ -17,12 +18,12 @@ namespace Lib.Entities {
 
 		public EmailAddress Email { get; set; }
 
-		protected HashSet<PhoneNumber> phones = new HashSet<PhoneNumber>();
+		protected ICollection<PhoneNumber> phones = new HashSet<PhoneNumber>();
 		public virtual IReadOnlyCollection<PhoneNumber> Phones {
-			get => phones;
+			get => phones.AsReadOnly();
 		}
 
-		public Person(ID id, string first_name, string last_name, EmailAddress email, HashSet<PhoneNumber> phones) {
+		public Person(ID id, string first_name, string last_name, EmailAddress email, ICollection<PhoneNumber> phones) {
 			ID = id;
 			FirstName = first_name;
 			LastName = last_name;
