@@ -1,5 +1,6 @@
 ﻿using System;
-using lib;
+using Lib.DataTypes;
+using Lib.Entities;
 
 namespace data {
 	public interface IData {
@@ -9,18 +10,18 @@ namespace data {
 
 		DataAccessorReadOnly<string, City> City { get; }
 
-		DataAccessor<ID, Guest> Guest { get; }
+		DataAccessor<Guest> Guest { get; }
 
-		DataAccessor<ID, GuestRequest> GuestRequest { get; }
+		DataAccessor<GuestRequest> GuestRequest { get; }
 
-		DataAccessor<ID, Host> Host { get; }
+		DataAccessor<Host> Host { get; }
 
-		DataAccessor<ID, HostingUnit> HostingUnit { get; }
+		DataAccessor<HostingUnit> HostingUnit { get; }
 
-		DataAccessor<ID, Order> Order { get; }
+		DataAccessor<Order> Order { get; }
 
 		DataAccessorReadOnly<string, Order.Status> OrderStatus { get; }
 
-		DataAccessorReadOnly<string, Unit.UnitType> UnitType { get; }
+		DataAccessorReadOnly<string, HostingUnit.UnitType> UnitType { get; }
 	}
 }

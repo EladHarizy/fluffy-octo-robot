@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using lib;
+using Lib.Extensions;
+using Lib.Interfaces;
 
 namespace data {
-	public class DataAccessorReadOnly<K, T> {
+	public class DataAccessorReadOnly<K, T> where T : IIndexedReadOnly<K> {
 		public virtual string FileName { get; }
 
 		// The parent tag of all the objects in question
@@ -14,14 +15,11 @@ namespace data {
 		// A dictionary that stores a copy of the data in the XML file
 		protected IDictionary<K, T> cache;
 
-		// Function that takes an XElement representing an object of type T and returns its key
-		protected readonly Func<XElement, K> xml_to_key;
-
 		// Function that takes an XElement representing an object of type T and returns a new object of type T
 		protected readonly Func<XElement, T> xml_to_obj;
 
 		// Function that clones objects of type T. By default it returns a reference to the same object, which is acceptable if T is immutable
-		protected readonly Func<T, T> copier;
+		protected readonly Func<T, T> copy;
 
 		public ICollection<T> All {
 			get {
@@ -37,34 +35,26 @@ namespace data {
 		public DataAccessorReadOnly(
 			string file_name,
 			string collection_tag_name,
-			Func<XElement, K> xml_to_key,
 			Func<XElement, T> xml_to_obj,
 			Func<T, T> copier = null
-		) : this(file_name, xml_to_key, xml_to_obj, copier) {
+		) : this(file_name, xml_to_obj, copier) {
 			collection_xml = XElement.Load(file_name).Descendants(collection_tag_name).First();
 		}
 
 		protected DataAccessorReadOnly(
 			string file_name,
-			Func<XElement, K> xml_to_key,
 			Func<XElement, T> xml_to_obj,
 			Func<T, T> copier
 		) {
 			FileName = file_name;
-			this.xml_to_key = xml_to_key;
 			this.xml_to_obj = xml_to_obj;
-			this.copier = copier ?? (x => x);
+			this.copy = copier ?? (x => x);
 		}
 
 		// Given a key, returns an object of type T
 		public virtual T Get(K key) {
 			load_cache();
-			return copier(cache[key]);
-		}
-
-		// Returns true if the XElement has the key provided
-		protected virtual bool xml_matches_key(XElement element, K key) {
-			return xml_to_key(element).Equals(key);
+			return copy(cache[key]);
 		}
 
 		// Loads XML into cache, if the cache is null
@@ -72,7 +62,7 @@ namespace data {
 			if (cache == null) {
 				cache = new Dictionary<K, T>();
 				foreach (XElement element in collection_xml.Elements()) {
-					cache.Add(xml_to_key(element), xml_to_obj(element));
+					cache.Add(xml_to_obj(element).Key(), xml_to_obj(element));
 				}
 			}
 		}

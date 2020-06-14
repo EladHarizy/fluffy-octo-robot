@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using lib;
+using Lib.DataTypes;
+using Lib.Entities;
 
 namespace presentation {
 	internal class main {
@@ -23,7 +24,7 @@ namespace presentation {
 		}
 
 		static void Main(string[] args) {
-			BankBranch branch = new BankBranch(new ID(10, 3), "Discount Bank", new ID(800, 3), new City("Jerusalem"));
+			BankBranch branch = new BankBranch(new ID(10, 3), "Discount Bank", new ID(800, 3), "221B Baker Street", new City("Jerusalem"));
 			List<Host> hosts = new List<Host>() {
 				new Host(
 						"Alice",

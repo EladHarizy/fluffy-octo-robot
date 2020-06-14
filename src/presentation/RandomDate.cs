@@ -1,6 +1,6 @@
 using System;
 
-namespace lib {
+namespace presentation {
 	public class RandomDate {
 		private int days;
 

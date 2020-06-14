@@ -1,6 +1,7 @@
 using System;
 using System.Net;
-using lib;
+using Lib.DataTypes;
+using Lib.Entities;
 
 namespace data {
 	public class Data : IData {
@@ -10,37 +11,30 @@ namespace data {
 
 		public DataAccessorReadOnly<string, City> City { get; }
 
-		public DataAccessor<ID, Guest> Guest { get; }
+		public DataAccessor<Guest> Guest { get; }
 
-		public DataAccessor<ID, GuestRequest> GuestRequest { get; }
+		public DataAccessor<GuestRequest> GuestRequest { get; }
 
-		public DataAccessor<ID, Host> Host { get; }
+		public DataAccessor<Host> Host { get; }
 
-		public DataAccessor<ID, HostingUnit> HostingUnit { get; }
+		public DataAccessor<HostingUnit> HostingUnit { get; }
 
-		public DataAccessor<ID, Order> Order { get; }
+		public DataAccessor<Order> Order { get; }
 
 		public DataAccessorReadOnly<string, Order.Status> OrderStatus { get; }
 
-		public DataAccessorReadOnly<string, Unit.UnitType> UnitType { get; }
+		public DataAccessorReadOnly<string, HostingUnit.UnitType> UnitType { get; }
 
 		Data() {
 			Amenity = new DataAccessorReadOnly<string, Amenity>(
 				"data_files/amenities.xml",
 				"amenities",
-				(element) => element.Element("name").Value,
 				(element) => new Amenity(element.Element("name").Value)
 			);
 
 			BankBranch = new DataAccessorReadOnly<Tuple<ID, ID>, BankBranch>(
 				"data_files/bank_branches.xml",
 				"BRANCHES",
-				element => {
-					return new Tuple<ID, ID>(
-						new ID(element.Element("Bank_Code").Value),
-						new ID(element.Element("Branch_Code").Value)
-					);
-				},
 				element => {
 					ID bank_id = new ID(WebUtility.HtmlDecode(element.Element("Bank_Code").Value));
 					ID branch_id = new ID(WebUtility.HtmlDecode(element.Element("Branch_Code").Value));
