@@ -6,7 +6,7 @@ using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
-	public partial class HostingUnit {
+	public partial class Unit {
 		private partial class Calendar : ICloneable<Calendar> {
 
 			// The list of Bookings

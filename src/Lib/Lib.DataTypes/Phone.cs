@@ -2,12 +2,12 @@ using System.Text.RegularExpressions;
 using Lib.Exceptions;
 
 namespace Lib.DataTypes {
-	public class PhoneNumber {
+	public class Phone {
 		private const string regex = @"(?:00|\+)(?:1|[2-9]\d{1,2})\d{5,14}";
 
 		public string Number { get; }
 
-		public PhoneNumber(string number) {
+		public Phone(string number) {
 			number = Regex.Replace(number, @"^00", "+");
 			number = Regex.Replace(number, @"[ -]", "");
 			if (!Regex.Match(number, regex, RegexOptions.IgnoreCase).Success) {
@@ -20,11 +20,11 @@ namespace Lib.DataTypes {
 			return Number;
 		}
 
-		public static implicit operator PhoneNumber(string str) {
-			return new PhoneNumber(str);
+		public static implicit operator Phone(string str) {
+			return new Phone(str);
 		}
 
-		public static implicit operator string(PhoneNumber phone_number) {
+		public static implicit operator string(Phone phone_number) {
 			return phone_number.Number;
 		}
 	}

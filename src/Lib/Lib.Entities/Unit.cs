@@ -1,21 +1,22 @@
 using System;
 using System.Text;
+using System.Xml.Linq;
 using Lib.DataTypes;
 using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
-	public partial class HostingUnit : IComparable<HostingUnit>, ICloneable<HostingUnit>, IIndexed {
+	public partial class Unit : IComparable<Unit>, ICloneable<Unit>, IIndexed<ID> {
 		public ID ID { get; private set; }
 
 		private Calendar calendar;
 
 		private Host host;
 
-		public string HostingUnitName { get; private set; }
+		public string UnitName { get; private set; }
 
 		// Constructor. Does not take an ID. Generates a new ID
-		public HostingUnit(
+		public Unit(
 			Host host,
 			string hosting_unit_name,
 			Date available_from,
@@ -28,10 +29,10 @@ namespace Lib.Entities {
 		) {}
 
 		// Constructor. Takes an ID, host, and two dates which indicate the period of time in which the unit is available
-		private HostingUnit(ID id, Host host, string hosting_unit_name, Calendar calendar) {
+		private Unit(ID id, Host host, string hosting_unit_name, Calendar calendar) {
 			ID = id;
 			this.host = host;
-			HostingUnitName = hosting_unit_name;
+			UnitName = hosting_unit_name;
 			this.calendar = calendar;
 		}
 
@@ -57,7 +58,7 @@ namespace Lib.Entities {
 
 			sb.Append('\t', tabs);
 			sb.Append("Unit Name:\t");
-			sb.Append(HostingUnitName);
+			sb.Append(UnitName);
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);
@@ -89,7 +90,7 @@ namespace Lib.Entities {
 			return calendar.OccupiedPercentage();
 		}
 
-		public int CompareTo(HostingUnit h) {
+		public int CompareTo(Unit h) {
 			double this_percentage = OccupancyPercentage();
 			double that_percentage = h.OccupancyPercentage();
 			return this_percentage.CompareTo(that_percentage);
@@ -112,8 +113,8 @@ namespace Lib.Entities {
 			ID = key;
 		}
 
-		public HostingUnit Clone() {
-			return new HostingUnit(ID, host, HostingUnitName, calendar.Clone());
+		public Unit Clone() {
+			return new Unit(ID, host, UnitName, calendar.Clone());
 		}
 	}
 }

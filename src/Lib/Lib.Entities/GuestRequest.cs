@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Linq;
 using Lib.DataTypes;
 using Lib.Exceptions;
 using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
-	public class GuestRequest : ICloneable<GuestRequest>, IIndexed {
+	public class GuestRequest : ICloneable<GuestRequest>, IIndexed<ID> {
 		public ID ID { get; set; }
 
 		public Guest Guest { get; }
@@ -64,11 +65,11 @@ namespace Lib.Entities {
 			private set => children = Math.Max(0, value);
 		}
 
-		public HashSet<City> Region { get; set; }
+		public ICollection<City> Region { get; set; }
 
-		public HashSet<HostingUnit.UnitType> DesiredUnitTypes { get; set; }
+		public ICollection<Unit.Type> DesiredUnitTypes { get; set; }
 
-		public HashSet<Amenity> DesiredAmenities { get; set; }
+		public ICollection<Amenity> DesiredAmenities { get; set; }
 
 		// Constructor with only some values for creating a new guest request
 		public GuestRequest(
@@ -77,9 +78,9 @@ namespace Lib.Entities {
 			Date end_date,
 			int adults,
 			int children,
-			HashSet<City> region,
-			HashSet<HostingUnit.UnitType> desired_unit_types,
-			HashSet<Amenity> desired_amenities
+			ICollection<City> region,
+			ICollection<Unit.Type> desired_unit_types,
+			ICollection<Amenity> desired_amenities
 		) : this(
 			null, // initialized ID to null
 			guest,
@@ -104,9 +105,9 @@ namespace Lib.Entities {
 			bool active,
 			int adults,
 			int children,
-			HashSet<City> region,
-			HashSet<HostingUnit.UnitType> desired_unit_types,
-			HashSet<Amenity> desired_amenities
+			ICollection<City> region,
+			ICollection<Unit.Type> desired_unit_types,
+			ICollection<Amenity> desired_amenities
 		) {
 			ID = id;
 			Guest = guest;
@@ -129,7 +130,7 @@ namespace Lib.Entities {
 			int adults,
 			int children,
 			HashSet<City> region,
-			HashSet<HostingUnit.UnitType> desired_unit_types,
+			HashSet<Unit.Type> desired_unit_types,
 			HashSet<Amenity> desired_amenities
 		) : this(
 			guest,
@@ -221,7 +222,7 @@ namespace Lib.Entities {
 		}
 
 		public GuestRequest Clone() {
-			return new GuestRequest(ID, Guest.Clone(), CreationDate, StartDate, EndDate, Active, Adults, Children, (HashSet<City>) Region.Clone(), (HashSet<HostingUnit.UnitType>) DesiredUnitTypes.Clone(), (HashSet<Amenity>) DesiredAmenities.Clone());
+			return new GuestRequest(ID, Guest.Clone(), CreationDate, StartDate, EndDate, Active, Adults, Children, (HashSet<City>) Region.Clone(), (HashSet<Unit.Type>) DesiredUnitTypes.Clone(), (HashSet<Amenity>) DesiredAmenities.Clone());
 		}
 	}
 }

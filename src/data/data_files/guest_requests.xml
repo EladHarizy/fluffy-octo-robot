@@ -1,0 +1,25 @@
+<current_id>00000001</current_id>
+<guest_requests>
+	<guest_request>
+		<id>00000001</id>
+		<guest>00000004</guest>
+		<creation_date>15/06/2020</creation_date>
+		<start_date>26/10/2020</start_date>
+		<end_date>31/10/2020</end_date>
+		<active>True</active>
+		<adults>2</adults>
+		<children>0</children>
+		<region>
+			<city>Jerusalem</city>
+			<city>Ofakim</city>
+		</region>
+		<desired_unit_types>
+			<unit_type>Hotel</unit_type>
+			<unit_type>Villa</unit_type>
+		</desired_unit_types>
+		<desired_amenities>
+			<amenity>Wi-Fi</amenity>
+			<amenity>Swimming pool</amenity>
+		</desired_amenities>
+	</guest_request>
+</guest_requests>

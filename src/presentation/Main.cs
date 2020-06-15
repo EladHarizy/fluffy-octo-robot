@@ -30,7 +30,7 @@ namespace presentation {
 						"Alice",
 						"Alderson",
 						"alice@fluffy-octo-robot.com",
-						new HashSet<PhoneNumber> {
+						new HashSet<Phone> {
 							"+441234456654",
 							"+350 543 45334"
 						},
@@ -41,7 +41,7 @@ namespace presentation {
 						"Bob",
 						"Barkley",
 						"bob@fluffy-octo-robot.com",
-						new HashSet<PhoneNumber> {
+						new HashSet<Phone> {
 							"+441234456654",
 							"00350 543 45334"
 						},
@@ -52,7 +52,7 @@ namespace presentation {
 						"Charlie",
 						"Clemands",
 						"charlie@fluffy-octo-robot.com",
-						new HashSet<PhoneNumber>(),
+						new HashSet<Phone>(),
 						branch,
 						492234
 					),
@@ -60,7 +60,7 @@ namespace presentation {
 						"Dave",
 						"Davidson",
 						"dave@fluffy-octo-robot.com",
-						new HashSet<PhoneNumber> {
+						new HashSet<Phone> {
 							"00441234456654"
 						},
 						branch,
@@ -70,7 +70,7 @@ namespace presentation {
 						"Elliott",
 						"Edwards",
 						"elliott@fluffy-octo-robot.com",
-						new HashSet<PhoneNumber> {
+						new HashSet<Phone> {
 							"+350 543 45334"
 						},
 						branch,
@@ -81,18 +81,18 @@ namespace presentation {
 			Date start_date = new Date(Date.Today.Year + 1, 1, 1);
 			Date end_date = new Date(Date.Today.Year + 2, 1, 1);
 
-			hosts[0].Add(new HostingUnit(hosts[0], "Alice's Wonderland", start_date, end_date));
-			hosts[0].Add(new HostingUnit(hosts[0], "Alice's Other Wonderland", start_date, end_date));
+			hosts[0].Add(new Unit(hosts[0], "Alice's Wonderland", start_date, end_date));
+			hosts[0].Add(new Unit(hosts[0], "Alice's Other Wonderland", start_date, end_date));
 
-			hosts[1].Add(new HostingUnit(hosts[1], "Bob's Bungalow", start_date, end_date));
+			hosts[1].Add(new Unit(hosts[1], "Bob's Bungalow", start_date, end_date));
 
-			hosts[2].Add(new HostingUnit(hosts[2], "Chalie's Chapel", start_date, end_date));
-			hosts[2].Add(new HostingUnit(hosts[2], "Chalie's Chalet", start_date, end_date));
-			hosts[2].Add(new HostingUnit(hosts[2], "Chalie's Cave", start_date, end_date));
+			hosts[2].Add(new Unit(hosts[2], "Chalie's Chapel", start_date, end_date));
+			hosts[2].Add(new Unit(hosts[2], "Chalie's Chalet", start_date, end_date));
+			hosts[2].Add(new Unit(hosts[2], "Chalie's Cave", start_date, end_date));
 
-			hosts[3].Add(new HostingUnit(hosts[3], "Dave's Dorm", start_date, end_date));
+			hosts[3].Add(new Unit(hosts[3], "Dave's Dorm", start_date, end_date));
 
-			hosts[4].Add(new HostingUnit(hosts[4], "Elliott's Eggplant", start_date, end_date));
+			hosts[4].Add(new Unit(hosts[4], "Elliott's Eggplant", start_date, end_date));
 
 			for (int i = 0; i < 100; ++i) {
 				foreach (Host host in hosts) {
@@ -114,7 +114,7 @@ namespace presentation {
 			//Create dictionary for all units <unitkey, occupancy_percentage>
 			Dictionary<ID, double> dict = new Dictionary<ID, double>();
 			foreach (Host host in hosts) {
-				foreach (HostingUnit unit in host) {
+				foreach (Unit unit in host) {
 					dict[unit.ID] = unit.OccupancyPercentage();
 				}
 			}

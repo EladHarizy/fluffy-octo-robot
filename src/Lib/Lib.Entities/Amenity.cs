@@ -3,7 +3,7 @@ using Lib.Interfaces;
 namespace Lib.Entities {
 
 	// Our professor (Dan Erez) told us the we can implement ICloneable in each class, instead of adding a clone extension to each class
-	public class Amenity : ICloneable<Amenity>, IIndexedReadOnly<string> {
+	public class Amenity : IIndexedReadOnly<string>, ICloneable<Amenity> {
 		public string Name { get; private set; }
 
 		public Amenity(string name) {

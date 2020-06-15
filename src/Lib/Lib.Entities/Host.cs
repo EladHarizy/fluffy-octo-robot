@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Linq;
 using Lib.DataTypes;
 using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
-	public class Host : Person, IEnumerable<HostingUnit>, ICollection<HostingUnit>, ICloneable<Host> {
-		private List<HostingUnit> units;
+	public class Host : Person, IEnumerable<Unit>, ICollection<Unit>, ICloneable<Host> {
+		private List<Unit> units;
 
 		public BankAccount BankAccount { get; }
 
@@ -30,16 +31,16 @@ namespace Lib.Entities {
 			string first_name,
 			string last_name,
 			string email,
-			HashSet<PhoneNumber> phones,
+			HashSet<Phone> phones,
 			BankBranch bank_branch,
 			int account_number
 		) : this(
 			null, // initialized ID to null
 			first_name,
 			last_name,
-			new EmailAddress(email),
+			new Email(email),
 			phones,
-			new List<HostingUnit>(),
+			new List<Unit>(),
 			new BankAccount(bank_branch, account_number),
 			true // collection clearance default
 		) {}
@@ -48,9 +49,9 @@ namespace Lib.Entities {
 			ID id,
 			string first_name,
 			string last_name,
-			EmailAddress email,
-			HashSet<PhoneNumber> phones,
-			List<HostingUnit> units,
+			Email email,
+			HashSet<Phone> phones,
+			List<Unit> units,
 			BankAccount bank_account,
 			bool collection_clearance
 		) : base(
@@ -82,7 +83,7 @@ namespace Lib.Entities {
 			sb.Append("Hosting Units:");
 			sb.Append('\n');
 			bool first_element = true;
-			foreach (HostingUnit unit in units) {
+			foreach (Unit unit in units) {
 				if (!first_element) {
 					sb.Append("====================\n"); // Same length as "Hosting Unit Details"
 				} else {
@@ -97,9 +98,9 @@ namespace Lib.Entities {
 
 		// Assign an arbitrary hosting unit to the request, and return the unit's ID
 		private string SubmitRequest(GuestRequest guest_request) {
-			IList<HostingUnit> available_units = units.FindAll(unit => unit.Available(guest_request));
+			IList<Unit> available_units = units.FindAll(unit => unit.Available(guest_request));
 			if (available_units.Count != 0) {
-				HostingUnit unit = available_units[random.Next(available_units.Count)];
+				Unit unit = available_units[random.Next(available_units.Count)];
 				unit.ApproveRequest(guest_request);
 				return unit.ID.ToString();
 			}
@@ -108,7 +109,7 @@ namespace Lib.Entities {
 
 		public int AnnualOccupancy() {
 			int sum = 0;
-			foreach (HostingUnit unit in units) {
+			foreach (Unit unit in units) {
 				sum += unit.AnnualOccupancy();
 			}
 			return sum;
@@ -128,15 +129,15 @@ namespace Lib.Entities {
 			return accepted;
 		}
 
-		public HostingUnit this [ID ID] {
+		public Unit this [ID ID] {
 			get {
 				return this [ID.ToString()];
 			}
 		}
 
-		public HostingUnit this [string ID] {
+		public Unit this [string ID] {
 			get {
-				foreach (HostingUnit unit in units) {
+				foreach (Unit unit in units) {
 					if (unit.ID.ToString() == ID) {
 						return unit;
 					}
@@ -145,7 +146,7 @@ namespace Lib.Entities {
 			}
 		}
 
-		public IEnumerator<HostingUnit> GetEnumerator() {
+		public IEnumerator<Unit> GetEnumerator() {
 			return units.GetEnumerator();
 		}
 
@@ -154,7 +155,7 @@ namespace Lib.Entities {
 			return this.GetEnumerator();
 		}
 
-		public void Add(HostingUnit unit) {
+		public void Add(Unit unit) {
 			units.Add(unit);
 		}
 
@@ -162,20 +163,20 @@ namespace Lib.Entities {
 			units.Clear();
 		}
 
-		public bool Contains(HostingUnit unit) {
+		public bool Contains(Unit unit) {
 			return units.Contains(unit);
 		}
 
-		public void CopyTo(HostingUnit[] array, int index) {
+		public void CopyTo(Unit[] array, int index) {
 			units.CopyTo(array, index);
 		}
 
-		public bool Remove(HostingUnit unit) {
+		public bool Remove(Unit unit) {
 			return units.Remove(unit);
 		}
 
 		public Host Clone() {
-			return new Host(ID, FirstName, LastName, Email, (HashSet<PhoneNumber>) phones.Clone(), (List<HostingUnit>) units.Clone(), BankAccount, CollectionClearance);
+			return new Host(ID, FirstName, LastName, Email, (HashSet<Phone>) Phones.Clone(), (List<Unit>) units.Clone(), BankAccount, CollectionClearance);
 		}
 	}
 }

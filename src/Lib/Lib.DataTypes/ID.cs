@@ -1,8 +1,10 @@
+using System;
 using Lib.Exceptions;
 using Lib.Extensions;
+using Lib.Interfaces;
 
 namespace Lib.DataTypes {
-	public class ID {
+	public class ID : IAutoIndexable<ID> {
 		public int Number { get; }
 
 		public int Digits { get; }
@@ -32,6 +34,13 @@ namespace Lib.DataTypes {
 			hashCode = hashCode * -1521134295 + Number.GetHashCode();
 			hashCode = hashCode * -1521134295 + Digits.GetHashCode();
 			return hashCode;
+		}
+
+		public ID Next() {
+			if (Number == Math.Pow(10, Digits) - 1) {
+				throw new IDOverflowException(Number + 1, Digits);
+			}
+			return new ID(Number + 1, Digits);
 		}
 
 		public static implicit operator ID(int n) {

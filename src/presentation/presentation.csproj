@@ -2,9 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\business\business.csproj" />
-    <ProjectReference Include="..\Lib\Lib.Entities\Lib.Entities.csproj" />
-    <ProjectReference Include="..\Lib\Lib.DataTypes\Lib.DataTypes.csproj" />
-    <ProjectReference Include="..\Lib\Lib.Exceptions\Lib.Exceptions.csproj" />
+    <ProjectReference Include="..\Lib\Lib.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

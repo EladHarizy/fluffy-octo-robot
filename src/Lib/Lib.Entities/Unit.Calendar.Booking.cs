@@ -2,7 +2,7 @@ using System;
 using Lib.Exceptions;
 
 namespace Lib.Entities {
-	public partial class HostingUnit {
+	public partial class Unit {
 		private partial class Calendar {
 			private class Booking {
 				//  Duration of visit

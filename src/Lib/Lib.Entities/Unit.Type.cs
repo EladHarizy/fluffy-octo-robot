@@ -1,11 +1,11 @@
 using Lib.Interfaces;
 
 namespace Lib.Entities {
-	public partial class HostingUnit {
-		public class UnitType : IIndexedReadOnly<string> {
+	public partial class Unit {
+		public class Type : IIndexedReadOnly<string> {
 			public string Name { get; }
 
-			public UnitType(string name) {
+			public Type(string name) {
 				Name = name;
 			}
 

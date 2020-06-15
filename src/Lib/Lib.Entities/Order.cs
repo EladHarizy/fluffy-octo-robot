@@ -1,14 +1,15 @@
 using System;
 using System.Text;
+using System.Xml.Linq;
 using Lib.DataTypes;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
-	public partial class Order : ICloneable<Order>, IIndexed {
+	public partial class Order : ICloneable<Order>, IIndexed<ID> {
 		public ID ID { get; set; }
 
-		private HostingUnit hosting_unit;
-		public ID HostingUnitKey {
+		private Unit hosting_unit;
+		public ID UnitKey {
 			get => hosting_unit.ID;
 		}
 
@@ -24,9 +25,9 @@ namespace Lib.Entities {
 		// Email delivery date to customer (We'll have to come up with a more descriptive name for this variable)
 		public Date? OrderDate { get; set; }
 
-		public Order(HostingUnit hosting_unit, GuestRequest guest_request) : this(null, hosting_unit, guest_request, new Status("Not Addressed"), Date.Today, null) {}
+		public Order(Unit hosting_unit, GuestRequest guest_request) : this(null, hosting_unit, guest_request, new Status("Not Addressed"), Date.Today, null) {}
 
-		public Order(ID id, HostingUnit hosting_unit, GuestRequest guest_request, Status status, Date creation_date, Date? order_date) {
+		public Order(ID id, Unit hosting_unit, GuestRequest guest_request, Status status, Date creation_date, Date? order_date) {
 			ID = id;
 			this.hosting_unit = hosting_unit;
 			this.guest_request = guest_request;
@@ -56,7 +57,7 @@ namespace Lib.Entities {
 
 			sb.Append('\t', tabs);
 			sb.Append("Hosting Unit Key:\t");
-			sb.Append(HostingUnitKey);
+			sb.Append(UnitKey);
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);

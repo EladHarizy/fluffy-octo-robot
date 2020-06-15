@@ -6,65 +6,66 @@ using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace data {
-	public class DataAccessorReadOnly<K, T> where T : IIndexedReadOnly<K> {
+	public class DataAccessorReadOnly<TKey, TObj> where TObj : IIndexedReadOnly<TKey> {
 		public virtual string FileName { get; }
 
 		// The parent tag of all the objects in question
 		protected XElement collection_xml;
 
 		// A dictionary that stores a copy of the data in the XML file
-		protected IDictionary<K, T> cache;
+		protected IDictionary<TKey, TObj> cache;
 
-		// Function that takes an XElement representing an object of type T and returns a new object of type T
-		protected readonly Func<XElement, T> xml_to_obj;
+		// Function that takes an XElement representing an object of type TObj and returns a new object of type TObj
+		protected readonly Func<XElement, TObj> xml_to_obj;
 
-		// Function that clones objects of type T. By default it returns a reference to the same object, which is acceptable if T is immutable
-		protected readonly Func<T, T> copy;
+		protected readonly bool cloneable;
 
-		public ICollection<T> All {
+		public ICollection<TObj> All {
 			get {
 				load_cache();
 				return cache.Values.Clone();
 			}
 		}
 
-		public virtual T this [K key] {
+		public virtual TObj this [TKey key] {
 			get => Get(key);
 		}
 
 		public DataAccessorReadOnly(
 			string file_name,
 			string collection_tag_name,
-			Func<XElement, T> xml_to_obj,
-			Func<T, T> copier = null
-		) : this(file_name, xml_to_obj, copier) {
+			Func<XElement, TObj> xml_to_obj
+		) : this(file_name, xml_to_obj) {
 			collection_xml = XElement.Load(file_name).Descendants(collection_tag_name).First();
 		}
 
 		protected DataAccessorReadOnly(
 			string file_name,
-			Func<XElement, T> xml_to_obj,
-			Func<T, T> copier
+			Func<XElement, TObj> xml_to_obj
 		) {
 			FileName = file_name;
 			this.xml_to_obj = xml_to_obj;
-			this.copy = copier ?? (x => x);
+			cloneable = typeof(TObj).GetInterfaces().Any(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(ICloneable<>));
 		}
 
-		// Given a key, returns an object of type T
-		public virtual T Get(K key) {
+		// Given a key, returns an object of type TObj
+		public virtual TObj Get(TKey key) {
 			load_cache();
-			return copy(cache[key]);
+			return clone(cache[key]);
 		}
 
 		// Loads XML into cache, if the cache is null
 		protected virtual void load_cache() {
 			if (cache == null) {
-				cache = new Dictionary<K, T>();
+				cache = new Dictionary<TKey, TObj>();
 				foreach (XElement element in collection_xml.Elements()) {
 					cache.Add(xml_to_obj(element).Key(), xml_to_obj(element));
 				}
 			}
+		}
+
+		protected virtual TObj clone(TObj obj) {
+			return cloneable ? ((ICloneable<TObj>) obj).Clone() : obj;
 		}
 	}
 }
