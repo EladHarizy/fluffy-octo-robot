@@ -1,4 +1,4 @@
-<current_id>00000005</current_id>
+<current_id>00000003</current_id>
 <hosts>
 	<host>
 		<id>00000001</id>
@@ -9,10 +9,6 @@
 			<phone>+972000000015</phone>
 			<phone>+972000000016</phone>
 		</phones>
-		<units>
-			<unit>00000001</unit>
-			<unit>00000002</unit>
-		</units>
 		<bank_account>
 			<bank_id>13</bank_id>
 			<branch_id>143</branch_id>
@@ -28,9 +24,6 @@
 		<phones>
 			<phone>+972000000025</phone>
 		</phones>
-		<units>
-			<unit>00000003</unit>
-		</units>
 		<bank_account>
 			<bank_id>12</bank_id>
 			<branch_id>174</branch_id>
@@ -48,11 +41,6 @@
 			<phone>+972000000036</phone>
 			<phone>+972000000037</phone>
 		</phones>
-		<units>
-			<unit>00000004</unit>
-			<unit>00000005</unit>
-			<unit>00000006</unit>
-		</units>
 		<bank_account>
 			<bank_id>10</bank_id>
 			<branch_id>801</branch_id>

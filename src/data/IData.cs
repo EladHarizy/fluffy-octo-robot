@@ -22,6 +22,6 @@ namespace data {
 
 		DataAccessorReadOnly<string, Order.Status> OrderStatus { get; }
 
-		DataAccessorReadOnly<string, Unit.Type> Type { get; }
+		DataAccessorReadOnly<string, Unit.Type> UnitType { get; }
 	}
 }

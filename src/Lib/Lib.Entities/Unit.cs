@@ -1,38 +1,33 @@
-using System;
 using System.Text;
 using Lib.DataTypes;
 using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
-	public partial class Unit : IComparable<Unit>, ICloneable<Unit>, IIndexed<ID> {
+	public partial class Unit : ICloneable<Unit>, IIndexed<ID> {
 		public ID ID { get; private set; }
 
-		private Calendar calendar;
+		public Calendar Bookings { get; }
 
-		private Host host;
+		public Host Host { get; }
 
 		public string UnitName { get; private set; }
 
-		// Constructor. Does not take an ID. Generates a new ID
 		public Unit(
 			Host host,
-			string hosting_unit_name,
-			Date available_from,
-			Date available_until
+			string hosting_unit_name
 		) : this(
 			null, // initialized ID to null
 			host,
 			hosting_unit_name,
-			new Calendar(available_from, available_until)
+			new Calendar()
 		) {}
 
-		// Constructor. Takes an ID, host, and two dates which indicate the period of time in which the unit is available
-		private Unit(ID id, Host host, string hosting_unit_name, Calendar calendar) {
+		public Unit(ID id, Host host, string hosting_unit_name, Calendar bookings) {
 			ID = id;
-			this.host = host;
+			Host = host;
 			UnitName = hosting_unit_name;
-			this.calendar = calendar;
+			Bookings = bookings;
 		}
 
 		public override string ToString() {
@@ -52,7 +47,7 @@ namespace Lib.Entities {
 
 			sb.Append('\t', tabs);
 			sb.Append("Host Name:\t");
-			sb.Append(host.Name);
+			sb.Append(Host.Name);
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);
@@ -63,45 +58,9 @@ namespace Lib.Entities {
 			sb.Append('\t', tabs);
 			sb.Append("Occupied on:");
 			sb.Append('\n');
-			sb.Append(calendar.Occupancy().Tabulate(tabs + 1));
+			sb.Append(Bookings.Occupancy().Tabulate(tabs + 1));
 
 			return sb.ToString();
-		}
-
-		// Adds the event to the calendar if available, marks request as accepted and returns true
-		// Otherwise does nothing and returns false
-		public bool ApproveRequest(GuestRequest guest_request) {
-			try {
-				calendar.AddToCalendar(guest_request.StartDate, guest_request.EndDate);
-				guest_request.Active = false;
-				return true;
-			} catch (ApplicationException) {
-				return false;
-			}
-		}
-
-		// Returns the average yearly occupancy
-		public int AnnualOccupancy() {
-			return Convert.ToInt32(365.25 * calendar.OccupiedDays() / calendar.Days());
-		}
-
-		public double OccupancyPercentage() {
-			return calendar.OccupiedPercentage();
-		}
-
-		public int CompareTo(Unit h) {
-			double this_percentage = OccupancyPercentage();
-			double that_percentage = h.OccupancyPercentage();
-			return this_percentage.CompareTo(that_percentage);
-		}
-
-		// Returns start date and duration
-		public bool Available(Date start_date, int duration) {
-			return !calendar.Overlaps(start_date, duration);
-		}
-
-		public bool Available(GuestRequest guest_request) {
-			return !calendar.Overlaps(guest_request.StartDate, guest_request.Duration);
 		}
 
 		public ID Key() {
@@ -113,7 +72,7 @@ namespace Lib.Entities {
 		}
 
 		public Unit Clone() {
-			return new Unit(ID, host, UnitName, calendar.Clone());
+			return new Unit(ID, Host, UnitName, Bookings.Clone());
 		}
 	}
 }

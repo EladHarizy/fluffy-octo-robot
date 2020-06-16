@@ -15,8 +15,7 @@ namespace data {
 		// A dictionary that stores a copy of the data in the XML file
 		protected IDictionary<TKey, TObj> cache;
 
-		// Function that takes an XElement representing an object of type TObj and returns a new object of type TObj
-		protected readonly Func<XElement, TObj> xml_to_obj;
+		protected IXmlConverterReadOnly<TObj> ConverterReadOnly { get; }
 
 		protected readonly bool cloneable;
 
@@ -31,20 +30,20 @@ namespace data {
 			get => Get(key);
 		}
 
-		public DataAccessorReadOnly(
+		internal DataAccessorReadOnly(
 			string file_name,
 			string collection_tag_name,
-			Func<XElement, TObj> xml_to_obj
-		) : this(file_name, xml_to_obj) {
+			IXmlConverterReadOnly<TObj> converter
+		) : this(file_name, converter) {
 			collection_xml = XElement.Load(file_name).Descendants(collection_tag_name).First();
 		}
 
 		protected DataAccessorReadOnly(
 			string file_name,
-			Func<XElement, TObj> xml_to_obj
+			IXmlConverterReadOnly<TObj> converter
 		) {
 			FileName = file_name;
-			this.xml_to_obj = xml_to_obj;
+			ConverterReadOnly = converter;
 			cloneable = typeof(TObj).GetInterfaces().Any(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(ICloneable<>));
 		}
 
@@ -59,7 +58,7 @@ namespace data {
 			if (cache == null) {
 				cache = new Dictionary<TKey, TObj>();
 				foreach (XElement element in collection_xml.Elements()) {
-					TObj obj = xml_to_obj(element);
+					TObj obj = ConverterReadOnly.XmlToObj(element);
 					cache.Add(obj.Key(), obj);
 				}
 			}

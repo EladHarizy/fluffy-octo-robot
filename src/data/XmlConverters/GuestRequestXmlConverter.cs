@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using Lib.DataTypes;
 using Lib.Entities;
 
 namespace data {
 	class GuestRequestXmlConverter : IXmlConverter<GuestRequest> {
+		private readonly DataAccessorReadOnly<ID, Guest> guest_accessor = new DataAccessorReadOnly<ID, Guest>("../data_files/guests.xml", "guests", new GuestXmlConverterReadOnly());
+
 		private readonly CollectionXmlConverter<City, HashSet<City>> region_converter = new CollectionXmlConverter<City, HashSet<City>>("region", "city");
 
 		private readonly CollectionXmlConverter<Unit.Type, HashSet<Unit.Type>> unit_types_converter = new CollectionXmlConverter<Unit.Type, HashSet<Unit.Type>>("desired_unit_types", "unit_type");
@@ -15,7 +18,7 @@ namespace data {
 			return new XElement(
 				"guest",
 				new XElement("id", guest_request.ID),
-				new XElement("guest_id", guest_request.GuestID),
+				new XElement("guest", guest_request.Guest.ID),
 				new XElement("creation_date", guest_request.CreationDate.ToString("dd/MM/yyyy")),
 				new XElement("start_date", guest_request.StartDate.ToString("dd/MM/yyyy")),
 				new XElement("end_date", guest_request.EndDate.ToString("dd/MM/yyyy")),
@@ -31,7 +34,7 @@ namespace data {
 		public GuestRequest XmlToObj(XElement element) {
 			return new GuestRequest(
 				element.Element("id").Value,
-				element.Element("guest_id").Value,
+				guest_accessor[element.Element("guest_id").Value],
 				Date.Parse(element.Element("creation_date").Value),
 				Date.Parse(element.Element("start_date").Value),
 				Date.Parse(element.Element("end_date").Value),

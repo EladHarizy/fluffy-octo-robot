@@ -9,12 +9,16 @@ namespace data {
 		// An XElement which represents the root of the XML file
 		private readonly XElement root;
 
-		public DataAccessor(
+		private IXmlConverter<TObj> Converter {
+			get => (IXmlConverter<TObj>) ConverterReadOnly;
+		}
+
+		internal DataAccessor(
 			string file_name,
 			string collection_tag_name,
-			Func<XElement, TObj> xml_to_obj,
+			IXmlConverter<TObj> converter,
 			Func<TObj, TObj> copier = null
-		) : base(file_name, xml_to_obj) {
+		) : base(file_name, converter) {
 			root = XElement.Load(file_name);
 			collection_xml = root.Descendants(collection_tag_name).First();
 		}
@@ -27,7 +31,7 @@ namespace data {
 			if (cache != null) {
 				cache.Add(obj.Key(), clone(obj));
 			}
-			collection_xml.Add(obj.ToXml());
+			collection_xml.Add(Converter.ObjToXml(obj));
 			root.Save(FileName);
 		}
 
@@ -48,13 +52,13 @@ namespace data {
 				cache[key] = clone(obj);
 			}
 			get_xml(key).Remove();
-			collection_xml.Add(obj.ToXml());
+			collection_xml.Add(Converter.ObjToXml(obj));
 			root.Save(FileName);
 		}
 
 		// Returns true if the XElement has the key provided
 		private bool xml_matches_key(XElement element, TKey key) {
-			return xml_to_obj(element).Key().Equals(key);
+			return ConverterReadOnly.XmlToObj(element).Key().Equals(key);
 		}
 
 		// Given a key, returns an XElement representing the object with that key

@@ -3,8 +3,8 @@ using Lib.Exceptions;
 
 namespace Lib.Entities {
 	public partial class Unit {
-		private partial class Calendar {
-			private class Booking {
+		public partial class Calendar {
+			public class Booking {
 				//  Duration of visit
 				public int Duration { get; }
 
