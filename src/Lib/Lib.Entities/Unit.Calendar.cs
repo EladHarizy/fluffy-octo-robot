@@ -33,6 +33,33 @@ namespace Lib.Entities {
 			IEnumerator IEnumerable.GetEnumerator() {
 				return Bookings.GetEnumerator();
 			}
+
+			public override string ToString() {
+				return ToString(0);
+			}
+
+			public string ToString(int tabs) {
+				StringBuilder sb = new StringBuilder();
+
+				Date prev_end_date = Date.MaxValue;
+
+				foreach (Booking booking in Bookings) {
+					if (booking.End > prev_end_date) {
+						sb.Append(prev_end_date.ToString("dd/MM/yyyy"));
+						sb.Append('\n');
+					}
+					sb.Append('\t', tabs);
+					sb.Append(booking.Start.ToString("dd/MM/yyyy"));
+					sb.Append(" - ");
+					prev_end_date = booking.End;
+				}
+
+				if (Bookings.Count > 0) {
+					sb.Append(prev_end_date.ToString("dd/MM/yyyy"));
+				}
+
+				return sb.ToString();
+			}
 		}
 	}
 }

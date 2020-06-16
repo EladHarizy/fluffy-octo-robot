@@ -58,7 +58,7 @@ namespace Lib.Entities {
 			sb.Append('\t', tabs);
 			sb.Append("Occupied on:");
 			sb.Append('\n');
-			sb.Append(Bookings.Occupancy().Tabulate(tabs + 1));
+			sb.Append(Bookings.ToString(tabs + 1));
 
 			return sb.ToString();
 		}
