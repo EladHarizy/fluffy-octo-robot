@@ -5,17 +5,17 @@ using Lib.Entities;
 
 namespace data {
 	class GuestRequestXmlConverter : IXmlConverter<GuestRequest> {
-		private readonly ICollectionXmlConverter<City, HashSet<City>> region_converter = new ICollectionXmlConverter<City, HashSet<City>>("region", "city");
+		private readonly CollectionXmlConverter<City, HashSet<City>> region_converter = new CollectionXmlConverter<City, HashSet<City>>("region", "city");
 
-		private readonly ICollectionXmlConverter<Unit.Type, HashSet<Unit.Type>> unit_types_converter = new ICollectionXmlConverter<Unit.Type, HashSet<Unit.Type>>("desired_unit_types", "unit_type");
+		private readonly CollectionXmlConverter<Unit.Type, HashSet<Unit.Type>> unit_types_converter = new CollectionXmlConverter<Unit.Type, HashSet<Unit.Type>>("desired_unit_types", "unit_type");
 
-		private readonly ICollectionXmlConverter<Amenity, HashSet<Amenity>> amenities_converter = new ICollectionXmlConverter<Amenity, HashSet<Amenity>>("desired_amenities", "amenity");
+		private readonly CollectionXmlConverter<Amenity, HashSet<Amenity>> amenities_converter = new CollectionXmlConverter<Amenity, HashSet<Amenity>>("desired_amenities", "amenity");
 
 		public XElement ObjToXml(GuestRequest guest_request) {
 			return new XElement(
 				"guest",
 				new XElement("id", guest_request.ID),
-				new XElement("guest", guest_request.Guest.ID),
+				new XElement("guest_id", guest_request.GuestID),
 				new XElement("creation_date", guest_request.CreationDate.ToString("dd/MM/yyyy")),
 				new XElement("start_date", guest_request.StartDate.ToString("dd/MM/yyyy")),
 				new XElement("end_date", guest_request.EndDate.ToString("dd/MM/yyyy")),
@@ -31,7 +31,7 @@ namespace data {
 		public GuestRequest XmlToObj(XElement element) {
 			return new GuestRequest(
 				element.Element("id").Value,
-				DataFactory.Data.Guest[element.Element("guest").Value],
+				element.Element("guest_id").Value,
 				Date.Parse(element.Element("creation_date").Value),
 				Date.Parse(element.Element("start_date").Value),
 				Date.Parse(element.Element("end_date").Value),

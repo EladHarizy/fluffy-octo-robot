@@ -11,7 +11,7 @@ namespace Lib.Entities {
 	public class GuestRequest : ICloneable<GuestRequest>, IIndexed<ID> {
 		public ID ID { get; set; }
 
-		public Guest Guest { get; }
+		public ID GuestID { get; }
 
 		// Date that the request was created
 		public Date CreationDate { get; }
@@ -73,7 +73,7 @@ namespace Lib.Entities {
 
 		// Constructor with only some values for creating a new guest request
 		public GuestRequest(
-			Guest guest,
+			ID guest_id,
 			Date start_date,
 			Date end_date,
 			int adults,
@@ -83,7 +83,7 @@ namespace Lib.Entities {
 			ICollection<Amenity> desired_amenities
 		) : this(
 			null, // initialized ID to null
-			guest,
+			guest_id,
 			Date.Today,
 			start_date,
 			end_date,
@@ -98,7 +98,7 @@ namespace Lib.Entities {
 		// Constructor with all the values for restoring an old guest request from storage
 		public GuestRequest(
 			ID id,
-			Guest guest,
+			ID guest_id,
 			Date creation_date,
 			Date start_date,
 			Date end_date,
@@ -110,7 +110,7 @@ namespace Lib.Entities {
 			ICollection<Amenity> desired_amenities
 		) {
 			ID = id;
-			Guest = guest;
+			GuestID = guest_id;
 			CreationDate = creation_date;
 			StartDate = start_date;
 			EndDate = end_date;
@@ -124,7 +124,7 @@ namespace Lib.Entities {
 
 		// Same as the partial constructor, but takes an int as the number of days instead of an end date
 		public GuestRequest(
-			Guest guest,
+			ID guest_id,
 			Date start_date,
 			int duration,
 			int adults,
@@ -133,7 +133,7 @@ namespace Lib.Entities {
 			HashSet<Unit.Type> desired_unit_types,
 			HashSet<Amenity> desired_amenities
 		) : this(
-			guest,
+			guest_id,
 			start_date,
 			start_date.AddDays(duration),
 			adults, children,
@@ -163,7 +163,8 @@ namespace Lib.Entities {
 
 			sb.Append('\t', tabs);
 			sb.Append("Guest:\t\t\n");
-			sb.Append(Guest.ToString(tabs + 1));
+			sb.Append(GuestID);
+			sb.Append('\n');
 
 			sb.Append('\t', tabs);
 			sb.Append("Created on:\t\t");
@@ -222,7 +223,7 @@ namespace Lib.Entities {
 		}
 
 		public GuestRequest Clone() {
-			return new GuestRequest(ID, Guest.Clone(), CreationDate, StartDate, EndDate, Active, Adults, Children, (HashSet<City>) Region.Clone(), (HashSet<Unit.Type>) DesiredUnitTypes.Clone(), (HashSet<Amenity>) DesiredAmenities.Clone());
+			return new GuestRequest(ID, GuestID, CreationDate, StartDate, EndDate, Active, Adults, Children, (HashSet<City>) Region.Clone(), (HashSet<Unit.Type>) DesiredUnitTypes.Clone(), (HashSet<Amenity>) DesiredAmenities.Clone());
 		}
 	}
 }

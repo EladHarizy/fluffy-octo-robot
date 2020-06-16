@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 
 namespace data {
-	class ICollectionXmlConverter<T, TCollection> : IXmlConverter<ICollection<T>> where TCollection : ICollection<T>, new() {
+	class CollectionXmlConverter<T, TCollection> : IXmlConverter<ICollection<T>> where TCollection : ICollection<T>, new() {
 		public string CollectionTag { get; }
 
 		IXmlConverter<T> SubConverter { get; }
 
-		public ICollectionXmlConverter(string collection_tag, string element_tag) {
+		public CollectionXmlConverter(string collection_tag, string element_tag) {
 			CollectionTag = collection_tag;
 			SubConverter = new XmlConverter<T>(
 				x => new XElement(element_tag, x.ToString()),
@@ -16,7 +16,7 @@ namespace data {
 			);
 		}
 
-		public ICollectionXmlConverter(string collection_tag, IXmlConverter<T> sub_converter) {
+		public CollectionXmlConverter(string collection_tag, IXmlConverter<T> sub_converter) {
 			CollectionTag = collection_tag;
 			SubConverter = sub_converter;
 		}
@@ -30,7 +30,11 @@ namespace data {
 		}
 
 		public ICollection<T> XmlToObj(XElement element) {
-			ICollection<T> collection = new TCollection();
+			return XmlToConcreteObj(element);
+		}
+
+		public TCollection XmlToConcreteObj(XElement element) {
+			TCollection collection = new TCollection();
 			foreach (XElement element_xml in element.Elements()) {
 				collection.Add(SubConverter.XmlToObj(element_xml));
 			}

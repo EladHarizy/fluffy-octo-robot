@@ -1,4 +1,3 @@
-using System.Net;
 using System.Xml.Linq;
 using Lib.DataTypes;
 using Lib.Entities;

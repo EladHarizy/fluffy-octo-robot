@@ -59,7 +59,8 @@ namespace data {
 			if (cache == null) {
 				cache = new Dictionary<TKey, TObj>();
 				foreach (XElement element in collection_xml.Elements()) {
-					cache.Add(xml_to_obj(element).Key(), xml_to_obj(element));
+					TObj obj = xml_to_obj(element);
+					cache.Add(obj.Key(), obj);
 				}
 			}
 		}

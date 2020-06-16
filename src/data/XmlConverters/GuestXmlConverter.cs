@@ -6,7 +6,7 @@ using Lib.Entities;
 
 namespace data {
 	class GuestXmlConverter : IXmlConverter<Guest> {
-		private readonly ICollectionXmlConverter<Phone, HashSet<Phone>> phones_converter = new ICollectionXmlConverter<Phone, HashSet<Phone>>("phones", "phone");
+		private readonly CollectionXmlConverter<Phone, HashSet<Phone>> phones_converter = new CollectionXmlConverter<Phone, HashSet<Phone>>("phones", "phone");
 
 		public XElement ObjToXml(Guest guest) {
 			XElement phones_xml = phones_converter.ObjToXml(guest.Phones);
