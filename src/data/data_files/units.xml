@@ -1,0 +1,41 @@
+<current_id>00000002</current_id>
+<units>
+	<unit>
+		<id>00000001</id>
+		<calendar>
+			<booking>
+				<start>25/06/2021</start>
+				<duration>7</duration>
+			</booking>
+			<booking>
+				<start>13/09/2021</start>
+				<duration>8</duration>
+			</booking>
+			<booking>
+				<start>16/01/2022</start>
+				<duration>2</duration>
+			</booking>
+		</calendar>
+		<host_id>00000001</host_id>
+		<name>Alex&apos;s House</name>
+	</unit>
+	<unit>
+		<id>00000002</id>
+		<calendar>
+			<booking>
+				<start>28/02/2021</start>
+				<duration>15</duration>
+			</booking>
+			<booking>
+				<start>19/04/2021</start>
+				<duration>6</duration>
+			</booking>
+			<booking>
+				<start>24/04/2021</start>
+				<duration>10</duration>
+			</booking>
+		</calendar>
+		<host_id>00000002</host_id>
+		<name>Bob&apos;s Villa</name>
+	</unit>
+</units>

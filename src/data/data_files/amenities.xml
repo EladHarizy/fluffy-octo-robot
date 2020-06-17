@@ -1,0 +1,68 @@
+<amenities>
+	<amenity>
+		<name>Kitchen</name>
+	</amenity>
+	<amenity>
+		<name>Shampoo</name>
+	</amenity>
+	<amenity>
+		<name>Heating</name>
+	</amenity>
+	<amenity>
+		<name>Air conditioning</name>
+	</amenity>
+	<amenity>
+		<name>Washer</name>
+	</amenity>
+	<amenity>
+		<name>Dryer</name>
+	</amenity>
+	<amenity>
+		<name>Wi-Fi</name>
+	</amenity>
+	<amenity>
+		<name>Breakfast</name>
+	</amenity>
+	<amenity>
+		<name>Indoor fireplace</name>
+	</amenity>
+	<amenity>
+		<name>Hangers</name>
+	</amenity>
+	<amenity>
+		<name>Iron</name>
+	</amenity>
+	<amenity>
+		<name>Hair dryer</name>
+	</amenity>
+	<amenity>
+		<name>Laptop-friendly workspace</name>
+	</amenity>
+	<amenity>
+		<name>TV</name>
+	</amenity>
+	<amenity>
+		<name>Crib</name>
+	</amenity>
+	<amenity>
+		<name>High chair</name>
+	</amenity>
+	<amenity>
+		<name>Self check-in</name>
+	</amenity>
+	<amenity>
+		<name>Smoke alarm</name>
+	</amenity>
+	<amenity>
+		<name>Carbon monoxide alarm</name>
+	</amenity>
+	<amenity>
+		<name>Private bathroom</name>
+	</amenity>
+	<amenity>
+		<name>Swimming pool</name>
+	</amenity>
+	<amenity>
+		<name>Jacuzzi</name>
+	</amenity>
+</amenities>

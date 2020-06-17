@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using exceptions;
+using Lib.Exceptions;
 
 namespace lib {
 	partial class Menu {
