@@ -1,0 +1,14 @@
+<order_statuses>
+	<status>
+		<name>Not addressed</name>
+	</status>
+	<status>
+		<name>Sent email</name>
+	</status>
+	<status>
+		<name>Closed due to customer unresponsiveness</name>
+	</status>
+	<status>
+		<name>Closed due to customer response</name>
+	</status>
+</order_statuses>

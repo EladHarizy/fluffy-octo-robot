@@ -1,0 +1,35 @@
+<unit_types>
+	<type>
+		<name>Apartment</name>
+	</type>
+	<type>
+		<name>Bungalow</name>
+	</type>
+	<type>
+		<name>Cabin</name>
+	</type>
+	<type>
+		<name>Camping</name>
+	</type>
+	<type>
+		<name>Chalet</name>
+	</type>
+	<type>
+		<name>Cottage</name>
+	</type>
+	<type>
+		<name>Hotel</name>
+	</type>
+	<type>
+		<name>House</name>
+	</type>
+	<type>
+		<name>Room</name>
+	</type>
+	<type>
+		<name>Tree House</name>
+	</type>
+	<type>
+		<name>Villa</name>
+	</type>
+</unit_types>
