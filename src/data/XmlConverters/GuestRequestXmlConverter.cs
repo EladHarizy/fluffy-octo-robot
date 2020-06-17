@@ -5,15 +5,7 @@ using Lib.DataTypes;
 using Lib.Entities;
 
 namespace data {
-	class GuestRequestXmlConverter : IXmlConverter<GuestRequest> {
-		private readonly DataAccessorReadOnly<ID, Guest> guest_accessor = new DataAccessorReadOnly<ID, Guest>("../data_files/guests.xml", "guests", new GuestXmlConverterReadOnly());
-
-		private readonly CollectionXmlConverter<City, HashSet<City>> region_converter = new CollectionXmlConverter<City, HashSet<City>>("region", "city");
-
-		private readonly CollectionXmlConverter<Unit.Type, HashSet<Unit.Type>> unit_types_converter = new CollectionXmlConverter<Unit.Type, HashSet<Unit.Type>>("desired_unit_types", "unit_type");
-
-		private readonly CollectionXmlConverter<Amenity, HashSet<Amenity>> amenities_converter = new CollectionXmlConverter<Amenity, HashSet<Amenity>>("desired_amenities", "amenity");
-
+	class GuestRequestXmlConverter : GuestRequestXmlConverterReadOnly, IXmlConverter<GuestRequest> {
 		public XElement ObjToXml(GuestRequest guest_request) {
 			return new XElement(
 				"guest",
@@ -28,22 +20,6 @@ namespace data {
 				region_converter.ObjToXml(guest_request.Region),
 				unit_types_converter.ObjToXml(guest_request.DesiredUnitTypes),
 				amenities_converter.ObjToXml(guest_request.DesiredAmenities)
-			);
-		}
-
-		public GuestRequest XmlToObj(XElement element) {
-			return new GuestRequest(
-				element.Element("id").Value,
-				guest_accessor[element.Element("guest_id").Value],
-				Date.Parse(element.Element("creation_date").Value),
-				Date.Parse(element.Element("start_date").Value),
-				Date.Parse(element.Element("end_date").Value),
-				bool.Parse(element.Element("active").Value),
-				int.Parse(element.Element("adults").Value),
-				int.Parse(element.Element("children").Value),
-				region_converter.XmlToObj(element.Element("region")),
-				unit_types_converter.XmlToObj(element.Element("desired_unit_types")),
-				amenities_converter.XmlToObj(element.Element("desired_amenities"))
 			);
 		}
 	}

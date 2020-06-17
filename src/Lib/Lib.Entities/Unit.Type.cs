@@ -16,6 +16,14 @@ namespace Lib.Entities {
 			public string Key() {
 				return Name;
 			}
+
+			public static implicit operator Type(string name) {
+				return new Type(name);
+			}
+
+			public static implicit operator string(Type type) {
+				return type.Name;
+			}
 		}
 	}
 }
