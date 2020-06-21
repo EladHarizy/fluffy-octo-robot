@@ -56,28 +56,34 @@ namespace business {
 			return data.BankBranch.All;
 		}
 
-		public IEnumerable<GuestRequest> FilterCustomerRequirements(Predicate<GuestRequest> condition) {
-			throw new NotImplementedException();
+		public IEnumerable<GuestRequest> FilterGuestRequests(Func<GuestRequest, bool> condition) {
+			return data.GuestRequest.All.Where(condition);
 		}
 
 		public IEnumerable<Unit> AvailableUnits(Date date, int duration) {
-			throw new NotImplementedException();
+			return data.Unit.All.Where(unit => unit.Available(date, duration));
 		}
 
+		//returns number of days from the first date to the second date
 		public int NumberOfDays(Date date1, Date date2) {
-			throw new NotImplementedException();
+			return (date2 - date1).Days;
 		}
 
-		public IEnumerable<Order> OrdersOlderThan(int number_of_dates) {
-			throw new NotImplementedException();
+		//returns number of days from first day to current day (if first is in furture then it would be a negative number)
+		public int NumberOfDays(Date date1) {
+			return NumberOfDays(date1, Date.Today);
+		}
+
+		public IEnumerable<Order> OrdersOlderThan(int days) {
+			return data.Order.All.Where(order => NumberOfDays(order.CreationDate) > days);
 		}
 
 		public int OrdersCount(GuestRequest guest_request) {
-			throw new System.NotImplementedException();
+			return data.Order.All.Where(order => order.GuestRequest.ID == guest_request.ID).Count();
 		}
 
 		public int OrdersCount(Unit unit) {
-			throw new System.NotImplementedException();
+			return data.Order.All.Where(order => order.Unit.ID == unit.ID).Count();
 		}
 
 		public int UnitCount(Host host) {

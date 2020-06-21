@@ -33,9 +33,11 @@ namespace business {
 
 		int NumberOfDays(Date date1, Date date2);
 
-		IEnumerable<Order> OrdersOlderThan(int number_of_dates);
+		int NumberOfDays(Date date1);
 
-		IEnumerable<GuestRequest> FilterCustomerRequirements(Predicate<GuestRequest> condition);
+		IEnumerable<Order> OrdersOlderThan(int days);
+
+		IEnumerable<GuestRequest> FilterGuestRequests(Func<GuestRequest, bool> condition);
 
 		int OrdersCount(GuestRequest guest_request);
 
