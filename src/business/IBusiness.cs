@@ -21,7 +21,7 @@ namespace business {
 
 		IEnumerable<Unit> Units();
 
-		IEnumerable<Unit> Units(Host host);
+		IEnumerable<Unit> UnitsOf(Host host);
 
 		IEnumerable<GuestRequest> GuestRequests();
 
@@ -44,7 +44,7 @@ namespace business {
 		int UnitCount(Host host);
 
 		// Groupings
-		IEnumerable<IGrouping<City, GuestRequest>> GuestRequestsByCity();
+		IDictionary<City, IEnumerable<GuestRequest>> GuestRequestsByCity();
 
 		IEnumerable<IGrouping<int, GuestRequest>> GuestRequestsByGuestCount();
 
