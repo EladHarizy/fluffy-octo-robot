@@ -8,7 +8,7 @@ namespace business {
 			throw new NotImplementedException();
 		}
 
-		public ICollection<Order> AllOrders(params Date[] dates) {
+		public ICollection<Order> AllOrders(int number_of_dates) {
 			throw new NotImplementedException();
 		}
 

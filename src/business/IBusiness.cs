@@ -8,7 +8,7 @@ namespace business {
 
 		int NumberOfDays(Date date1, Date date2);
 
-		ICollection<Order> AllOrders(params Date[] dates);
+		ICollection<Order> AllOrders(int number_of_dates);
 
 		ICollection<GuestRequest> AllCustomerRequirements(Predicate<GuestRequest> condition);
 	}
