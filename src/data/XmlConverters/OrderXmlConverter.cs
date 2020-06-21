@@ -5,9 +5,9 @@ using Lib.Entities;
 
 namespace data {
 	internal class OrderXmlConverter : IXmlConverter<Order> {
-		private DataAccessorReadOnly<ID, Unit> units = new DataAccessorReadOnly<ID, Unit>("../data_files/units.xml", "units", new UnitXmlConverterReadOnly());
+		private DataAccessorReadOnly<ID, Unit> units = DataFactory.Data.Unit;
 
-		private DataAccessorReadOnly<ID, GuestRequest> guest_requests = new DataAccessorReadOnly<ID, GuestRequest>("../data_files/guest_requests.xml", "guest_requests", new GuestRequestXmlConverterReadOnly());
+		private DataAccessorReadOnly<ID, GuestRequest> guest_requests = DataFactory.Data.GuestRequest;
 
 		public XElement ObjToXml(Order obj) {
 			throw new System.NotImplementedException();
