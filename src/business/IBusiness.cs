@@ -26,12 +26,12 @@ namespace business {
 		ICollection<Order> Orders();
 
 		ICollection<BankBranch> BankBranches();
-    
+
 		ICollection<Unit> AvailableUnits(Date date, int duration);
 
 		int NumberOfDays(Date date1, Date date2);
 
-		ICollection<Order> AllOrders(int number_of_dates);
+		ICollection<Order> OrdersOlderThan(int number_of_dates);
 
 		ICollection<GuestRequest> AllCustomerRequirements(Predicate<GuestRequest> condition);
 
