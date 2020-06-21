@@ -26,6 +26,10 @@ namespace business {
 
 		ICollection<BankBranch> BankBranches();
 
+		int OrdersCount(GuestRequest guest_request);
+
+		int OrdersCount(Unit unit);
+
 		// Groupings
 		IEnumerable<IGrouping<City, GuestRequest>> GuestRequestsByCity();
 
