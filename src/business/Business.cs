@@ -48,7 +48,7 @@ namespace business {
 		public ICollection<BankBranch> BankBranches() {
 			throw new System.NotImplementedException();
 		}
-    
+
 		public ICollection<GuestRequest> AllCustomerRequirements(Predicate<GuestRequest> condition) {
 			throw new NotImplementedException();
 		}
