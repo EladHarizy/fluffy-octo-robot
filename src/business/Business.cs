@@ -9,31 +9,31 @@ namespace business {
 		private IData data = DataFactory.New();
 
 		public void AddGuestRequest(GuestRequest guest_request) {
-			throw new System.NotImplementedException();
+			data.GuestRequest.Add(guest_request);
 		}
 
 		public void UpdateGuestRequest(GuestRequest guest_request) {
-			throw new System.NotImplementedException();
+			data.GuestRequest.Update(guest_request);
 		}
 
 		public void AddUnit(Unit unit) {
-			throw new System.NotImplementedException();
+			data.Unit.Add(unit);
 		}
 
 		public void DeleteUnit(Unit unit) {
-			throw new System.NotImplementedException();
+			data.Unit.Remove(unit.ID);
 		}
 
 		public void UpdateUnit(Unit unit) {
-			throw new System.NotImplementedException();
+			data.Unit.Update(unit);
 		}
 
 		public void AddOrder(Order order) {
-			throw new System.NotImplementedException();
+			data.Order.Add(order);
 		}
 
 		public void UpdateOrder(Order order) {
-			throw new System.NotImplementedException();
+			data.Order.Update(order);
 		}
 
 		public IEnumerable<Unit> Units() {
