@@ -13,31 +13,35 @@ namespace business {
 
 		void DeleteUnit(Unit unit);
 
-		void UpdateUnit(Unit unit1);
+		void UpdateUnit(Unit unit);
 
 		void AddOrder(Order order);
 
 		void UpdateOrder(Order order);
 
-		ICollection<Unit> Units();
+		IEnumerable<Unit> Units();
 
-		ICollection<GuestRequest> GuestRequests();
+		IEnumerable<Unit> Units(Host host);
 
-		ICollection<Order> Orders();
+		IEnumerable<GuestRequest> GuestRequests();
 
-		ICollection<BankBranch> BankBranches();
+		IEnumerable<Order> Orders();
 
-		ICollection<Unit> AvailableUnits(Date date, int duration);
+		IEnumerable<BankBranch> BankBranches();
+
+		IEnumerable<Unit> AvailableUnits(Date date, int duration);
 
 		int NumberOfDays(Date date1, Date date2);
 
-		ICollection<Order> OrdersOlderThan(int number_of_dates);
+		IEnumerable<Order> OrdersOlderThan(int number_of_dates);
 
-		ICollection<GuestRequest> AllCustomerRequirements(Predicate<GuestRequest> condition);
+		IEnumerable<GuestRequest> FilterCustomerRequirements(Predicate<GuestRequest> condition);
 
 		int OrdersCount(GuestRequest guest_request);
 
 		int OrdersCount(Unit unit);
+
+		int UnitCount(Host host);
 
 		// Groupings
 		IEnumerable<IGrouping<City, GuestRequest>> GuestRequestsByCity();
