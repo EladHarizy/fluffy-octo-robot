@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using data;
 using Lib.Entities;
 
 namespace business {
 	public class Business : IBusiness {
+		private IData data = DataFactory.New();
+
 		public void AddGuestRequest(GuestRequest guest_request) {
 			throw new System.NotImplementedException();
 		}
@@ -34,21 +37,21 @@ namespace business {
 		}
 
 		public ICollection<Unit> Units() {
-			throw new System.NotImplementedException();
+			return data.Unit.All;
 		}
 
 		public ICollection<GuestRequest> GuestRequests() {
-			throw new System.NotImplementedException();
+			return data.GuestRequest.All;
 		}
 
 		public ICollection<Order> Orders() {
-			throw new System.NotImplementedException();
+			return data.Order.All;
 		}
 
 		public ICollection<BankBranch> BankBranches() {
-			throw new System.NotImplementedException();
+			return data.BankBranch.All;
 		}
-    
+
 		public ICollection<GuestRequest> AllCustomerRequirements(Predicate<GuestRequest> condition) {
 			throw new NotImplementedException();
 		}
