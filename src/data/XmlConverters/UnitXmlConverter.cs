@@ -22,6 +22,7 @@ namespace data {
 				element.Element("id").Value,
 				hosts[element.Element("host_id").Value],
 				element.Element("name").Value,
+				element.Element("city").Value,
 				calendar
 			);
 		}

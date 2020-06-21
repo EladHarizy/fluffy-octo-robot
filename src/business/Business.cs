@@ -1,10 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using business.Extensions;
+using data;
 using Lib.Entities;
 
 namespace business {
 	public class Business : IBusiness {
+		private IData data = DataFactory.New();
+
 		public void AddGuestRequest(GuestRequest guest_request) {
 			throw new System.NotImplementedException();
 		}
@@ -21,7 +25,7 @@ namespace business {
 			throw new System.NotImplementedException();
 		}
 
-		public void UpdateUnit(Unit unit1) {
+		public void UpdateUnit(Unit unit) {
 			throw new System.NotImplementedException();
 		}
 
@@ -33,27 +37,31 @@ namespace business {
 			throw new System.NotImplementedException();
 		}
 
-		public ICollection<Unit> Units() {
-			throw new System.NotImplementedException();
+		public IEnumerable<Unit> Units() {
+			return data.Unit.All;
 		}
 
-		public ICollection<GuestRequest> GuestRequests() {
-			throw new System.NotImplementedException();
+		public IEnumerable<Unit> UnitsOf(Host host) {
+			return data.Unit.All.Where(unit => unit.Host.ID == host.ID);
 		}
 
-		public ICollection<Order> Orders() {
-			throw new System.NotImplementedException();
+		public IEnumerable<GuestRequest> GuestRequests() {
+			return data.GuestRequest.All;
 		}
 
-		public ICollection<BankBranch> BankBranches() {
-			throw new System.NotImplementedException();
+		public IEnumerable<Order> Orders() {
+			return data.Order.All;
 		}
 
-		public ICollection<GuestRequest> AllCustomerRequirements(Predicate<GuestRequest> condition) {
+		public IEnumerable<BankBranch> BankBranches() {
+			return data.BankBranch.All;
+		}
+
+		public IEnumerable<GuestRequest> FilterCustomerRequirements(Predicate<GuestRequest> condition) {
 			throw new NotImplementedException();
 		}
 
-		public ICollection<Unit> AvailableUnits(Date date, int duration) {
+		public IEnumerable<Unit> AvailableUnits(Date date, int duration) {
 			throw new NotImplementedException();
 		}
 
@@ -61,7 +69,7 @@ namespace business {
 			throw new NotImplementedException();
 		}
 
-		public ICollection<Order> OrdersOlderThan(int number_of_dates) {
+		public IEnumerable<Order> OrdersOlderThan(int number_of_dates) {
 			throw new NotImplementedException();
 		}
 
@@ -73,20 +81,28 @@ namespace business {
 			throw new System.NotImplementedException();
 		}
 
-		public IEnumerable<IGrouping<City, GuestRequest>> GuestRequestsByCity() {
-			throw new System.NotImplementedException();
+		public int UnitCount(Host host) {
+			return UnitsOf(host).Count();
+		}
+
+		public IDictionary<City, IEnumerable<GuestRequest>> GuestRequestsByCity() {
+			IDictionary<City, IEnumerable<GuestRequest>> dict = new Dictionary<City, IEnumerable<GuestRequest>>();
+			foreach (City city in data.City.All) {
+				dict[city] = data.GuestRequest.All.Where(guest_request => guest_request.Region.Contains(city));
+			}
+			return dict;
 		}
 
 		public IEnumerable<IGrouping<int, GuestRequest>> GuestRequestsByGuestCount() {
-			throw new System.NotImplementedException();
+			return data.GuestRequest.All.GroupBy(guest_request => guest_request.GuestCount());
 		}
 
 		public IEnumerable<IGrouping<int, Host>> HostsByUnitCount() {
-			throw new System.NotImplementedException();
+			return data.Host.All.GroupBy(host => UnitCount(host));
 		}
 
 		public IEnumerable<IGrouping<City, Unit>> UnitsByCity() {
-			throw new System.NotImplementedException();
+			return data.Unit.All.GroupBy(unit => unit.City);
 		}
 	}
 }

@@ -13,17 +13,21 @@ namespace Lib.Entities {
 
 		public string UnitName { get; private set; }
 
+		public City City { get; }
+
 		public Unit(
 			Host host,
-			string hosting_unit_name
+			string hosting_unit_name,
+			City city
 		) : this(
 			null, // initialized ID to null
 			host,
 			hosting_unit_name,
+			city,
 			new Calendar()
 		) {}
 
-		public Unit(ID id, Host host, string hosting_unit_name, Calendar bookings) {
+		public Unit(ID id, Host host, string hosting_unit_name, City city, Calendar bookings) {
 			ID = id;
 			Host = host;
 			UnitName = hosting_unit_name;
@@ -72,7 +76,7 @@ namespace Lib.Entities {
 		}
 
 		public Unit Clone() {
-			return new Unit(ID, Host, UnitName, Bookings.Clone());
+			return new Unit(ID, Host, UnitName, City, Bookings.Clone());
 		}
 	}
 }
