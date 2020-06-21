@@ -1,5 +1,9 @@
 namespace data {
 	public static class DataFactory {
-		public static IData Data = new Data();
+		internal static IData Data = new Data();
+
+		public static IData New() {
+			return new Data();
+		}
 	}
 }
