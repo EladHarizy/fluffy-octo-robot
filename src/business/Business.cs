@@ -44,6 +44,14 @@ namespace business {
 			throw new System.NotImplementedException();
 		}
 
+		public int OrdersCount(GuestRequest guest_request) {
+			throw new System.NotImplementedException();
+		}
+
+		public int OrdersCount(Unit unit) {
+			throw new System.NotImplementedException();
+		}
+
 		public ICollection<Unit> Units() {
 			throw new System.NotImplementedException();
 		}
