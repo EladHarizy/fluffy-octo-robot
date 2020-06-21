@@ -24,7 +24,7 @@ namespace business {
 			throw new System.NotImplementedException();
 		}
 
-		public void UpdateUnit(Unit unit1) {
+		public void UpdateUnit(Unit unit) {
 			throw new System.NotImplementedException();
 		}
 
@@ -36,27 +36,31 @@ namespace business {
 			throw new System.NotImplementedException();
 		}
 
-		public ICollection<Unit> Units() {
+		public IEnumerable<Unit> Units() {
 			return data.Unit.All;
 		}
 
-		public ICollection<GuestRequest> GuestRequests() {
+		public IEnumerable<Unit> Units(Host host) {
+			return data.Unit.All.Where(unit => unit.Host.ID == host.ID);
+		}
+
+		public IEnumerable<GuestRequest> GuestRequests() {
 			return data.GuestRequest.All;
 		}
 
-		public ICollection<Order> Orders() {
+		public IEnumerable<Order> Orders() {
 			return data.Order.All;
 		}
 
-		public ICollection<BankBranch> BankBranches() {
+		public IEnumerable<BankBranch> BankBranches() {
 			return data.BankBranch.All;
 		}
 
-		public ICollection<GuestRequest> AllCustomerRequirements(Predicate<GuestRequest> condition) {
+		public IEnumerable<GuestRequest> FilterCustomerRequirements(Predicate<GuestRequest> condition) {
 			throw new NotImplementedException();
 		}
 
-		public ICollection<Unit> AvailableUnits(Date date, int duration) {
+		public IEnumerable<Unit> AvailableUnits(Date date, int duration) {
 			throw new NotImplementedException();
 		}
 
@@ -64,7 +68,7 @@ namespace business {
 			throw new NotImplementedException();
 		}
 
-		public ICollection<Order> OrdersOlderThan(int number_of_dates) {
+		public IEnumerable<Order> OrdersOlderThan(int number_of_dates) {
 			throw new NotImplementedException();
 		}
 
@@ -76,6 +80,10 @@ namespace business {
 			throw new System.NotImplementedException();
 		}
 
+		public int UnitCount(Host host) {
+			return Units(host).Count();
+		}
+
 		public IEnumerable<IGrouping<City, GuestRequest>> GuestRequestsByCity() {
 			throw new System.NotImplementedException();
 		}
@@ -85,11 +93,11 @@ namespace business {
 		}
 
 		public IEnumerable<IGrouping<int, Host>> HostsByUnitCount() {
-			throw new System.NotImplementedException();
+			return data.Unit.All.GroupBy(unit => UnitCount(host));
 		}
 
 		public IEnumerable<IGrouping<City, Unit>> UnitsByCity() {
-			throw new System.NotImplementedException();
+			return data.Unit.All.GroupBy(unit => unit.City);
 		}
 	}
 }
