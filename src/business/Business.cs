@@ -51,9 +51,18 @@ namespace business {
 			if (order.OrderStatus != "Not addressed" && !order.Unit.Host.DebitAuthorisation) {
 				throw new NoDebitAuthorisationException("Error: Cannot change the order status to anything other than 'Not addressed' because the host does not have debit authorisation.");
 			}
-			if (order.OrderStatus == "Closed due to customer unresponsiveness" || order.OrderStatus == "Closed due to customer response") {
+			if (order.OrderStatus == "Closed due to customer unresponsiveness") {
 				throw new OrderClosedException(order);
 			}
+			if (order.OrderStatus == "Closed due to customer response") {
+				foreach (Order order1 in data.Order.All) {
+					if (order.Unit.ID == order1.Unit.ID && order.ID != order1.ID) {
+						UpdateOrder(order1.ID, "Closed due to customer unresponsiveness");
+					}
+				}
+				throw new OrderClosedException(order);
+			}
+
 			order.OrderStatus = status;
 			data.Order.Update(order);
 			if (status == "Sent Mail") {
