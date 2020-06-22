@@ -24,8 +24,10 @@ namespace business {
 		}
 
 		public void DeleteUnit(Unit unit) {
-			if (data.Order.All.Where(order => order.OrderStatus == "Sent Mail" && order.Unit.ID == unit.ID).Count() != 0) {
-				throw new DeletingUnitWithOpenOrderException("Error: Cannot remove a unit which has an open order.");
+			foreach (Order order in data.Order.All) {
+				if (order.OrderStatus == "Sent Mail" && order.Unit.ID == unit.ID) {
+					throw new DeletingUnitWithOpenOrderException(unit, order);
+				}
 			}
 			data.Unit.Remove(unit.ID);
 		}
