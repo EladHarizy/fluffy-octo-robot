@@ -1,4 +1,3 @@
-<current_id>00000002</current_id>
 <units>
 	<unit>
 		<id>00000001</id>
@@ -18,6 +17,7 @@
 		</calendar>
 		<host_id>00000001</host_id>
 		<name>Alex&apos;s House</name>
+		<city>Jerusalem</city>
 	</unit>
 	<unit>
 		<id>00000002</id>
@@ -37,5 +37,6 @@
 		</calendar>
 		<host_id>00000002</host_id>
 		<name>Bob&apos;s Villa</name>
+		<city>Tel Aviv-Yafo</city>
 	</unit>
 </units>

@@ -24,13 +24,6 @@ namespace Lib.Entities {
 					Start = start;
 					Duration = duration;
 				}
-
-				// Function that given two bookings will return true if they overlap
-				public bool Overlaps(Booking booking) {
-					// Two bookings will overlap iff one starts inside the other
-					return (this.Start >= booking.Start && this.Start < booking.End)
-						|| (booking.Start >= this.Start && booking.Start < this.End);
-				}
 			}
 		}
 	}

@@ -1,29 +1,31 @@
 using System;
 using System.Linq;
 using System.Xml.Linq;
+using Lib.Config;
+using Lib.DataTypes;
 using Lib.Exceptions;
 using Lib.Interfaces;
 
 namespace data {
-	public class DataAccessor<TKey, TObj> : DataAccessorReadOnly<TKey, TObj> where TKey : IAutoIndexable<TKey> where TObj : IIndexed<TKey> {
+	public class DataAccessor<T> : DataAccessorReadOnly<ID, T> where T : IIndexed<ID> {
 		// An XElement which represents the root of the XML file
 		private readonly XElement root;
 
-		private IXmlConverter<TObj> Converter {
-			get => (IXmlConverter<TObj>) ConverterReadOnly;
+		private IXmlConverter<T> Converter {
+			get => (IXmlConverter<T>) ConverterReadOnly;
 		}
 
 		internal DataAccessor(
 			string file_name,
 			string collection_tag_name,
-			IXmlConverter<TObj> converter,
-			Func<TObj, TObj> copier = null
+			IXmlConverter<T> converter,
+			Func<T, T> copier = null
 		) : base(file_name, converter) {
 			root = XElement.Load(file_name);
 			collection_xml = root.Descendants(collection_tag_name).First();
 		}
 
-		public void Add(TObj obj) {
+		public void Add(T obj) {
 			if (obj.Key() != null) {
 				throw new ObjectInDBException(obj, "Object with ID " + obj.Key() + " already exits in the database.");
 			}
@@ -35,7 +37,7 @@ namespace data {
 			root.Save(FileName);
 		}
 
-		public void Remove(TKey key) {
+		public void Remove(ID key) {
 			if (cache != null) {
 				cache.Remove(key);
 			}
@@ -43,11 +45,11 @@ namespace data {
 			root.Save(FileName);
 		}
 
-		public void Update(TObj obj) {
+		public void Update(T obj) {
 			if (obj.Key() == null) {
 				throw new ObjectNotInDBException(obj, "This object does not exits in the database.");
 			}
-			TKey key = obj.Key();
+			ID key = obj.Key();
 			if (cache != null) {
 				cache[key] = clone(obj);
 			}
@@ -57,21 +59,19 @@ namespace data {
 		}
 
 		// Returns true if the XElement has the key provided
-		private bool xml_matches_key(XElement element, TKey key) {
+		private bool xml_matches_key(XElement element, ID key) {
 			return ConverterReadOnly.XmlToObj(element).Key().Equals(key);
 		}
 
 		// Given a key, returns an XElement representing the object with that key
-		private XElement get_xml(TKey key) {
+		private XElement get_xml(ID key) {
 			return collection_xml.Elements().First(element => xml_matches_key(element, key));
 		}
 
 		// Retrieves the last assigned ID from the XML file, and returns a new ID for the next number, updating the XML as well
-		private TKey next_key() {
-			XElement xml_id = root.Element("current_id");
-			TKey next_id = ((TKey) Activator.CreateInstance(typeof(TKey), xml_id.Value)).Next();
-			xml_id.Value = next_id.ToString();
-			root.Save(FileName);
+		private ID next_key() {
+			ID next_id = Config.LatestID(FileName).Next();
+			Config.LatestID(FileName, next_id);
 			return next_id;
 		}
 	}
