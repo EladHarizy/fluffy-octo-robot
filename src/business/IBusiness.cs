@@ -20,6 +20,10 @@ namespace business {
 
 		void UpdateOrder(ID id, Order.Status status);
 
+		void AddHost(Host host);
+
+		void UpdateHost(Host host);
+
 		IEnumerable<Unit> Units();
 
 		IEnumerable<Unit> UnitsOf(Host host);
