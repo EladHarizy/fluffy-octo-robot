@@ -66,6 +66,13 @@ namespace business {
 		}
 
 		public void UpdateHost(Host host) {
+			if (!host.DebitAuthorisation) {
+				foreach (Order order in data.Order.All) {
+					if (order.OrderStatus == "Sent Mail" && order.Unit.Host.ID == host.ID) {
+						throw new AuthoriaztionRevokedWithOpenOrderException(host, order);
+					}
+				}
+			}
 			data.Host.Update(host);
 		}
 
