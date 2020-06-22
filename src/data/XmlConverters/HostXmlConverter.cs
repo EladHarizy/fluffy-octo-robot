@@ -29,7 +29,7 @@ namespace data {
 				new XElement("email", host.Email),
 				phones_converter.ObjToXml(host.Phones),
 				bank_account_converter.ObjToXml(host.BankAccount),
-				new XElement("collection_clearance", host.CollectionClearance)
+				new XElement("collection_clearance", host.DebitAuthorisation)
 			);
 		}
 	}

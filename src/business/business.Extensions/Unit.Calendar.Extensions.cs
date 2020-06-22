@@ -1,4 +1,5 @@
 using Lib.Entities;
+using Lib.Exceptions;
 
 namespace business.Extensions {
 	public static class UnitCalendarExtensions {
@@ -9,6 +10,13 @@ namespace business.Extensions {
 				}
 			}
 			return false;
+		}
+
+		public static void Add(this Unit.Calendar bookings, Unit.Calendar.Booking booking) {
+			if (bookings.Overlaps(booking)) {
+				throw new BookingOverlapException("Error: Cannot add booking to a unit because it overlaps with another booking.");
+			}
+			bookings.Add(booking);
 		}
 	}
 }
