@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using business.Extensions;
 using data;
+using Lib.DataTypes;
 using Lib.Entities;
+using Lib.Exceptions;
 
 namespace business {
 	public class Business : IBusiness {
@@ -29,10 +32,17 @@ namespace business {
 		}
 
 		public void AddOrder(Order order) {
+			if (order.OrderStatus != "Not addressed") {
+				throw new InitialStatusException(order.OrderStatus);
+			}
 			data.Order.Add(order);
 		}
 
-		public void UpdateOrder(Order order) {
+		public void UpdateOrder(ID id, Order.Status status) {
+			Order order = data.Order[id];
+			if (order.OrderStatus != "Not addressed" && !order.Unit.Host.DebitAuthorisation) {
+				throw new NoDebitAuthorisationException("Error: Cannot change the order status to anything other than 'Not addressed' because the host does not have debit authorisation.");
+			}
 			data.Order.Update(order);
 		}
 
@@ -40,7 +50,7 @@ namespace business {
 			return data.Unit.All;
 		}
 
-		public IEnumerable<Unit> Units(Host host) {
+		public IEnumerable<Unit> UnitsOf(Host host) {
 			return data.Unit.All.Where(unit => unit.Host.ID == host.ID);
 		}
 
@@ -87,19 +97,23 @@ namespace business {
 		}
 
 		public int UnitCount(Host host) {
-			return Units(host).Count();
+			return UnitsOf(host).Count();
 		}
 
-		public IEnumerable<IGrouping<City, GuestRequest>> GuestRequestsByCity() {
-			throw new System.NotImplementedException();
+		public IDictionary<City, IEnumerable<GuestRequest>> GuestRequestsByCity() {
+			IDictionary<City, IEnumerable<GuestRequest>> dict = new Dictionary<City, IEnumerable<GuestRequest>>();
+			foreach (City city in data.City.All) {
+				dict[city] = data.GuestRequest.All.Where(guest_request => guest_request.Region.Contains(city));
+			}
+			return dict;
 		}
 
 		public IEnumerable<IGrouping<int, GuestRequest>> GuestRequestsByGuestCount() {
-			throw new System.NotImplementedException();
+			return data.GuestRequest.All.GroupBy(guest_request => guest_request.GuestCount());
 		}
 
 		public IEnumerable<IGrouping<int, Host>> HostsByUnitCount() {
-			return data.Unit.All.GroupBy(unit => UnitCount(host));
+			return data.Host.All.GroupBy(host => UnitCount(host));
 		}
 
 		public IEnumerable<IGrouping<City, Unit>> UnitsByCity() {

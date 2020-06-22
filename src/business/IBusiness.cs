@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Lib.DataTypes;
 using Lib.Entities;
 
 namespace business {
@@ -17,11 +18,11 @@ namespace business {
 
 		void AddOrder(Order order);
 
-		void UpdateOrder(Order order);
+		void UpdateOrder(ID id, Order.Status status);
 
 		IEnumerable<Unit> Units();
 
-		IEnumerable<Unit> Units(Host host);
+		IEnumerable<Unit> UnitsOf(Host host);
 
 		IEnumerable<GuestRequest> GuestRequests();
 
@@ -46,7 +47,7 @@ namespace business {
 		int UnitCount(Host host);
 
 		// Groupings
-		IEnumerable<IGrouping<City, GuestRequest>> GuestRequestsByCity();
+		IDictionary<City, IEnumerable<GuestRequest>> GuestRequestsByCity();
 
 		IEnumerable<IGrouping<int, GuestRequest>> GuestRequestsByGuestCount();
 
