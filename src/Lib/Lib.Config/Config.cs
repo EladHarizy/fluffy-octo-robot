@@ -7,7 +7,7 @@ namespace Lib.Config {
 
 		private static XElement config_xml = root.Element("config");
 
-		public static int ClosingFee { get; } = int.Parse(config_xml.Element("closing_fee").Value);
+		public static int FeePerDay { get; } = int.Parse(config_xml.Element("fee_per_day").Value);
 
 		public static ID LatestID(string file_name) {
 			return int.Parse(config_xml.Element("latest_ids").Element(file_name).Value);

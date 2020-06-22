@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using business.Extensions;
 using data;
+using Lib.Config;
 using Lib.DataTypes;
 using Lib.Entities;
 using Lib.Exceptions;
@@ -43,11 +44,21 @@ namespace business {
 
 		public void UpdateOrder(ID id, Order.Status status) {
 			Order order = data.Order[id];
-			if (order.OrderStatus != "Not addressed" && !order.Unit.Host.DebitAuthorisation) {
-				throw new NoDebitAuthorisationException("Error: Cannot change the order status to anything other than 'Not addressed' because the host does not have debit authorisation.");
-			}
+			// Order is already closed
 			if (order.OrderStatus == "Closed due to customer unresponsiveness" || order.OrderStatus == "Closed due to customer response") {
 				throw new OrderClosedException(order);
+			}
+			// Order is being opened
+			if (status == "Not addressed" && order.OrderStatus != status) {
+				throw new ArgumentException("Error: An order cannot be reopened.");
+			}
+			// Order is being closed
+			if (status == "Closed due to customer response") {
+				if (!order.Unit.Host.DebitAuthorisation) {
+					throw new NoDebitAuthorisationException("Error: Cannot change the order status to anything other than 'Not addressed' because the host does not have debit authorisation.");
+				}
+				int fee = Config.FeePerDay * order.GuestRequest.Duration;
+				order.Unit.Bookings.Add(new Unit.Calendar.Booking(order.GuestRequest.StartDate, order.GuestRequest.Duration));
 			}
 			order.OrderStatus = status;
 			data.Order.Update(order);
