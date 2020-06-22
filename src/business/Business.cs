@@ -24,6 +24,9 @@ namespace business {
 		}
 
 		public void DeleteUnit(Unit unit) {
+			if (data.Order.All.Where(order => order.OrderStatus == "Sent Mail" && order.Unit.ID == unit.ID).Count() != 0) {
+				throw new DeletingUnitWithOpenOrderException("Error: Cannot remove a unit which has an open order.");
+			}
 			data.Unit.Remove(unit.ID);
 		}
 
@@ -44,6 +47,17 @@ namespace business {
 				throw new NoDebitAuthorisationException("Error: Cannot change the order status to anything other than 'Not addressed' because the host does not have debit authorisation.");
 			}
 			data.Order.Update(order);
+			if (status == "Sent Mail") {
+				//TODO Send email
+			}
+		}
+
+		public void AddHost(Host host) {
+			data.Host.Add(host);
+		}
+
+		public void UpdateHost(Host host) {
+			data.Host.Update(host);
 		}
 
 		public IEnumerable<Unit> Units() {
