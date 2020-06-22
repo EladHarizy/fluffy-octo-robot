@@ -25,6 +25,11 @@ namespace business {
 		}
 
 		public void DeleteUnit(Unit unit) {
+			foreach (Order order in data.Order.All) {
+				if (order.OrderStatus == "Sent Mail" && order.Unit.ID == unit.ID) {
+					throw new DeletingUnitWithOpenOrderException(unit, order);
+				}
+			}
 			data.Unit.Remove(unit.ID);
 		}
 
@@ -59,9 +64,32 @@ namespace business {
 				}
 				int fee = Config.FeePerDay * order.GuestRequest.Duration;
 				order.Unit.Bookings.Add(new Unit.Calendar.Booking(order.GuestRequest.StartDate, order.GuestRequest.Duration));
+				foreach (Order order1 in data.Order.All) {
+					if (order.Unit.ID == order1.Unit.ID && order.ID != order1.ID) {
+						UpdateOrder(order1.ID, "Closed due to customer unresponsiveness");
+					}
+				}
+			}
+			if (status == "Sent Mail") {
+				//TODO Send email
 			}
 			order.OrderStatus = status;
 			data.Order.Update(order);
+		}
+
+		public void AddHost(Host host) {
+			data.Host.Add(host);
+		}
+
+		public void UpdateHost(Host host) {
+			if (!host.DebitAuthorisation) {
+				foreach (Order order in data.Order.All) {
+					if (order.OrderStatus == "Sent Mail" && order.Unit.Host.ID == host.ID) {
+						throw new AuthoriaztionRevokedWithOpenOrderException(host, order);
+					}
+				}
+			}
+			data.Host.Update(host);
 		}
 
 		public IEnumerable<Unit> Units() {
@@ -97,7 +125,7 @@ namespace business {
 			return (date2 - date1).Days;
 		}
 
-		//returns number of days from first day to current day (if first is in furture then it would be a negative number)
+		//returns number of days from first day to current day (if first is in future then it would be a negative number)
 		public int NumberOfDays(Date date1) {
 			return NumberOfDays(date1, Date.Today);
 		}
