@@ -10,15 +10,15 @@ namespace data {
 
 		DataAccessorReadOnly<string, City> City { get; }
 
-		DataAccessor<ID, Guest> Guest { get; }
+		DataAccessor<Guest> Guest { get; }
 
-		DataAccessor<ID, GuestRequest> GuestRequest { get; }
+		DataAccessor<GuestRequest> GuestRequest { get; }
 
-		DataAccessor<ID, Host> Host { get; }
+		DataAccessor<Host> Host { get; }
 
-		DataAccessor<ID, Unit> Unit { get; }
+		DataAccessor<Unit> Unit { get; }
 
-		DataAccessor<ID, Order> Order { get; }
+		DataAccessor<Order> Order { get; }
 
 		DataAccessorReadOnly<string, Order.Status> OrderStatus { get; }
 

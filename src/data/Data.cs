@@ -24,35 +24,35 @@ namespace data {
 			new CityXmlConverter()
 		);
 
-		public DataAccessor<ID, Guest> Guest { get; } = new DataAccessor<ID, Guest>(
+		public DataAccessor<Guest> Guest { get; } = new DataAccessor<Guest>(
 			"data_files/guests.xml",
 			"guests",
 			new GuestXmlConverter(),
 			(guest) => guest.Clone()
 		);
 
-		public DataAccessor<ID, GuestRequest> GuestRequest { get; } = new DataAccessor<ID, GuestRequest>(
+		public DataAccessor<GuestRequest> GuestRequest { get; } = new DataAccessor<GuestRequest>(
 			"data_files/guest_requests.xml",
 			"guest_requests",
 			new GuestRequestXmlConverter(),
 			(guest_request) => guest_request.Clone()
 		);
 
-		public DataAccessor<ID, Host> Host { get; } = new DataAccessor<ID, Host>(
+		public DataAccessor<Host> Host { get; } = new DataAccessor<Host>(
 			"data_files/hosts.xml",
 			"hosts",
 			new HostXmlConverter(),
 			(host) => host.Clone()
 		);
 
-		public DataAccessor<ID, Unit> Unit { get; } = new DataAccessor<ID, Unit>(
+		public DataAccessor<Unit> Unit { get; } = new DataAccessor<Unit>(
 			"data_files/units.xml",
 			"units",
 			new UnitXmlConverter(),
 			(unit) => unit.Clone()
 		);
 
-		public DataAccessor<ID, Order> Order { get; } = new DataAccessor<ID, Order>(
+		public DataAccessor<Order> Order { get; } = new DataAccessor<Order>(
 			"data_files/orders.xml",
 			"orders",
 			new OrderXmlConverter(),

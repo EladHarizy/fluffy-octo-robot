@@ -1,0 +1,10 @@
+<config>
+	<closing_fee>10</closing_fee>
+	<latest_ids>
+		<guests.xml>00000005</guests.xml>
+		<guest_requests.xml>00000001</guest_requests.xml>
+		<hosts.xml>00000003</hosts.xml>
+		<orders.xml>00000001</orders.xml>
+		<units.xml>00000002</units.xml>
+	</latest_ids>
+</config>

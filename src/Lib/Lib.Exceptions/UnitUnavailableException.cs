@@ -22,6 +22,5 @@ namespace Lib.Exceptions {
 		}
 
 		public UnitUnavailableException(string message, System.Exception inner) : base(message, inner) {}
-
 	}
 }
