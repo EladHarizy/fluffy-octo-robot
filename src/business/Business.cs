@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using business.Extensions;
 using data;
+using Lib.Config;
 using Lib.DataTypes;
 using Lib.Entities;
 using Lib.Exceptions;
@@ -48,26 +49,32 @@ namespace business {
 
 		public void UpdateOrder(ID id, Order.Status status) {
 			Order order = data.Order[id];
-			if (order.OrderStatus != "Not addressed" && !order.Unit.Host.DebitAuthorisation) {
-				throw new NoDebitAuthorisationException("Error: Cannot change the order status to anything other than 'Not addressed' because the host does not have debit authorisation.");
-			}
-			if (order.OrderStatus == "Closed due to customer unresponsiveness") {
+			// Order is already closed
+			if (order.OrderStatus == "Closed due to customer unresponsiveness" || order.OrderStatus == "Closed due to customer response") {
 				throw new OrderClosedException(order);
 			}
-			if (order.OrderStatus == "Closed due to customer response") {
+			// Order is being opened
+			if (status == "Not addressed" && order.OrderStatus != status) {
+				throw new ArgumentException("Error: An order cannot be reopened.");
+			}
+			// Order is being closed
+			if (status == "Closed due to customer response") {
+				if (!order.Unit.Host.DebitAuthorisation) {
+					throw new NoDebitAuthorisationException("Error: Cannot change the order status to anything other than 'Not addressed' because the host does not have debit authorisation.");
+				}
+				int fee = Config.FeePerDay * order.GuestRequest.Duration;
+				order.Unit.Bookings.Add(new Unit.Calendar.Booking(order.GuestRequest.StartDate, order.GuestRequest.Duration));
 				foreach (Order order1 in data.Order.All) {
 					if (order.Unit.ID == order1.Unit.ID && order.ID != order1.ID) {
 						UpdateOrder(order1.ID, "Closed due to customer unresponsiveness");
 					}
 				}
-				throw new OrderClosedException(order);
 			}
-
-			order.OrderStatus = status;
-			data.Order.Update(order);
 			if (status == "Sent Mail") {
 				//TODO Send email
 			}
+			order.OrderStatus = status;
+			data.Order.Update(order);
 		}
 
 		public void AddHost(Host host) {
@@ -118,7 +125,7 @@ namespace business {
 			return (date2 - date1).Days;
 		}
 
-		//returns number of days from first day to current day (if first is in furture then it would be a negative number)
+		//returns number of days from first day to current day (if first is in future then it would be a negative number)
 		public int NumberOfDays(Date date1) {
 			return NumberOfDays(date1, Date.Today);
 		}
