@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Lib.DataTypes;
 using Lib.Entities;
 
 namespace business {
@@ -17,7 +18,7 @@ namespace business {
 
 		void AddOrder(Order order);
 
-		void UpdateOrder(Order order);
+		void UpdateOrder(ID id, Order.Status status);
 
 		IEnumerable<Unit> Units();
 

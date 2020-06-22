@@ -11,7 +11,7 @@ namespace Lib.Entities {
 	public class Host : Person, ICloneable<Host> {
 		public BankAccount BankAccount { get; }
 
-		public bool CollectionClearance { get; private set; }
+		public bool DebitAuthorisation { get; private set; }
 
 		// Host constructor
 		public Host(
@@ -47,7 +47,7 @@ namespace Lib.Entities {
 			phones
 		) {
 			BankAccount = bank_account;
-			CollectionClearance = collection_clearance;
+			DebitAuthorisation = collection_clearance;
 		}
 
 		public override string ToString(int tabs) {
@@ -75,7 +75,7 @@ namespace Lib.Entities {
 		}
 
 		public Host Clone() {
-			return new Host(ID, FirstName, LastName, Email, Phones.Clone(), BankAccount, CollectionClearance);
+			return new Host(ID, FirstName, LastName, Email, Phones.Clone(), BankAccount, DebitAuthorisation);
 		}
 	}
 }

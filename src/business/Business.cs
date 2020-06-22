@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using business.Extensions;
 using data;
+using Lib.DataTypes;
 using Lib.Entities;
+using Lib.Exceptions;
 
 namespace business {
 	public class Business : IBusiness {
@@ -30,10 +32,17 @@ namespace business {
 		}
 
 		public void AddOrder(Order order) {
+			if (order.OrderStatus != "Not addressed") {
+				throw new InitialStatusException(order.OrderStatus);
+			}
 			data.Order.Add(order);
 		}
 
-		public void UpdateOrder(Order order) {
+		public void UpdateOrder(ID id, Order.Status status) {
+			Order order = data.Order[id];
+			if (order.OrderStatus != "Not addressed" && !order.Unit.Host.DebitAuthorisation) {
+				throw new NoDebitAuthorisationException("Error: Cannot change the order status to anything other than 'Not addressed' because the host does not have debit authorisation.");
+			}
 			data.Order.Update(order);
 		}
 

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
@@ -15,6 +16,14 @@ namespace Lib.Entities {
 
 			public string Key() {
 				return Name;
+			}
+
+			public override bool Equals(object obj) {
+				return obj is Status status && Name == status.Name;
+			}
+
+			public override int GetHashCode() {
+				return 539060726 + EqualityComparer<string>.Default.GetHashCode(Name);
 			}
 
 			public static implicit operator Status(string name) {
