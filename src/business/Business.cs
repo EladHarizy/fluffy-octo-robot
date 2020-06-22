@@ -38,6 +38,9 @@ namespace business {
 			if (order.OrderStatus != "Not addressed") {
 				throw new InitialStatusException(order.OrderStatus);
 			}
+			if (!order.Unit.Available(order.GuestRequest.StartDate, order.GuestRequest.Duration)) {
+				throw new UnitUnavailableException(order.Unit, order.GuestRequest.StartDate, order.GuestRequest.Duration);
+			}
 			data.Order.Add(order);
 		}
 
@@ -46,6 +49,10 @@ namespace business {
 			if (order.OrderStatus != "Not addressed" && !order.Unit.Host.DebitAuthorisation) {
 				throw new NoDebitAuthorisationException("Error: Cannot change the order status to anything other than 'Not addressed' because the host does not have debit authorisation.");
 			}
+			if (order.OrderStatus == "Closed due to customer unresponsiveness" || order.OrderStatus == "Closed due to customer response") {
+				throw new OrderClosedException(order);
+			}
+			order.OrderStatus = status;
 			data.Order.Update(order);
 			if (status == "Sent Mail") {
 				//TODO Send email
