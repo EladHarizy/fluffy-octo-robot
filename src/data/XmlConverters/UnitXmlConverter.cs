@@ -5,7 +5,9 @@ using Lib.Entities;
 
 namespace data {
 	class UnitXmlConverter : IXmlConverter<Unit> {
-		private DataAccessorReadOnly<ID, Host> hosts = DataFactory.Data.Host;
+		private DataAccessorReadOnly<ID, Host> Hosts {
+			get => DataFactory.Data.Host;
+		}
 
 		public Unit XmlToObj(XElement element) {
 			Unit.Calendar calendar = new Unit.Calendar();
@@ -20,7 +22,7 @@ namespace data {
 
 			return new Unit(
 				element.Element("id").Value,
-				hosts[element.Element("host_id").Value],
+				Hosts[element.Element("host_id").Value],
 				element.Element("name").Value,
 				element.Element("city").Value,
 				calendar

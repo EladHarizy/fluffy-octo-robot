@@ -22,7 +22,7 @@ namespace data {
 			Func<T, T> copier = null
 		) : base(file_name, converter) {
 			root = XElement.Load(file_name);
-			collection_xml = root.Descendants(collection_tag_name).First();
+			collection_xml = root.DescendantsAndSelf(collection_tag_name).First();
 		}
 
 		public void Add(T obj) {

@@ -6,7 +6,9 @@ using Lib.Entities;
 
 namespace data {
 	class GuestRequestXmlConverter : IXmlConverter<GuestRequest> {
-		private readonly DataAccessorReadOnly<ID, Guest> guests = DataFactory.Data.Guest;
+		private DataAccessorReadOnly<ID, Guest> Guests {
+			get => DataFactory.Data.Guest;
+		}
 
 		private readonly CollectionXmlConverter<City, HashSet<City>> region_converter = new CollectionXmlConverter<City, HashSet<City>>("region", "city");
 
@@ -17,7 +19,7 @@ namespace data {
 		public GuestRequest XmlToObj(XElement element) {
 			return new GuestRequest(
 				element.Element("id").Value,
-				guests[element.Element("guest_id").Value],
+				Guests[element.Element("guest_id").Value],
 				Date.Parse(element.Element("creation_date").Value),
 				Date.Parse(element.Element("start_date").Value),
 				Date.Parse(element.Element("end_date").Value),

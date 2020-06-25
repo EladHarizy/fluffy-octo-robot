@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
@@ -35,7 +34,7 @@ namespace data {
 			string collection_tag_name,
 			IXmlConverterReadOnly<TObj> converter
 		) : this(file_name, converter) {
-			collection_xml = XElement.Load(file_name).Descendants(collection_tag_name).First();
+			collection_xml = XElement.Load(file_name).DescendantsAndSelf(collection_tag_name).First();
 		}
 
 		protected DataAccessorReadOnly(

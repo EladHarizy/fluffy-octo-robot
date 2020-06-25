@@ -1,16 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<ItemGroup>
 		<ProjectReference Include="..\lib\lib.csproj"/>
-		<Resource Include="data_files\amenities.xml"/>
-		<Resource Include="data_files\bank_branches.xml"/>
-		<Resource Include="data_files\cities.xml"/>
-		<Resource Include="data_files\guest_requests.xml"/>
-		<Resource Include="data_files\guests.xml"/>
-		<Resource Include="data_files\hosts.xml"/>
-		<Resource Include="data_files\order_statuses.xml"/>
-		<Resource Include="data_files\orders.xml"/>
-		<Resource Include="data_files\unit_types.xml"/>
-		<Resource Include="data_files\units.xml"/>
 	</ItemGroup>
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
