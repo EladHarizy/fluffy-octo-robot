@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "data", "src\data\data.cspro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "business", "src\business\business.csproj", "{2264528D-C8B4-4FD5-98A4-6A649218B25D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib", "src\Lib\Lib.csproj", "{DD79F6C1-8A6E-4A30-B4E1-BDCBFB3E7426}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib", "src\lib\lib.csproj", "{DD79F6C1-8A6E-4A30-B4E1-BDCBFB3E7426}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "presentation", "src\presentation\presentation.csproj", "{A76147A8-872F-4CAC-A560-6DB4B8132BB2}"
 EndProject

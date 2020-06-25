@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <ItemGroup>
-    <ProjectReference Include="..\Lib\Lib.csproj" />
+    <ProjectReference Include="..\lib\lib.csproj" />
     <ProjectReference Include="..\business\business.csproj" />
   </ItemGroup>
 
