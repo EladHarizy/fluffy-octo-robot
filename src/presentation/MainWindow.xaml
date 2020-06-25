@@ -1,12 +1,30 @@
-﻿<Window x:Class="presentation.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:presentation"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+﻿<Window x:Class="presentation.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:presentation" mc:Ignorable="d" Title="Fluffy Octo Robot" Height="600" Width="800">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0" Background="DodgerBlue">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="10"/>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+			<Grid Grid.Column="1">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<TextBlock Grid.Row="1" Text="Fluffy Octo Robot" FontSize="24" Foreground="White"/>
+			</Grid>
+			<StackPanel Grid.Column="3" Orientation="Horizontal">
+				<Button Style="{StaticResource Big}" Click="GuestRequestsPage">Guest Requests</Button>
+				<Button Style="{StaticResource Big}" Click="UnitsPage">Hosting Units</Button>
+				<Button Style="{StaticResource Big}" Click="AdminPage">Admin Panel</Button>
+			</StackPanel>
+		</Grid>
+		<Frame Grid.Row="1" x:Name="Page" NavigationUIVisibility="Hidden"/>
+	</Grid>
 </Window>

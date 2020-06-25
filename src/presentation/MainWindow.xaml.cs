@@ -18,8 +18,34 @@ namespace presentation {
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow : Window {
+		private string OriginalTitle;
+
 		public MainWindow() {
 			InitializeComponent();
+			OriginalTitle = Title;
+			LoadPage(new HomePage());
 		}
+
+		private void LoadPage(Page page) {
+			Page.Content = page;
+			SetTitle(page.Title);
+		}
+
+		private void SetTitle(string title) {
+			Title = OriginalTitle + " | " + title;
+		}
+
+		private void GuestRequestsPage(object sender, RoutedEventArgs e) {
+			LoadPage(new GuestRequestsPage());
+		}
+
+		private void UnitsPage(object sender, RoutedEventArgs e) {
+			LoadPage(new UnitsPage());
+		}
+
+		private void AdminPage(object sender, RoutedEventArgs e) {
+			LoadPage(new AdminPage());
+		}
+
 	}
 }
