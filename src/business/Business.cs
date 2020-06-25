@@ -12,6 +12,10 @@ namespace business {
 	public class Business : IBusiness {
 		private IData data = DataFactory.New();
 
+		public Guest Guest(ID id) {
+			return data.Guest[id];
+		}
+
 		public void AddGuestRequest(GuestRequest guest_request) {
 			data.GuestRequest.Add(guest_request);
 		}

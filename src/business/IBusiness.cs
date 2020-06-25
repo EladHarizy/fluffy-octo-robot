@@ -6,6 +6,8 @@ using Lib.Entities;
 
 namespace business {
 	public interface IBusiness {
+		Guest Guest(ID id);
+
 		void AddGuestRequest(GuestRequest guest_request);
 
 		void UpdateGuestRequest(GuestRequest guest_request);
