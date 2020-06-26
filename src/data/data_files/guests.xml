@@ -4,6 +4,7 @@
 		<first_name>Alice</first_name>
 		<last_name>Alderson</last_name>
 		<email>alice@alderson.com</email>
+		<password_hash>sQnzu7wkTrgkQZF+0G1hi5AI3Qmzvv0bXgc5THBqi7mAsdd4Xll27ASbRt9fEyavWi6m0QP9B8lThf+rDKy8hg==</password_hash>
 		<phones>
 			<phone>+972000000010</phone>
 			<phone>+972000000011</phone>
@@ -14,6 +15,7 @@
 		<first_name>Brenda</first_name>
 		<last_name>Barrett</last_name>
 		<email>brenda@barrett.com</email>
+		<password_hash>sQnzu7wkTrgkQZF+0G1hi5AI3Qmzvv0bXgc5THBqi7mAsdd4Xll27ASbRt9fEyavWi6m0QP9B8lThf+rDKy8hg==</password_hash>
 		<phones>
 			<phone>+972000000020</phone>
 		</phones>
@@ -23,6 +25,7 @@
 		<first_name>Cindy</first_name>
 		<last_name>Coulson</last_name>
 		<email>cindy@coulson.com</email>
+		<password_hash>sQnzu7wkTrgkQZF+0G1hi5AI3Qmzvv0bXgc5THBqi7mAsdd4Xll27ASbRt9fEyavWi6m0QP9B8lThf+rDKy8hg==</password_hash>
 		<phones>
 			<phone>+972000000030</phone>
 			<phone>+972000000031</phone>
@@ -34,6 +37,7 @@
 		<first_name>Daisy</first_name>
 		<last_name>Dunn</last_name>
 		<email>daisy@dunn.com</email>
+		<password_hash>sQnzu7wkTrgkQZF+0G1hi5AI3Qmzvv0bXgc5THBqi7mAsdd4Xll27ASbRt9fEyavWi6m0QP9B8lThf+rDKy8hg==</password_hash>
 		<phones>
 			<phone>+972000000040</phone>
 			<phone>+972000000041</phone>
@@ -44,6 +48,7 @@
 		<first_name>Emily</first_name>
 		<last_name>Edwards</last_name>
 		<email>emily@edwards.com</email>
+		<password_hash>sQnzu7wkTrgkQZF+0G1hi5AI3Qmzvv0bXgc5THBqi7mAsdd4Xll27ASbRt9fEyavWi6m0QP9B8lThf+rDKy8hg==</password_hash>
 		<phones></phones>
 	</guest>
 </guests>

@@ -3,7 +3,6 @@
 		<Style x:Key="Big" TargetType="Button">
 			<Setter Property="Height" Value="30"/>
 			<Setter Property="FontSize" Value="14"/>
-			<Setter Property="Margin" Value="0,0,10,0"/>
 			<Setter Property="Padding" Value="10,0,10,0"/>
 		</Style>
 	</Application.Resources>

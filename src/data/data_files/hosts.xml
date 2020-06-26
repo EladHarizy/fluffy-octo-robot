@@ -4,6 +4,7 @@
 		<first_name>Alex</first_name>
 		<last_name>Alderson</last_name>
 		<email>alex@alderson.com</email>
+		<password_hash>sQnzu7wkTrgkQZF+0G1hi5AI3Qmzvv0bXgc5THBqi7mAsdd4Xll27ASbRt9fEyavWi6m0QP9B8lThf+rDKy8hg==</password_hash>
 		<phones>
 			<phone>+972000000015</phone>
 			<phone>+972000000016</phone>
@@ -20,6 +21,7 @@
 		<first_name>Bob</first_name>
 		<last_name>Barrett</last_name>
 		<email>bob@barrett.com</email>
+		<password_hash>sQnzu7wkTrgkQZF+0G1hi5AI3Qmzvv0bXgc5THBqi7mAsdd4Xll27ASbRt9fEyavWi6m0QP9B8lThf+rDKy8hg==</password_hash>
 		<phones>
 			<phone>+972000000025</phone>
 		</phones>
@@ -35,6 +37,7 @@
 		<first_name>Charlie</first_name>
 		<last_name>Coulson</last_name>
 		<email>cindy@coulson.com</email>
+		<password_hash>sQnzu7wkTrgkQZF+0G1hi5AI3Qmzvv0bXgc5THBqi7mAsdd4Xll27ASbRt9fEyavWi6m0QP9B8lThf+rDKy8hg==</password_hash>
 		<phones>
 			<phone>+972000000035</phone>
 			<phone>+972000000036</phone>

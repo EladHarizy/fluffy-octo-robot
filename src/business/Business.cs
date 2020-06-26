@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using business.Extensions;
 using data;
 using Lib.Config;
@@ -82,10 +84,16 @@ namespace business {
 		}
 
 		public void AddHost(Host host) {
+			if (data.Host.All.FirstOrDefault(h => h.Email == host.Email) != null) {
+				throw new EmailExistsException(host.Email);
+			}
 			data.Host.Add(host);
 		}
 
 		public void UpdateHost(Host host) {
+			if (data.Host.All.FirstOrDefault(h => h.Email == host.Email && h.ID != host.ID) != null) {
+				throw new EmailExistsException(host.Email);
+			}
 			if (!host.DebitAuthorisation) {
 				foreach (Order order in data.Order.All) {
 					if (order.OrderStatus == "Sent Mail" && order.Unit.Host.ID == host.ID) {
@@ -94,6 +102,22 @@ namespace business {
 				}
 			}
 			data.Host.Update(host);
+		}
+
+		public TPerson SignIn<TPerson>(Email email, string password) where TPerson : Person {
+			TPerson person = data.GetAccessor<TPerson>().All.First(p => p.Email == email);
+			byte[] hash;
+			using(SHA512 sha = new SHA512Managed()) {
+				hash = sha.ComputeHash(ASCIIEncoding.ASCII.GetBytes(password));
+			}
+			int i = 0;
+			foreach (byte b in person.PasswordHash) {
+				if (b != hash[i]) {
+					throw new InvalidPasswordException();
+				}
+				++i;
+			}
+			return person;
 		}
 
 		public IEnumerable<Unit> Units() {

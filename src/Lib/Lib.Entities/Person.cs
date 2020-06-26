@@ -5,7 +5,7 @@ using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
-	public abstract class Person : IIndexed<ID> {
+	public abstract class Person : IEntity<ID> {
 		public virtual ID ID { get; set; }
 
 		public virtual string FirstName { get; }
@@ -18,17 +18,20 @@ namespace Lib.Entities {
 
 		public virtual Email Email { get; set; }
 
+		public virtual IEnumerable<byte> PasswordHash { get; }
+
 		public virtual ICollection<Phone> Phones { get; }
 
-		public Person(ID id, string first_name, string last_name, Email email, ICollection<Phone> phones) {
+		public Person(ID id, string first_name, string last_name, Email email, IEnumerable<byte> password_hash, ICollection<Phone> phones) {
 			ID = id;
 			FirstName = first_name;
 			LastName = last_name;
 			Email = email;
+			PasswordHash = password_hash;
 			Phones = phones;
 		}
 
-		public Person(ID id, string first_name, string last_name, string email) : this(id, first_name, last_name, new Email(email), new HashSet<Phone>()) {}
+		public Person(ID id, string first_name, string last_name, string email, IEnumerable<byte> password_hash) : this(id, first_name, last_name, email, password_hash, new HashSet<Phone>()) {}
 
 		public override string ToString() {
 			return ToString(0);
