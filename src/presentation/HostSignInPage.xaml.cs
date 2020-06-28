@@ -35,6 +35,8 @@ namespace presentation {
 			}
 		}
 
-		private void SignUp(object sender, RoutedEventArgs e) {}
+		private void SignUp(object sender, RoutedEventArgs e) {
+			MainWindow.LoadPage(new AddHostPage(Business));
+		}
 	}
 }
