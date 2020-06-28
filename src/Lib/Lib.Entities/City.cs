@@ -1,7 +1,7 @@
 using Lib.Interfaces;
 
 namespace Lib.Entities {
-	public class City : IIndexedReadOnly<string> {
+	public class City : IEntityReadOnly<string> {
 		public string Name { get; }
 
 		public City(string name) {

@@ -1,8 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Xml.Linq;
 using Lib.DataTypes;
 using Lib.Entities;
+using Lib.Exceptions;
+using Lib.Interfaces;
 
 namespace data {
 	class Data : IData {
@@ -70,5 +70,24 @@ namespace data {
 			"unit_types",
 			new UnitTypeXmlConverter()
 		);
+
+		public DataAccessor<T> GetAccessor<T>() where T : IEntity<ID> {
+			if (typeof(T) == typeof(Guest)) {
+				return Guest as DataAccessor<T>;
+			}
+			if (typeof(T) == typeof(GuestRequest)) {
+				return GuestRequest as DataAccessor<T>;
+			}
+			if (typeof(T) == typeof(Host)) {
+				return Host as DataAccessor<T>;
+			}
+			if (typeof(T) == typeof(Unit)) {
+				return Unit as DataAccessor<T>;
+			}
+			if (typeof(T) == typeof(Order)) {
+				return Order as DataAccessor<T>;
+			}
+			throw new InvalidTypeException(typeof(T));
+		}
 	}
 }

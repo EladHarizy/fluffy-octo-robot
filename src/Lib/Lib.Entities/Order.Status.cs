@@ -3,7 +3,7 @@ using Lib.Interfaces;
 
 namespace Lib.Entities {
 	public partial class Order {
-		public class Status : IIndexedReadOnly<string> {
+		public class Status : IEntityReadOnly<string> {
 			public string Name { get; }
 
 			public Status(string name) {

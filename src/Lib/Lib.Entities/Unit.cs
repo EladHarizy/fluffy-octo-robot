@@ -4,7 +4,7 @@ using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
-	public partial class Unit : ICloneable<Unit>, IIndexed<ID> {
+	public partial class Unit : ICloneable<Unit>, IEntity<ID> {
 		public ID ID { get; private set; }
 
 		public Calendar Bookings { get; }

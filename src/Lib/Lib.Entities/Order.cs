@@ -4,7 +4,7 @@ using Lib.DataTypes;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
-	public partial class Order : ICloneable<Order>, IIndexed<ID> {
+	public partial class Order : ICloneable<Order>, IEntity<ID> {
 		public ID ID { get; set; }
 
 		public Unit Unit { get; }

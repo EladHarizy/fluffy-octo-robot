@@ -7,7 +7,7 @@ using Lib.Exceptions;
 using Lib.Interfaces;
 
 namespace data {
-	public class DataAccessor<T> : DataAccessorReadOnly<ID, T> where T : IIndexed<ID> {
+	public class DataAccessor<T> : DataAccessorReadOnly<ID, T> where T : IEntity<ID> {
 		// An XElement which represents the root of the XML file
 		private readonly XElement root;
 

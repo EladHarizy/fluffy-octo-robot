@@ -4,10 +4,6 @@ using System.Linq;
 
 namespace Lib.Extensions {
 	public static class ICollectionExtensions {
-		public static ICollection<T> Clone<T>(this ICollection<T> enumerable) {
-			return enumerable.Select(item => item) as ICollection<T>;
-		}
-
 		public static IReadOnlyCollection<T> AsReadOnly<T>(this ICollection<T> collection) {
 			return new ReadOnlyCollectionWrapper<T>(collection);
 		}

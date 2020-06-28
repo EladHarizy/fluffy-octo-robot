@@ -8,7 +8,7 @@ using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
-	public class GuestRequest : ICloneable<GuestRequest>, IIndexed<ID> {
+	public class GuestRequest : ICloneable<GuestRequest>, IEntity<ID> {
 		public ID ID { get; set; }
 
 		public Guest Guest { get; }

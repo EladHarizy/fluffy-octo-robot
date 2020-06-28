@@ -5,7 +5,7 @@ using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace data {
-	public class DataAccessorReadOnly<TKey, TObj> where TObj : IIndexedReadOnly<TKey> {
+	public class DataAccessorReadOnly<TKey, TObj> where TObj : IEntityReadOnly<TKey> {
 		public virtual string FileName { get; }
 
 		// The parent tag of all the objects in question
@@ -18,7 +18,7 @@ namespace data {
 
 		protected readonly bool cloneable;
 
-		public ICollection<TObj> All {
+		public IEnumerable<TObj> All {
 			get {
 				load_cache();
 				return cache.Values.Clone();

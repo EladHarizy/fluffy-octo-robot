@@ -12,7 +12,7 @@ namespace data {
 			CollectionTag = collection_tag;
 			SubConverter = new XmlConverter<T>(
 				x => new XElement(element_tag, x.ToString()),
-				element => (T) Activator.CreateInstance(typeof(T), element.Value)
+				element => (T) Activator.CreateInstance(typeof(T), element.Value.Trim())
 			);
 		}
 
