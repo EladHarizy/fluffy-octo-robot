@@ -18,7 +18,7 @@ namespace data {
 
 		protected readonly bool cloneable;
 
-		public ICollection<TObj> All {
+		public IEnumerable<TObj> All {
 			get {
 				load_cache();
 				return cache.Values.Clone();

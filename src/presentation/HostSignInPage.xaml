@@ -10,7 +10,7 @@
 			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
-		<StackPanel Grid.Row="1" Grid.Column="1">
+		<StackPanel Grid.Row="1" Grid.Column="1" Width="300">
 			<Image Width="128">
 				<Image.Source>
 					<BitmapImage DecodePixelWidth="128" UriSource="/images/octopus.png"/>
@@ -19,10 +19,12 @@
 			<TextBlock Text="Host Sign In" TextAlignment="Center" FontSize="24"/>
 			<Rectangle Height="10"/>
 			<TextBlock Text="Email"/>
-			<TextBox x:Name="email" Width="300" FontSize="18" Height="30"/>
+			<TextBox x:Name="email" FontSize="18" Height="30"/>
+			<TextBlock x:Name="email_error" Text="" TextWrapping="Wrap" Foreground="Red" Height="0"/>
 			<Rectangle Height="10"/>
 			<TextBlock Text="Password"/>
-			<PasswordBox x:Name="password" Width="300" FontSize="18" Height="30"/>
+			<PasswordBox x:Name="password" FontSize="18" Height="30"/>
+			<TextBlock x:Name="password_error" Text="" TextWrapping="Wrap" Foreground="Red" Height="0"/>
 			<Rectangle Height="10"/>
 			<Button Style="{StaticResource Big}" Click="SignIn">Sign In</Button>
 			<Rectangle Height="10"/>

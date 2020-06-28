@@ -1,16 +1,16 @@
 using System;
 
 namespace Lib.Exceptions {
-	public class InvaldTypeException : System.Exception {
-		public InvaldTypeException() {}
+	public class InvalidTypeException : System.Exception {
+		public InvalidTypeException() {}
 
-		public InvaldTypeException(Type type) : this("Error: A generic function or class received the type " + type.FullName + ", but this type is not supported.") {}
+		public InvalidTypeException(Type type) : this("Error: A generic function or class received the type " + type.FullName + ", but this type is not supported.") {}
 
-		public InvaldTypeException(string message) : base(message) {}
+		public InvalidTypeException(string message) : base(message) {}
 
-		public InvaldTypeException(string message, System.Exception inner) : base(message, inner) {}
+		public InvalidTypeException(string message, System.Exception inner) : base(message, inner) {}
 
-		protected InvaldTypeException(
+		protected InvalidTypeException(
 			System.Runtime.Serialization.SerializationInfo info,
 			System.Runtime.Serialization.StreamingContext context) : base(info, context) {}
 	}

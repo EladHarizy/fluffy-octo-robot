@@ -18,6 +18,7 @@ namespace presentation {
 			Business = business;
 		}
 
+		// If the email and password are valid, assigns the signed in person to Person. Otherwise throws InexistentEmailException or WrongPasswordException
 		public void SignIn(Email email, string password) {
 			Person = Business.SignIn<TPerson>(email, password);
 		}

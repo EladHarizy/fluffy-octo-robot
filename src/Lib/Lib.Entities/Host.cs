@@ -19,7 +19,7 @@ namespace Lib.Entities {
 			string last_name,
 			string email,
 			IEnumerable<byte> password_hash,
-			ICollection<Phone> phones,
+			IEnumerable<Phone> phones,
 			BankBranch bank_branch,
 			int account_number
 		) : this(
@@ -39,7 +39,7 @@ namespace Lib.Entities {
 			string last_name,
 			Email email,
 			IEnumerable<byte> password_hash,
-			ICollection<Phone> phones,
+			IEnumerable<Phone> phones,
 			BankAccount bank_account,
 			bool collection_clearance
 		) : base(

@@ -104,8 +104,16 @@ namespace business {
 			data.Host.Update(host);
 		}
 
+		// Returns the person with the given email and password
+		// If the password is wrong WrongPasswordException is thrown
+		// If the email doesn't exist InexistentEmailException is thrown
 		public TPerson SignIn<TPerson>(Email email, string password) where TPerson : Person {
-			TPerson person = data.GetAccessor<TPerson>().All.First(p => p.Email == email);
+			TPerson person;
+			try {
+				person = data.GetAccessor<TPerson>().All.First(p => p.Email == email);
+			} catch (InvalidOperationException e) {
+				throw new InexistentEmailException(email, e);
+			}
 			byte[] hash;
 			using(SHA512 sha = new SHA512Managed()) {
 				hash = sha.ComputeHash(ASCIIEncoding.ASCII.GetBytes(password));
@@ -113,7 +121,7 @@ namespace business {
 			int i = 0;
 			foreach (byte b in person.PasswordHash) {
 				if (b != hash[i]) {
-					throw new InvalidPasswordException();
+					throw new WrongPasswordException();
 				}
 				++i;
 			}

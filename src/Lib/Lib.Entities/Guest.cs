@@ -10,7 +10,7 @@ namespace Lib.Entities {
 
 		public Guest(string first_name, string last_name, string email, IEnumerable<byte> password_hash) : base(null, first_name, last_name, email, password_hash) {}
 
-		public Guest(ID id, string first_name, string last_name, Email email, IEnumerable<byte> password_hash, ICollection<Phone> phones) : base(id, first_name, last_name, email, password_hash, phones) {}
+		public Guest(ID id, string first_name, string last_name, Email email, IEnumerable<byte> password_hash, IEnumerable<Phone> phones) : base(id, first_name, last_name, email, password_hash, phones) {}
 
 		public override string ToString() {
 			return ToString(0);

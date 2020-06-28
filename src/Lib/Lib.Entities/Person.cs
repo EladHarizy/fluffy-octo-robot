@@ -22,13 +22,16 @@ namespace Lib.Entities {
 
 		public virtual ICollection<Phone> Phones { get; }
 
-		public Person(ID id, string first_name, string last_name, Email email, IEnumerable<byte> password_hash, ICollection<Phone> phones) {
+		public Person(ID id, string first_name, string last_name, Email email, IEnumerable<byte> password_hash, IEnumerable<Phone> phones) {
 			ID = id;
 			FirstName = first_name;
 			LastName = last_name;
 			Email = email;
 			PasswordHash = password_hash;
-			Phones = phones;
+			Phones = phones as ICollection<Phone>;
+			if (Phones == null) {
+				Phones = new HashSet<Phone>(phones);
+			}
 		}
 
 		public Person(ID id, string first_name, string last_name, string email, IEnumerable<byte> password_hash) : this(id, first_name, last_name, email, password_hash, new HashSet<Phone>()) {}

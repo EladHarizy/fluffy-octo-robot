@@ -87,7 +87,7 @@ namespace data {
 			if (typeof(T) == typeof(Order)) {
 				return Order as DataAccessor<T>;
 			}
-			throw new InvaldTypeException(typeof(T));
+			throw new InvalidTypeException(typeof(T));
 		}
 	}
 }
