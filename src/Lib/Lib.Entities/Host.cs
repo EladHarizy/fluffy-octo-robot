@@ -18,8 +18,8 @@ namespace Lib.Entities {
 			string first_name,
 			string last_name,
 			string email,
+			Phone phone,
 			IEnumerable<byte> password_hash,
-			IEnumerable<Phone> phones,
 			BankBranch bank_branch,
 			int account_number
 		) : this(
@@ -27,8 +27,8 @@ namespace Lib.Entities {
 			first_name,
 			last_name,
 			email,
+			phone,
 			password_hash,
-			phones,
 			new BankAccount(bank_branch, account_number),
 			true // collection clearance default
 		) {}
@@ -38,8 +38,8 @@ namespace Lib.Entities {
 			string first_name,
 			string last_name,
 			Email email,
+			Phone phone,
 			IEnumerable<byte> password_hash,
-			IEnumerable<Phone> phones,
 			BankAccount bank_account,
 			bool collection_clearance
 		) : base(
@@ -47,8 +47,8 @@ namespace Lib.Entities {
 			first_name,
 			last_name,
 			email,
-			password_hash,
-			phones
+			phone,
+			password_hash
 		) {
 			BankAccount = bank_account;
 			DebitAuthorisation = collection_clearance;
@@ -79,7 +79,7 @@ namespace Lib.Entities {
 		}
 
 		public Host Clone() {
-			return new Host(ID, FirstName, LastName, Email, PasswordHash, Phones.Clone(), BankAccount, DebitAuthorisation);
+			return new Host(ID, FirstName, LastName, Email, Phone, PasswordHash, BankAccount, DebitAuthorisation);
 		}
 	}
 }

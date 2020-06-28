@@ -20,21 +20,16 @@ namespace Lib.Entities {
 
 		public virtual IEnumerable<byte> PasswordHash { get; }
 
-		public virtual ICollection<Phone> Phones { get; }
+		public virtual Phone Phone { get; }
 
-		public Person(ID id, string first_name, string last_name, Email email, IEnumerable<byte> password_hash, IEnumerable<Phone> phones) {
+		public Person(ID id, string first_name, string last_name, Email email, Phone phone, IEnumerable<byte> password_hash) {
 			ID = id;
 			FirstName = first_name;
 			LastName = last_name;
 			Email = email;
 			PasswordHash = password_hash;
-			Phones = phones as ICollection<Phone>;
-			if (Phones == null) {
-				Phones = new HashSet<Phone>(phones);
-			}
+			Phone = phone;
 		}
-
-		public Person(ID id, string first_name, string last_name, string email, IEnumerable<byte> password_hash) : this(id, first_name, last_name, email, password_hash, new HashSet<Phone>()) {}
 
 		public override string ToString() {
 			return ToString(0);
@@ -59,18 +54,9 @@ namespace Lib.Entities {
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);
-			if (Phones.Count == 1) {
-				sb.Append("Phone:\t");
-				sb.Append(Phones.GetEnumerator().Current);
-				sb.Append('\n');
-			} else if (Phones.Count > 1) {
-				sb.Append("Phones:\n");
-				foreach (Phone phone in Phones) {
-					sb.Append('\t', tabs + 1);
-					sb.Append(phone);
-					sb.Append('\n');
-				}
-			}
+			sb.Append("Phone:\t");
+			sb.Append(Phone);
+			sb.Append('\n');
 
 			return sb.ToString();
 		}
