@@ -114,16 +114,8 @@ namespace business {
 			} catch (InvalidOperationException e) {
 				throw new InexistentEmailException(email, e);
 			}
-			byte[] hash;
-			using(SHA512 sha = new SHA512Managed()) {
-				hash = sha.ComputeHash(ASCIIEncoding.ASCII.GetBytes(password));
-			}
-			int i = 0;
-			foreach (byte b in person.PasswordHash) {
-				if (b != hash[i]) {
-					throw new WrongPasswordException();
-				}
-				++i;
+			if (!new Password(password).MatchesHash(person.PasswordHash)) {
+				throw new WrongPasswordException();
 			}
 			return person;
 		}

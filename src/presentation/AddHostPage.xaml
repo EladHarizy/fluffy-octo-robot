@@ -13,58 +13,73 @@
 		</Grid>
 		<Grid Grid.Column="1"><!-- Main Panel -->
 			<Grid.RowDefinitions>
-				<RowDefinition Height="*"/>
+				<RowDefinition Height="20"/>
 				<RowDefinition Height="Auto"/>
 				<RowDefinition Height="Auto"/>
 				<RowDefinition Height="Auto"/>
-				<RowDefinition Height="3*"/>
+				<RowDefinition Height="10"/>
+				<RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>
 			<TextBlock Grid.Row="1" Text="Host Sign Up" FontSize="24"/>
-			<TextBlock Grid.Row="2" Text="Fill in the details below to create an account."/>
+			<TextBlock Grid.Row="2" Text="Fill in the details below to create an account." FontSize="14"/>
 			<Grid Grid.Row="3"><!-- Form -->
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="Auto"/>
-					<ColumnDefinition Width="300"/>
+					<ColumnDefinition Width="250"/>
+					<ColumnDefinition Width="50"/>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="250"/>
 				</Grid.ColumnDefinitions>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="20"/>
 					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="10"/>
 					<RowDefinition Height="Auto"/>
 					<RowDefinition Height="10"/>
 					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="10"/>
 					<RowDefinition Height="Auto"/>
 					<RowDefinition Height="10"/>
 					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="10"/>
 					<RowDefinition Height="Auto"/>
 					<RowDefinition Height="10"/>
 					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="10"/>
 					<RowDefinition Height="Auto"/>
 					<RowDefinition Height="10"/>
+					<RowDefinition Height="Auto"/>
 					<RowDefinition Height="Auto"/>
 				</Grid.RowDefinitions>
-				<Label Grid.Column="0" Grid.Row="1">First Name</Label>
-				<TextBox Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center"/>
-				<Label Grid.Column="0" Grid.Row="3">Last Name</Label>
-				<TextBox Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center"/>
-				<Label Grid.Column="0" Grid.Row="5">Email</Label>
-				<TextBox Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center"/>
-				<Label Grid.Column="0" Grid.Row="7">Password</Label>
-				<PasswordBox Grid.Column="1" Grid.Row="7" VerticalContentAlignment="Center"/>
-				<Label Grid.Column="0" Grid.Row="9">Repeat Password</Label>
-				<PasswordBox Grid.Column="1" Grid.Row="9" VerticalContentAlignment="Center"/>
-				<Label Grid.Column="0" Grid.Row="11">Phone</Label>
-				<TextBox Grid.Column="1" Grid.Row="11" VerticalContentAlignment="Center"/>
-				<Label Grid.Column="0" Grid.Row="13">Bank Number</Label>
-				<TextBox Grid.Column="1" Grid.Row="13" VerticalContentAlignment="Center"/>
-				<Label Grid.Column="0" Grid.Row="15">Branch Number</Label>
-				<TextBox Grid.Column="1" Grid.Row="15" VerticalContentAlignment="Center"/>
-				<Label Grid.Column="0" Grid.Row="17">Account Number</Label>
-				<TextBox Grid.Column="1" Grid.Row="17" VerticalContentAlignment="Center"/>
+				<Label Grid.Column="0" Grid.Row="1" FontSize="14">First Name</Label>
+				<TextBox Grid.Column="1" Grid.Row="1" x:Name="first_name" VerticalContentAlignment="Center"/>
+				<TextBlock Grid.Column="1" Grid.Row="2" x:Name="first_name_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
+				<Label Grid.Column="3" Grid.Row="1" FontSize="14">Last Name</Label>
+				<TextBox Grid.Column="4" Grid.Row="1" x:Name="last_name" VerticalContentAlignment="Center"/>
+				<TextBlock Grid.Column="4" Grid.Row="2" x:Name="last_name_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
+				<Label Grid.Column="0" Grid.Row="4" FontSize="14">Email</Label>
+				<TextBox Grid.Column="1" Grid.Row="4" x:Name="email" VerticalContentAlignment="Center"/>
+				<TextBlock Grid.Column="1" Grid.Row="5" x:Name="email_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
+				<Label Grid.Column="3" Grid.Row="4" FontSize="14">Phone</Label>
+				<TextBox Grid.Column="4" Grid.Row="4" x:Name="phone" VerticalContentAlignment="Center"/>
+				<TextBlock Grid.Column="4" Grid.Row="5" x:Name="phone_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
+				<Label Grid.Column="0" Grid.Row="7" FontSize="14">Password</Label>
+				<PasswordBox Grid.Column="1" Grid.Row="7" x:Name="password" VerticalContentAlignment="Center"/>
+				<TextBlock Grid.Column="1" Grid.Row="8" x:Name="password_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
+				<Label Grid.Column="3" Grid.Row="7" FontSize="14">Repeat Password</Label>
+				<PasswordBox Grid.Column="4" Grid.Row="7" x:Name="repeat_password" VerticalContentAlignment="Center"/>
+				<TextBlock Grid.Column="4" Grid.Row="8" x:Name="repeat_password_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
+				<Label Grid.Column="0" Grid.Row="10" FontSize="14">Bank Number</Label>
+				<TextBox Grid.Column="1" Grid.Row="10" x:Name="bank_number" VerticalContentAlignment="Center"/>
+				<TextBlock Grid.Column="1" Grid.Row="11" x:Name="bank_number_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
+				<Label Grid.Column="3" Grid.Row="10" FontSize="14">Branch Number</Label>
+				<TextBox Grid.Column="4" Grid.Row="10" x:Name="branch_number" VerticalContentAlignment="Center"/>
+				<TextBlock Grid.Column="4" Grid.Row="11" x:Name="branch_number_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
+				<Label Grid.Column="0" Grid.Row="13" FontSize="14">Account Number</Label>
+				<TextBox Grid.Column="1" Grid.Row="13" x:Name="account_number" VerticalContentAlignment="Center"/>
+				<TextBlock Grid.Column="1" Grid.Row="14" x:Name="account_number_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
 			</Grid>
+			<StackPanel Grid.Row="5" Orientation="Horizontal" Height="30"><!-- Submit buttons -->
+				<Button Click="SignUp">Sign Up</Button>
+				<Rectangle Width="10"/>
+				<Button Click="Cancel">Cancel</Button>
+			</StackPanel>
 		</Grid>
 	</Grid>
 </Page>

@@ -14,7 +14,7 @@ namespace data {
 			string first_name = element.Element("first_name").Value.Trim();
 			string last_name = element.Element("last_name").Value.Trim();
 			Email email = element.Element("email").Value.Trim();
-			Phone phone = element.Element("phones").Value.Trim();
+			Phone phone = element.Element("phone").Value.Trim();
 			IEnumerable<byte> password_hash = Convert.FromBase64String(element.Element("password_hash").Value.Trim());
 			BankAccount account = bank_account_converter.XmlToObj(element.Element("bank_account"));
 			bool collection_clearance = bool.Parse(element.Element("collection_clearance").Value.Trim());
