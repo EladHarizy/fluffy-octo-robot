@@ -20,23 +20,27 @@ namespace presentation {
 			MainWindow = main_window;
 		}
 
-		private void SignIn(object sender, RoutedEventArgs e) {
+		public void SignIn() {
 			try {
 				HostSession.SignIn(email.Text, password.Password);
 				MainWindow.LoadPage(new UnitsPage(Business, HostSession.Person));
-			} catch (Exception exception) when(exception is InexistentEmailException || exception is InvalidEmailException) {
+			} catch (Exception error) when(error is InexistentEmailException || error is InvalidEmailException) {
 				email.BorderBrush = System.Windows.Media.Brushes.Red;
-				email_error.Text = exception.Message;
+				email_error.Text = error.Message;
 				email_error.Height = Double.NaN;
-			} catch (WrongPasswordException exception) {
+			} catch (WrongPasswordException error) {
 				password.BorderBrush = System.Windows.Media.Brushes.Red;
-				password_error.Text = exception.Message;
+				password_error.Text = error.Message;
 				password_error.Height = Double.NaN;
 			}
 		}
 
+		private void SignIn(object sender, RoutedEventArgs e) {
+			SignIn();
+		}
+
 		private void SignUp(object sender, RoutedEventArgs e) {
-			MainWindow.LoadPage(new AddHostPage(Business));
+			MainWindow.LoadPage(new AddHostPage(Business, MainWindow, this));
 		}
 	}
 }

@@ -13,17 +13,17 @@ namespace presentation {
 		private string OriginalTitle { get; }
 
 		// Stores the host who is signed in, if any
-		private Session<Host> host_session;
+		private Session<Host> HostSession { get; }
 
 		// Stores the guest who is signed in, if any
-		private Session<Guest> guest_session;
+		private Session<Guest> GuestSession { get; }
 
 		public MainWindow() {
 			InitializeComponent();
 			OriginalTitle = Title;
 			Business = new Business();
-			host_session = new Session<Host>(Business);
-			guest_session = new Session<Guest>(Business);
+			HostSession = new Session<Host>(Business);
+			GuestSession = new Session<Guest>(Business);
 			LoadPage(new HomePage());
 		}
 
@@ -41,10 +41,10 @@ namespace presentation {
 		}
 
 		private void UnitsPage(object sender, RoutedEventArgs e) {
-			if (host_session.IsSignedIn) {
-				LoadPage(new UnitsPage(Business, host_session.Person));
+			if (HostSession.IsSignedIn) {
+				LoadPage(new UnitsPage(Business, HostSession.Person));
 			} else {
-				LoadPage(new HostSignInPage(Business, host_session, this));
+				LoadPage(new HostSignInPage(Business, HostSession, this));
 			}
 		}
 
