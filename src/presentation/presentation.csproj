@@ -1,9 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
-
+	<ItemGroup>
+		<ProjectReference Include="..\lib\lib.csproj"/>
+		<ProjectReference Include="..\business\business.csproj"/>
+		<Resource Include="images\octopus.png"/>
+	</ItemGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
 </Project>

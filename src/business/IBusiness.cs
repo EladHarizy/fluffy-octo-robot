@@ -6,6 +6,8 @@ using Lib.Entities;
 
 namespace business {
 	public interface IBusiness {
+		Guest Guest(ID id);
+
 		void AddGuestRequest(GuestRequest guest_request);
 
 		void UpdateGuestRequest(GuestRequest guest_request);
@@ -23,6 +25,8 @@ namespace business {
 		void AddHost(Host host);
 
 		void UpdateHost(Host host);
+
+		TPerson SignIn<TPerson>(Email email, string password) where TPerson : Person;
 
 		IEnumerable<Unit> Units();
 

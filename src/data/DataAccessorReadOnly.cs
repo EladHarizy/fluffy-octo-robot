@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
@@ -6,7 +5,7 @@ using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace data {
-	public class DataAccessorReadOnly<TKey, TObj> where TObj : IIndexedReadOnly<TKey> {
+	public class DataAccessorReadOnly<TKey, TObj> where TObj : IEntityReadOnly<TKey> {
 		public virtual string FileName { get; }
 
 		// The parent tag of all the objects in question
@@ -19,7 +18,7 @@ namespace data {
 
 		protected readonly bool cloneable;
 
-		public ICollection<TObj> All {
+		public IEnumerable<TObj> All {
 			get {
 				load_cache();
 				return cache.Values.Clone();
@@ -35,7 +34,7 @@ namespace data {
 			string collection_tag_name,
 			IXmlConverterReadOnly<TObj> converter
 		) : this(file_name, converter) {
-			collection_xml = XElement.Load(file_name).Descendants(collection_tag_name).First();
+			collection_xml = XElement.Load(file_name).DescendantsAndSelf(collection_tag_name).First();
 		}
 
 		protected DataAccessorReadOnly(

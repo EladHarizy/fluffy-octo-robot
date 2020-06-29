@@ -1,5 +1,5 @@
 namespace Lib.Interfaces {
-	public interface IIndexedReadOnly<TKey> {
-		TKey Key();
+	public interface IEntityReadOnly<TIndex> {
+		TIndex Key();
 	}
 }

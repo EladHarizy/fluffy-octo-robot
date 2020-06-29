@@ -1,7 +1,7 @@
 <guest_requests>
 	<guest_request>
 		<id>00000001</id>
-		<guest_id>00000004</guest>
+		<guest_id>00000004</guest_id>
 		<creation_date>15/06/2020</creation_date>
 		<start_date>26/10/2020</start_date>
 		<end_date>31/10/2020</end_date>

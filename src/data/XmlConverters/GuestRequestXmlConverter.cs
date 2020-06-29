@@ -6,7 +6,9 @@ using Lib.Entities;
 
 namespace data {
 	class GuestRequestXmlConverter : IXmlConverter<GuestRequest> {
-		private readonly DataAccessorReadOnly<ID, Guest> guests = DataFactory.Data.Guest;
+		private DataAccessorReadOnly<ID, Guest> Guests {
+			get => DataFactory.Data.Guest;
+		}
 
 		private readonly CollectionXmlConverter<City, HashSet<City>> region_converter = new CollectionXmlConverter<City, HashSet<City>>("region", "city");
 
@@ -16,14 +18,14 @@ namespace data {
 
 		public GuestRequest XmlToObj(XElement element) {
 			return new GuestRequest(
-				element.Element("id").Value,
-				guests[element.Element("guest_id").Value],
-				Date.Parse(element.Element("creation_date").Value),
-				Date.Parse(element.Element("start_date").Value),
-				Date.Parse(element.Element("end_date").Value),
-				bool.Parse(element.Element("active").Value),
-				int.Parse(element.Element("adults").Value),
-				int.Parse(element.Element("children").Value),
+				element.Element("id").Value.Trim(),
+				Guests[element.Element("guest_id").Value.Trim()],
+				Date.Parse(element.Element("creation_date").Value.Trim()),
+				Date.Parse(element.Element("start_date").Value.Trim()),
+				Date.Parse(element.Element("end_date").Value.Trim()),
+				bool.Parse(element.Element("active").Value.Trim()),
+				int.Parse(element.Element("adults").Value.Trim()),
+				int.Parse(element.Element("children").Value.Trim()),
 				region_converter.XmlToObj(element.Element("region")),
 				unit_types_converter.XmlToObj(element.Element("desired_unit_types")),
 				amenities_converter.XmlToObj(element.Element("desired_amenities"))
