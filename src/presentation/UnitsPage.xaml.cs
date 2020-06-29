@@ -12,6 +12,7 @@ namespace presentation {
 			InitializeComponent();
 			this.business = business;
 			this.host = host;
+			host_id.Text = host.ID;
 		}
 	}
 }

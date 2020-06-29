@@ -26,10 +26,10 @@
 			<PasswordBox x:Name="password" FontSize="18" Height="30"/>
 			<TextBlock x:Name="password_error" Text="" TextWrapping="Wrap" Foreground="Red" Height="0"/>
 			<Rectangle Height="10"/>
-			<Button Style="{StaticResource Big}" Click="SignIn">Sign In</Button>
+			<Button Click="SignIn">Sign In</Button>
 			<Rectangle Height="10"/>
 			<TextBlock Text="Dont have an account?"/>
-			<Button Style="{StaticResource Big}" Click="SignUp">Sign Up</Button>
+			<Button Click="SignUp">Sign Up</Button>
 		</StackPanel>
 	</Grid>
 </Page>

@@ -17,18 +17,18 @@ namespace Lib.Entities {
 		public Host(
 			string first_name,
 			string last_name,
-			string email,
+			Email email,
 			Phone phone,
-			IEnumerable<byte> password_hash,
+			string password,
 			BankBranch bank_branch,
-			int account_number
+			ID account_number
 		) : this(
 			null, // initialized ID to null
 			first_name,
 			last_name,
 			email,
 			phone,
-			password_hash,
+			new Password(password).Hash(),
 			new BankAccount(bank_branch, account_number),
 			true // collection clearance default
 		) {}

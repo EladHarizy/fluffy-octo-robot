@@ -36,6 +36,14 @@ namespace Lib.DataTypes {
 			return hashCode;
 		}
 
+		public static bool operator ==(ID id1, ID id2) {
+			return (id1 is null && id2 is null) || id1.Equals(id2);
+		}
+
+		public static bool operator !=(ID id1, ID id2) {
+			return !(id1 == id2);
+		}
+
 		public ID Next() {
 			if (Number == Math.Pow(10, Digits) - 1) {
 				throw new IDOverflowException(Number + 1, Digits);
