@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using business;
 using Lib.Entities;
@@ -18,6 +19,8 @@ namespace presentation {
 		// Stores the guest who is signed in, if any
 		private Session<Guest> GuestSession { get; }
 
+		private Stack<Page> PageStack { get; }
+
 		public MainWindow() {
 			InitializeComponent();
 			OriginalTitle = Title;
@@ -28,12 +31,22 @@ namespace presentation {
 		}
 
 		public void LoadPage(Page page) {
+			PageStack.Push(page);
+			LoadPageInternal(page);
+		}
+
+		public void Back() {
+			Page page = PageStack.Pop();
+			LoadPageInternal(page);
+		}
+
+		private void LoadPageInternal(Page page) {
 			Page.Content = page;
 			SetTitle(page.Title);
 		}
 
 		private void SetTitle(string title) {
-			Title = OriginalTitle + " | " + title;
+			Title = OriginalTitle + ((title == "") ? "" : (" | " + title));
 		}
 
 		private void GuestRequestsPage(object sender, RoutedEventArgs e) {
