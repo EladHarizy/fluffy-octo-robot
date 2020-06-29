@@ -35,14 +35,12 @@ namespace presentation {
 			Validator<TextBox> validator = new Validator<TextBox>(
 				email,
 				email_error,
-				new List<Func<TextBox, string>> {
-					Control => {
-						try {
-							Business.AddHost(new Host(first_name.Text, last_name.Text, email.Text, phone.Text, password.Password, BankBranch, account_number.Text));
-							return "";
-						} catch (EmailExistsException) {
-							return "Error: A host already exists with this email. Try signing in instead.";
-						}
+				Control => {
+					try {
+						Business.AddHost(new Host(first_name.Text, last_name.Text, email.Text, phone.Text, password.Password, BankBranch, account_number.Text));
+						return "";
+					} catch (EmailExistsException) {
+						return "Error: A host already exists with this email. Try signing in instead.";
 					}
 				}
 			);
@@ -72,10 +70,8 @@ namespace presentation {
 			Validator<TextBox> validator = new Validator<TextBox>(
 				first_name,
 				first_name_error,
-				new List<Func<TextBox, string>> {
-					control => control.Text == "" ? "Error: First name is required." : "",
-					control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
-				}
+				control => control.Text == "" ? "Error: First name is required." : "",
+				control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
 			);
 			return validator.Validate();
 		}
@@ -85,10 +81,8 @@ namespace presentation {
 			Validator<TextBox> validator = new Validator<TextBox>(
 				last_name,
 				last_name_error,
-				new List<Func<TextBox, string>> {
-					control => control.Text == "" ? "Error: First name is required." : "",
-					control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
-				}
+				control => control.Text == "" ? "Error: First name is required." : "",
+				control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
 			);
 			return validator.Validate();
 		}
@@ -97,15 +91,13 @@ namespace presentation {
 			Validator<TextBox> validator = new Validator<TextBox>(
 				email,
 				email_error,
-				new List<Func<TextBox, string>> {
-					control => control.Text == "" ? "Error: Email is required." : "",
-					control => {
-						try {
-							email.Text = new Email(email.Text);
-							return "";
-						} catch (InvalidEmailException error) {
-							return error.Message;
-						}
+				control => control.Text == "" ? "Error: Email is required." : "",
+				control => {
+					try {
+						email.Text = new Email(email.Text);
+						return "";
+					} catch (InvalidEmailException error) {
+						return error.Message;
 					}
 				}
 			);
@@ -116,21 +108,19 @@ namespace presentation {
 			Validator<TextBox> validator = new Validator<TextBox>(
 				phone,
 				phone_error,
-				new List<Func<TextBox, string>> {
-					new Func<TextBox, string>(
-						control => control.Text == "" ? "Error: Phone number is required." : ""
-					),
-					new Func<TextBox, string>(
-						control => {
-							try {
-								phone.Text = new Phone(phone.Text);
-								return "";
-							} catch (InvalidPhoneException error) {
-								return error.Message;
-							}
+				new Func<TextBox, string>(
+					control => control.Text == "" ? "Error: Phone number is required." : ""
+				),
+				new Func<TextBox, string>(
+					control => {
+						try {
+							phone.Text = new Phone(phone.Text);
+							return "";
+						} catch (InvalidPhoneException error) {
+							return error.Message;
 						}
-					)
-				}
+					}
+				)
 			);
 			return validator.Validate();
 		}
@@ -139,15 +129,13 @@ namespace presentation {
 			Validator<PasswordBox> validator = new Validator<PasswordBox>(
 				password,
 				password_error,
-				new List<Func<PasswordBox, string>> {
-					control => control.Password == "" ? "Error: Password is required." : "",
-					control => {
-						try {
-							control.Password = new Password(control.Password);
-							return "";
-						} catch (InvalidPasswordException error) {
-							return error.Message;
-						}
+				control => control.Password == "" ? "Error: Password is required." : "",
+				control => {
+					try {
+						control.Password = new Password(control.Password);
+						return "";
+					} catch (InvalidPasswordException error) {
+						return error.Message;
 					}
 				}
 			);
@@ -158,9 +146,7 @@ namespace presentation {
 			Validator<PasswordBox> validator = new Validator<PasswordBox>(
 				repeat_password,
 				repeat_password_error,
-				new List<Func<PasswordBox, string>> {
-					control => control.Password != password.Password ? "Error: Passwords do not match." : ""
-				}
+				control => control.Password != password.Password ? "Error: Passwords do not match." : ""
 			);
 			return validator.Validate();
 		}
@@ -169,19 +155,17 @@ namespace presentation {
 			Validator<TextBox> validator = new Validator<TextBox>(
 				bank_number,
 				bank_number_error,
-				new List<Func<TextBox, string>> {
-					control => {
-						try {
-							control.Text = new ID(control.Text, 2);
-							Business.BankBranches().First(branch => branch.BankID == bank_number.Text);
-							return "";
-						} catch (IncorrectDigitsException) {
-							return "Error: Bank number must be at most two digits.";
-						} catch (FormatException) {
-							return "Error: Could not parse the input as a bank number.";
-						} catch (InvalidOperationException) {
-							return "Error: No bank with this number was found.";
-						}
+				control => {
+					try {
+						control.Text = new ID(control.Text, 2);
+						Business.BankBranches().First(branch => branch.BankID == bank_number.Text);
+						return "";
+					} catch (IncorrectDigitsException) {
+						return "Error: Bank number must be at most two digits.";
+					} catch (FormatException) {
+						return "Error: Could not parse the input as a bank number.";
+					} catch (InvalidOperationException) {
+						return "Error: No bank with this number was found.";
 					}
 				}
 			);
@@ -192,19 +176,17 @@ namespace presentation {
 			Validator<TextBox> validator = new Validator<TextBox>(
 				branch_number,
 				branch_number_error,
-				new List<Func<TextBox, string>> {
-					control => {
-						try {
-							control.Text = new ID(control.Text, 3);
-							BankBranch = Business.BankBranches().First(branch => branch.BankID == bank_number.Text && branch.BranchID == control.Text);
-							return "";
-						} catch (IncorrectDigitsException) {
-							return "Error: Branch number must be at most three digits.";
-						} catch (FormatException) {
-							return "Error: Could not parse the input as a branch number.";
-						} catch (InvalidOperationException) {
-							return "Error: No branch with this number was found for bank " + bank_number.Text + '.';
-						}
+				control => {
+					try {
+						control.Text = new ID(control.Text, 3);
+						BankBranch = Business.BankBranches().First(branch => branch.BankID == bank_number.Text && branch.BranchID == control.Text);
+						return "";
+					} catch (IncorrectDigitsException) {
+						return "Error: Branch number must be at most three digits.";
+					} catch (FormatException) {
+						return "Error: Could not parse the input as a branch number.";
+					} catch (InvalidOperationException) {
+						return "Error: No branch with this number was found for bank " + bank_number.Text + '.';
 					}
 				}
 			);
@@ -215,16 +197,14 @@ namespace presentation {
 			Validator<TextBox> validator = new Validator<TextBox>(
 				account_number,
 				account_number_error,
-				new List<Func<TextBox, string>> {
-					control => {
-						try {
-							control.Text = new ID(control.Text, 6);
-							return "";
-						} catch (IncorrectDigitsException) {
-							return "Error: Account number must be six digits.";
-						} catch (FormatException) {
-							return "Error: Could not parse the input as an account number.";
-						}
+				control => {
+					try {
+						control.Text = new ID(control.Text, 6);
+						return "";
+					} catch (IncorrectDigitsException) {
+						return "Error: Account number must be six digits.";
+					} catch (FormatException) {
+						return "Error: Could not parse the input as an account number.";
 					}
 				}
 			);

@@ -7,15 +7,12 @@ namespace presentation {
 	internal class Validator<TControl> where TControl : Control {
 		private TControl Control { get; }
 
-		private Brush OriginalBrush { get; }
-
 		private TextBlock ErrorBlock { get; }
 
 		private IEnumerable<Func<TControl, string>> Checks { get; }
 
-		public Validator(TControl control, TextBlock error_block, IEnumerable<Func<TControl, string>> checks) {
+		public Validator(TControl control, TextBlock error_block, params Func<TControl, string>[] checks) {
 			Control = control;
-			OriginalBrush = control.BorderBrush;
 			ErrorBlock = error_block;
 			Checks = checks;
 		}
@@ -38,7 +35,7 @@ namespace presentation {
 		}
 
 		private void ResetError() {
-			Control.BorderBrush = OriginalBrush;
+			Control.BorderBrush = new SolidColorBrush(Color.FromRgb(171, 173, 179));
 			ErrorBlock.Text = "";
 		}
 	}

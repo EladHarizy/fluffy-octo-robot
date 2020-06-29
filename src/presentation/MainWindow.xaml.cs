@@ -27,6 +27,7 @@ namespace presentation {
 			Business = new Business();
 			HostSession = new Session<Host>(Business);
 			GuestSession = new Session<Guest>(Business);
+			PageStack = new Stack<Page>();
 			LoadPage(new HomePage());
 		}
 

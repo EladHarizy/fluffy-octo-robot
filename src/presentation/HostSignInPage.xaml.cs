@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using business;
+using Lib.DataTypes;
 using Lib.Entities;
 using Lib.Exceptions;
 
@@ -21,18 +23,48 @@ namespace presentation {
 		}
 
 		public void SignIn() {
-			try {
-				HostSession.SignIn(email.Text, password.Password);
-				MainWindow.LoadPage(new UnitsPage(Business, HostSession.Person));
-			} catch (Exception error) when(error is InexistentEmailException || error is InvalidEmailException) {
-				email.BorderBrush = System.Windows.Media.Brushes.Red;
-				email_error.Text = error.Message;
-				email_error.Height = Double.NaN;
-			} catch (WrongPasswordException error) {
-				password.BorderBrush = System.Windows.Media.Brushes.Red;
-				password_error.Text = error.Message;
-				password_error.Height = Double.NaN;
+			Host host = null;
+
+			Validator<TextBox> email_validator = new Validator<TextBox>(
+				email,
+				email_error,
+				control => {
+					try {
+						control.Text = new Email(control.Text);
+						return "";
+					} catch (InvalidEmailException error) {
+						return error.Message;
+					}
+				},
+				control => {
+					try {
+						host = Business.Host(new Email(control.Text));
+						return "";
+					} catch (InexistentEmailException error) {
+						return error.Message;
+					}
+				}
+			);
+			if (!email_validator.Validate()) {
+				return;
 			}
+
+			Validator<PasswordBox> password_validator = new Validator<PasswordBox>(
+				password,
+				password_error,
+				control => {
+					try {
+						HostSession.SignIn(host, password.Password);
+						return "";
+					} catch (InvalidPasswordException error) {
+						return error.Message;
+					}
+				}
+			);
+			if (!password_validator.Validate()) {
+				return;
+			}
+			MainWindow.LoadPage(new UnitsPage(Business, HostSession.Person));
 		}
 
 		private void SignIn(object sender, RoutedEventArgs e) {
