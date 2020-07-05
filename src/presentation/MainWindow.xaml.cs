@@ -37,7 +37,7 @@ namespace presentation {
 		}
 
 		private void GuestRequestsPage(object sender, RoutedEventArgs e) {
-			LoadPage(new GuestRequestsPage(Business));
+			LoadPage(new GuestRequestsPage(Business, Business.Guest("00000002")));
 		}
 
 		private void UnitsPage(object sender, RoutedEventArgs e) {
