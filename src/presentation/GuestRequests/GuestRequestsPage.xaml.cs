@@ -6,9 +6,12 @@ namespace presentation {
 	public partial class GuestRequestsPage : Page {
 		private IBusiness business;
 
-		public GuestRequestsPage(IBusiness business) {
+		private Guest Guest { get; }
+
+		public GuestRequestsPage(IBusiness business, Guest guest) {
 			InitializeComponent();
 			this.business = business;
+			Guest = guest;
 		}
 
 		private void FormSubmit() {
