@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using business;
+using Lib.DataTypes;
 using Lib.Entities;
 
 namespace presentation {
@@ -51,7 +52,7 @@ namespace presentation {
 		}
 
 		private void GuestRequestsPage(object sender, RoutedEventArgs e) {
-			LoadPage(new GuestRequestsPage(Business, Business.Guest("00000002")));
+			LoadPage(new GuestRequestsPage(Business, Business.Guest(new ID(2, 8))));
 		}
 
 		private void UnitsPage(object sender, RoutedEventArgs e) {
