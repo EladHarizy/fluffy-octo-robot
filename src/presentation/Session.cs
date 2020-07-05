@@ -1,6 +1,6 @@
 using business;
-using Lib.DataTypes;
 using Lib.Entities;
+using Lib.Exceptions;
 
 namespace presentation {
 	public class Session<TPerson> where TPerson : Person {
@@ -19,8 +19,12 @@ namespace presentation {
 		}
 
 		// If the email and password are valid, assigns the signed in person to Person. Otherwise throws InexistentEmailException or WrongPasswordException
-		public void SignIn(Email email, string password) {
-			Person = Business.SignIn<TPerson>(email, password);
+		public void SignIn(TPerson person, string password) {
+			if (Business.SignIn<TPerson>(person, password)) {
+				Person = person;
+			} else {
+				throw new WrongPasswordException();
+			}
 		}
 	}
 }

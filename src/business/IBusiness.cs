@@ -8,6 +8,12 @@ namespace business {
 	public interface IBusiness {
 		Guest Guest(ID id);
 
+		Guest Guest(Email email);
+
+		Host Host(ID iD);
+
+		Host Host(Email email);
+
 		void AddGuestRequest(GuestRequest guest_request);
 
 		void UpdateGuestRequest(GuestRequest guest_request);
@@ -26,7 +32,7 @@ namespace business {
 
 		void UpdateHost(Host host);
 
-		TPerson SignIn<TPerson>(Email email, string password) where TPerson : Person;
+		bool SignIn<TPerson>(TPerson person, string password) where TPerson : Person;
 
 		IEnumerable<Unit> Units();
 
