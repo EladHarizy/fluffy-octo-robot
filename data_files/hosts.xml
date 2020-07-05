@@ -4,10 +4,8 @@
 		<first_name>Alex</first_name>
 		<last_name>Alderson</last_name>
 		<email>alex@alderson.com</email>
-		<phones>
-			<phone>+972000000015</phone>
-			<phone>+972000000016</phone>
-		</phones>
+		<phone>+972000000015</phone>
+		<password_hash>sQnzu7wkTrgkQZF+0G1hi5AI3Qmzvv0bXgc5THBqi7mAsdd4Xll27ASbRt9fEyavWi6m0QP9B8lThf+rDKy8hg==</password_hash>
 		<bank_account>
 			<bank_id>13</bank_id>
 			<branch_id>143</branch_id>
@@ -20,9 +18,8 @@
 		<first_name>Bob</first_name>
 		<last_name>Barrett</last_name>
 		<email>bob@barrett.com</email>
-		<phones>
-			<phone>+972000000025</phone>
-		</phones>
+		<phone>+972000000025</phone>
+		<password_hash>sQnzu7wkTrgkQZF+0G1hi5AI3Qmzvv0bXgc5THBqi7mAsdd4Xll27ASbRt9fEyavWi6m0QP9B8lThf+rDKy8hg==</password_hash>
 		<bank_account>
 			<bank_id>12</bank_id>
 			<branch_id>174</branch_id>
@@ -35,11 +32,8 @@
 		<first_name>Charlie</first_name>
 		<last_name>Coulson</last_name>
 		<email>cindy@coulson.com</email>
-		<phones>
-			<phone>+972000000035</phone>
-			<phone>+972000000036</phone>
-			<phone>+972000000037</phone>
-		</phones>
+		<phone>+972000000035</phone>
+		<password_hash>sQnzu7wkTrgkQZF+0G1hi5AI3Qmzvv0bXgc5THBqi7mAsdd4Xll27ASbRt9fEyavWi6m0QP9B8lThf+rDKy8hg==</password_hash>
 		<bank_account>
 			<bank_id>10</bank_id>
 			<branch_id>801</branch_id>

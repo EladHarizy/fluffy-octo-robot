@@ -5,7 +5,7 @@ using Lib.Exceptions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
-	public class BankBranch : IIndexedReadOnly<Tuple<ID, ID>> {
+	public class BankBranch : IEntityReadOnly<Tuple<ID, ID>> {
 		public ID BankID { get; }
 
 		public ID BranchID { get; }

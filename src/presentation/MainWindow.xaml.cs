@@ -1,23 +1,33 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using business;
+using Lib.Entities;
 
 namespace presentation {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow : Window {
-		private IBusiness business = new Business();
+		private IBusiness Business { get; }
 
-		private string OriginalTitle;
+		private string OriginalTitle { get; }
+
+		// Stores the host who is signed in, if any
+		private Session<Host> HostSession { get; }
+
+		// Stores the guest who is signed in, if any
+		private Session<Guest> GuestSession { get; }
 
 		public MainWindow() {
 			InitializeComponent();
 			OriginalTitle = Title;
+			Business = new Business();
+			HostSession = new Session<Host>(Business);
+			GuestSession = new Session<Guest>(Business);
 			LoadPage(new HomePage());
 		}
 
-		private void LoadPage(Page page) {
+		public void LoadPage(Page page) {
 			Page.Content = page;
 			SetTitle(page.Title);
 		}
@@ -27,11 +37,15 @@ namespace presentation {
 		}
 
 		private void GuestRequestsPage(object sender, RoutedEventArgs e) {
-			LoadPage(new GuestRequestsPage(business));
+			LoadPage(new GuestRequestsPage(Business));
 		}
 
 		private void UnitsPage(object sender, RoutedEventArgs e) {
-			LoadPage(new UnitsPage(business));
+			if (HostSession.IsSignedIn) {
+				LoadPage(new UnitsPage(Business, HostSession.Person));
+			} else {
+				LoadPage(new HostSignInPage(Business, HostSession, this));
+			}
 		}
 
 		private void AdminPage(object sender, RoutedEventArgs e) {

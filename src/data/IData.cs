@@ -1,6 +1,7 @@
 ﻿using System;
 using Lib.DataTypes;
 using Lib.Entities;
+using Lib.Interfaces;
 
 namespace data {
 	public interface IData {
@@ -23,5 +24,7 @@ namespace data {
 		DataAccessorReadOnly<string, Order.Status> OrderStatus { get; }
 
 		DataAccessorReadOnly<string, Unit.Type> UnitType { get; }
+
+		DataAccessor<T> GetAccessor<T>() where T : IEntity<ID>;
 	}
 }

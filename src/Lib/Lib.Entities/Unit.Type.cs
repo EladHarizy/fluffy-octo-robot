@@ -2,7 +2,7 @@ using Lib.Interfaces;
 
 namespace Lib.Entities {
 	public partial class Unit {
-		public class Type : IIndexedReadOnly<string> {
+		public class Type : IEntityReadOnly<string> {
 			public string Name { get; }
 
 			public Type(string name) {

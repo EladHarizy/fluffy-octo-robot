@@ -26,6 +26,8 @@ namespace business {
 
 		void UpdateHost(Host host);
 
+		TPerson SignIn<TPerson>(Email email, string password) where TPerson : Person;
+
 		IEnumerable<Unit> Units();
 
 		IEnumerable<Unit> UnitsOf(Host host);

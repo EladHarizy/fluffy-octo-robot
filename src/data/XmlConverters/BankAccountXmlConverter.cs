@@ -14,9 +14,9 @@ namespace data {
 		}
 
 		public BankAccount XmlToObj(XElement element) {
-			ID bank_id = element.Element("bank_id").Value;
-			ID branch_id = element.Element("branch_id").Value;
-			ID account_number = element.Element("account_number").Value;
+			ID bank_id = element.Element("bank_id").Value.Trim();
+			ID branch_id = element.Element("branch_id").Value.Trim();
+			ID account_number = element.Element("account_number").Value.Trim();
 			return new BankAccount(
 				DataFactory.Data.BankBranch[new Tuple<ID, ID>(bank_id, branch_id)],
 				account_number

@@ -19,12 +19,12 @@ namespace data {
 
 		public Order XmlToObj(XElement element) {
 			return new Order(
-				element.Element("id").Value,
-				Units[element.Element("unit_id").Value],
-				GuestRequests[element.Element("guest_request_id").Value],
-				element.Element("status").Value,
-				Date.Parse(element.Element("creation_date").Value),
-				Date.Parse(element.Element("email_delivery_date").Value)
+				element.Element("id").Value.Trim(),
+				Units[element.Element("unit_id").Value.Trim()],
+				GuestRequests[element.Element("guest_request_id").Value.Trim()],
+				element.Element("status").Value.Trim(),
+				Date.Parse(element.Element("creation_date").Value.Trim()),
+				Date.Parse(element.Element("email_delivery_date").Value.Trim())
 			);
 		}
 	}
