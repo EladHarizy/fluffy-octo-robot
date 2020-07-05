@@ -15,19 +15,19 @@ namespace presentation {
 
 		private MainWindow MainWindow { get; }
 
+		private Validator<TextBox> EmailValidator { get; }
+
+		private Validator<PasswordBox> PasswordValidator { get; }
+
 		public HostSignInPage(IBusiness business, Session<Host> host_session, MainWindow main_window) {
 			InitializeComponent();
 			Business = business;
 			HostSession = host_session;
 			MainWindow = main_window;
-		}
 
-		public void SignIn() {
-			Host host = null;
-
-			Validator<TextBox> email_validator = new Validator<TextBox>(
-				email,
-				email_error,
+			EmailValidator = new Validator<TextBox>(email, email_error);
+			// Check that the email has a valid format
+			EmailValidator.AddCheck(
 				control => {
 					try {
 						control.Text = new Email(control.Text);
@@ -35,36 +35,30 @@ namespace presentation {
 					} catch (InvalidEmailException error) {
 						return error.Message;
 					}
-				},
-				control => {
-					try {
-						host = Business.Host(new Email(control.Text));
-						return "";
-					} catch (InexistentEmailException error) {
-						return error.Message;
-					}
 				}
 			);
-			if (!email_validator.Validate()) {
+
+			PasswordValidator = new Validator<PasswordBox>(password, password_error);
+		}
+
+		public void SignIn() {
+			if (!EmailValidator.Validate() || !PasswordValidator.Validate()) {
 				return;
 			}
 
-			Validator<PasswordBox> password_validator = new Validator<PasswordBox>(
-				password,
-				password_error,
-				control => {
-					try {
-						HostSession.SignIn(host, password.Password);
-						return "";
-					} catch (InvalidPasswordException error) {
-						return error.Message;
-					}
-				}
-			);
-			if (!password_validator.Validate()) {
-				return;
+			try {
+				Host host = Business.Host(new Email(email.Text));
+				EmailValidator.ResetError();
+
+				HostSession.SignIn(host, password.Password);
+				PasswordValidator.ResetError();
+
+				MainWindow.LoadPage(new UnitsPage(Business, HostSession.Person));
+			} catch (InexistentEmailException error) {
+				EmailValidator.SetError(error.Message);
+			} catch (WrongPasswordException error) {
+				PasswordValidator.SetError(error.Message);
 			}
-			MainWindow.LoadPage(new UnitsPage(Business, HostSession.Person));
 		}
 
 		private void SignIn(object sender, RoutedEventArgs e) {

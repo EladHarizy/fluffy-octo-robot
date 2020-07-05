@@ -21,91 +21,59 @@ namespace presentation {
 
 		private BankBranch BankBranch { get; set; }
 
+		private Validator<TextBox> FirstNameValidator { get; }
+
+		private Validator<TextBox> LastNameValidator { get; }
+
+		private Validator<TextBox> EmailValidator { get; }
+
+		private Validator<TextBox> PhoneValidator { get; }
+
+		private Validator<PasswordBox> PasswordValidator { get; }
+
+		private Validator<PasswordBox> RepeatPasswordValidator { get; }
+
+		private Validator<TextBox> BankNumberValidator { get; }
+
+		private Validator<TextBox> BranchNumberValidator { get; }
+
+		private Validator<TextBox> AccountNumberValidator { get; }
+
 		public AddHostPage(IBusiness business, MainWindow main_window, HostSignInPage host_sign_in_page) {
 			InitializeComponent();
 			Business = business;
 			MainWindow = main_window;
 			HostSignInPage = host_sign_in_page;
-		}
 
-		private void SignUp(object sender, RoutedEventArgs e) {
-			if (!Validate()) {
-				return;
-			}
-			Validator<TextBox> validator = new Validator<TextBox>(
-				email,
-				email_error,
-				Control => {
-					try {
-						Business.AddHost(new Host(first_name.Text, last_name.Text, email.Text, phone.Text, password.Password, BankBranch, account_number.Text));
-						return "";
-					} catch (EmailExistsException) {
-						return "Error: A host already exists with this email. Try signing in instead.";
-					}
-				}
-			);
-			validator.Validate();
-			HostSignInPage.email.Text = email.Text;
-			HostSignInPage.password.Password = password.Password;
-			MainWindow.Back();
-			HostSignInPage.SignIn();
-		}
-
-		private bool Validate() {
-			bool valid = true;
-			valid = ValidateFirstName() ? valid : false;
-			valid = ValidateLastName() ? valid : false;
-			valid = ValidateEmail() ? valid : false;
-			valid = ValidatePhone() ? valid : false;
-			valid = ValidatePassword() ? valid : false;
-			valid = ValidateRepeatPassword() ? valid : false;
-			valid = ValidateBankNumber() ? valid : false;
-			valid = ValidateBranchNumber() ? valid : false;
-			valid = ValidateAccountNumber() ? valid : false;
-			return valid;
-		}
-
-		private bool ValidateFirstName() {
-			first_name.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(first_name.Text.ToLower());
-			Validator<TextBox> validator = new Validator<TextBox>(
+			FirstNameValidator = new Validator<TextBox>(
 				first_name,
 				first_name_error,
 				control => control.Text == "" ? "Error: First name is required." : "",
 				control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
 			);
-			return validator.Validate();
-		}
 
-		private bool ValidateLastName() {
-			last_name.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(last_name.Text.ToLower());
-			Validator<TextBox> validator = new Validator<TextBox>(
+			LastNameValidator = new Validator<TextBox>(
 				last_name,
 				last_name_error,
 				control => control.Text == "" ? "Error: First name is required." : "",
 				control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
 			);
-			return validator.Validate();
-		}
 
-		private bool ValidateEmail() {
-			Validator<TextBox> validator = new Validator<TextBox>(
+			EmailValidator = new Validator<TextBox>(
 				email,
 				email_error,
 				control => control.Text == "" ? "Error: Email is required." : "",
 				control => {
 					try {
-						email.Text = new Email(email.Text);
+						control.Text = new Email(control.Text);
 						return "";
 					} catch (InvalidEmailException error) {
 						return error.Message;
 					}
 				}
 			);
-			return validator.Validate();
-		}
 
-		private bool ValidatePhone() {
-			Validator<TextBox> validator = new Validator<TextBox>(
+			EmailValidator = new Validator<TextBox>(
 				phone,
 				phone_error,
 				new Func<TextBox, string>(
@@ -114,7 +82,7 @@ namespace presentation {
 				new Func<TextBox, string>(
 					control => {
 						try {
-							phone.Text = new Phone(phone.Text);
+							control.Text = new Phone(control.Text);
 							return "";
 						} catch (InvalidPhoneException error) {
 							return error.Message;
@@ -122,11 +90,8 @@ namespace presentation {
 					}
 				)
 			);
-			return validator.Validate();
-		}
 
-		private bool ValidatePassword() {
-			Validator<PasswordBox> validator = new Validator<PasswordBox>(
+			PasswordValidator = new Validator<PasswordBox>(
 				password,
 				password_error,
 				control => control.Password == "" ? "Error: Password is required." : "",
@@ -139,20 +104,14 @@ namespace presentation {
 					}
 				}
 			);
-			return validator.Validate();
-		}
 
-		private bool ValidateRepeatPassword() {
-			Validator<PasswordBox> validator = new Validator<PasswordBox>(
+			RepeatPasswordValidator = new Validator<PasswordBox>(
 				repeat_password,
 				repeat_password_error,
 				control => control.Password != password.Password ? "Error: Passwords do not match." : ""
 			);
-			return validator.Validate();
-		}
 
-		private bool ValidateBankNumber() {
-			Validator<TextBox> validator = new Validator<TextBox>(
+			BankNumberValidator = new Validator<TextBox>(
 				bank_number,
 				bank_number_error,
 				control => {
@@ -169,11 +128,8 @@ namespace presentation {
 					}
 				}
 			);
-			return validator.Validate();
-		}
 
-		private bool ValidateBranchNumber() {
-			Validator<TextBox> validator = new Validator<TextBox>(
+			BranchNumberValidator = new Validator<TextBox>(
 				branch_number,
 				branch_number_error,
 				control => {
@@ -190,11 +146,8 @@ namespace presentation {
 					}
 				}
 			);
-			return validator.Validate();
-		}
 
-		private bool ValidateAccountNumber() {
-			Validator<TextBox> validator = new Validator<TextBox>(
+			AccountNumberValidator = new Validator<TextBox>(
 				account_number,
 				account_number_error,
 				control => {
@@ -208,7 +161,27 @@ namespace presentation {
 					}
 				}
 			);
-			return validator.Validate();
+		}
+
+		private void SignUp(object sender, RoutedEventArgs e) {
+			first_name.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(first_name.Text.ToLower());
+			last_name.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(last_name.Text.ToLower());
+
+			if (!FirstNameValidator.Validate() || !LastNameValidator.Validate() || !PhoneValidator.Validate() || !PasswordValidator.Validate() || !RepeatPasswordValidator.Validate() || !BankNumberValidator.Validate() || !BranchNumberValidator.Validate() || !AccountNumberValidator.Validate() || !EmailValidator.Validate()) {
+				return;
+			}
+
+			try {
+				Business.AddHost(new Host(first_name.Text, last_name.Text, email.Text, phone.Text, password.Password, BankBranch, account_number.Text));
+				EmailValidator.ResetError();
+
+				HostSignInPage.email.Text = email.Text;
+				HostSignInPage.password.Password = password.Password;
+				MainWindow.Back();
+				HostSignInPage.SignIn();
+			} catch (EmailExistsException) {
+				EmailValidator.SetError("Error: A host already exists with this email. Try signing in instead.");
+			}
 		}
 
 		private void Cancel(object sender, RoutedEventArgs e) {
