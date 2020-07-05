@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -19,184 +21,171 @@ namespace presentation {
 
 		private BankBranch BankBranch { get; set; }
 
-		private Brush InitialBorderBrush { get; }
+		private Validator<TextBox> FirstNameValidator { get; }
+
+		private Validator<TextBox> LastNameValidator { get; }
+
+		private Validator<TextBox> EmailValidator { get; }
+
+		private Validator<TextBox> PhoneValidator { get; }
+
+		private Validator<PasswordBox> PasswordValidator { get; }
+
+		private Validator<PasswordBox> RepeatPasswordValidator { get; }
+
+		private Validator<TextBox> BankNumberValidator { get; }
+
+		private Validator<TextBox> BranchNumberValidator { get; }
+
+		private Validator<TextBox> AccountNumberValidator { get; }
 
 		public AddHostPage(IBusiness business, MainWindow main_window, HostSignInPage host_sign_in_page) {
 			InitializeComponent();
 			Business = business;
 			MainWindow = main_window;
 			HostSignInPage = host_sign_in_page;
-			InitialBorderBrush = first_name.BorderBrush;
+
+			FirstNameValidator = new Validator<TextBox>(
+				first_name,
+				first_name_error,
+				control => control.Text == "" ? "Error: First name is required." : "",
+				control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
+			);
+
+			LastNameValidator = new Validator<TextBox>(
+				last_name,
+				last_name_error,
+				control => control.Text == "" ? "Error: First name is required." : "",
+				control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
+			);
+
+			EmailValidator = new Validator<TextBox>(
+				email,
+				email_error,
+				control => control.Text == "" ? "Error: Email is required." : "",
+				control => {
+					try {
+						control.Text = new Email(control.Text);
+						return "";
+					} catch (InvalidEmailException error) {
+						return error.Message;
+					}
+				}
+			);
+
+			EmailValidator = new Validator<TextBox>(
+				phone,
+				phone_error,
+				new Func<TextBox, string>(
+					control => control.Text == "" ? "Error: Phone number is required." : ""
+				),
+				new Func<TextBox, string>(
+					control => {
+						try {
+							control.Text = new Phone(control.Text);
+							return "";
+						} catch (InvalidPhoneException error) {
+							return error.Message;
+						}
+					}
+				)
+			);
+
+			PasswordValidator = new Validator<PasswordBox>(
+				password,
+				password_error,
+				control => control.Password == "" ? "Error: Password is required." : "",
+				control => {
+					try {
+						control.Password = new Password(control.Password);
+						return "";
+					} catch (InvalidPasswordException error) {
+						return error.Message;
+					}
+				}
+			);
+
+			RepeatPasswordValidator = new Validator<PasswordBox>(
+				repeat_password,
+				repeat_password_error,
+				control => control.Password != password.Password ? "Error: Passwords do not match." : ""
+			);
+
+			BankNumberValidator = new Validator<TextBox>(
+				bank_number,
+				bank_number_error,
+				control => {
+					try {
+						control.Text = new ID(control.Text, 2);
+						Business.BankBranches().First(branch => branch.BankID == bank_number.Text);
+						return "";
+					} catch (IncorrectDigitsException) {
+						return "Error: Bank number must be at most two digits.";
+					} catch (FormatException) {
+						return "Error: Could not parse the input as a bank number.";
+					} catch (InvalidOperationException) {
+						return "Error: No bank with this number was found.";
+					}
+				}
+			);
+
+			BranchNumberValidator = new Validator<TextBox>(
+				branch_number,
+				branch_number_error,
+				control => {
+					try {
+						control.Text = new ID(control.Text, 3);
+						BankBranch = Business.BankBranches().First(branch => branch.BankID == bank_number.Text && branch.BranchID == control.Text);
+						return "";
+					} catch (IncorrectDigitsException) {
+						return "Error: Branch number must be at most three digits.";
+					} catch (FormatException) {
+						return "Error: Could not parse the input as a branch number.";
+					} catch (InvalidOperationException) {
+						return "Error: No branch with this number was found for bank " + bank_number.Text + '.';
+					}
+				}
+			);
+
+			AccountNumberValidator = new Validator<TextBox>(
+				account_number,
+				account_number_error,
+				control => {
+					try {
+						control.Text = new ID(control.Text, 6);
+						return "";
+					} catch (IncorrectDigitsException) {
+						return "Error: Account number must be six digits.";
+					} catch (FormatException) {
+						return "Error: Could not parse the input as an account number.";
+					}
+				}
+			);
 		}
 
 		private void SignUp(object sender, RoutedEventArgs e) {
-			if (!Validate()) {
+			first_name.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(first_name.Text.ToLower());
+			last_name.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(last_name.Text.ToLower());
+
+			if (!FirstNameValidator.Validate() || !LastNameValidator.Validate() || !PhoneValidator.Validate() || !PasswordValidator.Validate() || !RepeatPasswordValidator.Validate() || !BankNumberValidator.Validate() || !BranchNumberValidator.Validate() || !AccountNumberValidator.Validate() || !EmailValidator.Validate()) {
 				return;
 			}
+
 			try {
 				Business.AddHost(new Host(first_name.Text, last_name.Text, email.Text, phone.Text, password.Password, BankBranch, account_number.Text));
+				EmailValidator.ResetError();
+
+				HostSignInPage.email.Text = email.Text;
+				HostSignInPage.password.Password = password.Password;
+				MainWindow.Back();
+				HostSignInPage.SignIn();
 			} catch (EmailExistsException) {
-				SetError(email, email_error, "Error: A host already exists with this email. Try signing in instead.");
+				EmailValidator.SetError("Error: A host already exists with this email. Try signing in instead.");
 			}
-			HostSignInPage.email.Text = email.Text;
-			HostSignInPage.password.Password = password.Password;
-			HostSignInPage.SignIn();
-		}
-
-		private bool Validate() {
-			bool valid = true;
-			valid = ValidateFirstName() ? valid : false;
-			valid = ValidateLastName() ? valid : false;
-			valid = ValidateEmail() ? valid : false;
-			valid = ValidatePhone() ? valid : false;
-			valid = ValidatePassword() ? valid : false;
-			valid = ValidateRepeatPassword() ? valid : false;
-			valid = ValidateBankNumber() ? valid : false;
-			valid = ValidateBranchNumber() ? valid : false;
-			valid = ValidateAccountNumber() ? valid : false;
-			return valid;
-		}
-
-		private bool ValidateFirstName() {
-			if (first_name.Text == "") {
-				SetError(first_name, first_name_error, "Error: First name is required.");
-			} else if (char.IsLower(first_name.Text[0])) {
-				SetError(first_name, first_name_error, "Error: First name must start with an uppercase letter.");
-			} else if (!Regex.Match(first_name.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success) {
-				SetError(first_name, first_name_error, "Error: Cannot have these symbols in your name.");
-			} else {
-				ResetError(first_name, first_name_error);
-				return true;
-			}
-			return false;
-		}
-
-		private bool ValidateLastName() {
-			if (last_name.Text == "") {
-				SetError(last_name, last_name_error, "Error: Last name is required.");
-			} else if (char.IsLower(last_name.Text[0])) {
-				SetError(last_name, last_name_error, "Error: Last name must start with an uppercase letter.");
-			} else if (!Regex.Match(last_name.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success) {
-				SetError(last_name, last_name_error, "Error: Cannot have these symbols in your name.");
-			} else {
-				ResetError(last_name, last_name_error);
-				return true;
-			}
-			return false;
-		}
-
-		private bool ValidateEmail() {
-			if (email.Text == "") {
-				SetError(email, email_error, "Error: Email is required.");
-			} else {
-				try {
-					email.Text = new Email(email.Text);
-					ResetError(email, email_error);
-					return true;
-				} catch (InvalidEmailException error) {
-					SetError(email, email_error, error.Message);
-				}
-			}
-			return false;
-		}
-
-		private bool ValidatePhone() {
-			if (phone.Text == "") {
-				SetError(phone, phone_error, "Error: Phone is required.");
-			} else {
-				try {
-					phone.Text = new Phone(phone.Text);
-					ResetError(phone, phone_error);
-					return true;
-				} catch (InvalidPhoneException error) {
-					SetError(phone, phone_error, error.Message);
-				}
-			}
-			return false;
-		}
-
-		private bool ValidatePassword() {
-			if (password.Password == "") {
-				SetError(password, password_error, "Error: Password is required.");
-			} else {
-				try {
-					password.Password = new Password(password.Password);
-					ResetError(password, password_error);
-					return true;
-				} catch (InvalidPasswordException error) {
-					SetError(password, password_error, error.Message);
-				}
-			}
-			return false;
-		}
-
-		private bool ValidateRepeatPassword() {
-			if (repeat_password.Password != password.Password) {
-				SetError(repeat_password, repeat_password_error, "Error: Passwords do not match.");
-			} else {
-				ResetError(repeat_password, repeat_password_error);
-				return true;
-			}
-			return false;
-		}
-
-		private bool ValidateBankNumber() {
-			try {
-				bank_number.Text = new ID(bank_number.Text, 2);
-				Business.BankBranches().First(branch => branch.BankID == bank_number.Text);
-				ResetError(bank_number, bank_number_error);
-				return true;
-			} catch (IncorrectDigitsException) {
-				SetError(bank_number, bank_number_error, "Error: Bank number must be at most two digits.");
-			} catch (FormatException) {
-				SetError(bank_number, bank_number_error, "Error: Could not parse the input as a bank number.");
-			} catch (InvalidOperationException) {
-				SetError(bank_number, bank_number_error, "Error: No bank with this number was found.");
-			}
-			return false;
-		}
-
-		private bool ValidateBranchNumber() {
-			try {
-				branch_number.Text = new ID(branch_number.Text, 3);
-				BankBranch = Business.BankBranches().First(branch => branch.BankID == bank_number.Text && branch.BranchID == branch_number.Text);
-				ResetError(branch_number, branch_number_error);
-				return true;
-			} catch (IncorrectDigitsException) {
-				SetError(branch_number, branch_number_error, "Error: Branch number must be at most three digits.");
-			} catch (FormatException) {
-				SetError(branch_number, branch_number_error, "Error: Could not parse the input as a branch number.");
-			} catch (InvalidOperationException) {
-				SetError(branch_number, branch_number_error, "Error: No branch with this number was found for bank " + bank_number.Text + '.');
-			}
-			return false;
-		}
-
-		private bool ValidateAccountNumber() {
-			try {
-				account_number.Text = new ID(account_number.Text, 6);
-				ResetError(account_number, account_number_error);
-				return true;
-			} catch (IncorrectDigitsException) {
-				SetError(account_number, account_number_error, "Error: Account number must be six digits.");
-			} catch (FormatException) {
-				SetError(account_number, account_number_error, "Error: Could not parse the input as an account number.");
-			}
-			return false;
-		}
-
-		private void SetError(Control control, TextBlock text_block, string message) {
-			control.BorderBrush = Brushes.Red;
-			text_block.Text = message;
-		}
-
-		private void ResetError(Control control, TextBlock text_block) {
-			control.BorderBrush = InitialBorderBrush;
-			text_block.Text = "";
 		}
 
 		private void Cancel(object sender, RoutedEventArgs e) {
-			MainWindow.LoadPage(HostSignInPage);
+			MainWindow.Back();
 		}
 	}
 }
