@@ -23,7 +23,7 @@ namespace presentation {
 			if (Business.SignIn<TPerson>(person, password)) {
 				Person = person;
 			} else {
-				throw new InvalidPasswordException();
+				throw new WrongPasswordException();
 			}
 		}
 	}

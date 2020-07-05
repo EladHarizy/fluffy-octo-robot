@@ -9,12 +9,17 @@ namespace presentation {
 
 		private TextBlock ErrorBlock { get; }
 
-		private IEnumerable<Func<TControl, string>> Checks { get; }
+		private Brush InitialBorder { get; }
+
+		private ICollection<Func<TControl, string>> Checks { get; } = new List<Func<TControl, string>>();
 
 		public Validator(TControl control, TextBlock error_block, params Func<TControl, string>[] checks) {
 			Control = control;
 			ErrorBlock = error_block;
-			Checks = checks;
+			InitialBorder = control.BorderBrush;
+			foreach (Func<TControl, string> check in checks) {
+				AddCheck(check);
+			}
 		}
 
 		public bool Validate() {
@@ -29,13 +34,17 @@ namespace presentation {
 			return true;
 		}
 
-		private void SetError(string message) {
+		public void AddCheck(Func<TControl, string> check) {
+			Checks.Add(check);
+		}
+
+		public void SetError(string message) {
 			Control.BorderBrush = Brushes.Red;
 			ErrorBlock.Text = message;
 		}
 
-		private void ResetError() {
-			Control.BorderBrush = new SolidColorBrush(Color.FromRgb(171, 173, 179));
+		public void ResetError() {
+			Control.BorderBrush = InitialBorder;
 			ErrorBlock.Text = "";
 		}
 	}
