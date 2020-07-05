@@ -20,11 +20,11 @@
 				<TextBlock Grid.Row="1" Text="Fluffy Octo Robot" FontSize="24" Foreground="White"/>
 			</Grid>
 			<StackPanel Grid.Column="3" Orientation="Horizontal">
-				<Button Click="GuestRequestsPage">Manage Guest Requests</Button>
+				<Button Click="GuestRequestsPage">Guest Area</Button>
 				<Rectangle Width="10"/>
-				<Button Click="UnitsPage">Manage Hosting Units</Button>
+				<Button Click="HostPage">Host Area</Button>
 				<Rectangle Width="10"/>
-				<Button Click="AdminPage">Admin Panel</Button>
+				<Button Click="AdminPage">Admin Area</Button>
 				<Rectangle Width="10"/>
 			</StackPanel>
 		</Grid>

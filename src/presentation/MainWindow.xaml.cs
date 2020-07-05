@@ -54,9 +54,9 @@ namespace presentation {
 			LoadPage(new GuestRequestsPage(Business));
 		}
 
-		private void UnitsPage(object sender, RoutedEventArgs e) {
+		private void HostPage(object sender, RoutedEventArgs e) {
 			if (HostSession.IsSignedIn) {
-				LoadPage(new UnitsPage(Business, HostSession.Person));
+				LoadPage(new HostPage(Business, HostSession.Person));
 			} else {
 				LoadPage(new HostSignInPage(Business, HostSession, this));
 			}

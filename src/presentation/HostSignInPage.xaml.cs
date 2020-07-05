@@ -53,7 +53,7 @@ namespace presentation {
 				HostSession.SignIn(host, password.Password);
 				PasswordValidator.ResetError();
 
-				MainWindow.LoadPage(new UnitsPage(Business, HostSession.Person));
+				MainWindow.LoadPage(new HostPage(Business, HostSession.Person));
 			} catch (InexistentEmailException error) {
 				EmailValidator.SetError(error.Message);
 			} catch (WrongPasswordException error) {
