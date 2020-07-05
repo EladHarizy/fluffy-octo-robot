@@ -8,7 +8,7 @@ using Lib.Interfaces;
 namespace Lib.Entities {
 	public class Guest : Person, ICloneable<Guest> {
 
-		public Guest(string first_name, string last_name, string email, Phone phone, IEnumerable<byte> password_hash) : this(null, first_name, last_name, email, phone, password_hash) {}
+		public Guest(string first_name, string last_name, string email, Phone phone, Password password) : this(null, first_name, last_name, email, phone, password.Hash()) {}
 
 		public Guest(ID id, string first_name, string last_name, Email email, Phone phone, IEnumerable<byte> password_hash) : base(id, first_name, last_name, email, phone, password_hash) {}
 

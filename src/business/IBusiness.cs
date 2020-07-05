@@ -6,14 +6,6 @@ using Lib.Entities;
 
 namespace business {
 	public interface IBusiness {
-		Guest Guest(ID id);
-
-		Guest Guest(Email email);
-
-		Host Host(ID iD);
-
-		Host Host(Email email);
-
 		void AddGuestRequest(GuestRequest guest_request);
 
 		void UpdateGuestRequest(GuestRequest guest_request);
@@ -27,6 +19,16 @@ namespace business {
 		void AddOrder(Order order);
 
 		void UpdateOrder(ID id, Order.Status status);
+
+		Guest Guest(ID id);
+
+		Guest Guest(Email email);
+
+		void AddGuest(Guest guest);
+
+		Host Host(ID iD);
+
+		Host Host(Email email);
 
 		void AddHost(Host host);
 

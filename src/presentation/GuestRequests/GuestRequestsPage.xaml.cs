@@ -6,7 +6,7 @@ namespace presentation {
 	public partial class GuestRequestsPage : Page {
 		private IBusiness business;
 
-		public GuestRequestsPage(IBusiness business) {
+		public GuestRequestsPage(IBusiness business, Guest guest) {
 			InitializeComponent();
 			this.business = business;
 		}

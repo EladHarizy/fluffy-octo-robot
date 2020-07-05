@@ -51,7 +51,11 @@ namespace presentation {
 		}
 
 		private void GuestRequestsPage(object sender, RoutedEventArgs e) {
-			LoadPage(new GuestRequestsPage(Business));
+			if (GuestSession.IsSignedIn) {
+				LoadPage(new GuestRequestsPage(Business, GuestSession.Person));
+			} else {
+				LoadPage(new GuestSignInPage(Business, GuestSession, this));
+			}
 		}
 
 		private void UnitsPage(object sender, RoutedEventArgs e) {
