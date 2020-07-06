@@ -90,7 +90,7 @@
 				</Grid>
 			</MaterialDesign:Card>
 			<Separator Height="20"/>
-			<MaterialDesign:Card><!-- Units Details -->
+			<MaterialDesign:Card x:Name="units_details_card"><!-- Units Details -->
 				<Grid>
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="20"/>
@@ -119,10 +119,10 @@
 							</Button>
 						</Grid>
 						<Separator Height="30"/>
-						<ListView x:Name="UnitsListView">
+						<ListView ItemsSource="{Binding Path=.}">
 							<ListView.View>
 								<GridView AllowsColumnReorder="false">
-									<GridViewColumn CellTemplate="{StaticResource CellID}" Header="ID"/>
+									<GridViewColumn DisplayMemberBinding="{Binding ID}" Header="ID"/>
 									<GridViewColumn DisplayMemberBinding="{Binding UnitName}" Header="NAME"/>
 									<GridViewColumn DisplayMemberBinding="{Binding City}" Header="CITY"/>
 									<GridViewColumn DisplayMemberBinding="{Binding OccupiedDays}" Header="OCCUPIED DAYS"/>

@@ -21,7 +21,7 @@ namespace presentation {
 			Business = business;
 			HostSession = host_session;
 			Units = Business.UnitsOf(Host);
-			UnitsListView.ItemsSource = Units;
+			units_details_card.DataContext = Units;
 			host_details_card.DataContext = Host;
 		}
 
