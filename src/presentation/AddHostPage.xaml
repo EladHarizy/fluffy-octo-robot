@@ -76,9 +76,21 @@
 				<TextBlock Grid.Column="1" Grid.Row="14" x:Name="account_number_error" TextWrapping="Wrap" Foreground="Red"></TextBlock>
 			</Grid>
 			<StackPanel Grid.Row="5" Orientation="Horizontal" Height="30"><!-- Submit buttons -->
-				<Button Click="SignUp">SIGN UP</Button>
+				<Button Click="SignUp">
+					<StackPanel Orientation="Horizontal">
+						<MaterialDesign:PackIcon Kind="AccountPlus"/>
+						<Rectangle Width="5"/>
+						<TextBlock>SIGN UP</TextBlock>
+					</StackPanel>
+				</Button>
 				<Rectangle Width="10"/>
-				<Button Click="Cancel">CANCEL</Button>
+				<Button Click="Cancel">
+					<StackPanel Orientation="Horizontal">
+						<MaterialDesign:PackIcon Kind="Cancel"/>
+						<Rectangle Width="5"/>
+						<TextBlock>CANCEL</TextBlock>
+					</StackPanel>
+				</Button>
 			</StackPanel>
 		</Grid>
 	</Grid>

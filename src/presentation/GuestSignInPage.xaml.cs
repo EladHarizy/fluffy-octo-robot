@@ -17,10 +17,11 @@ namespace presentation {
 
 		private Validator<PasswordBox> PasswordValidator { get; }
 
-		public GuestSignInPage(IBusiness business, Session<Guest> Guest_session, Frame frame) {
+		public GuestSignInPage(IBusiness business, Session<Guest> guest_session, Frame frame) {
 			InitializeComponent();
 			Business = business;
-			GuestSession = Guest_session;
+			guest_session.SignInPage = this;
+			GuestSession = guest_session;
 			Frame = frame;
 
 			EmailValidator = new Validator<TextBox>(email, email_error);

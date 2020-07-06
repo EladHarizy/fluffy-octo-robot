@@ -38,10 +38,22 @@
 					<PasswordBox x:Name="password" FontSize="18" Height="30"/>
 					<TextBlock x:Name="password_error" TextWrapping="Wrap" Foreground="Red"></TextBlock>
 					<Rectangle Height="10"/>
-					<Button Click="SignIn">SIGN IN</Button>
+					<Button Click="SignIn">
+						<StackPanel Orientation="Horizontal">
+							<MaterialDesign:PackIcon Kind="AccountArrowRight"/>
+							<Rectangle Width="5"/>
+							<TextBlock>SIGN IN</TextBlock>
+						</StackPanel>
+					</Button>
 					<Rectangle Height="10"/>
-					<TextBlock>Dont have an account?</TextBlock>
-					<Button Click="SignUp">SIGN UP</Button>
+					<TextBlock Text="Dont have an account?"/>
+					<Button Click="SignUp">
+						<StackPanel Orientation="Horizontal">
+							<MaterialDesign:PackIcon Kind="AccountPlus"/>
+							<Rectangle Width="5"/>
+							<TextBlock>SIGN UP</TextBlock>
+						</StackPanel>
+					</Button>
 				</StackPanel>
 			</Grid>
 		</MaterialDesign:Card>

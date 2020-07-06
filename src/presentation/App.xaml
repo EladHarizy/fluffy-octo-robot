@@ -13,6 +13,15 @@
 				<Setter Property="TextBlock.FontWeight" Value="Bold"/>
 				<Setter Property="TextBlock.FontSize" Value="24"/>
 			</Style>
+			<DataTemplate x:Key="CellID">
+				<DockPanel>
+					<TextBlock VerticalAlignment="Center">
+						<TextBlock.Text>
+							<Binding Path="ID"/>
+						</TextBlock.Text>
+					</TextBlock>
+				</DockPanel>
+			</DataTemplate>
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

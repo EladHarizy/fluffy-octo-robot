@@ -61,9 +61,21 @@
 				<TextBlock Grid.Column="4" Grid.Row="8" x:Name="repeat_password_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
 			</Grid>
 			<StackPanel Grid.Row="5" Orientation="Horizontal" Height="30"><!-- Submit buttons -->
-				<Button Click="SignUp">Sign Up</Button>
+				<Button Click="SignUp">
+					<StackPanel Orientation="Horizontal">
+						<MaterialDesign:PackIcon Kind="AccountPlus"/>
+						<Rectangle Width="5"/>
+						<TextBlock>SIGN UP</TextBlock>
+					</StackPanel>
+				</Button>
 				<Rectangle Width="10"/>
-				<Button Click="Cancel">Cancel</Button>
+				<Button Click="Cancel">
+					<StackPanel Orientation="Horizontal">
+						<MaterialDesign:PackIcon Kind="Cancel"/>
+						<Rectangle Width="5"/>
+						<TextBlock>CANCEL</TextBlock>
+					</StackPanel>
+				</Button>
 			</StackPanel>
 		</Grid>
 	</Grid>
