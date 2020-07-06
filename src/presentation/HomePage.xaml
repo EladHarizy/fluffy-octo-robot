@@ -16,7 +16,7 @@
 					<BitmapImage DecodePixelWidth="128" UriSource="/images/octopus.png"/>
 				</Image.Source>
 			</Image>
-			<TextBlock Text="Welcome to Fluffy Octo Robot, where your holidays are as fluffy and fun as a fluffy octo-robot. To get started click one of the buttons up top." TextWrapping="Wrap" TextAlignment="Center" FontSize="20"/>
+			<TextBlock TextWrapping="Wrap" TextAlignment="Center" FontSize="20">Welcome to Fluffy Octo Robot, where your holidays are as fluffy and fun as a fluffy octo-robot. To get started click one of the buttons up top.</TextBlock>
 		</StackPanel>
 	</Grid>
 </Page>
