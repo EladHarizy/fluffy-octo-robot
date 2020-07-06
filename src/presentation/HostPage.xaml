@@ -24,7 +24,7 @@
 					</StackPanel>
 				</Grid>
 				<Rectangle Width="10"/>
-				<Button Style="{DynamicResource MaterialDesignRaisedButton}" Click="SignOut">SIGN OUT</Button>
+				<Button Click="SignOut">SIGN OUT</Button>
 				<Rectangle Width="10"/>
 			</StackPanel>
 		</Grid>

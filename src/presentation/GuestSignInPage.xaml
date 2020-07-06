@@ -1,4 +1,4 @@
-<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Class="presentation.GuestSignInPage" Title="Guest Sign In">
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="presentation.GuestSignInPage" Title="Guest Sign In">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="*"/>
@@ -10,26 +10,40 @@
 			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
-		<StackPanel Grid.Row="1" Grid.Column="1" Width="300">
-			<Image Width="128">
-				<Image.Source>
-					<BitmapImage DecodePixelWidth="128" UriSource="/images/octopus.png"/>
-				</Image.Source>
-			</Image>
-			<TextBlock Text="Guest Sign In" TextAlignment="Center" FontSize="24"/>
-			<Rectangle Height="10"/>
-			<TextBlock Text="Email"/>
-			<TextBox x:Name="email" FontSize="18" Height="30"/>
-			<TextBlock x:Name="email_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
-			<Rectangle Height="10"/>
-			<TextBlock Text="Password"/>
-			<PasswordBox x:Name="password" FontSize="18" Height="30"/>
-			<TextBlock x:Name="password_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
-			<Rectangle Height="10"/>
-			<Button Click="SignIn">Sign In</Button>
-			<Rectangle Height="10"/>
-			<TextBlock Text="Dont have an account?"/>
-			<Button Click="SignUp">Sign Up</Button>
-		</StackPanel>
+		<MaterialDesign:Card Grid.Row="1" Grid.Column="1">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="20"/>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="20"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="20"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="20"/>
+				</Grid.RowDefinitions>
+				<StackPanel Grid.Row="1" Grid.Column="1" Width="300">
+					<Image Width="128">
+						<Image.Source>
+							<BitmapImage DecodePixelWidth="128" UriSource="/images/octopus.png"/>
+						</Image.Source>
+					</Image>
+					<TextBlock Text="Guest Sign In" TextAlignment="Center" FontSize="24"/>
+					<Rectangle Height="10"/>
+					<TextBlock Text="Email"/>
+					<TextBox x:Name="email" FontSize="18" Height="30"/>
+					<TextBlock x:Name="email_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
+					<Rectangle Height="10"/>
+					<TextBlock Text="Password"/>
+					<PasswordBox x:Name="password" FontSize="18" Height="30"/>
+					<TextBlock x:Name="password_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
+					<Rectangle Height="10"/>
+					<Button Click="SignIn">SIGN IN</Button>
+					<Rectangle Height="10"/>
+					<TextBlock Text="Dont have an account?"/>
+					<Button Click="SignUp">SIGN UP</Button>
+				</StackPanel>
+			</Grid>
+		</MaterialDesign:Card>
 	</Grid>
 </Page>
