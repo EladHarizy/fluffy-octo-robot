@@ -22,6 +22,7 @@ namespace presentation {
 		public HostSignInPage(IBusiness business, Session<Host> host_session, Frame frame) {
 			InitializeComponent();
 			Business = business;
+			host_session.SignInPage = this;
 			HostSession = host_session;
 			Frame = frame;
 
@@ -53,7 +54,7 @@ namespace presentation {
 				HostSession.SignIn(host, password.Password);
 				PasswordValidator.ResetError();
 
-				Frame.Content = new HostPage(Business, HostSession.Person);
+				Frame.Content = new HostPage(Business, HostSession);
 			} catch (InexistentEmailException error) {
 				EmailValidator.SetError(error.Message);
 			} catch (WrongPasswordException error) {

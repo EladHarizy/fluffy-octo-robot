@@ -8,19 +8,37 @@ namespace presentation {
 	public partial class HostPage : Page {
 		private IBusiness Business;
 
-		private Host Host { get; }
+		private Session<Host> HostSession { get; }
+
+		private Host Host {
+			get => HostSession.Person;
+		}
 
 		private IEnumerable<Unit> Units { get; }
 
-		public HostPage(IBusiness business, Host host) {
-			Business = business;
-			Host = host;
-			Units = Business.UnitsOf(Host);
+		public HostPage(IBusiness business, Session<Host> host_session) {
 			InitializeComponent();
-			DataContext = Units;
-			host_name_textblock.Text = Host.Name;
+			Business = business;
+			HostSession = host_session;
+			Units = Business.UnitsOf(Host);
+			units_details_card.DataContext = Units;
+			host_details_card.DataContext = Host;
 		}
 
-		private void SignOut(object sender, RoutedEventArgs e) {}
+		private void SignOut(object sender, RoutedEventArgs e) {
+			HostSession.SignOut();
+		}
+
+		private void EditUnit(object sender, RoutedEventArgs e) {
+			Button button = sender as Button;
+			Unit unit = button.CommandParameter as Unit;
+			MessageBox.Show("Editing " + unit.ID);
+		}
+
+		private void DeleteUnit(object sender, RoutedEventArgs e) {
+			Button button = sender as Button;
+			Unit unit = button.CommandParameter as Unit;
+			MessageBox.Show("Deleting " + unit.ID);
+		}
 	}
 }

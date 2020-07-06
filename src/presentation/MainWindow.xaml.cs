@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using business;
+using Lib.DataTypes;
 using Lib.Entities;
 
 namespace presentation {
@@ -23,10 +23,20 @@ namespace presentation {
 			InitializeComponent();
 			OriginalTitle = Title;
 			Business = new Business();
-			HostSession = new Session<Host>(Business);
-			GuestSession = new Session<Guest>(Business);
-			GuestPage.Navigate(new GuestSignInPage(Business, GuestSession, GuestPage));
-			HostPage.Navigate(new HostSignInPage(Business, HostSession, HostPage));
+
+			HostSession = new Session<Host>(Business, HostPage);
+			GuestSession = new Session<Guest>(Business, GuestPage);
+
+			Page HostSignInPage = new HostSignInPage(Business, HostSession, HostPage);
+			Page GuestSignInPage = new GuestSignInPage(Business, GuestSession, GuestPage);
+			GuestPage.Navigate(GuestSignInPage);
+			// HostPage.Navigate(HostSignInPage);
+
+			// Testing section
+			HostSession.SignIn(Business.Host(new ID(2, 8)), "password");
+			HostPage.Navigate(new HostPage(Business, HostSession));
+			// End testing section
+
 			AdminPage.Navigate(new AdminPage());
 		}
 	}
