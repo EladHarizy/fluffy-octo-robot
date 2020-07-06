@@ -76,9 +76,9 @@
 				<TextBlock Grid.Column="1" Grid.Row="14" x:Name="account_number_error" TextWrapping="Wrap" Foreground="Red"></TextBlock>
 			</Grid>
 			<StackPanel Grid.Row="5" Orientation="Horizontal" Height="30"><!-- Submit buttons -->
-				<Button Style="{DynamicResource MaterialDesignRaisedButton}" Click="SignUp">SIGN UP</Button>
+				<Button Click="SignUp">SIGN UP</Button>
 				<Rectangle Width="10"/>
-				<Button Style="{DynamicResource MaterialDesignRaisedButton}" Click="Cancel">CANCEL</Button>
+				<Button Click="Cancel">CANCEL</Button>
 			</StackPanel>
 		</Grid>
 	</Grid>

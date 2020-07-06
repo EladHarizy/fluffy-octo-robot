@@ -38,10 +38,10 @@
 					<PasswordBox x:Name="password" FontSize="18" Height="30"/>
 					<TextBlock x:Name="password_error" TextWrapping="Wrap" Foreground="Red"></TextBlock>
 					<Rectangle Height="10"/>
-					<Button Style="{DynamicResource MaterialDesignRaisedButton}" Click="SignIn">SIGN IN</Button>
+					<Button Click="SignIn">SIGN IN</Button>
 					<Rectangle Height="10"/>
 					<TextBlock>Dont have an account?</TextBlock>
-					<Button Style="{DynamicResource MaterialDesignRaisedButton}" Click="SignUp">SIGN UP</Button>
+					<Button Click="SignUp">SIGN UP</Button>
 				</StackPanel>
 			</Grid>
 		</MaterialDesign:Card>
