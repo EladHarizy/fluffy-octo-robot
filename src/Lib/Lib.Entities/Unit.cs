@@ -1,6 +1,6 @@
+using System.Linq;
 using System.Text;
 using Lib.DataTypes;
-using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
@@ -14,6 +14,10 @@ namespace Lib.Entities {
 		public string UnitName { get; private set; }
 
 		public City City { get; }
+
+		public int OccupiedDays {
+			get => Bookings.OccupiedDays;
+		}
 
 		public Unit(
 			Host host,
@@ -31,6 +35,7 @@ namespace Lib.Entities {
 			ID = id;
 			Host = host;
 			UnitName = hosting_unit_name;
+			City = city;
 			Bookings = bookings;
 		}
 
