@@ -119,14 +119,47 @@
 							</Button>
 						</Grid>
 						<Separator Height="30"/>
+						<Grid Visibility="Hidden"><!-- Hack to make a column take up the rest of the available space -->
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="20"/>
+							</Grid.ColumnDefinitions>
+							<Rectangle Fill="Red" Grid.Column="0" Width="{Binding ActualWidth, ElementName=id_column}"/>
+							<Rectangle Fill="Blue" Grid.Column="1" Width="{Binding ActualWidth, ElementName=unit_name_column}"/>
+							<Rectangle Fill="Red" Grid.Column="2" Width="{Binding ActualWidth, ElementName=city_column}"/>
+							<Rectangle Fill="Blue" Grid.Column="3" Width="{Binding ActualWidth, ElementName=occupied_column}"/>
+							<Rectangle Fill="Red" Grid.Column="4" x:Name="wide_column"/>
+							<Rectangle Fill="Blue" Grid.Column="5" Width="{Binding ActualWidth, ElementName=edit_column}"/>
+							<Rectangle Fill="Red" Grid.Column="6" Width="{Binding ActualWidth, ElementName=delete_column}"/>
+						</Grid>
 						<ListView ItemsSource="{Binding Path=.}">
 							<ListView.View>
 								<GridView AllowsColumnReorder="false">
-									<GridViewColumn DisplayMemberBinding="{Binding ID}" Header="ID"/>
-									<GridViewColumn DisplayMemberBinding="{Binding UnitName}" Header="NAME"/>
-									<GridViewColumn DisplayMemberBinding="{Binding City}" Header="CITY"/>
-									<GridViewColumn DisplayMemberBinding="{Binding OccupiedDays}" Header="OCCUPIED DAYS"/>
-									<GridViewColumn Header="EDIT">
+									<GridViewColumn x:Name="id_column" DisplayMemberBinding="{Binding ID}" Header="ID"/>
+									<GridViewColumn x:Name="unit_name_column" DisplayMemberBinding="{Binding UnitName}" Header="NAME"/>
+									<GridViewColumn x:Name="city_column" DisplayMemberBinding="{Binding City}" Header="CITY"/>
+									<GridViewColumn x:Name="occupied_column" Header="OCCUPIED">
+										<GridViewColumn.CellTemplate>
+											<DataTemplate>
+												<StackPanel Orientation="Horizontal">
+													<TextBlock Text="{Binding OccupiedDays}"/>
+													<TextBlock> Days</TextBlock>
+												</StackPanel>
+											</DataTemplate>
+										</GridViewColumn.CellTemplate>
+									</GridViewColumn>
+									<GridViewColumn Width="{Binding ActualWidth, ElementName=wide_column}">
+										<GridViewColumn.CellTemplate>
+											<DataTemplate/>
+										</GridViewColumn.CellTemplate>
+									</GridViewColumn>
+									<GridViewColumn x:Name="edit_column">
 										<GridViewColumn.CellTemplate>
 											<DataTemplate>
 												<Button Style="{StaticResource MaterialDesignToolButton}" Click="EditUnit" CommandParameter="{Binding}" Height="14" Padding="0">
@@ -135,7 +168,7 @@
 											</DataTemplate>
 										</GridViewColumn.CellTemplate>
 									</GridViewColumn>
-									<GridViewColumn Header="DELETE">
+									<GridViewColumn x:Name="delete_column">
 										<GridViewColumn.CellTemplate>
 											<DataTemplate>
 												<Button Style="{StaticResource MaterialDesignToolButton}" Click="DeleteUnit" CommandParameter="{Binding}" Height="14" Padding="0">
