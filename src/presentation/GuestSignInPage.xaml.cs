@@ -71,7 +71,7 @@ namespace presentation {
 			try {
 				GuestSession.SignIn(guest, password.Password);
 				PasswordValidator.ResetError();
-				Frame.Navigate(new GuestRequestsPage(Business, GuestSession.Person));
+				Frame.Navigate(new GuestRequestsPage(Business, GuestSession));
 			} catch (WrongPasswordException error) {
 				PasswordValidator.SetError(error.Message);
 			}

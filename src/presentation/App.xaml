@@ -9,7 +9,6 @@
 			</ResourceDictionary.MergedDictionaries>
 			<Style x:Key="h1">
 				<Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
-				<Setter Property="TextBlock.TextAlignment" Value="Center"/>
 				<Setter Property="TextBlock.FontWeight" Value="Bold"/>
 				<Setter Property="TextBlock.FontSize" Value="24"/>
 			</Style>
