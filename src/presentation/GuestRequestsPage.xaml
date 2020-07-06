@@ -13,55 +13,104 @@
 		</Grid>
 		<Grid Grid.Column="1"><!-- Main Panel -->
 			<Grid.RowDefinitions>
-				<RowDefinition Height="*"/>
+				<RowDefinition Height="20"/>
 				<RowDefinition Height="Auto"/>
 				<RowDefinition Height="Auto"/>
 				<RowDefinition Height="Auto"/>
 				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
 			<TextBlock Grid.Row="1" Text="Plan a Holiday" FontSize="24"/>
-			<TextBlock Grid.Row="2" Text="Fill in the details below and we&apos;ll get back to you with relevant rental offers."/>
+			<TextBlock Grid.Row="2" Text="Fill in the details below and we&apos;ll get back to you with relevant rental offers." FontSize="14"/>
 			<Grid Grid.Row="3"><!-- Form -->
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="Auto"/>
-					<ColumnDefinition Width="200"/>
+					<ColumnDefinition Width="250"/>
+					<ColumnDefinition Width="50"/>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="250"/>
 				</Grid.ColumnDefinitions>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="20"/>
 					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="5"/>
 					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="5"/>
+					<RowDefinition Height="10"/>
 					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="5"/>
 					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="5"/>
+					<RowDefinition Height="10"/>
 					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="5"/>
 					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="5"/>
+					<RowDefinition Height="10"/>
 					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="5"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="10"/>
+					<RowDefinition Height="Auto"/>
 					<RowDefinition Height="Auto"/>
 				</Grid.RowDefinitions>
-				<Label Grid.Column="0" Grid.Row="1">Guest ID</Label>
-				<TextBox Grid.Column="1" Grid.Row="1"/>
-				<Label Grid.Column="0" Grid.Row="3">Start Date</Label>
-                <DatePicker Grid.Column="1" Grid.Row="3"/>
-                <Label Grid.Column="0" Grid.Row="5">End Date</Label>
-                <DatePicker Grid.Column="1" Grid.Row="5"/>
-                <Label Grid.Column="0" Grid.Row="7">Number of Adults</Label>
-				<TextBox Grid.Column="1" Grid.Row="7"/>
-                <Label Grid.Column="0" Grid.Row="9">Number of Children</Label>
-				<TextBox Grid.Column="1" Grid.Row="9"/>
-                <Label Grid.Column="0" Grid.Row="11">Select Region(s)</Label>
-				<TextBox Grid.Column="1" Grid.Row="11"/>
-                <Label Grid.Column="0" Grid.Row="13">Unit Type(s)</Label>
-				<TextBox Grid.Column="1" Grid.Row="13"/>
-                <Label Grid.Column="0" Grid.Row="15">Desired Amenities</Label>
-				<TextBox Grid.Column="1" Grid.Row="15"/>
+				<Label Grid.Column="0" Grid.Row="1" FontSize="14">Start Date</Label>
+                <DatePicker Grid.Column="1" Grid.Row="1" x:Name="start_date" VerticalContentAlignment="Center"/>
+				<TextBlock Grid.Column="1" Grid.Row="2" x:Name="start_date_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
+                <Label Grid.Column="3" Grid.Row="1" FontSize="14">End Date</Label>
+                <DatePicker Grid.Column="4" Grid.Row="1" x:Name="end_date" VerticalContentAlignment="Center"/>
+				<TextBlock Grid.Column="4" Grid.Row="2" x:Name="end_date_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
 
+			    <Label Grid.Column="0" Grid.Row="4" FontSize="14">Number of Adults</Label>
+				<TextBox Grid.Column="1" Grid.Row="4" x:Name="number_of_adults" VerticalContentAlignment="Center"/>
+				<TextBlock Grid.Column="1" Grid.Row="5" x:Name="number_of_adults_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
+                <Label Grid.Column="3" Grid.Row="4" FontSize="14">Number of Children</Label>
+				<TextBox Grid.Column="4" Grid.Row="4" x:Name="number_of_children" VerticalContentAlignment="Center"/>
+				<TextBlock Grid.Column="4" Grid.Row="5" x:Name="number_of_children_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
+
+<!--		    <Label Grid.Column="3" Grid.Row="7" FontSize="14">Select Region(s)</Label>
+				<TextBox Grid.Column="4" Grid.Row="7" x:Name="region" VerticalContentAlignment="Center"/>
+				<TextBlock Grid.Column="4" Grid.Row="8" x:Name="region_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
+
+			    <Label Grid.Column="0" Grid.Row="13" FontSize="14">Unit Type(s)</Label>
+				<TextBox Grid.Column="1" Grid.Row="13" x:Name="unit_types" VerticalContentAlignment="Center"/>
+				<TextBlock Grid.Column="1" Grid.Row="14" x:Name="unit_types_error" Text="" TextWrapping="Wrap" Foreground="Red"/>
+                <Label Grid.Column="3" Grid.Row="13" FontSize="14">Desired Amenities</Label>
+				<TextBox Grid.Column="4" Grid.Row="13" x:Name="desired_amenities" VerticalContentAlignment="Center"/>
+				<TextBlock Grid.Column="4" Grid.Row="14" x:Name="desired_amenities_error" Text="" TextWrapping="Wrap" Foreground="Red"/>-->
 			</Grid>
+
+			<Grid Grid.Row="4"><!-- Checkboxes -->
+					<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="200"/>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="200"/>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+  					<Grid.RowDefinitions>
+  					  <RowDefinition Height="Auto"/>
+  					  <RowDefinition Height="Auto"/>
+  					  <RowDefinition Height="Auto"/>
+  					</Grid.RowDefinitions>
+					
+  					<TextBlock Text="Select Region(s)" Margin="0,20,10,5" FontSize="14" Grid.Row="0"/>
+  					<CheckBox x:Name="cb1" Grid.Row="1" Margin="5,0,0,0" 
+  					          Content="Jerusalem" IsThreeState="False"
+  					          Checked="HandleCheck" Unchecked="HandleUnchecked" />
+  					<TextBlock x:Name="text1" Grid.Row="2" Margin="5,0,0,0" />
+					
+					<TextBlock Text="Units Type(s)" Grid.Column="2" Margin="0,20,10,5" FontSize="14" Grid.Row="0"/>
+					<CheckBox x:Name="cb2" Grid.Row="1" Grid.Column="2" Margin="5,0,0,0" 
+  					          Content="Hotel" IsThreeState="False"
+  					          Checked="HandleCheck" Unchecked="HandleUnchecked" />
+  					<TextBlock x:Name="text2" Grid.Row="2" Margin="5,0,0,0" />
+
+					<TextBlock Text="Desired Amenities" Grid.Column="4" Margin="0,20,10,5" FontSize="14" Grid.Row="0"/>
+					<CheckBox x:Name="cb3" Grid.Row="1" Grid.Column="4" Margin="5,0,0,0" 
+  					          Content="WIFI" IsThreeState="False"
+  					          Checked="HandleCheck" Unchecked="HandleUnchecked" />
+  					<TextBlock x:Name="text3" Grid.Row="2" Margin="5,0,0,0" />
+
+					</Grid>
+
+				<StackPanel Grid.Row="5" Orientation="Horizontal" Height="30"><!-- Submit buttons -->
+				<Button Click="EnjoyYourHoliday">Enjoy Your Holiday!</Button>
+				<Rectangle Width="10"/>
+				<Button Click="Cancel">Cancel</Button>
+			</StackPanel>
 		</Grid>
 	</Grid>
 </Page>
