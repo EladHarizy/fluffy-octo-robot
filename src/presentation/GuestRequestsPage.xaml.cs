@@ -14,6 +14,13 @@ using Lib.Exceptions;
 namespace presentation {
 	public partial class GuestRequestsPage : Page {
 		private MainWindow MainWindow { get; }
+		private Validator<TextBox> StartDateValidator { get; }
+
+		private Validator<TextBox> EndDateValidator { get; }
+
+		private Validator<TextBox> NumberOfAdultsValidator { get; }
+
+		private Validator<TextBox> NumberOfChildrenValidator { get; }
 
 		private IBusiness business;
 
@@ -42,16 +49,18 @@ namespace presentation {
 			text1.Text = "The CheckBox is in the indeterminate state.";
 		}
 
+		public void AddGuestRequest(Date start_date) {}
+
 		private void EnjoyYourHoliday(object sender, RoutedEventArgs e) {
 			first_name.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(first_name.Text.ToLower());
 			last_name.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(last_name.Text.ToLower());
 
-			if (!FirstNameValidator.Validate() || !LastNameValidator.Validate() || !PhoneValidator.Validate() || !PasswordValidator.Validate() || !RepeatPasswordValidator.Validate() || !BankNumberValidator.Validate() || !BranchNumberValidator.Validate() || !AccountNumberValidator.Validate() || !EmailValidator.Validate()) {
+			if (!StartDateValidator.Validate() || !EndDateValidator.Validate() || !NumberOfAdultsValidator.Validate() || !NumberOfChildrenValidator.Validate()) {
 				return;
 			}
 
 			try {
-				Business.AddHost(new Host(first_name.Text, last_name.Text, email.Text, phone.Text, password.Password, BankBranch, account_number.Text));
+				Business.AddGuestRequest(new Guest(start_date.Text, end_date.Text, number_of_adults.Text, number_of_children.Text, password.Password, BankBranch, account_number.Text));
 				EmailValidator.ResetError();
 
 				HostSignInPage.email.Text = email.Text;
