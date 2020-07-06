@@ -72,19 +72,7 @@ namespace presentation {
 			);
 		}
 
-		private void HandleCheck(object sender, RoutedEventArgs e) {
-			text1.Text = "The CheckBox is checked.";
-		}
-
-		private void HandleUnchecked(object sender, RoutedEventArgs e) {
-			text1.Text = "The CheckBox is unchecked.";
-		}
-
-		private void HandleThirdState(object sender, RoutedEventArgs e) {
-			text1.Text = "The CheckBox is in the indeterminate state.";
-		}
-
-		private void EnjoyYourHoliday(object sender, RoutedEventArgs e) {
+		private void AddGuestRequest(object sender, RoutedEventArgs e) {
 			if (!StartDateValidator.Validate() || !EndDateValidator.Validate() || !NumberOfAdultsValidator.Validate() || !NumberOfChildrenValidator.Validate()) {
 				return;
 			}

@@ -30,12 +30,7 @@ namespace presentation {
 			Page HostSignInPage = new HostSignInPage(Business, HostSession, HostPage);
 			Page GuestSignInPage = new GuestSignInPage(Business, GuestSession, GuestPage);
 			GuestPage.Navigate(GuestSignInPage);
-			// HostPage.Navigate(HostSignInPage);
-
-			// Testing section
-			HostSession.SignIn(Business.Host(new ID(2, 8)), "password");
-			HostPage.Navigate(new HostPage(Business, HostSession));
-			// End testing section
+			HostPage.Navigate(HostSignInPage);
 
 			AdminPage.Navigate(new AdminPage());
 		}
