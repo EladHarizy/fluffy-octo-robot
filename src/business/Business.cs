@@ -22,22 +22,6 @@ namespace business {
 			}
 		}
 
-		public Guest Guest(ID id) {
-			return data.Guest[id];
-		}
-
-		public Guest Guest(Email email) {
-			return Person<Guest>(email);
-		}
-
-		public Host Host(ID id) {
-			return data.Host[id];
-		}
-
-		public Host Host(Email email) {
-			return Person<Host>(email);
-		}
-
 		public void AddGuestRequest(GuestRequest guest_request) {
 			data.GuestRequest.Add(guest_request);
 		}
@@ -101,6 +85,29 @@ namespace business {
 			}
 			order.OrderStatus = status;
 			data.Order.Update(order);
+		}
+
+		public Guest Guest(ID id) {
+			return data.Guest[id];
+		}
+
+		public Guest Guest(Email email) {
+			return Person<Guest>(email);
+		}
+
+		public void AddGuest(Guest guest) {
+			if (data.Guest.All.FirstOrDefault(g => g.Email == guest.Email) != null) {
+				throw new EmailExistsException(guest.Email);
+			}
+			data.Guest.Add(guest);
+		}
+
+		public Host Host(ID id) {
+			return data.Host[id];
+		}
+
+		public Host Host(Email email) {
+			return Person<Host>(email);
 		}
 
 		public void AddHost(Host host) {

@@ -1,0 +1,87 @@
+using System.Windows;
+using System.Windows.Controls;
+using business;
+using Lib.DataTypes;
+using Lib.Entities;
+using Lib.Exceptions;
+
+namespace presentation {
+	public partial class GuestSignInPage : Page {
+		private IBusiness Business { get; }
+
+		private Session<Guest> GuestSession { get; }
+
+		private MainWindow MainWindow { get; }
+
+		private Validator<TextBox> EmailValidator { get; }
+
+		private Validator<PasswordBox> PasswordValidator { get; }
+
+		public GuestSignInPage(IBusiness business, Session<Guest> Guest_session, MainWindow main_window) {
+			InitializeComponent();
+			Business = business;
+			GuestSession = Guest_session;
+			MainWindow = main_window;
+
+			EmailValidator = new Validator<TextBox>(email, email_error);
+			// Check that the email has a valid format
+			EmailValidator.AddCheck(
+				control => {
+					try {
+						control.Text = new Email(control.Text);
+						return "";
+					} catch (InvalidEmailException error) {
+						return error.Message;
+					}
+				}
+			);
+
+			PasswordValidator = new Validator<PasswordBox>(password, password_error);
+			PasswordValidator.AddCheck(
+				control => {
+					try {
+						control.Password = new Password(control.Password);
+						return "";
+					} catch (InvalidPasswordException) {
+						return "Error: Wrong password.";
+					}
+				}
+			);
+		}
+
+		public void SignIn() {
+			if (!EmailValidator.Validate()) {
+				return;
+			}
+
+			Guest guest;
+			try {
+				guest = Business.Guest(new Email(email.Text));
+				EmailValidator.ResetError();
+			} catch (InexistentEmailException error) {
+				EmailValidator.SetError(error.Message);
+				return;
+			}
+
+			if (!PasswordValidator.Validate()) {
+				return;
+			}
+
+			try {
+				GuestSession.SignIn(guest, password.Password);
+				PasswordValidator.ResetError();
+				MainWindow.LoadPage(new GuestRequestsPage(Business, GuestSession.Person));
+			} catch (WrongPasswordException error) {
+				PasswordValidator.SetError(error.Message);
+			}
+		}
+
+		private void SignIn(object sender, RoutedEventArgs e) {
+			SignIn();
+		}
+
+		private void SignUp(object sender, RoutedEventArgs e) {
+			MainWindow.LoadPage(new AddGuestPage(Business, MainWindow, this));
+		}
+	}
+}

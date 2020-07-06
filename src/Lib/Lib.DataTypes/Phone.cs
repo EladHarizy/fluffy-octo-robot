@@ -11,7 +11,7 @@ namespace Lib.DataTypes {
 			number = Regex.Replace(number, @"^00", "+");
 			number = Regex.Replace(number, @"[ -]", "");
 			if (!Regex.Match(number, regex, RegexOptions.IgnoreCase).Success) {
-				throw new InvalidPhoneException(number);
+				throw (number[0] == '+') ? new InvalidPhoneException(number) : new InvalidPhoneException(number, "Error: Phone number is missing a country code.");
 			}
 			Number = number;
 		}

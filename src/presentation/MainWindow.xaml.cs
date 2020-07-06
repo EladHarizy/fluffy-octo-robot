@@ -25,7 +25,7 @@ namespace presentation {
 			Business = new Business();
 			HostSession = new Session<Host>(Business);
 			GuestSession = new Session<Guest>(Business);
-			GuestPage.Navigate(new GuestRequestsPage(Business));
+			GuestPage.Navigate(new GuestSignInPage(Business, GuestSession, GuestPage));
 			HostPage.Navigate(new HostSignInPage(Business, HostSession, HostPage));
 			AdminPage.Navigate(new AdminPage());
 		}

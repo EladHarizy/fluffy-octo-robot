@@ -19,7 +19,7 @@ namespace Lib.Entities {
 			string last_name,
 			Email email,
 			Phone phone,
-			string password,
+			Password password,
 			BankBranch bank_branch,
 			ID account_number
 		) : this(
@@ -28,7 +28,7 @@ namespace Lib.Entities {
 			last_name,
 			email,
 			phone,
-			new Password(password).Hash(),
+			password.Hash(),
 			new BankAccount(bank_branch, account_number),
 			true // collection clearance default
 		) {}
