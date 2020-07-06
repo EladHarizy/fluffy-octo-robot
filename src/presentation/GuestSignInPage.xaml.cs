@@ -11,17 +11,17 @@ namespace presentation {
 
 		private Session<Guest> GuestSession { get; }
 
-		private MainWindow MainWindow { get; }
+		private Frame Frame { get; }
 
 		private Validator<TextBox> EmailValidator { get; }
 
 		private Validator<PasswordBox> PasswordValidator { get; }
 
-		public GuestSignInPage(IBusiness business, Session<Guest> Guest_session, MainWindow main_window) {
+		public GuestSignInPage(IBusiness business, Session<Guest> Guest_session, Frame frame) {
 			InitializeComponent();
 			Business = business;
 			GuestSession = Guest_session;
-			MainWindow = main_window;
+			Frame = frame;
 
 			EmailValidator = new Validator<TextBox>(email, email_error);
 			// Check that the email has a valid format
@@ -70,7 +70,7 @@ namespace presentation {
 			try {
 				GuestSession.SignIn(guest, password.Password);
 				PasswordValidator.ResetError();
-				MainWindow.LoadPage(new GuestRequestsPage(Business, GuestSession.Person));
+				Frame.Navigate(new GuestRequestsPage(Business, GuestSession.Person));
 			} catch (WrongPasswordException error) {
 				PasswordValidator.SetError(error.Message);
 			}
@@ -81,7 +81,7 @@ namespace presentation {
 		}
 
 		private void SignUp(object sender, RoutedEventArgs e) {
-			MainWindow.LoadPage(new AddGuestPage(Business, MainWindow, this));
+			Frame.Navigate(new AddGuestPage(Business, Frame, this));
 		}
 	}
 }

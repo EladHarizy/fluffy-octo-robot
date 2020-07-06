@@ -13,7 +13,7 @@ namespace presentation {
 	public partial class AddHostPage : Page {
 		private IBusiness Business { get; }
 
-		private MainWindow MainWindow { get; }
+		private Frame Frame { get; }
 
 		private HostSignInPage HostSignInPage { get; }
 
@@ -37,10 +37,10 @@ namespace presentation {
 
 		private Validator<TextBox> AccountNumberValidator { get; }
 
-		public AddHostPage(IBusiness business, MainWindow main_window, HostSignInPage host_sign_in_page) {
+		public AddHostPage(IBusiness business, Frame frame, HostSignInPage host_sign_in_page) {
 			InitializeComponent();
 			Business = business;
-			MainWindow = main_window;
+			Frame = frame;
 			HostSignInPage = host_sign_in_page;
 
 			FirstNameValidator = new Validator<TextBox>(
@@ -186,7 +186,7 @@ namespace presentation {
 
 				HostSignInPage.email.Text = email.Text;
 				HostSignInPage.password.Password = password.Password;
-				MainWindow.Back();
+				Frame.GoBack();
 				HostSignInPage.SignIn();
 			} catch (EmailExistsException) {
 				EmailValidator.SetError("Error: A host already exists with this email. Try signing in instead.");
@@ -194,7 +194,7 @@ namespace presentation {
 		}
 
 		private void Cancel(object sender, RoutedEventArgs e) {
-			MainWindow.Back();
+			Frame.GoBack();
 		}
 	}
 }

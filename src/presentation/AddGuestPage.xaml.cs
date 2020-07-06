@@ -12,7 +12,7 @@ namespace presentation {
 	public partial class AddGuestPage : Page {
 		private IBusiness Business { get; }
 
-		private MainWindow MainWindow { get; }
+		private Frame Frame { get; }
 
 		private GuestSignInPage GuestSignInPage { get; }
 
@@ -30,10 +30,10 @@ namespace presentation {
 
 		private Validator<PasswordBox> RepeatPasswordValidator { get; }
 
-		public AddGuestPage(IBusiness business, MainWindow main_window, GuestSignInPage Guest_sign_in_page) {
+		public AddGuestPage(IBusiness business, Frame frame, GuestSignInPage Guest_sign_in_page) {
 			InitializeComponent();
 			Business = business;
-			MainWindow = main_window;
+			Frame = frame;
 			GuestSignInPage = Guest_sign_in_page;
 
 			FirstNameValidator = new Validator<TextBox>(
@@ -125,7 +125,7 @@ namespace presentation {
 
 				GuestSignInPage.email.Text = email.Text;
 				GuestSignInPage.password.Password = password.Password;
-				MainWindow.Back();
+				Frame.GoBack();
 				GuestSignInPage.SignIn();
 			} catch (EmailExistsException) {
 				EmailValidator.SetError("Error: A Guest already exists with this email. Try signing in instead.");
@@ -133,7 +133,7 @@ namespace presentation {
 		}
 
 		private void Cancel(object sender, RoutedEventArgs e) {
-			MainWindow.Back();
+			Frame.GoBack();
 		}
 	}
 }

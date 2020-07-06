@@ -13,17 +13,17 @@ namespace presentation {
 
 		private Session<Host> HostSession { get; }
 
-		private MainWindow MainWindow { get; }
+		private Frame Frame { get; }
 
 		private Validator<TextBox> EmailValidator { get; }
 
 		private Validator<PasswordBox> PasswordValidator { get; }
 
-		public HostSignInPage(IBusiness business, Session<Host> host_session, MainWindow main_window) {
+		public HostSignInPage(IBusiness business, Session<Host> host_session, Frame frame) {
 			InitializeComponent();
 			Business = business;
 			HostSession = host_session;
-			MainWindow = main_window;
+			Frame = frame;
 
 			EmailValidator = new Validator<TextBox>(email, email_error);
 			// Check that the email has a valid format
@@ -53,7 +53,7 @@ namespace presentation {
 				HostSession.SignIn(host, password.Password);
 				PasswordValidator.ResetError();
 
-				MainWindow.LoadPage(new UnitsPage(Business, HostSession.Person));
+				Frame.Content = new HostPage(Business, HostSession.Person);
 			} catch (InexistentEmailException error) {
 				EmailValidator.SetError(error.Message);
 			} catch (WrongPasswordException error) {
@@ -66,7 +66,7 @@ namespace presentation {
 		}
 
 		private void SignUp(object sender, RoutedEventArgs e) {
-			MainWindow.LoadPage(new AddHostPage(Business, MainWindow, this));
+			Frame.Navigate(new AddHostPage(Business, Frame, this));
 		}
 	}
 }
