@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-using Lib.Exceptions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
@@ -12,6 +12,10 @@ namespace Lib.Entities {
 			// The list of Bookings
 			// We were given the green light to continue using a set of bookings implementation rather than a matrix, since we already implemented all the methods this way in the first assignment.
 			public SortedSet<Booking> Bookings { get; }
+
+			public int OccupiedDays {
+				get => Bookings.Aggregate(0, (days, booking) => days + booking.Duration);
+			}
 
 			public Calendar() {
 				Bookings = new SortedSet<Booking>();

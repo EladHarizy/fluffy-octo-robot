@@ -222,7 +222,7 @@ namespace Lib.Entities {
 		}
 
 		public GuestRequest Clone() {
-			return new GuestRequest(ID, Guest.Clone(), CreationDate, StartDate, EndDate, Active, Adults, Children, (HashSet<City>) Region.Clone(), (HashSet<Unit.Type>) DesiredUnitTypes.Clone(), (HashSet<Amenity>) DesiredAmenities.Clone());
+			return new GuestRequest(ID, Guest.Clone(), CreationDate, StartDate, EndDate, Active, Adults, Children, new HashSet<City>(Region), new HashSet<Unit.Type>(DesiredUnitTypes), new HashSet<Amenity>(DesiredAmenities));
 		}
 	}
 }

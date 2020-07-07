@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using business;
@@ -8,10 +6,10 @@ using Lib.Entities;
 using Lib.Exceptions;
 
 namespace presentation {
-	public partial class HostSignInPage : Page {
+	public partial class GuestSignInPage : Page {
 		private IBusiness Business { get; }
 
-		private Session<Host> HostSession { get; }
+		private Session<Guest> GuestSession { get; }
 
 		private Frame Frame { get; }
 
@@ -19,15 +17,15 @@ namespace presentation {
 
 		private Validator<PasswordBox> PasswordValidator { get; }
 
-		public HostSignInPage(IBusiness business, Session<Host> host_session, Frame frame) {
+		public GuestSignInPage(IBusiness business, Session<Guest> guest_session, Frame frame) {
 			InitializeComponent();
 			Business = business;
-			host_session.SignInPage = this;
-			HostSession = host_session;
+			guest_session.SignInPage = this;
+			GuestSession = guest_session;
 			Frame = frame;
 
 			// Test
-			email.Text = "bob@barrett.com";
+			email.Text = "daisy@dunn.com";
 			password.Password = "password";
 			// End test
 
@@ -45,23 +43,40 @@ namespace presentation {
 			);
 
 			PasswordValidator = new Validator<PasswordBox>(password, password_error);
+			PasswordValidator.AddCheck(
+				control => {
+					try {
+						control.Password = new Password(control.Password);
+						return "";
+					} catch (InvalidPasswordException) {
+						return "Error: Wrong password.";
+					}
+				}
+			);
 		}
 
 		public void SignIn() {
-			if (!EmailValidator.Validate() || !PasswordValidator.Validate()) {
+			if (!EmailValidator.Validate()) {
+				return;
+			}
+
+			Guest guest;
+			try {
+				guest = Business.Guest(new Email(email.Text));
+				EmailValidator.ResetError();
+			} catch (InexistentEmailException error) {
+				EmailValidator.SetError(error.Message);
+				return;
+			}
+
+			if (!PasswordValidator.Validate()) {
 				return;
 			}
 
 			try {
-				Host host = Business.Host(new Email(email.Text));
-				EmailValidator.ResetError();
-
-				HostSession.SignIn(host, password.Password);
+				GuestSession.SignIn(guest, password.Password);
 				PasswordValidator.ResetError();
-
-				Frame.Navigate(new HostPage(Business, HostSession, Frame));
-			} catch (InexistentEmailException error) {
-				EmailValidator.SetError(error.Message);
+				Frame.Navigate(new AddGuestRequestsPage(Business, GuestSession));
 			} catch (WrongPasswordException error) {
 				PasswordValidator.SetError(error.Message);
 			}
@@ -72,7 +87,7 @@ namespace presentation {
 		}
 
 		private void SignUp(object sender, RoutedEventArgs e) {
-			Frame.Navigate(new AddHostPage(Business, Frame, this));
+			Frame.Navigate(new AddGuestPage(Business, Frame, this));
 		}
 	}
 }

@@ -14,8 +14,12 @@ namespace business {
 	public class Business : IBusiness {
 		private IData data = DataFactory.New();
 
-		public Guest Guest(ID id) {
-			return data.Guest[id];
+		private TPerson Person<TPerson>(Email email) where TPerson : Person {
+			try {
+				return data.GetAccessor<TPerson>().All.First(p => p.Email == email);
+			} catch (InvalidOperationException error) {
+				throw new InexistentEmailException(email, error);
+			}
 		}
 
 		public void AddGuestRequest(GuestRequest guest_request) {
@@ -83,6 +87,29 @@ namespace business {
 			data.Order.Update(order);
 		}
 
+		public Guest Guest(ID id) {
+			return data.Guest[id];
+		}
+
+		public Guest Guest(Email email) {
+			return Person<Guest>(email);
+		}
+
+		public void AddGuest(Guest guest) {
+			if (data.Guest.All.FirstOrDefault(g => g.Email == guest.Email) != null) {
+				throw new EmailExistsException(guest.Email);
+			}
+			data.Guest.Add(guest);
+		}
+
+		public Host Host(ID id) {
+			return data.Host[id];
+		}
+
+		public Host Host(Email email) {
+			return Person<Host>(email);
+		}
+
 		public void AddHost(Host host) {
 			if (data.Host.All.FirstOrDefault(h => h.Email == host.Email) != null) {
 				throw new EmailExistsException(host.Email);
@@ -107,17 +134,23 @@ namespace business {
 		// Returns the person with the given email and password
 		// If the password is wrong WrongPasswordException is thrown
 		// If the email doesn't exist InexistentEmailException is thrown
-		public TPerson SignIn<TPerson>(Email email, string password) where TPerson : Person {
-			TPerson person;
-			try {
-				person = data.GetAccessor<TPerson>().All.First(p => p.Email == email);
-			} catch (InvalidOperationException e) {
-				throw new InexistentEmailException(email, e);
+		public bool SignIn<TPerson>(TPerson person, string password) where TPerson : Person {
+			if (new Password(password).MatchesHash(person.PasswordHash)) {
+				return true;
 			}
-			if (!new Password(password).MatchesHash(person.PasswordHash)) {
-				throw new WrongPasswordException();
-			}
-			return person;
+			return false;
+		}
+
+		public IEnumerable<Amenity> Amenities {
+			get => data.Amenity.All;
+		}
+
+		public IEnumerable<City> Cities {
+			get => data.City.All;
+		}
+
+		public IEnumerable<Unit.Type> UnitTypes {
+			get => data.UnitType.All;
 		}
 
 		public IEnumerable<Unit> Units() {

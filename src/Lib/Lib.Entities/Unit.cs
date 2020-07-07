@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Text;
 using Lib.DataTypes;
 using Lib.Extensions;
@@ -15,22 +16,37 @@ namespace Lib.Entities {
 
 		public City City { get; }
 
+		public ICollection<Amenity> Amenities { get; }
+
+		public Type UnitType { get; }
+
+		public int OccupiedDays {
+			get => Bookings.OccupiedDays;
+		}
+
 		public Unit(
 			Host host,
 			string hosting_unit_name,
-			City city
+			City city,
+			ICollection<Amenity> amenities,
+			Type unit_type
 		) : this(
 			null, // initialized ID to null
 			host,
 			hosting_unit_name,
 			city,
+			amenities,
+			unit_type,
 			new Calendar()
 		) {}
 
-		public Unit(ID id, Host host, string hosting_unit_name, City city, Calendar bookings) {
+		public Unit(ID id, Host host, string hosting_unit_name, City city, ICollection<Amenity> amenities, Type unit_type, Calendar bookings) {
 			ID = id;
 			Host = host;
 			UnitName = hosting_unit_name;
+			City = city;
+			Amenities = amenities;
+			UnitType = unit_type;
 			Bookings = bookings;
 		}
 
@@ -76,7 +92,7 @@ namespace Lib.Entities {
 		}
 
 		public Unit Clone() {
-			return new Unit(ID, Host, UnitName, City, Bookings.Clone());
+			return new Unit(ID, Host, UnitName, City, new HashSet<Amenity>(Amenities), UnitType, Bookings.Clone());
 		}
 	}
 }

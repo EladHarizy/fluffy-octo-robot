@@ -1,5 +1,0 @@
-<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Class="presentation.UnitsPage" Title="Hosting Units">
-	<Grid>
-		<TextBlock x:Name="host_id" Text=""/>
-	</Grid>
-</Page>

@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using business;
+using Lib.DataTypes;
 using Lib.Entities;
 
 namespace presentation {
@@ -22,34 +23,16 @@ namespace presentation {
 			InitializeComponent();
 			OriginalTitle = Title;
 			Business = new Business();
-			HostSession = new Session<Host>(Business);
-			GuestSession = new Session<Guest>(Business);
-			LoadPage(new HomePage());
-		}
 
-		public void LoadPage(Page page) {
-			Page.Content = page;
-			SetTitle(page.Title);
-		}
+			HostSession = new Session<Host>(Business, HostPage);
+			GuestSession = new Session<Guest>(Business, GuestPage);
 
-		private void SetTitle(string title) {
-			Title = OriginalTitle + " | " + title;
-		}
+			Page HostSignInPage = new HostSignInPage(Business, HostSession, HostPage);
+			Page GuestSignInPage = new GuestSignInPage(Business, GuestSession, GuestPage);
+			GuestPage.Navigate(GuestSignInPage);
+			HostPage.Navigate(HostSignInPage);
 
-		private void GuestRequestsPage(object sender, RoutedEventArgs e) {
-			LoadPage(new GuestRequestsPage(Business));
-		}
-
-		private void UnitsPage(object sender, RoutedEventArgs e) {
-			if (HostSession.IsSignedIn) {
-				LoadPage(new UnitsPage(Business, HostSession.Person));
-			} else {
-				LoadPage(new HostSignInPage(Business, HostSession, this));
-			}
-		}
-
-		private void AdminPage(object sender, RoutedEventArgs e) {
-			LoadPage(new AdminPage());
+			AdminPage.Navigate(new AdminPage());
 		}
 	}
 }
