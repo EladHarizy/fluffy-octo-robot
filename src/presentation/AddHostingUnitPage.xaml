@@ -40,7 +40,7 @@
 						<ItemsControl x:Name="amenities_checkboxes" ItemsSource="{Binding}">
 							<ItemsControl.ItemTemplate>
 								<DataTemplate>
-									<CheckBox IsChecked="{Binding Checked, Mode=TwoWay}" Content="{Binding Label}"/>
+									<CheckBox IsChecked="{Binding Selected, Mode=TwoWay}" Content="{Binding Label}"/>
 								</DataTemplate>
 							</ItemsControl.ItemTemplate>
 						</ItemsControl>
