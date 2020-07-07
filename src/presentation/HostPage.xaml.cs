@@ -16,14 +16,13 @@ namespace presentation {
 			get => HostSession.Person;
 		}
 
-		private IEnumerable<Unit> Units { get; }
+		private IEnumerable<Unit> Units { get => Business.UnitsOf(Host); }
 
 		public HostPage(IBusiness business, Session<Host> host_session, Frame frame) {
 			InitializeComponent();
 			Business = business;
 			HostSession = host_session;
 			Frame = frame;
-			Units = Business.UnitsOf(Host);
 			units_details_card.DataContext = Units;
 			host_details_card.DataContext = Host;
 		}
@@ -33,7 +32,7 @@ namespace presentation {
 		}
 
 		private void NewHostingUnit(object sender, RoutedEventArgs e) {
-			Frame.Navigate(new AddHostingUnitPage(Business, Frame));
+			Frame.Navigate(new AddHostingUnitPage(Business, Frame, Host));
 		}
 
 		private void EditUnit(object sender, RoutedEventArgs e) {

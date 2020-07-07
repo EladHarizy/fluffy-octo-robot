@@ -31,41 +31,34 @@
 							<ColumnDefinition Width="20"/>
 							<ColumnDefinition Width="Auto"/>
 							<ColumnDefinition Width="20"/>
-							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="200"/>
 							<ColumnDefinition Width="20"/>
 						</Grid.ColumnDefinitions>
 						<Grid.RowDefinitions>
 							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="10"/>
 							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="10"/>
 							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="10"/>
 							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="10"/>
 							<RowDefinition Height="Auto"/>
-							<RowDefinition Height="Auto"/>
-							<RowDefinition Height="Auto"/>
-							<RowDefinition Height="Auto"/>
-							<RowDefinition Height="Auto"/>
-							<RowDefinition Height="Auto"/>
-							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="10"/>
 							<RowDefinition Height="Auto"/>
 						</Grid.RowDefinitions>
 						<TextBlock Grid.Row="0" Grid.Column="1">ID</TextBlock>
-						<TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding Path=ID}"/>
-						<Separator Grid.Row="1" Grid.ColumnSpan="5" Height="20"/>
+						<TextBox Grid.Row="0" Grid.Column="3" Text="{Binding Path=ID, Mode=OneTime}" IsReadOnly="True"/>
 						<TextBlock Grid.Row="2" Grid.Column="1">Email</TextBlock>
-						<TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding Path=Email}"/>
-						<Separator Grid.Row="3" Grid.ColumnSpan="5" Height="20"/>
+						<TextBox Grid.Row="2" Grid.Column="3" Text="{Binding Path=Email, Mode=OneTime}" IsReadOnly="True"/>
 						<TextBlock Grid.Row="4" Grid.Column="1">Phone</TextBlock>
-						<TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding Path=Phone}"/>
-						<Separator Grid.Row="5" Grid.ColumnSpan="5" Height="20"/>
+						<TextBox Grid.Row="4" Grid.Column="3" Text="{Binding Path=Phone, Mode=OneTime}" IsReadOnly="True"/>
 						<TextBlock Grid.Row="6" Grid.Column="1">Bank Number</TextBlock>
-						<TextBlock Grid.Row="6" Grid.Column="3" Text="{Binding Path=BankAccount.Branch.BankID}"/>
-						<Separator Grid.Row="7" Grid.ColumnSpan="5" Height="20"/>
+						<TextBox Grid.Row="6" Grid.Column="3" Text="{Binding Path=BankAccount.Branch.BankID, Mode=OneTime}" IsReadOnly="True"/>
 						<TextBlock Grid.Row="8" Grid.Column="1">Branch Number</TextBlock>
-						<TextBlock Grid.Row="8" Grid.Column="3" Text="{Binding Path=BankAccount.Branch.BranchID}"/>
-						<Separator Grid.Row="9" Grid.ColumnSpan="5" Height="20"/>
+						<TextBox Grid.Row="8" Grid.Column="3" Text="{Binding Path=BankAccount.Branch.BranchID, Mode=OneTime}" IsReadOnly="True"/>
 						<TextBlock Grid.Row="10" Grid.Column="1">Account Number</TextBlock>
-						<TextBlock Grid.Row="10" Grid.Column="3" Text="{Binding Path=BankAccount.AccountNumber}"/>
-						<Separator Grid.Row="11" Grid.ColumnSpan="5" Height="20"/>
+						<TextBox Grid.Row="10" Grid.Column="3" Text="{Binding Path=BankAccount.AccountNumber, Mode=OneTime}" IsReadOnly="True"/>
 					</Grid>
 				</Grid>
 			</StackPanel>
@@ -110,7 +103,7 @@
 					<Rectangle Grid.Column="6" Width="{Binding ActualWidth, ElementName=edit_column}"/>
 					<Rectangle Grid.Column="7" Width="{Binding ActualWidth, ElementName=delete_column}"/>
 				</Grid>
-				<ListView ItemsSource="{Binding Path=.}">
+				<ListView ItemsSource="{Binding Path=., Mode=TwoWay}">
 					<ListView.View>
 						<GridView AllowsColumnReorder="false">
 							<GridViewColumn x:Name="id_column" DisplayMemberBinding="{Binding ID}" Header="ID"/>
