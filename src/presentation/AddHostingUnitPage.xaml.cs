@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,7 +21,9 @@ namespace presentation {
 
 		private Validator<ComboBox> CityValidator { get; }
 
-		public AddHostingUnitPage(IBusiness business, Frame frame, Host host) {
+		ICollection<Unit> UiUnits { get; }
+
+		public AddHostingUnitPage(IBusiness business, Frame frame, Host host, ICollection<Unit> ui_units) {
 			InitializeComponent();
 			Business = business;
 			Frame = frame;
@@ -28,6 +31,7 @@ namespace presentation {
 			form.DataContext = Business;
 			Amenities = new CheckBoxList<Amenity>(Business.Amenities);
 			amenities_checkboxes.DataContext = Amenities;
+			UiUnits = ui_units;
 
 			UnitNameValidator = new Validator<TextBox>(unit_name, unit_name_error);
 			UnitNameValidator.AddCheck(control => control.Text == "" ? "Error: Unit name is required." : "");
@@ -49,7 +53,9 @@ namespace presentation {
 				return;
 			}
 
-			Business.AddUnit(new Unit(Host, unit_name.Text, city.SelectedValue as City, Amenities.SelectedItems.ToHashSet(), unit_type.SelectedValue as Unit.Type));
+			Unit unit = new Unit(Host, unit_name.Text, city.SelectedValue as City, Amenities.SelectedItems.ToHashSet(), unit_type.SelectedValue as Unit.Type);
+			Business.AddUnit(unit);
+			UiUnits.Add(unit);
 
 			Frame.GoBack();
 		}
