@@ -2,7 +2,7 @@ using System.Windows.Controls;
 using business;
 
 namespace presentation {
-	internal class AddHostingUnitPage : Page {
+	public partial class AddHostingUnitPage : Page {
 		private IBusiness business;
 		private Frame frame;
 
