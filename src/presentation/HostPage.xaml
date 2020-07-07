@@ -80,7 +80,7 @@
 						<ColumnDefinition Width="Auto"/>
 					</Grid.ColumnDefinitions>
 					<TextBlock Grid.Column="0" Style="{StaticResource h1}">Hosting Units</TextBlock>
-					<Button Grid.Column="2">
+					<Button Grid.Column="2" Click="NewHostingUnit">
 						<StackPanel Orientation="Horizontal">
 							<MaterialDesign:PackIcon Kind="PlusCircle"/>
 							<Rectangle Width="5"/>
