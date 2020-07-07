@@ -8,6 +8,7 @@ namespace presentation {
 		private Frame Frame { get; }
 
 		public AddHostingUnitPage(IBusiness business, Frame frame) {
+			InitializeComponent();
 			Business = business;
 			Frame = frame;
 		}

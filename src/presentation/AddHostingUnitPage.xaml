@@ -26,7 +26,8 @@
 						</StackPanel>
 					</StackPanel>
 				</StackPanel>
-				<StackPanel Grid.Row="5" Orientation="Horizontal" Height="30"><!-- Submit buttons -->
+				<Separator Height="30"/>
+				<StackPanel Grid.Row="5" Orientation="Horizontal"><!-- Submit buttons -->
 					<Button Click="AddHostingUnit">
 						<StackPanel Orientation="Horizontal">
 							<md:PackIcon Kind="AddCircle"/>

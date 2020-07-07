@@ -19,7 +19,7 @@
 				<Rectangle Height="10"/>
 				<Button Click="SignIn">
 					<StackPanel Orientation="Horizontal">
-						<md:PackIcon Kind="AccountArrowRight"/>
+						<md:PackIcon Kind="AccountCircle"/>
 						<Rectangle Width="5"/>
 						<TextBlock>SIGN IN</TextBlock>
 					</StackPanel>
