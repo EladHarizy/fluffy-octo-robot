@@ -10,16 +10,19 @@ namespace presentation {
 
 		private Session<Host> HostSession { get; }
 
+		public Frame Frame { get; }
+
 		private Host Host {
 			get => HostSession.Person;
 		}
 
 		private IEnumerable<Unit> Units { get; }
 
-		public HostPage(IBusiness business, Session<Host> host_session) {
+		public HostPage(IBusiness business, Session<Host> host_session, Frame frame) {
 			InitializeComponent();
 			Business = business;
 			HostSession = host_session;
+			Frame = frame;
 			Units = Business.UnitsOf(Host);
 			units_details_card.DataContext = Units;
 			host_details_card.DataContext = Host;
@@ -27,6 +30,10 @@ namespace presentation {
 
 		private void SignOut(object sender, RoutedEventArgs e) {
 			HostSession.SignOut();
+		}
+
+		private void NewHostingUnit(object sender, RoutedEventArgs e) {
+			Frame.Navigate(new AddHostingUnitPage(Business, Frame));
 		}
 
 		private void EditUnit(object sender, RoutedEventArgs e) {
