@@ -18,6 +18,17 @@
 		<host_id>00000001</host_id>
 		<name>Alex&apos;s House</name>
 		<city>Jerusalem</city>
+		<unit_type>House</unit_type>
+		<amenities>
+			<amenity>Wi-Fi</amenity>
+			<amenity>Kitchen</amenity>
+			<amenity>Shampoo</amenity>
+			<amenity>Heating</amenity>
+			<amenity>Washer</amenity>
+			<amenity>Dryer</amenity>
+			<amenity>Iron</amenity>
+			<amenity>Private bathroom</amenity>
+		</amenities>
 	</unit>
 	<unit>
 		<id>00000002</id>
@@ -38,5 +49,40 @@
 		<host_id>00000002</host_id>
 		<name>Bob&apos;s Villa</name>
 		<city>Tel Aviv-Yafo</city>
+		<unit_type>Villa</unit_type>
+		<amenities>
+			<amenity>Wi-Fi</amenity>
+			<amenity>Kitchen</amenity>
+			<amenity>Air conditioning</amenity>
+			<amenity>Indoor fireplace</amenity>
+			<amenity>Hangers</amenity>
+			<amenity>Laptop-friendly workspace</amenity>
+			<amenity>TV</amenity>
+			<amenity>Self check-in</amenity>
+			<amenity>Swimming pool</amenity>
+			<amenity>Private bathroom</amenity>
+		</amenities>
+	</unit>
+	<unit>
+		<id>00000003</id>
+		<calendar>
+			<booking>
+				<start>28/02/2021</start>
+				<duration>15</duration>
+			</booking>
+			<booking>
+				<start>19/04/2021</start>
+				<duration>6</duration>
+			</booking>
+			<booking>
+				<start>24/04/2021</start>
+				<duration>10</duration>
+			</booking>
+		</calendar>
+		<host_id>00000002</host_id>
+		<name>Bob&apos;s Tree House</name>
+		<city>Tel Aviv-Yafo</city>
+		<unit_type>Tree House</unit_type>
+		<amenities></amenities>
 	</unit>
 </units>
