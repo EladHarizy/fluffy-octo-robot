@@ -37,18 +37,13 @@
 					<StackPanel><!-- Amenities Checkboxes -->
 						<TextBlock>Amenities</TextBlock>
 						<Separator Height="10"/>
-						<StackPanel Orientation="Horizontal">
-							<CheckBox/>
-							<TextBlock>Wi-Fi</TextBlock>
-						</StackPanel>
-						<StackPanel Orientation="Horizontal">
-							<CheckBox/>
-							<TextBlock>Swimming Pool</TextBlock>
-						</StackPanel>
-						<StackPanel Orientation="Horizontal">
-							<CheckBox/>
-							<TextBlock>...</TextBlock>
-						</StackPanel>
+						<ItemsControl x:Name="amenities_checkboxes" ItemsSource="{Binding}">
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<CheckBox IsChecked="{Binding Checked, Mode=TwoWay}" Content="{Binding Label}"/>
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
 					</StackPanel>
 				</StackPanel>
 				<Separator Height="30"/>
