@@ -1,10 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <config>
-	<fee_per_day>10</fee_per_day>
-	<latest_ids>
-		<guests.xml>00000005</guests.xml>
-		<guest_requests.xml>00000001</guest_requests.xml>
-		<hosts.xml>00000003</hosts.xml>
-		<orders.xml>00000001</orders.xml>
-		<units.xml>00000003</units.xml>
-	</latest_ids>
+  <fee_per_day>10</fee_per_day>
+  <latest_ids>
+    <guests.xml>00000006</guests.xml>
+    <guest_requests.xml>00000001</guest_requests.xml>
+    <hosts.xml>00000006</hosts.xml>
+    <orders.xml>00000001</orders.xml>
+    <units.xml>00000007</units.xml>
+  </latest_ids>
 </config>

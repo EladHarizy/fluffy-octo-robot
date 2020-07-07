@@ -1,88 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <units>
-	<unit>
-		<id>00000001</id>
-		<calendar>
-			<booking>
-				<start>25/06/2021</start>
-				<duration>7</duration>
-			</booking>
-			<booking>
-				<start>13/09/2021</start>
-				<duration>8</duration>
-			</booking>
-			<booking>
-				<start>16/01/2022</start>
-				<duration>2</duration>
-			</booking>
-		</calendar>
-		<host_id>00000001</host_id>
-		<name>Alex&apos;s House</name>
-		<city>Jerusalem</city>
-		<unit_type>House</unit_type>
-		<amenities>
-			<amenity>Wi-Fi</amenity>
-			<amenity>Kitchen</amenity>
-			<amenity>Shampoo</amenity>
-			<amenity>Heating</amenity>
-			<amenity>Washer</amenity>
-			<amenity>Dryer</amenity>
-			<amenity>Iron</amenity>
-			<amenity>Private bathroom</amenity>
-		</amenities>
-	</unit>
-	<unit>
-		<id>00000002</id>
-		<calendar>
-			<booking>
-				<start>28/02/2021</start>
-				<duration>15</duration>
-			</booking>
-			<booking>
-				<start>19/04/2021</start>
-				<duration>6</duration>
-			</booking>
-			<booking>
-				<start>24/04/2021</start>
-				<duration>10</duration>
-			</booking>
-		</calendar>
-		<host_id>00000002</host_id>
-		<name>Bob&apos;s Villa</name>
-		<city>Tel Aviv-Yafo</city>
-		<unit_type>Villa</unit_type>
-		<amenities>
-			<amenity>Wi-Fi</amenity>
-			<amenity>Kitchen</amenity>
-			<amenity>Air conditioning</amenity>
-			<amenity>Indoor fireplace</amenity>
-			<amenity>Hangers</amenity>
-			<amenity>Laptop-friendly workspace</amenity>
-			<amenity>TV</amenity>
-			<amenity>Self check-in</amenity>
-			<amenity>Swimming pool</amenity>
-			<amenity>Private bathroom</amenity>
-		</amenities>
-	</unit>
-	<unit>
-		<id>00000003</id>
-		<calendar>
-			<booking>
-				<start>28/02/2021</start>
-				<duration>15</duration>
-			</booking>
-			<booking>
-				<start>19/04/2021</start>
-				<duration>6</duration>
-			</booking>
-			<booking>
-				<start>24/04/2021</start>
-				<duration>10</duration>
-			</booking>
-		</calendar>
-		<host_id>00000002</host_id>
-		<name>Bob&apos;s Tree House</name>
-		<city>Tel Aviv-Yafo</city>
-		<unit_type>Tree House</unit_type>
-		<amenities></amenities>
-	</unit>
+  <unit>
+    <id>00000001</id>
+    <calendar>
+      <booking>
+        <start>25/06/2021</start>
+        <duration>7</duration>
+      </booking>
+      <booking>
+        <start>13/09/2021</start>
+        <duration>8</duration>
+      </booking>
+      <booking>
+        <start>16/01/2022</start>
+        <duration>2</duration>
+      </booking>
+    </calendar>
+    <host_id>00000001</host_id>
+    <name>Alex's House</name>
+    <city>Jerusalem</city>
+    <unit_type>House</unit_type>
+    <amenities>
+      <amenity>Wi-Fi</amenity>
+      <amenity>Kitchen</amenity>
+      <amenity>Shampoo</amenity>
+      <amenity>Heating</amenity>
+      <amenity>Washer</amenity>
+      <amenity>Dryer</amenity>
+      <amenity>Iron</amenity>
+      <amenity>Private bathroom</amenity>
+    </amenities>
+  </unit>
+  <unit>
+    <id>00000002</id>
+    <calendar>
+      <booking>
+        <start>28/02/2021</start>
+        <duration>15</duration>
+      </booking>
+      <booking>
+        <start>19/04/2021</start>
+        <duration>6</duration>
+      </booking>
+      <booking>
+        <start>24/04/2021</start>
+        <duration>10</duration>
+      </booking>
+    </calendar>
+    <host_id>00000002</host_id>
+    <name>Bob's Villa</name>
+    <city>Tel Aviv-Yafo</city>
+    <unit_type>Villa</unit_type>
+    <amenities>
+      <amenity>Wi-Fi</amenity>
+      <amenity>Kitchen</amenity>
+      <amenity>Air conditioning</amenity>
+      <amenity>Indoor fireplace</amenity>
+      <amenity>Hangers</amenity>
+      <amenity>Laptop-friendly workspace</amenity>
+      <amenity>TV</amenity>
+      <amenity>Self check-in</amenity>
+      <amenity>Swimming pool</amenity>
+      <amenity>Private bathroom</amenity>
+    </amenities>
+  </unit>
+  <unit>
+    <id>00000003</id>
+    <calendar>
+      <booking>
+        <start>28/02/2021</start>
+        <duration>15</duration>
+      </booking>
+      <booking>
+        <start>19/04/2021</start>
+        <duration>6</duration>
+      </booking>
+      <booking>
+        <start>24/04/2021</start>
+        <duration>10</duration>
+      </booking>
+    </calendar>
+    <host_id>00000002</host_id>
+    <name>Bob's Tree House</name>
+    <city>Tel Aviv-Yafo</city>
+    <unit_type>Tree House</unit_type>
+    <amenities></amenities>
+  </unit>
+  <unit>
+    <id>00000004</id>
+    <calendar />
+    <host_id>00000002</host_id>
+    <name>Bob's Spooky Cabin</name>
+    <city>Yavne</city>
+    <amenities>
+      <amenity>Shampoo</amenity>
+      <amenity>Indoor fireplace</amenity>
+      <amenity>Iron</amenity>
+      <amenity>Self check-in</amenity>
+    </amenities>
+    <unit_type>Cabin</unit_type>
+  </unit>
+  <unit>
+    <id>00000005</id>
+    <calendar />
+    <host_id>00000002</host_id>
+    <name>Bob's Hotel</name>
+    <city>Jerusalem</city>
+    <amenities>
+      <amenity>Shampoo</amenity>
+      <amenity>Heating</amenity>
+      <amenity>Air conditioning</amenity>
+      <amenity>Wi-Fi</amenity>
+      <amenity>Breakfast</amenity>
+      <amenity>Hangers</amenity>
+      <amenity>Hair dryer</amenity>
+      <amenity>Laptop-friendly workspace</amenity>
+      <amenity>TV</amenity>
+      <amenity>Crib</amenity>
+      <amenity>High chair</amenity>
+      <amenity>Smoke alarm</amenity>
+      <amenity>Carbon monoxide alarm</amenity>
+      <amenity>Private bathroom</amenity>
+      <amenity>Swimming pool</amenity>
+      <amenity>Jacuzzi</amenity>
+    </amenities>
+    <unit_type>Hotel</unit_type>
+  </unit>
+  <unit>
+    <id>00000006</id>
+    <calendar />
+    <host_id>00000002</host_id>
+    <name>Bob's Chalet</name>
+    <city>Haifa</city>
+    <amenities>
+      <amenity>Kitchen</amenity>
+      <amenity>Shampoo</amenity>
+      <amenity>Air conditioning</amenity>
+      <amenity>Washer</amenity>
+      <amenity>Dryer</amenity>
+      <amenity>Wi-Fi</amenity>
+      <amenity>Laptop-friendly workspace</amenity>
+      <amenity>TV</amenity>
+      <amenity>Private bathroom</amenity>
+      <amenity>Swimming pool</amenity>
+    </amenities>
+    <unit_type>Chalet</unit_type>
+  </unit>
+  <unit>
+    <id>00000007</id>
+    <calendar />
+    <host_id>00000002</host_id>
+    <name>Bob's Bungalow</name>
+    <city>Eilat</city>
+    <amenities>
+      <amenity>Heating</amenity>
+      <amenity>Breakfast</amenity>
+      <amenity>Iron</amenity>
+      <amenity>TV</amenity>
+      <amenity>Smoke alarm</amenity>
+      <amenity>Carbon monoxide alarm</amenity>
+    </amenities>
+    <unit_type>Bungalow</unit_type>
+  </unit>
 </units>
