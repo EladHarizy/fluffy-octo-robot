@@ -7,6 +7,7 @@
 				<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml"/>
 				<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml"/>
 			</ResourceDictionary.MergedDictionaries>
+			<local:IEnumerableConverter x:Key="AmenitiesConverter"/>
 			<Style x:Key="h1" TargetType="TextBlock">
 				<Setter Property="TextWrapping" Value="Wrap"/>
 				<Setter Property="FontWeight" Value="Bold"/>
@@ -16,7 +17,7 @@
 				<Setter Property="Padding" Value="20"/>
 			</Style>
 			<Style x:Key="padded_stack_card" TargetType="md:Card" BasedOn="{StaticResource padded_card}">
-				<Setter Property="Margin" Value="0 20"/>
+				<Setter Property="Margin" Value="10 20"/>
 			</Style>
 			<Style x:Key="stack_of_cards" TargetType="StackPanel">
 				<Setter Property="HorizontalAlignment" Value="Stretch"/>

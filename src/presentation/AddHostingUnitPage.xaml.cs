@@ -11,6 +11,7 @@ namespace presentation {
 			InitializeComponent();
 			Business = business;
 			Frame = frame;
+			form.DataContext = Business;
 		}
 		private void AddHostingUnit(object sender, RoutedEventArgs e) {
 

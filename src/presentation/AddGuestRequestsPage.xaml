@@ -10,7 +10,7 @@
 					<Grid><!-- Form -->
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="Auto"/><!-- Field labels -->
-							<ColumnDefinition Width="250"/><!-- Fiels inputs -->
+							<ColumnDefinition Width="250"/><!-- Field inputs -->
 						</Grid.ColumnDefinitions>
 						<Grid.RowDefinitions>
 							<RowDefinition Height="Auto"/>

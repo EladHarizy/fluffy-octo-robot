@@ -95,18 +95,20 @@
 						<ColumnDefinition Width="Auto"/>
 						<ColumnDefinition Width="Auto"/>
 						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="Auto"/>
 						<ColumnDefinition Width="*"/>
 						<ColumnDefinition Width="Auto"/>
 						<ColumnDefinition Width="Auto"/>
 						<ColumnDefinition Width="20"/>
 					</Grid.ColumnDefinitions>
-					<Rectangle Fill="Red" Grid.Column="0" Width="{Binding ActualWidth, ElementName=id_column}"/>
-					<Rectangle Fill="Blue" Grid.Column="1" Width="{Binding ActualWidth, ElementName=unit_name_column}"/>
-					<Rectangle Fill="Red" Grid.Column="2" Width="{Binding ActualWidth, ElementName=city_column}"/>
-					<Rectangle Fill="Blue" Grid.Column="3" Width="{Binding ActualWidth, ElementName=occupied_column}"/>
-					<Rectangle Fill="Red" Grid.Column="4" x:Name="wide_column"/>
-					<Rectangle Fill="Blue" Grid.Column="5" Width="{Binding ActualWidth, ElementName=edit_column}"/>
-					<Rectangle Fill="Red" Grid.Column="6" Width="{Binding ActualWidth, ElementName=delete_column}"/>
+					<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=id_column}"/>
+					<Rectangle Grid.Column="1" Width="{Binding ActualWidth, ElementName=unit_name_column}"/>
+					<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=city_column}"/>
+					<Rectangle Grid.Column="3" Width="{Binding ActualWidth, ElementName=unit_type_column}"/>
+					<Rectangle Grid.Column="4" Width="{Binding ActualWidth, ElementName=occupied_column}"/>
+					<Rectangle Grid.Column="5" x:Name="wide_column"/>
+					<Rectangle Grid.Column="6" Width="{Binding ActualWidth, ElementName=edit_column}"/>
+					<Rectangle Grid.Column="7" Width="{Binding ActualWidth, ElementName=delete_column}"/>
 				</Grid>
 				<ListView ItemsSource="{Binding Path=.}">
 					<ListView.View>
@@ -114,6 +116,7 @@
 							<GridViewColumn x:Name="id_column" DisplayMemberBinding="{Binding ID}" Header="ID"/>
 							<GridViewColumn x:Name="unit_name_column" DisplayMemberBinding="{Binding UnitName}" Header="NAME"/>
 							<GridViewColumn x:Name="city_column" DisplayMemberBinding="{Binding City}" Header="CITY"/>
+							<GridViewColumn x:Name="unit_type_column" DisplayMemberBinding="{Binding UnitType}" Header="TYPE"/>
 							<GridViewColumn x:Name="occupied_column" Header="OCCUPIED">
 								<GridViewColumn.CellTemplate>
 									<DataTemplate>
@@ -124,11 +127,7 @@
 									</DataTemplate>
 								</GridViewColumn.CellTemplate>
 							</GridViewColumn>
-							<GridViewColumn Width="{Binding ActualWidth, ElementName=wide_column}">
-								<GridViewColumn.CellTemplate>
-									<DataTemplate/>
-								</GridViewColumn.CellTemplate>
-							</GridViewColumn>
+							<GridViewColumn DisplayMemberBinding="{Binding Amenities, Converter={StaticResource AmenitiesConverter}}" Header="AMENITIES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
 							<GridViewColumn x:Name="edit_column">
 								<GridViewColumn.CellTemplate>
 									<DataTemplate>

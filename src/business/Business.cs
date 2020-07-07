@@ -141,6 +141,18 @@ namespace business {
 			return false;
 		}
 
+		public IEnumerable<Amenity> Amenities {
+			get => data.Amenity.All;
+		}
+
+		public IEnumerable<City> Cities {
+			get => data.City.All;
+		}
+
+		public IEnumerable<Unit.Type> UnitTypes {
+			get => data.UnitType.All;
+		}
+
 		public IEnumerable<Unit> Units() {
 			return data.Unit.All;
 		}
