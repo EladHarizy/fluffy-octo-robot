@@ -11,17 +11,8 @@
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="Auto"/>
 				</Grid.ColumnDefinitions>
-				<Grid>
-					<Grid.RowDefinitions>
-						<RowDefinition Height="*"/>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition Height="*"/>
-					</Grid.RowDefinitions>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="10"/>
-						<ColumnDefinition Width="Auto"/>
-					</Grid.ColumnDefinitions>
-					<TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource h1}">Fluffy Octo Robot</TextBlock>
+				<Grid Style="{StaticResource centered}" Margin="20 0">
+					<TextBlock Style="{StaticResource h1}">Fluffy Octo Robot</TextBlock>
 				</Grid>
 				<StackPanel Grid.Column="2" Orientation="Horizontal">
 					<RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" x:Name="rbTab1" Margin="4 0" Height="60" IsChecked="True">HOME</RadioButton>

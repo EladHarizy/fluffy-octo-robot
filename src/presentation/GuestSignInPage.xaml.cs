@@ -24,6 +24,11 @@ namespace presentation {
 			GuestSession = guest_session;
 			Frame = frame;
 
+			// Test
+			email.Text = "daisy@dunn.com";
+			password.Password = "password";
+			// End test
+
 			EmailValidator = new Validator<TextBox>(email, email_error);
 			// Check that the email has a valid format
 			EmailValidator.AddCheck(
