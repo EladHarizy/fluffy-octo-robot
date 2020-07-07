@@ -36,6 +36,12 @@ namespace business {
 
 		bool SignIn<TPerson>(TPerson person, string password) where TPerson : Person;
 
+		IEnumerable<Amenity> Amenities { get; }
+
+		IEnumerable<City> Cities { get; }
+
+		IEnumerable<Unit.Type> UnitTypes { get; }
+
 		IEnumerable<Unit> Units();
 
 		IEnumerable<Unit> UnitsOf(Host host);

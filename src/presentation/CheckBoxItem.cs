@@ -1,3 +1,5 @@
+using System;
+
 namespace presentation {
 
 	internal class CheckBoxItem<T> {
@@ -5,8 +7,15 @@ namespace presentation {
 
 		public bool Selected { get; set; }
 
-		public string Name {
-			get => Object.ToString();
+		private Func<T, string> ObjToString { get; }
+
+		public string Label {
+			get => ObjToString(Object);
+		}
+
+		public CheckBoxItem(T obj) {
+			Object = obj;
+			ObjToString = obj => obj.ToString();
 		}
 	}
 

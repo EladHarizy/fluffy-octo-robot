@@ -59,7 +59,7 @@ namespace presentation {
 				HostSession.SignIn(host, password.Password);
 				PasswordValidator.ResetError();
 
-				Frame.Content = new HostPage(Business, HostSession);
+				Frame.Navigate(new HostPage(Business, HostSession, Frame));
 			} catch (InexistentEmailException error) {
 				EmailValidator.SetError(error.Message);
 			} catch (WrongPasswordException error) {

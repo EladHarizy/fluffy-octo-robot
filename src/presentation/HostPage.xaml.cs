@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using business;
@@ -10,23 +10,30 @@ namespace presentation {
 
 		private Session<Host> HostSession { get; }
 
+		public Frame Frame { get; }
+
 		private Host Host {
 			get => HostSession.Person;
 		}
 
-		private IEnumerable<Unit> Units { get; }
+		private ObservableCollection<Unit> Units { get; }
 
-		public HostPage(IBusiness business, Session<Host> host_session) {
+		public HostPage(IBusiness business, Session<Host> host_session, Frame frame) {
 			InitializeComponent();
 			Business = business;
 			HostSession = host_session;
-			Units = Business.UnitsOf(Host);
+			Frame = frame;
+			Units = new ObservableCollection<Unit>(Business.UnitsOf(Host));
 			units_details_card.DataContext = Units;
 			host_details_card.DataContext = Host;
 		}
 
 		private void SignOut(object sender, RoutedEventArgs e) {
 			HostSession.SignOut();
+		}
+
+		private void NewHostingUnit(object sender, RoutedEventArgs e) {
+			Frame.Navigate(new AddHostingUnitPage(Business, Frame, Host, Units));
 		}
 
 		private void EditUnit(object sender, RoutedEventArgs e) {

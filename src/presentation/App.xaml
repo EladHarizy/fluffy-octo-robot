@@ -1,4 +1,4 @@
-﻿<Application x:Class="presentation.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:presentation" StartupUri="MainWindow.xaml" xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+﻿<Application x:Class="presentation.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:presentation" StartupUri="MainWindow.xaml" xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes">
 	<Application.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
@@ -7,16 +7,17 @@
 				<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml"/>
 				<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml"/>
 			</ResourceDictionary.MergedDictionaries>
+			<local:IEnumerableConverter x:Key="AmenitiesConverter"/>
 			<Style x:Key="h1" TargetType="TextBlock">
 				<Setter Property="TextWrapping" Value="Wrap"/>
 				<Setter Property="FontWeight" Value="Bold"/>
 				<Setter Property="FontSize" Value="24"/>
 			</Style>
-			<Style x:Key="padded_card" TargetType="MaterialDesign:Card">
+			<Style x:Key="padded_card" TargetType="md:Card">
 				<Setter Property="Padding" Value="20"/>
 			</Style>
-			<Style x:Key="padded_stack_card" TargetType="MaterialDesign:Card" BasedOn="{StaticResource padded_card}">
-				<Setter Property="Margin" Value="0 20"/>
+			<Style x:Key="padded_stack_card" TargetType="md:Card" BasedOn="{StaticResource padded_card}">
+				<Setter Property="Margin" Value="10 20"/>
 			</Style>
 			<Style x:Key="stack_of_cards" TargetType="StackPanel">
 				<Setter Property="HorizontalAlignment" Value="Stretch"/>

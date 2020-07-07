@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Xml.Linq;
 using Lib.DataTypes;
 using Lib.Entities;
@@ -10,6 +11,11 @@ namespace data {
 		}
 
 		public Unit XmlToObj(XElement element) {
+			ICollection<Amenity> amenities = new HashSet<Amenity>();
+			foreach (XElement amenity in element.Element("amenities").Elements()) {
+				amenities.Add(amenity.Value.Trim());
+			}
+
 			Unit.Calendar calendar = new Unit.Calendar();
 			foreach (XElement booking_xml in element.Element("calendar").Elements()) {
 				calendar.Bookings.Add(
@@ -25,6 +31,8 @@ namespace data {
 				Hosts[element.Element("host_id").Value.Trim()],
 				element.Element("name").Value.Trim(),
 				element.Element("city").Value.Trim(),
+				amenities,
+				element.Element("unit_type").Value.Trim(),
 				calendar
 			);
 		}
@@ -41,12 +49,22 @@ namespace data {
 				);
 			}
 
+			XElement amenities_xml = new XElement("amenities");
+			foreach (Amenity amenity in unit.Amenities) {
+				amenities_xml.Add(
+					new XElement("amenity", amenity)
+				);
+			}
+
 			return new XElement(
 				"unit",
 				new XElement("id", unit.ID),
 				calendar_xml,
 				new XElement("host_id", unit.Host.ID),
-				new XElement("name", unit.UnitName)
+				new XElement("name", unit.UnitName),
+				new XElement("city", unit.City),
+				amenities_xml,
+				new XElement("unit_type", unit.UnitType)
 			);
 		}
 	}

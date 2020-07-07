@@ -21,7 +21,7 @@ namespace data {
 		public IEnumerable<TObj> All {
 			get {
 				load_cache();
-				return cache.Values.Clone();
+				return cache.Values.Select(item => item);
 			}
 		}
 
