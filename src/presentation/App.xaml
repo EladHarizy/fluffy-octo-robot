@@ -17,12 +17,12 @@
 				<Setter Property="Padding" Value="20"/>
 			</Style>
 			<Style x:Key="padded_stack_card" TargetType="md:Card" BasedOn="{StaticResource padded_card}">
-				<Setter Property="Margin" Value="10 20"/>
+				<Setter Property="Margin" Value="0 20"/>
 			</Style>
 			<Style x:Key="stack_of_cards" TargetType="StackPanel">
 				<Setter Property="HorizontalAlignment" Value="Stretch"/>
 				<Setter Property="MaxWidth" Value="1080"/>
-				<Setter Property="Margin" Value="0 20"/>
+				<Setter Property="Margin" Value="20"/>
 			</Style>
 			<Style x:Key="centered" TargetType="FrameworkElement">
 				<Setter Property="HorizontalAlignment" Value="Center"/>
