@@ -42,10 +42,12 @@ namespace presentation {
 			MessageBox.Show("Editing " + unit.ID);
 		}
 
-		private void DeleteUnit(object sender, RoutedEventArgs e) {
-			Button button = sender as Button;
-			Unit unit = button.CommandParameter as Unit;
-			MessageBox.Show("Deleting " + unit.ID);
+		private async void DeleteUnit(object sender, RoutedEventArgs e) {
+			Unit unit = (sender as Button).CommandParameter as Unit;
+			if ((bool) await MaterialDesignThemes.Wpf.DialogHost.Show(unit)) {
+				Business.DeleteUnit(unit);
+				Units.Remove(unit);
+			}
 		}
 	}
 }

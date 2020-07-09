@@ -2,7 +2,7 @@
 	<StackPanel Style="{StaticResource stack_of_cards}">
 		<md:Card Style="{StaticResource padded_stack_card}">
 			<StackPanel><!-- Card contents -->
-				<TextBlock Style="{StaticResource h1}">Add a Hosting Unit</TextBlock>
+				<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Add a Hosting Unit</TextBlock>
 				<Separator Height="20"/>
 				<TextBlock>Fill in the details below for the fluffy octo robot to find guests for your property.</TextBlock>
 				<Rectangle Height="20"/>

@@ -2,7 +2,7 @@
 	<StackPanel Style="{StaticResource stack_of_cards}">
 		<md:Card Style="{StaticResource padded_stack_card}">
 			<StackPanel><!-- Card contents -->
-				<TextBlock Style="{StaticResource h1}">Plan a Holiday</TextBlock>
+				<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Plan a Holiday</TextBlock>
 				<Separator Height="20"/>
 				<TextBlock>Fill in the details below and we&apos;ll get back to you with relevant rental offers.</TextBlock>
 				<Rectangle Height="20"/>
