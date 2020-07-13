@@ -51,9 +51,9 @@
 				<StackPanel Grid.Row="5" Orientation="Horizontal"><!-- Submit buttons -->
 					<Button Click="EditUnit">
 						<StackPanel Orientation="Horizontal">
-							<md:PackIcon Kind="AddCircle"/>
+							<md:PackIcon Kind="Edit"/>
 							<Rectangle Width="5"/>
-							<TextBlock>ADD UNIT</TextBlock>
+							<TextBlock>EDIT UNIT</TextBlock>
 						</StackPanel>
 					</Button>
 					<Rectangle Width="10"/>

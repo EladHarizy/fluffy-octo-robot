@@ -10,13 +10,13 @@ namespace Lib.Entities {
 
 		public Host Host { get; }
 
-		public string UnitName { get; private set; }
+		public string UnitName { get; set; }
 
-		public City City { get; }
+		public City City { get; set; }
 
-		public ICollection<Amenity> Amenities { get; }
+		public IEnumerable<Amenity> Amenities { get; set; }
 
-		public Type UnitType { get; }
+		public Type UnitType { get; set; }
 
 		public int OccupiedDays {
 			get => Bookings.OccupiedDays;
@@ -62,6 +62,19 @@ namespace Lib.Entities {
 
 		public Unit Clone() {
 			return new Unit(ID, Host, UnitName, City, new HashSet<Amenity>(Amenities), UnitType, Bookings.Clone());
+		}
+
+		public override bool Equals(object obj) {
+			return obj is Unit unit
+				&& EqualityComparer<ID>.Default.Equals(ID, unit.ID)
+				&& EqualityComparer<Host>.Default.Equals(Host, unit.Host);
+		}
+
+		public override int GetHashCode() {
+			int hashCode = 1325579111;
+			hashCode = hashCode * -1521134295 + EqualityComparer<ID>.Default.GetHashCode(ID);
+			hashCode = hashCode * -1521134295 + EqualityComparer<Host>.Default.GetHashCode(Host);
+			return hashCode;
 		}
 	}
 }

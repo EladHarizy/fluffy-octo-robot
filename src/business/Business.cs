@@ -26,8 +26,8 @@ namespace business {
 			data.GuestRequest.Add(guest_request);
 		}
 
-		public void UpdateGuestRequest(GuestRequest guest_request) {
-			data.GuestRequest.Update(guest_request);
+		public void EditGuestRequest(GuestRequest guest_request) {
+			data.GuestRequest.Edit(guest_request);
 		}
 
 		public void AddUnit(Unit unit) {
@@ -43,8 +43,8 @@ namespace business {
 			data.Unit.Remove(unit.ID);
 		}
 
-		public void UpdateUnit(Unit unit) {
-			data.Unit.Update(unit);
+		public void EditUnit(Unit unit) {
+			data.Unit.Edit(unit);
 		}
 
 		public void AddOrder(Order order) {
@@ -57,7 +57,7 @@ namespace business {
 			data.Order.Add(order);
 		}
 
-		public void UpdateOrder(ID id, Order.Status status) {
+		public void EditOrder(ID id, Order.Status status) {
 			Order order = data.Order[id];
 			// Order is already closed
 			if (order.OrderStatus == "Closed due to customer unresponsiveness" || order.OrderStatus == "Closed due to customer response") {
@@ -76,7 +76,7 @@ namespace business {
 				order.Unit.Bookings.Add(new Unit.Calendar.Booking(order.GuestRequest.StartDate, order.GuestRequest.Duration));
 				foreach (Order order1 in data.Order.All) {
 					if (order.Unit.ID == order1.Unit.ID && order.ID != order1.ID) {
-						UpdateOrder(order1.ID, "Closed due to customer unresponsiveness");
+						EditOrder(order1.ID, "Closed due to customer unresponsiveness");
 					}
 				}
 			}
@@ -84,7 +84,7 @@ namespace business {
 				//TODO Send email
 			}
 			order.OrderStatus = status;
-			data.Order.Update(order);
+			data.Order.Edit(order);
 		}
 
 		public Guest Guest(ID id) {
@@ -117,7 +117,7 @@ namespace business {
 			data.Host.Add(host);
 		}
 
-		public void UpdateHost(Host host) {
+		public void EditHost(Host host) {
 			if (data.Host.All.FirstOrDefault(h => h.Email == host.Email && h.ID != host.ID) != null) {
 				throw new EmailExistsException(host.Email);
 			}
@@ -128,7 +128,7 @@ namespace business {
 					}
 				}
 			}
-			data.Host.Update(host);
+			data.Host.Edit(host);
 		}
 
 		// Returns the person with the given email and password

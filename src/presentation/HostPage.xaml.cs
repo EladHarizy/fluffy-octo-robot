@@ -38,7 +38,7 @@ namespace presentation {
 
 		private void EditUnit(object sender, RoutedEventArgs e) {
 			Unit unit = (sender as Button).CommandParameter as Unit;
-			Frame.Navigate(new EditUnitPage(Business, Frame, unit));
+			Frame.Navigate(new EditUnitPage(Business, Frame, unit, Units));
 		}
 
 		private async void DeleteUnit(object sender, RoutedEventArgs e) {
