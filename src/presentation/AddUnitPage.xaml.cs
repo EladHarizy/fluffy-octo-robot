@@ -3,10 +3,11 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using business;
+using Lib.DataTypes;
 using Lib.Entities;
 
 namespace presentation {
-	public partial class AddHostingUnitPage : Page {
+	public partial class AddUnitPage : Page {
 		private IBusiness Business { get; }
 
 		private Frame Frame { get; }
@@ -23,7 +24,7 @@ namespace presentation {
 
 		ICollection<Unit> UiUnits { get; }
 
-		public AddHostingUnitPage(IBusiness business, Frame frame, Host host, ICollection<Unit> ui_units) {
+		public AddUnitPage(IBusiness business, Frame frame, Host host, ICollection<Unit> ui_units) {
 			InitializeComponent();
 			Business = business;
 			Frame = frame;
@@ -43,7 +44,7 @@ namespace presentation {
 			CityValidator = new Validator<ComboBox>(city, city_error);
 			CityValidator.AddCheck(control => control.SelectedValue == null ? "Error: City is required." : "");
 		}
-		private void AddHostingUnit(object sender, RoutedEventArgs e) {
+		private void AddUnit(object sender, RoutedEventArgs e) {
 			bool valid = true;
 			valid = UnitNameValidator.Validate() ? valid : false;
 			valid = UnitTypeValidator.Validate() ? valid : false;

@@ -6,7 +6,7 @@ using Lib.Entities;
 
 namespace presentation {
 	public partial class HostPage : Page {
-		private IBusiness Business;
+		private IBusiness Business { get; }
 
 		private Session<Host> HostSession { get; }
 
@@ -33,13 +33,12 @@ namespace presentation {
 		}
 
 		private void NewHostingUnit(object sender, RoutedEventArgs e) {
-			Frame.Navigate(new AddHostingUnitPage(Business, Frame, Host, Units));
+			Frame.Navigate(new AddUnitPage(Business, Frame, Host, Units));
 		}
 
 		private void EditUnit(object sender, RoutedEventArgs e) {
-			Button button = sender as Button;
-			Unit unit = button.CommandParameter as Unit;
-			MessageBox.Show("Editing " + unit.ID);
+			Unit unit = (sender as Button).CommandParameter as Unit;
+			Frame.Navigate(new EditUnitPage(Business, Frame, unit));
 		}
 
 		private async void DeleteUnit(object sender, RoutedEventArgs e) {

@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using System.Text;
 using Lib.DataTypes;
-using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
@@ -26,24 +24,24 @@ namespace Lib.Entities {
 
 		public Unit(
 			Host host,
-			string hosting_unit_name,
+			string unit_name,
 			City city,
 			ICollection<Amenity> amenities,
 			Type unit_type
 		) : this(
 			null, // initialized ID to null
 			host,
-			hosting_unit_name,
+			unit_name,
 			city,
 			amenities,
 			unit_type,
 			new Calendar()
 		) {}
 
-		public Unit(ID id, Host host, string hosting_unit_name, City city, ICollection<Amenity> amenities, Type unit_type, Calendar bookings) {
+		public Unit(ID id, Host host, string unit_name, City city, ICollection<Amenity> amenities, Type unit_type, Calendar bookings) {
 			ID = id;
 			Host = host;
-			UnitName = hosting_unit_name;
+			UnitName = unit_name;
 			City = city;
 			Amenities = amenities;
 			UnitType = unit_type;
@@ -51,36 +49,7 @@ namespace Lib.Entities {
 		}
 
 		public override string ToString() {
-			return ToString(0);
-		}
-
-		public string ToString(int tabs) {
-			StringBuilder sb = new StringBuilder();
-
-			sb.Append('\t', tabs);
-			sb.Append("Hosting Unit Details");
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("--------------------");
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Host Name:\t");
-			sb.Append(Host.Name);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Unit Name:\t");
-			sb.Append(UnitName);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Occupied on:");
-			sb.Append('\n');
-			sb.Append(Bookings.ToString(tabs + 1));
-
-			return sb.ToString();
+			return (string) ID + " - " + UnitName;
 		}
 
 		public ID Key() {
