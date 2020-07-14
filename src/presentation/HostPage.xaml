@@ -16,8 +16,7 @@
 						<Button Grid.Column="2" Click="SignOut">
 							<StackPanel Orientation="Horizontal">
 								<md:PackIcon Kind="AccountCancel"/>
-								<Rectangle Width="5"/>
-								<TextBlock>SIGN OUT</TextBlock>
+								<TextBlock Margin="5 0 5 0">SIGN OUT</TextBlock>
 							</StackPanel>
 						</Button>
 					</Grid>
@@ -77,8 +76,7 @@
 						<Button Grid.Column="2" Click="NewHostingUnit">
 							<StackPanel Orientation="Horizontal">
 								<md:PackIcon Kind="PlusCircle"/>
-								<Rectangle Width="5"/>
-								<TextBlock>NEW HOSTING UNIT</TextBlock>
+								<TextBlock Margin="5 0 5 0">NEW HOSTING UNIT</TextBlock>
 							</StackPanel>
 						</Button>
 					</Grid>
@@ -93,6 +91,7 @@
 							<ColumnDefinition Width="*"/>
 							<ColumnDefinition Width="Auto"/>
 							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
 							<ColumnDefinition Width="20"/>
 						</Grid.ColumnDefinitions>
 						<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=id_column}"/>
@@ -101,8 +100,9 @@
 						<Rectangle Grid.Column="3" Width="{Binding ActualWidth, ElementName=unit_type_column}"/>
 						<Rectangle Grid.Column="4" Width="{Binding ActualWidth, ElementName=occupied_column}"/>
 						<Rectangle Grid.Column="5" x:Name="wide_column"/>
-						<Rectangle Grid.Column="6" Width="{Binding ActualWidth, ElementName=edit_column}"/>
-						<Rectangle Grid.Column="7" Width="{Binding ActualWidth, ElementName=delete_column}"/>
+						<Rectangle Grid.Column="6" Width="{Binding ActualWidth, ElementName=view_column}"/>
+						<Rectangle Grid.Column="7" Width="{Binding ActualWidth, ElementName=edit_column}"/>
+						<Rectangle Grid.Column="8" Width="{Binding ActualWidth, ElementName=delete_column}"/>
 					</Grid>
 					<ListView ItemsSource="{Binding ., Mode=TwoWay}">
 						<ListView.View>
@@ -122,6 +122,15 @@
 									</GridViewColumn.CellTemplate>
 								</GridViewColumn>
 								<GridViewColumn DisplayMemberBinding="{Binding Amenities, Converter={StaticResource AmenitiesConverter}}" Header="AMENITIES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
+								<GridViewColumn x:Name="view_column">
+									<GridViewColumn.CellTemplate>
+										<DataTemplate>
+											<Button Style="{StaticResource MaterialDesignToolButton}" Click="ViewUnit" CommandParameter="{Binding}" Height="14" Padding="0">
+												<md:PackIcon Kind="Eye"/>
+											</Button>
+										</DataTemplate>
+									</GridViewColumn.CellTemplate>
+								</GridViewColumn>
 								<GridViewColumn x:Name="edit_column">
 									<GridViewColumn.CellTemplate>
 										<DataTemplate>
@@ -158,15 +167,13 @@
 						<Button Command="{x:Static md:DialogHost.CloseDialogCommand}" CommandParameter="{StaticResource False}" Style="{StaticResource MaterialDesignFlatButton}">
 							<StackPanel Orientation="Horizontal">
 								<md:PackIcon Kind="Cancel"/>
-								<Rectangle Width="5"/>
-								<TextBlock>CANCEL</TextBlock>
+								<TextBlock Margin="5 0 5 0">CANCEL</TextBlock>
 							</StackPanel>
 						</Button>
 						<Button Command="{x:Static md:DialogHost.CloseDialogCommand}" CommandParameter="{StaticResource True}">
 							<StackPanel Orientation="Horizontal">
 								<md:PackIcon Kind="Delete"/>
-								<Rectangle Width="5"/>
-								<TextBlock>DELETE</TextBlock>
+								<TextBlock Margin="5 0 5 0">DELETE</TextBlock>
 							</StackPanel>
 						</Button>
 					</StackPanel>
