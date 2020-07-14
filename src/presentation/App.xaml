@@ -13,6 +13,9 @@
 			<Style x:Key="padded_card" TargetType="md:Card">
 				<Setter Property="Padding" Value="20"/>
 			</Style>
+			<Style x:Key="stack_card" TargetType="md:Card">
+				<Setter Property="Margin" Value="0 20"/>
+			</Style>
 			<Style x:Key="padded_stack_card" TargetType="md:Card" BasedOn="{StaticResource padded_card}">
 				<Setter Property="Margin" Value="0 20"/>
 			</Style>
@@ -21,6 +24,9 @@
 				<Setter Property="MaxWidth" Value="1080"/>
 				<Setter Property="Margin" Value="20"/>
 			</Style>
+			<Style x:Key="narrow_stack_of_cards" TargetType="StackPanel" BasedOn="{StaticResource stack_of_cards}">
+				<Setter Property="Width" Value="340"/>
+			</Style>
 			<Style x:Key="centered" TargetType="FrameworkElement">
 				<Setter Property="HorizontalAlignment" Value="Center"/>
 				<Setter Property="VerticalAlignment" Value="Center"/>
@@ -28,6 +34,10 @@
 			<Style x:Key="error" TargetType="TextBlock">
 				<Setter Property="TextWrapping" Value="Wrap"/>
 				<Setter Property="Foreground" Value="Red"/>
+			</Style>
+			<Style x:Key="narrow_form" TargetType="StackPanel">
+				<Setter Property="Margin" Value="20"/>
+				<Setter Property="Width" Value="300"/>
 			</Style>
 		</ResourceDictionary>
 	</Application.Resources>

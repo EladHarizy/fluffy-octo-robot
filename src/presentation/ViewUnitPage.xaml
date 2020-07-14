@@ -1,13 +1,26 @@
-<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" TextElement.Foreground="{DynamicResource MaterialDesignBody}" TextElement.FontWeight="Medium" TextElement.FontSize="14" TextOptions.TextFormattingMode="Ideal" TextOptions.TextRenderingMode="Auto" Background="{DynamicResource MaterialDesignPaper}" FontFamily="{DynamicResource MaterialDesignFont}" x:Class="presentation.AddUnitPage" Title="Add a Hosting Unit">
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" TextElement.Foreground="{DynamicResource MaterialDesignBody}" TextElement.FontWeight="Medium" TextElement.FontSize="14" TextOptions.TextFormattingMode="Ideal" TextOptions.TextRenderingMode="Auto" Background="{DynamicResource MaterialDesignPaper}" FontFamily="{DynamicResource MaterialDesignFont}" x:Class="presentation.ViewUnitPage" Title="View Unit">
 	<StackPanel Style="{StaticResource stack_of_cards}">
 		<md:Card Style="{StaticResource padded_stack_card}">
 			<StackPanel><!-- Card contents -->
-				<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Add a Hosting Unit</TextBlock>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="Auto"/>
+					</Grid.ColumnDefinitions>
+					<StackPanel Grid.Column="0" Orientation="Horizontal">
+						<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Hosting Unit</TextBlock>
+					</StackPanel>
+					<Button Grid.Column="2" Click="Back">
+						<StackPanel Orientation="Horizontal">
+							<md:PackIcon Kind="ArrowBack"/>
+							<TextBlock Margin="5 0 5 0">BACK</TextBlock>
+						</StackPanel>
+					</Button>
+				</Grid>
 				<Separator Height="20"/>
-				<TextBlock>Fill in the details below for the fluffy octo robot to find guests for your property.</TextBlock>
-				<Rectangle Height="20"/>
 				<StackPanel Orientation="Horizontal">
-					<Grid x:Name="form"><!-- Form -->
+					<Grid>
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="Auto"/><!-- Field labels -->
 							<ColumnDefinition Width="20"/><!-- Space -->
@@ -24,20 +37,20 @@
 							<RowDefinition Height="Auto"/>
 						</Grid.RowDefinitions>
 						<TextBlock Grid.Column="0" Grid.Row="0">Name</TextBlock>
-						<TextBox Grid.Column="2" Grid.Row="0" x:Name="unit_name"/>
+						<TextBox Grid.Column="2" Grid.Row="0" x:Name="unit_name" Text="{Binding Unit.UnitName, Mode=OneWay}"/>
 						<TextBlock Grid.Column="2" Grid.Row="1" x:Name="unit_name_error" Style="{StaticResource error}"/>
 						<TextBlock Grid.Column="0" Grid.Row="3">Type</TextBlock>
-						<ComboBox Grid.Column="2" Grid.Row="3" x:Name="unit_type" ItemsSource="{Binding UnitTypes}"/>
+						<ComboBox Grid.Column="2" Grid.Row="3" x:Name="unit_type" ItemsSource="{Binding Business.UnitTypes}" SelectedItem="{Binding Unit.UnitType, Mode=OneTime}"/>
 						<TextBlock Grid.Column="2" Grid.Row="4" x:Name="unit_type_error" Style="{StaticResource error}"/>
 						<TextBlock Grid.Column="0" Grid.Row="6">City</TextBlock>
-						<ComboBox Grid.Column="2" Grid.Row="6" x:Name="city" ItemsSource="{Binding Cities}"/>
+						<ComboBox Grid.Column="2" Grid.Row="6" x:Name="city" ItemsSource="{Binding Business.Cities}" SelectedItem="{Binding Unit.City, Mode=OneTime}"/>
 						<TextBlock Grid.Column="2" Grid.Row="7" x:Name="city_error" Style="{StaticResource error}"/>
 					</Grid>
 					<Rectangle Width="40"/>
 					<StackPanel><!-- Amenities Checkboxes -->
 						<TextBlock>Amenities</TextBlock>
 						<Separator Height="10"/>
-						<ItemsControl x:Name="amenities_checkboxes" ItemsSource="{Binding}">
+						<ItemsControl x:Name="amenities_checkboxes" ItemsSource="{Binding Amenities}">
 							<ItemsControl.ItemTemplate>
 								<DataTemplate>
 									<CheckBox IsChecked="{Binding Selected, Mode=TwoWay}" Content="{Binding Object.Name}"/>
@@ -45,22 +58,6 @@
 							</ItemsControl.ItemTemplate>
 						</ItemsControl>
 					</StackPanel>
-				</StackPanel>
-				<Separator Height="30"/>
-				<StackPanel Grid.Row="5" Orientation="Horizontal"><!-- Submit buttons -->
-					<Button Click="AddUnit">
-						<StackPanel Orientation="Horizontal">
-							<md:PackIcon Kind="AddCircle"/>
-							<TextBlock Margin="5 0 5 0">ADD UNIT</TextBlock>
-						</StackPanel>
-					</Button>
-					<Rectangle Width="10"/>
-					<Button Click="Cancel">
-						<StackPanel Orientation="Horizontal">
-							<md:PackIcon Kind="Cancel"/>
-							<TextBlock Margin="5 0 5 0">CANCEL</TextBlock>
-						</StackPanel>
-					</Button>
 				</StackPanel>
 			</StackPanel>
 		</md:Card>

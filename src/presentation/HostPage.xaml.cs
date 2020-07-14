@@ -36,6 +36,11 @@ namespace presentation {
 			Frame.Navigate(new AddUnitPage(Business, Frame, Host, Units));
 		}
 
+		private void ViewUnit(object sender, RoutedEventArgs e) {
+			Unit unit = (sender as Button).CommandParameter as Unit;
+			Frame.Navigate(new ViewUnitPage(Business, Frame, unit));
+		}
+
 		private void EditUnit(object sender, RoutedEventArgs e) {
 			Unit unit = (sender as Button).CommandParameter as Unit;
 			Frame.Navigate(new EditUnitPage(Business, Frame, unit, Units));

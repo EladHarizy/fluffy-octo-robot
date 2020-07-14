@@ -51,17 +51,15 @@
 				<StackPanel Grid.Row="5" Orientation="Horizontal"><!-- Submit buttons -->
 					<Button Click="EditUnit">
 						<StackPanel Orientation="Horizontal">
-							<md:PackIcon Kind="Edit"/>
-							<Rectangle Width="5"/>
-							<TextBlock>EDIT UNIT</TextBlock>
+							<md:PackIcon Kind="ContentSave"/>
+							<TextBlock Margin="5 0 5 0">SAVE</TextBlock>
 						</StackPanel>
 					</Button>
 					<Rectangle Width="10"/>
 					<Button Click="Cancel">
 						<StackPanel Orientation="Horizontal">
 							<md:PackIcon Kind="Cancel"/>
-							<Rectangle Width="5"/>
-							<TextBlock>CANCEL</TextBlock>
+							<TextBlock Margin="5 0 5 0">CANCEL</TextBlock>
 						</StackPanel>
 					</Button>
 				</StackPanel>
