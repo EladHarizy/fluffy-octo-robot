@@ -51,16 +51,14 @@
 					<Button Click="AddUnit">
 						<StackPanel Orientation="Horizontal">
 							<md:PackIcon Kind="AddCircle"/>
-							<Rectangle Width="5"/>
-							<TextBlock>ADD UNIT</TextBlock>
+							<TextBlock Margin="5 0 5 0">ADD UNIT</TextBlock>
 						</StackPanel>
 					</Button>
 					<Rectangle Width="10"/>
 					<Button Click="Cancel">
 						<StackPanel Orientation="Horizontal">
 							<md:PackIcon Kind="Cancel"/>
-							<Rectangle Width="5"/>
-							<TextBlock>CANCEL</TextBlock>
+							<TextBlock Margin="5 0 5 0">CANCEL</TextBlock>
 						</StackPanel>
 					</Button>
 				</StackPanel>
