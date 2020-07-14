@@ -12,7 +12,7 @@
 					<ColumnDefinition Width="Auto"/>
 				</Grid.ColumnDefinitions>
 				<Grid Style="{StaticResource centered}" Margin="20 0">
-					<TextBlock Style="{StaticResource h1}">Fluffy Octo Robot</TextBlock>
+					<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Fluffy Octo Robot</TextBlock>
 				</Grid>
 				<StackPanel Grid.Column="2" Orientation="Horizontal">
 					<RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" x:Name="rbTab1" Margin="4 0" Height="60" IsChecked="True">HOME</RadioButton>

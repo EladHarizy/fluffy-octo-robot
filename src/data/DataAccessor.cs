@@ -45,7 +45,7 @@ namespace data {
 			root.Save(FileName);
 		}
 
-		public void Update(T obj) {
+		public void Edit(T obj) {
 			if (obj.Key() == null) {
 				throw new ObjectNotInDBException(obj, "This object does not exits in the database.");
 			}

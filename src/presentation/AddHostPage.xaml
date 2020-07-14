@@ -2,7 +2,7 @@
 	<StackPanel Style="{StaticResource stack_of_cards}">
 		<md:Card Style="{StaticResource padded_stack_card}">
 			<StackPanel>
-				<TextBlock Style="{StaticResource h1}">Host Sign Up</TextBlock>
+				<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Host Sign Up</TextBlock>
 				<Separator Height="30"/>
 				<TextBlock>Fill in the details below to create an account.</TextBlock>
 				<Grid Grid.Row="3"><!-- Form -->

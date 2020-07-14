@@ -7,7 +7,7 @@
 						<BitmapImage DecodePixelWidth="128" UriSource="/images/octopus.png"/>
 					</Image.Source>
 				</Image>
-				<TextBlock TextAlignment="Center" Style="{StaticResource h1}">Guest Sign In</TextBlock>
+				<TextBlock TextAlignment="Center" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Guest Sign In</TextBlock>
 				<Rectangle Height="10"/>
 				<TextBlock>Email</TextBlock>
 				<TextBox x:Name="email"/>
