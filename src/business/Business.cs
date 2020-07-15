@@ -11,7 +11,7 @@ using Lib.Entities;
 using Lib.Exceptions;
 
 namespace business {
-	public class Business : IBusiness {
+	internal class Business : IBusiness {
 		private IData data = DataFactory.New();
 
 		private TPerson Person<TPerson>(Email email) where TPerson : Person {
@@ -167,6 +167,10 @@ namespace business {
 
 		public IEnumerable<Order> Orders() {
 			return data.Order.All;
+		}
+
+		public IEnumerable<Order> Orders(Host host) {
+			return data.Order.All.Where(order => order.Unit.Host.ID == host.ID);
 		}
 
 		public IEnumerable<Order> Orders(Unit unit) {
