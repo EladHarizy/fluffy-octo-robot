@@ -34,7 +34,7 @@ namespace presentation {
 			amenities_checkboxes.DataContext = Amenities;
 			UiUnits = ui_units;
 
-			UnitNameValidator = new Validator<TextBox>(unit_name, unit_name_error);
+			UnitNameValidator = new Validator<TextBox>(name, name_error);
 			UnitNameValidator.AddCheck(control => control.Text == "" ? "Error: Unit name is required." : "");
 			UnitNameValidator.AddCheck(control => control.Text.Length > 30 ? "Error: Unit name is too long." : "");
 
@@ -54,7 +54,7 @@ namespace presentation {
 				return;
 			}
 
-			Unit unit = new Unit(Host, unit_name.Text, city.SelectedValue as City, new HashSet<Amenity>(Amenities.SelectedItems), unit_type.SelectedValue as Unit.Type);
+			Unit unit = new Unit(Host, name.Text, city.SelectedValue as City, new HashSet<Amenity>(Amenities.SelectedItems), unit_type.SelectedValue as Unit.Type);
 			Business.AddUnit(unit);
 			UiUnits.Add(unit);
 

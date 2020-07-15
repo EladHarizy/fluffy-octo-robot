@@ -94,24 +94,24 @@
 							<ColumnDefinition Width="Auto"/>
 							<ColumnDefinition Width="20"/>
 						</Grid.ColumnDefinitions>
-						<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=id_column}"/>
+						<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=unit_id_column}"/>
 						<Rectangle Grid.Column="1" Width="{Binding ActualWidth, ElementName=unit_name_column}"/>
-						<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=city_column}"/>
+						<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=unit_city_column}"/>
 						<Rectangle Grid.Column="3" Width="{Binding ActualWidth, ElementName=unit_type_column}"/>
-						<Rectangle Grid.Column="4" Width="{Binding ActualWidth, ElementName=occupied_column}"/>
-						<Rectangle Grid.Column="5" x:Name="wide_column"/>
-						<Rectangle Grid.Column="6" Width="{Binding ActualWidth, ElementName=view_column}"/>
-						<Rectangle Grid.Column="7" Width="{Binding ActualWidth, ElementName=edit_column}"/>
-						<Rectangle Grid.Column="8" Width="{Binding ActualWidth, ElementName=delete_column}"/>
+						<Rectangle Grid.Column="4" Width="{Binding ActualWidth, ElementName=unit_occupied_column}"/>
+						<Rectangle Grid.Column="5" x:Name="unit_wide_column"/>
+						<Rectangle Grid.Column="6" Width="{Binding ActualWidth, ElementName=unit_view_column}"/>
+						<Rectangle Grid.Column="7" Width="{Binding ActualWidth, ElementName=unit_edit_column}"/>
+						<Rectangle Grid.Column="8" Width="{Binding ActualWidth, ElementName=unit_delete_column}"/>
 					</Grid>
-					<ListView ItemsSource="{Binding Units, Mode=OneWay}">
+					<ListView ItemsSource="{Binding Units, Mode=OneWay}" PreviewMouseWheel="HandlePreviewMouseWheel">
 						<ListView.View>
 							<GridView AllowsColumnReorder="false">
-								<GridViewColumn x:Name="id_column" DisplayMemberBinding="{Binding ID}" Header="ID"/>
-								<GridViewColumn x:Name="unit_name_column" DisplayMemberBinding="{Binding UnitName}" Header="NAME"/>
-								<GridViewColumn x:Name="city_column" DisplayMemberBinding="{Binding City}" Header="CITY"/>
+								<GridViewColumn x:Name="unit_id_column" DisplayMemberBinding="{Binding ID}" Header="ID"/>
+								<GridViewColumn x:Name="unit_name_column" DisplayMemberBinding="{Binding Name}" Header="NAME"/>
+								<GridViewColumn x:Name="unit_city_column" DisplayMemberBinding="{Binding City}" Header="CITY"/>
 								<GridViewColumn x:Name="unit_type_column" DisplayMemberBinding="{Binding UnitType}" Header="TYPE"/>
-								<GridViewColumn x:Name="occupied_column" Header="OCCUPIED">
+								<GridViewColumn x:Name="unit_occupied_column" Header="OCCUPIED">
 									<GridViewColumn.CellTemplate>
 										<DataTemplate>
 											<StackPanel Orientation="Horizontal">
@@ -121,8 +121,8 @@
 										</DataTemplate>
 									</GridViewColumn.CellTemplate>
 								</GridViewColumn>
-								<GridViewColumn DisplayMemberBinding="{Binding Amenities, Converter={StaticResource IEnumerableConverter}}" Header="AMENITIES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
-								<GridViewColumn x:Name="view_column">
+								<GridViewColumn DisplayMemberBinding="{Binding Amenities, Converter={StaticResource IEnumerableConverter}}" Header="AMENITIES" Width="{Binding ActualWidth, ElementName=unit_wide_column}"/>
+								<GridViewColumn x:Name="unit_view_column">
 									<GridViewColumn.CellTemplate>
 										<DataTemplate>
 											<Button Style="{StaticResource MaterialDesignToolButton}" Click="ViewUnit" CommandParameter="{Binding}" Height="14" Padding="0">
@@ -131,7 +131,7 @@
 										</DataTemplate>
 									</GridViewColumn.CellTemplate>
 								</GridViewColumn>
-								<GridViewColumn x:Name="edit_column">
+								<GridViewColumn x:Name="unit_edit_column">
 									<GridViewColumn.CellTemplate>
 										<DataTemplate>
 											<Button Style="{StaticResource MaterialDesignToolButton}" Click="EditUnit" CommandParameter="{Binding}" Height="14" Padding="0">
@@ -140,10 +140,89 @@
 										</DataTemplate>
 									</GridViewColumn.CellTemplate>
 								</GridViewColumn>
-								<GridViewColumn x:Name="delete_column">
+								<GridViewColumn x:Name="unit_delete_column">
 									<GridViewColumn.CellTemplate>
 										<DataTemplate>
 											<Button Style="{StaticResource MaterialDesignToolButton}" Click="DeleteUnit" CommandParameter="{Binding}" Height="14" Padding="0">
+												<md:PackIcon Kind="Delete"/>
+											</Button>
+										</DataTemplate>
+									</GridViewColumn.CellTemplate>
+								</GridViewColumn>
+							</GridView>
+						</ListView.View>
+					</ListView>
+				</StackPanel>
+			</md:Card>
+			<Separator/>
+			<md:Card Style="{StaticResource padded_stack_card}"><!-- Orders Details -->
+				<StackPanel>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+						<TextBlock Grid.Column="0" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Orders</TextBlock>
+						<Button Grid.Column="2" Click="SearchRequests">
+							<StackPanel Orientation="Horizontal">
+								<md:PackIcon Kind="Search"/>
+								<TextBlock Margin="5 0 5 0">SEARCH REQUESTS</TextBlock>
+							</StackPanel>
+						</Button>
+					</Grid>
+					<Separator Height="30"/>
+					<Grid Visibility="Hidden"><!-- Hack to make a column take up the rest of the available space -->
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="20"/>
+						</Grid.ColumnDefinitions>
+						<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=order_id_column}"/>
+						<Rectangle Grid.Column="1" Width="{Binding ActualWidth, ElementName=order_unit_column}"/>
+						<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=order_guest_column}"/>
+						<Rectangle Grid.Column="3" Width="{Binding ActualWidth, ElementName=order_status_column}"/>
+						<Rectangle Grid.Column="4" x:Name="order_wide_column"/>
+						<Rectangle Grid.Column="5" Width="{Binding ActualWidth, ElementName=order_view_column}"/>
+						<Rectangle Grid.Column="6" Width="{Binding ActualWidth, ElementName=order_edit_column}"/>
+						<Rectangle Grid.Column="7" Width="{Binding ActualWidth, ElementName=order_delete_column}"/>
+					</Grid>
+					<ListView ItemsSource="{Binding Orders, Mode=OneWay}" PreviewMouseWheel="HandlePreviewMouseWheel">
+						<ListView.View>
+							<GridView AllowsColumnReorder="false">
+								<GridViewColumn x:Name="order_id_column" DisplayMemberBinding="{Binding ID}" Header="ID"/>
+								<GridViewColumn x:Name="order_unit_column" DisplayMemberBinding="{Binding Unit.Name}" Header="HOSTING UNIT"/>
+								<GridViewColumn x:Name="order_guest_column" DisplayMemberBinding="{Binding GuestRequest.Guest.Name}" Header="GUEST"/>
+								<GridViewColumn x:Name="order_status_column" DisplayMemberBinding="{Binding OrderStatus}" Header="STATUS"/>
+								<GridViewColumn DisplayMemberBinding="{Binding CreationDate}" Header="CREATION DATE" Width="{Binding ActualWidth, ElementName=order_wide_column}"/>
+								<GridViewColumn x:Name="order_view_column">
+									<GridViewColumn.CellTemplate>
+										<DataTemplate>
+											<Button Style="{StaticResource MaterialDesignToolButton}" Click="ViewOrder" CommandParameter="{Binding}" Height="14" Padding="0">
+												<md:PackIcon Kind="Eye"/>
+											</Button>
+										</DataTemplate>
+									</GridViewColumn.CellTemplate>
+								</GridViewColumn>
+								<GridViewColumn x:Name="order_edit_column">
+									<GridViewColumn.CellTemplate>
+										<DataTemplate>
+											<Button Style="{StaticResource MaterialDesignToolButton}" Click="EditOrder" CommandParameter="{Binding}" Height="14" Padding="0">
+												<md:PackIcon Kind="Edit"/>
+											</Button>
+										</DataTemplate>
+									</GridViewColumn.CellTemplate>
+								</GridViewColumn>
+								<GridViewColumn x:Name="order_delete_column">
+									<GridViewColumn.CellTemplate>
+										<DataTemplate>
+											<Button Style="{StaticResource MaterialDesignToolButton}" Click="DeleteOrder" CommandParameter="{Binding}" Height="14" Padding="0">
 												<md:PackIcon Kind="Delete"/>
 											</Button>
 										</DataTemplate>
@@ -161,7 +240,7 @@
 					<TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}">Confirm Delete</TextBlock>
 					<Separator Height="10"/>
 					<TextBlock>Are you sure you want to delete this hosting unit?</TextBlock>
-					<TextBlock Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Text="{Binding UnitName}"/>
+					<TextBlock Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Text="{Binding Name}"/>
 					<Rectangle Height="20"/>
 					<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 						<Button Command="{x:Static md:DialogHost.CloseDialogCommand}" CommandParameter="{StaticResource False}" Style="{StaticResource MaterialDesignFlatButton}">

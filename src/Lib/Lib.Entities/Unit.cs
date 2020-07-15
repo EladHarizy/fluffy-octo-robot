@@ -10,7 +10,7 @@ namespace Lib.Entities {
 
 		public Host Host { get; }
 
-		public string UnitName { get; set; }
+		public string Name { get; set; }
 
 		public City City { get; set; }
 
@@ -24,24 +24,24 @@ namespace Lib.Entities {
 
 		public Unit(
 			Host host,
-			string unit_name,
+			string name,
 			City city,
 			ICollection<Amenity> amenities,
 			Type unit_type
 		) : this(
 			null, // initialized ID to null
 			host,
-			unit_name,
+			name,
 			city,
 			amenities,
 			unit_type,
 			new Calendar()
 		) {}
 
-		public Unit(ID id, Host host, string unit_name, City city, ICollection<Amenity> amenities, Type unit_type, Calendar bookings) {
+		public Unit(ID id, Host host, string name, City city, ICollection<Amenity> amenities, Type unit_type, Calendar bookings) {
 			ID = id;
 			Host = host;
-			UnitName = unit_name;
+			Name = name;
 			City = city;
 			Amenities = amenities;
 			UnitType = unit_type;
@@ -49,7 +49,7 @@ namespace Lib.Entities {
 		}
 
 		public override string ToString() {
-			return (string) ID + " - " + UnitName;
+			return (string) ID + " - " + Name;
 		}
 
 		public ID Key() {
@@ -61,7 +61,7 @@ namespace Lib.Entities {
 		}
 
 		public Unit Clone() {
-			return new Unit(ID, Host, UnitName, City, new HashSet<Amenity>(Amenities), UnitType, Bookings.Clone());
+			return new Unit(ID, Host, Name, City, new HashSet<Amenity>(Amenities), UnitType, Bookings.Clone());
 		}
 
 		public override bool Equals(object obj) {

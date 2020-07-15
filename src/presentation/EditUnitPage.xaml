@@ -25,8 +25,8 @@
 							<RowDefinition Height="Auto"/>
 						</Grid.RowDefinitions>
 						<TextBlock Grid.Column="0" Grid.Row="0">Name</TextBlock>
-						<TextBox Grid.Column="2" Grid.Row="0" x:Name="unit_name" Text="{Binding Unit.UnitName, Mode=OneWay}"/>
-						<TextBlock Grid.Column="2" Grid.Row="1" x:Name="unit_name_error" Style="{StaticResource error}"/>
+						<TextBox Grid.Column="2" Grid.Row="0" x:Name="name" Text="{Binding Unit.Name, Mode=OneWay}"/>
+						<TextBlock Grid.Column="2" Grid.Row="1" x:Name="name_error" Style="{StaticResource error}"/>
 						<TextBlock Grid.Column="0" Grid.Row="3">Type</TextBlock>
 						<ComboBox Grid.Column="2" Grid.Row="3" x:Name="unit_type" ItemsSource="{Binding Business.UnitTypes}" SelectedItem="{Binding Unit.UnitType, Mode=OneTime}"/>
 						<TextBlock Grid.Column="2" Grid.Row="4" x:Name="unit_type_error" Style="{StaticResource error}"/>

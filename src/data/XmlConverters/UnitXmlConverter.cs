@@ -61,7 +61,7 @@ namespace data {
 				new XElement("id", unit.ID),
 				calendar_xml,
 				new XElement("host_id", unit.Host.ID),
-				new XElement("name", unit.UnitName),
+				new XElement("name", unit.Name),
 				new XElement("city", unit.City),
 				amenities_xml,
 				new XElement("unit_type", unit.UnitType)

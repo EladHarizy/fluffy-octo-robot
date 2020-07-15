@@ -31,7 +31,7 @@
 						<RowDefinition Height="Auto"/>
 					</Grid.RowDefinitions>
 					<TextBlock Grid.Column="0" Grid.Row="0">Name</TextBlock>
-					<TextBox Grid.Column="2" Grid.Row="0" Text="{Binding Unit.UnitName, Mode=OneTime}" IsReadOnly="True"/>
+					<TextBox Grid.Column="2" Grid.Row="0" Text="{Binding Unit.Name, Mode=OneTime}" IsReadOnly="True"/>
 					<TextBlock Grid.Column="0" Grid.Row="1">Type</TextBlock>
 					<TextBox Grid.Column="2" Grid.Row="1" Text="{Binding Unit.UnitType, Mode=OneTime}" IsReadOnly="True"/>
 					<TextBlock Grid.Column="0" Grid.Row="2">City</TextBlock>
@@ -43,7 +43,7 @@
 			</StackPanel>
 		</md:Card>
 		<Separator/>
-		<md:Card Style="{StaticResource padded_stack_card}"><!-- Units Details -->
+		<md:Card Style="{StaticResource padded_stack_card}"><!-- Orders Details -->
 			<StackPanel>
 				<Grid>
 					<Grid.ColumnDefinitions>
