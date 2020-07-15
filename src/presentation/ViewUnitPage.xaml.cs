@@ -8,7 +8,7 @@ namespace presentation {
 	public partial class ViewUnitPage : Page {
 		public IBusiness Business { get; }
 
-		public Frame Frame { get; }
+		private Frame Frame { get; }
 
 		public Unit Unit { get; }
 

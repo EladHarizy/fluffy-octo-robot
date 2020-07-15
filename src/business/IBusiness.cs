@@ -50,6 +50,8 @@ namespace business {
 
 		IEnumerable<Order> Orders();
 
+		IEnumerable<Order> Orders(Host host);
+
 		IEnumerable<Order> Orders(Unit unit);
 
 		IEnumerable<BankBranch> BankBranches();

@@ -8,7 +8,7 @@ namespace presentation {
 	public partial class EditUnitPage : Page {
 		public IBusiness Business { get; }
 
-		public Frame Frame { get; }
+		private Frame Frame { get; }
 
 		public Unit Unit { get; }
 
@@ -31,7 +31,7 @@ namespace presentation {
 			Amenities = new CheckBoxList<Amenity>(Business.Amenities, Unit.Amenities);
 			DataContext = this;
 
-			UnitNameValidator = new Validator<TextBox>(unit_name, unit_name_error);
+			UnitNameValidator = new Validator<TextBox>(name, name_error);
 			UnitNameValidator.AddCheck(control => control.Text == "" ? "Error: Unit name is required." : "");
 			UnitNameValidator.AddCheck(control => control.Text.Length > 30 ? "Error: Unit name is too long." : "");
 
@@ -54,7 +54,7 @@ namespace presentation {
 
 			Unit.Amenities = Amenities.SelectedItems;
 			Unit.City = city.SelectedItem as City;
-			Unit.UnitName = unit_name.Text;
+			Unit.Name = name.Text;
 			Unit.UnitType = unit_type.SelectedItem as Unit.Type;
 
 			Business.EditUnit(Unit);
