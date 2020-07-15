@@ -12,11 +12,11 @@ namespace presentation {
 
 		public Frame Frame { get; }
 
-		private Host Host {
+		public Host Host {
 			get => HostSession.Person;
 		}
 
-		private ObservableCollection<Unit> Units { get; }
+		public ObservableCollection<Unit> Units { get; }
 
 		public HostPage(IBusiness business, Session<Host> host_session, Frame frame) {
 			InitializeComponent();
@@ -24,8 +24,7 @@ namespace presentation {
 			HostSession = host_session;
 			Frame = frame;
 			Units = new ObservableCollection<Unit>(Business.UnitsOf(Host));
-			units_details_card.DataContext = Units;
-			host_details_card.DataContext = Host;
+			DataContext = this;
 		}
 
 		private void SignOut(object sender, RoutedEventArgs e) {

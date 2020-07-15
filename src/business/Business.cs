@@ -153,8 +153,8 @@ namespace business {
 			get => data.UnitType.All;
 		}
 
-		public IEnumerable<Unit> Units() {
-			return data.Unit.All;
+		public IEnumerable<Unit> Units {
+			get => data.Unit.All;
 		}
 
 		public IEnumerable<Unit> UnitsOf(Host host) {
@@ -167,6 +167,10 @@ namespace business {
 
 		public IEnumerable<Order> Orders() {
 			return data.Order.All;
+		}
+
+		public IEnumerable<Order> Orders(Unit unit) {
+			return data.Order.All.Where(order => order.Unit.ID == unit.ID);
 		}
 
 		public IEnumerable<BankBranch> BankBranches() {

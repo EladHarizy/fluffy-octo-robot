@@ -167,17 +167,17 @@ namespace Lib.Entities {
 
 			sb.Append('\t', tabs);
 			sb.Append("Created on:\t\t");
-			sb.Append(CreationDate.ToString("dd/MM/yyyy"));
+			sb.Append(CreationDate.ToString("yyyy-MM-dd"));
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);
 			sb.Append("Start date:\t\t");
-			sb.Append(StartDate.ToString("dd/MM/yyyy"));
+			sb.Append(StartDate.ToString("yyyy-MM-dd"));
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);
 			sb.Append("End date:\t\t");
-			sb.Append(EndDate.ToString("dd/MM/yyyy"));
+			sb.Append(EndDate.ToString("yyyy-MM-dd"));
 			sb.Append('\n');
 
 			sb.Append('\t', tabs);

@@ -8,9 +8,7 @@
 						<ColumnDefinition Width="*"/>
 						<ColumnDefinition Width="Auto"/>
 					</Grid.ColumnDefinitions>
-					<StackPanel Grid.Column="0" Orientation="Horizontal">
-						<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Hosting Unit</TextBlock>
-					</StackPanel>
+					<TextBlock Grid.Column="0" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Hosting Unit</TextBlock>
 					<Button Grid.Column="2" Click="Back">
 						<StackPanel Orientation="Horizontal">
 							<md:PackIcon Kind="ArrowBack"/>
@@ -19,46 +17,105 @@
 					</Button>
 				</Grid>
 				<Separator Height="20"/>
-				<StackPanel Orientation="Horizontal">
-					<Grid>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="Auto"/><!-- Field labels -->
-							<ColumnDefinition Width="20"/><!-- Space -->
-							<ColumnDefinition Width="250"/><!-- Field inputs -->
-						</Grid.ColumnDefinitions>
-						<Grid.RowDefinitions>
-							<RowDefinition Height="Auto"/>
-							<RowDefinition Height="Auto"/>
-							<RowDefinition Height="10"/>
-							<RowDefinition Height="Auto"/>
-							<RowDefinition Height="Auto"/>
-							<RowDefinition Height="10"/>
-							<RowDefinition Height="Auto"/>
-							<RowDefinition Height="Auto"/>
-						</Grid.RowDefinitions>
-						<TextBlock Grid.Column="0" Grid.Row="0">Name</TextBlock>
-						<TextBox Grid.Column="2" Grid.Row="0" x:Name="unit_name" Text="{Binding Unit.UnitName, Mode=OneWay}"/>
-						<TextBlock Grid.Column="2" Grid.Row="1" x:Name="unit_name_error" Style="{StaticResource error}"/>
-						<TextBlock Grid.Column="0" Grid.Row="3">Type</TextBlock>
-						<ComboBox Grid.Column="2" Grid.Row="3" x:Name="unit_type" ItemsSource="{Binding Business.UnitTypes}" SelectedItem="{Binding Unit.UnitType, Mode=OneTime}"/>
-						<TextBlock Grid.Column="2" Grid.Row="4" x:Name="unit_type_error" Style="{StaticResource error}"/>
-						<TextBlock Grid.Column="0" Grid.Row="6">City</TextBlock>
-						<ComboBox Grid.Column="2" Grid.Row="6" x:Name="city" ItemsSource="{Binding Business.Cities}" SelectedItem="{Binding Unit.City, Mode=OneTime}"/>
-						<TextBlock Grid.Column="2" Grid.Row="7" x:Name="city_error" Style="{StaticResource error}"/>
-					</Grid>
-					<Rectangle Width="40"/>
-					<StackPanel><!-- Amenities Checkboxes -->
-						<TextBlock>Amenities</TextBlock>
-						<Separator Height="10"/>
-						<ItemsControl x:Name="amenities_checkboxes" ItemsSource="{Binding Amenities}">
-							<ItemsControl.ItemTemplate>
-								<DataTemplate>
-									<CheckBox IsChecked="{Binding Selected, Mode=TwoWay}" Content="{Binding Object.Name}"/>
-								</DataTemplate>
-							</ItemsControl.ItemTemplate>
-						</ItemsControl>
-					</StackPanel>
-				</StackPanel>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/><!-- Field labels -->
+						<ColumnDefinition Width="20"/><!-- Space -->
+						<ColumnDefinition Width="250"/><!-- Field inputs -->
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<TextBlock Grid.Column="0" Grid.Row="0">Name</TextBlock>
+					<TextBox Grid.Column="2" Grid.Row="0" Text="{Binding Unit.UnitName, Mode=OneTime}" IsReadOnly="True"/>
+					<TextBlock Grid.Column="0" Grid.Row="1">Type</TextBlock>
+					<TextBox Grid.Column="2" Grid.Row="1" Text="{Binding Unit.UnitType, Mode=OneTime}" IsReadOnly="True"/>
+					<TextBlock Grid.Column="0" Grid.Row="2">City</TextBlock>
+					<TextBox Grid.Column="2" Grid.Row="2" Text="{Binding Unit.City, Mode=OneTime}" IsReadOnly="True"/>
+					<TextBlock Grid.Column="0" Grid.Row="3">Amenities</TextBlock>
+					<TextBlock Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Text="{Binding Unit.Amenities, Converter={StaticResource IEnumerableConverter}}" TextWrapping="Wrap"/>
+				</Grid>
+				<Rectangle Width="40"/>
+			</StackPanel>
+		</md:Card>
+		<Separator/>
+		<md:Card Style="{StaticResource padded_stack_card}"><!-- Units Details -->
+			<StackPanel>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="Auto"/>
+					</Grid.ColumnDefinitions>
+					<TextBlock Grid.Column="0" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Orders</TextBlock>
+					<Button Grid.Column="2" Click="SearchRequests">
+						<StackPanel Orientation="Horizontal">
+							<md:PackIcon Kind="Search"/>
+							<TextBlock Margin="5 0 5 0">SEARCH REQUESTS</TextBlock>
+						</StackPanel>
+					</Button>
+				</Grid>
+				<Separator Height="30"/>
+				<Grid Visibility="Hidden"><!-- Hack to make a column take up the rest of the available space -->
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="20"/>
+					</Grid.ColumnDefinitions>
+					<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=id_column}"/>
+					<Rectangle Grid.Column="1" Width="{Binding ActualWidth, ElementName=guest_request_column}"/>
+					<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=status_column}"/>
+					<Rectangle Grid.Column="3" x:Name="wide_column"/>
+					<Rectangle Grid.Column="4" Width="{Binding ActualWidth, ElementName=view_column}"/>
+					<Rectangle Grid.Column="5" Width="{Binding ActualWidth, ElementName=edit_column}"/>
+					<Rectangle Grid.Column="6" Width="{Binding ActualWidth, ElementName=delete_column}"/>
+				</Grid>
+				<ListView ItemsSource="{Binding Orders, Mode=OneWay}">
+					<ListView.View>
+						<GridView AllowsColumnReorder="false">
+							<GridViewColumn x:Name="id_column" DisplayMemberBinding="{Binding ID}" Header="ID"/>
+							<GridViewColumn x:Name="guest_request_column" DisplayMemberBinding="{Binding GuestRequest.ID}" Header="GUEST REQUEST"/>
+							<GridViewColumn x:Name="status_column" DisplayMemberBinding="{Binding OrderStatus}" Header="STATUS"/>
+							<GridViewColumn DisplayMemberBinding="{Binding CreationDate}" Header="CREATION DATE" Width="{Binding ActualWidth, ElementName=wide_column}"/>
+							<GridViewColumn x:Name="view_column">
+								<GridViewColumn.CellTemplate>
+									<DataTemplate>
+										<Button Style="{StaticResource MaterialDesignToolButton}" Click="ViewOrder" CommandParameter="{Binding}" Height="14" Padding="0">
+											<md:PackIcon Kind="Eye"/>
+										</Button>
+									</DataTemplate>
+								</GridViewColumn.CellTemplate>
+							</GridViewColumn>
+							<GridViewColumn x:Name="edit_column">
+								<GridViewColumn.CellTemplate>
+									<DataTemplate>
+										<Button Style="{StaticResource MaterialDesignToolButton}" Click="EditOrder" CommandParameter="{Binding}" Height="14" Padding="0">
+											<md:PackIcon Kind="Edit"/>
+										</Button>
+									</DataTemplate>
+								</GridViewColumn.CellTemplate>
+							</GridViewColumn>
+							<GridViewColumn x:Name="delete_column">
+								<GridViewColumn.CellTemplate>
+									<DataTemplate>
+										<Button Style="{StaticResource MaterialDesignToolButton}" Click="DeleteOrder" CommandParameter="{Binding}" Height="14" Padding="0">
+											<md:PackIcon Kind="Delete"/>
+										</Button>
+									</DataTemplate>
+								</GridViewColumn.CellTemplate>
+							</GridViewColumn>
+						</GridView>
+					</ListView.View>
+				</ListView>
 			</StackPanel>
 		</md:Card>
 	</StackPanel>

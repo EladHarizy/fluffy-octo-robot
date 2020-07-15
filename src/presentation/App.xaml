@@ -9,7 +9,7 @@
 			</ResourceDictionary.MergedDictionaries>
 			<s:Boolean x:Key="True">True</s:Boolean>
 			<s:Boolean x:Key="False">False</s:Boolean>
-			<local:IEnumerableConverter x:Key="AmenitiesConverter"/>
+			<local:IEnumerableConverter x:Key="IEnumerableConverter"/>
 			<Style x:Key="padded_card" TargetType="md:Card">
 				<Setter Property="Padding" Value="20"/>
 			</Style>

@@ -43,7 +43,7 @@ namespace data {
 				calendar_xml.Add(
 					new XElement(
 						"booking",
-						new XElement("start", booking.Start.ToString("dd/MM/yyyy")),
+						new XElement("start", booking.Start.ToString("yyyy-MM-dd")),
 						new XElement("duration", booking.Duration)
 					)
 				);

@@ -42,13 +42,15 @@ namespace business {
 
 		IEnumerable<Unit.Type> UnitTypes { get; }
 
-		IEnumerable<Unit> Units();
+		IEnumerable<Unit> Units { get; }
 
 		IEnumerable<Unit> UnitsOf(Host host);
 
 		IEnumerable<GuestRequest> GuestRequests();
 
 		IEnumerable<Order> Orders();
+
+		IEnumerable<Order> Orders(Unit unit);
 
 		IEnumerable<BankBranch> BankBranches();
 
