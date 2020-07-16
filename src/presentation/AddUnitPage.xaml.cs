@@ -8,13 +8,13 @@ using Lib.Entities;
 
 namespace presentation {
 	public partial class AddUnitPage : Page {
-		private IBusiness Business { get; }
+		public IBusiness Business { get; }
 
 		private Frame Frame { get; }
 
 		private Host Host { get; }
 
-		private CheckBoxList<Amenity> Amenities { get; }
+		public CheckBoxList<Amenity> Amenities { get; }
 
 		private Validator<TextBox> UnitNameValidator { get; }
 
@@ -29,9 +29,8 @@ namespace presentation {
 			Business = business;
 			Frame = frame;
 			Host = host;
-			form.DataContext = Business;
+			DataContext = this;
 			Amenities = new CheckBoxList<Amenity>(Business.Amenities);
-			amenities_checkboxes.DataContext = Amenities;
 			UiUnits = ui_units;
 
 			UnitNameValidator = new Validator<TextBox>(name, name_error);
