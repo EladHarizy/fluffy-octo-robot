@@ -2,12 +2,7 @@
 	<StackPanel Style="{StaticResource stack_of_cards}">
 		<md:Card Style="{StaticResource padded_stack_card}">
 			<StackPanel><!-- Card contents -->
-				<Grid>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="Auto"/>
-						<ColumnDefinition Width="*"/>
-						<ColumnDefinition Width="Auto"/>
-					</Grid.ColumnDefinitions>
+				<ItemsControl Style="{StaticResource split_grid}">
 					<TextBlock Grid.Column="0" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Hosting Unit</TextBlock>
 					<Button Grid.Column="2" Click="Back">
 						<StackPanel Orientation="Horizontal">
@@ -15,8 +10,8 @@
 							<TextBlock Margin="5 0 5 0">BACK</TextBlock>
 						</StackPanel>
 					</Button>
-				</Grid>
-				<Separator Height="20"/>
+				</ItemsControl>
+				<Separator Height="30"/>
 				<Grid>
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="Auto"/><!-- Field labels -->
@@ -45,12 +40,7 @@
 		<Separator/>
 		<md:Card Style="{StaticResource padded_stack_card}"><!-- Orders Details -->
 			<StackPanel>
-				<Grid>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="Auto"/>
-						<ColumnDefinition Width="*"/>
-						<ColumnDefinition Width="Auto"/>
-					</Grid.ColumnDefinitions>
+				<ItemsControl Style="{StaticResource split_grid}">
 					<TextBlock Grid.Column="0" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Orders</TextBlock>
 					<Button Grid.Column="2" Click="SearchRequests">
 						<StackPanel Orientation="Horizontal">
@@ -58,7 +48,7 @@
 							<TextBlock Margin="5 0 5 0">SEARCH REQUESTS</TextBlock>
 						</StackPanel>
 					</Button>
-				</Grid>
+				</ItemsControl>
 				<Separator Height="30"/>
 				<Grid Visibility="Hidden"><!-- Hack to make a column take up the rest of the available space -->
 					<Grid.ColumnDefinitions>

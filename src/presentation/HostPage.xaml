@@ -3,12 +3,7 @@
 		<StackPanel Style="{StaticResource stack_of_cards}">
 			<md:Card Style="{StaticResource padded_stack_card}"><!-- Host Details -->
 				<StackPanel>
-					<Grid>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="Auto"/>
-							<ColumnDefinition Width="*"/>
-							<ColumnDefinition Width="Auto"/>
-						</Grid.ColumnDefinitions>
+					<ItemsControl Style="{StaticResource split_grid}">
 						<StackPanel Grid.Column="0" Orientation="Horizontal">
 							<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Welcome </TextBlock>
 							<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="{Binding Host.Name}"/>
@@ -19,7 +14,7 @@
 								<TextBlock Margin="5 0 5 0">SIGN OUT</TextBlock>
 							</StackPanel>
 						</Button>
-					</Grid>
+					</ItemsControl>
 					<Separator Height="30"/>
 					<Grid>
 						<Grid.ColumnDefinitions>
@@ -66,12 +61,7 @@
 			<Separator/>
 			<md:Card Style="{StaticResource padded_stack_card}"><!-- Units Details -->
 				<StackPanel>
-					<Grid>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="Auto"/>
-							<ColumnDefinition Width="*"/>
-							<ColumnDefinition Width="Auto"/>
-						</Grid.ColumnDefinitions>
+					<ItemsControl Style="{StaticResource split_grid}">
 						<TextBlock Grid.Column="0" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Hosting Units</TextBlock>
 						<Button Grid.Column="2" Click="NewHostingUnit">
 							<StackPanel Orientation="Horizontal">
@@ -79,7 +69,7 @@
 								<TextBlock Margin="5 0 5 0">NEW HOSTING UNIT</TextBlock>
 							</StackPanel>
 						</Button>
-					</Grid>
+					</ItemsControl>
 					<Separator Height="30"/>
 					<Grid Visibility="Hidden"><!-- Hack to make a column take up the rest of the available space -->
 						<Grid.ColumnDefinitions>
@@ -104,7 +94,7 @@
 						<Rectangle Grid.Column="7" Width="{Binding ActualWidth, ElementName=unit_edit_column}"/>
 						<Rectangle Grid.Column="8" Width="{Binding ActualWidth, ElementName=unit_delete_column}"/>
 					</Grid>
-					<ListView ItemsSource="{Binding Units, Mode=OneWay}" PreviewMouseWheel="HandlePreviewMouseWheel">
+					<ListView ItemsSource="{Binding Units, Mode=OneWay}" PreviewMouseWheel="IgnorePreviewMouseWheel">
 						<ListView.View>
 							<GridView AllowsColumnReorder="false">
 								<GridViewColumn x:Name="unit_id_column" DisplayMemberBinding="{Binding ID}" Header="ID"/>
@@ -157,12 +147,7 @@
 			<Separator/>
 			<md:Card Style="{StaticResource padded_stack_card}"><!-- Orders Details -->
 				<StackPanel>
-					<Grid>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="Auto"/>
-							<ColumnDefinition Width="*"/>
-							<ColumnDefinition Width="Auto"/>
-						</Grid.ColumnDefinitions>
+					<ItemsControl Style="{StaticResource split_grid}">
 						<TextBlock Grid.Column="0" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Orders</TextBlock>
 						<Button Grid.Column="2" Click="SearchRequests">
 							<StackPanel Orientation="Horizontal">
@@ -170,7 +155,7 @@
 								<TextBlock Margin="5 0 5 0">SEARCH REQUESTS</TextBlock>
 							</StackPanel>
 						</Button>
-					</Grid>
+					</ItemsControl>
 					<Separator Height="30"/>
 					<Grid Visibility="Hidden"><!-- Hack to make a column take up the rest of the available space -->
 						<Grid.ColumnDefinitions>
@@ -193,7 +178,7 @@
 						<Rectangle Grid.Column="6" Width="{Binding ActualWidth, ElementName=order_edit_column}"/>
 						<Rectangle Grid.Column="7" Width="{Binding ActualWidth, ElementName=order_delete_column}"/>
 					</Grid>
-					<ListView ItemsSource="{Binding Orders, Mode=OneWay}" PreviewMouseWheel="HandlePreviewMouseWheel">
+					<ListView ItemsSource="{Binding Orders, Mode=OneWay}" PreviewMouseWheel="IgnorePreviewMouseWheel">
 						<ListView.View>
 							<GridView AllowsColumnReorder="false">
 								<GridViewColumn x:Name="order_id_column" DisplayMemberBinding="{Binding ID}" Header="ID"/>

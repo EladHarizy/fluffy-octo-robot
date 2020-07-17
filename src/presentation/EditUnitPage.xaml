@@ -6,7 +6,7 @@
 					<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="Edit Unit "></TextBlock>
 					<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="{Binding Unit}"/>
 				</StackPanel>
-				<Separator Height="20"/>
+				<Separator Height="30"/>
 				<StackPanel Orientation="Horizontal">
 					<Grid><!-- Form -->
 						<Grid.ColumnDefinitions>

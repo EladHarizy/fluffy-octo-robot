@@ -39,6 +39,32 @@
 				<Setter Property="Margin" Value="20"/>
 				<Setter Property="Width" Value="300"/>
 			</Style>
+			<Style x:Key="side_panel_row" TargetType="{x:Type FrameworkElement}">
+				<Setter Property="Margin" Value="20 15"/>
+			</Style>
+			<Style x:Key="side_panel_sub_row" TargetType="{x:Type FrameworkElement}">
+				<Setter Property="Margin" Value="12 2 20 10"/>
+			</Style>
+			<Style x:Key="side_panel_sub_row_border" TargetType="{x:Type Border}">
+				<Setter Property="BorderThickness" Value="4 0 0 0"/>
+				<Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}"/>
+				<Setter Property="Margin" Value="4 0 0 15"/>
+			</Style>
+			<Style x:Key="split_grid" TargetType="ItemsControl">
+				<Setter Property="ItemsPanel">
+					<Setter.Value>
+						<ItemsPanelTemplate>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="Auto"/>
+								</Grid.ColumnDefinitions>
+							</Grid>
+						</ItemsPanelTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>
