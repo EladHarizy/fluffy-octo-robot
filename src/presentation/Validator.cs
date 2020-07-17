@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -41,10 +42,12 @@ namespace presentation {
 		public void SetError(string message) {
 			Control.BorderBrush = Brushes.Red;
 			ErrorBlock.Text = message;
+			ErrorBlock.Visibility = Visibility.Visible;
 		}
 
 		public void ResetError() {
 			Control.BorderBrush = InitialBorder;
+			ErrorBlock.Visibility = Visibility.Collapsed;
 			ErrorBlock.Text = "";
 		}
 	}

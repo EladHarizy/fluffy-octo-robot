@@ -8,22 +8,31 @@
 					<TextBlock>Fill in the details below to create an account.</TextBlock>
 					<TextBox x:Name="first_name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="First Name"/>
 					<TextBlock x:Name="first_name_error" Text="" Style="{StaticResource error}"/>
+					<Rectangle Style="{StaticResource input_separator}"/>
 					<TextBox x:Name="last_name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Last Name"/>
 					<TextBlock x:Name="last_name_error" Text="" Style="{StaticResource error}"/>
+					<Rectangle Style="{StaticResource input_separator}"/>
 					<TextBox x:Name="email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Email"/>
 					<TextBlock x:Name="email_error" Text="" Style="{StaticResource error}"/>
+					<Rectangle Style="{StaticResource input_separator}"/>
 					<TextBox x:Name="phone" Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Phone"/>
 					<TextBlock x:Name="phone_error" Text="" Style="{StaticResource error}"/>
+					<Rectangle Style="{StaticResource input_separator}"/>
 					<PasswordBox x:Name="password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" md:HintAssist.Hint="Password"/>
 					<TextBlock x:Name="password_error" Text="" Style="{StaticResource error}"/>
+					<Rectangle Style="{StaticResource input_separator}"/>
 					<PasswordBox x:Name="repeat_password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" md:HintAssist.Hint="Repeat Password"/>
 					<TextBlock x:Name="repeat_password_error" Text="" Style="{StaticResource error}"/>
+					<Rectangle Style="{StaticResource input_separator}"/>
 					<TextBox x:Name="bank_number" Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Bank Number"/>
 					<TextBlock x:Name="bank_number_error" Style="{StaticResource error}"/>
+					<Rectangle Style="{StaticResource input_separator}"/>
 					<TextBox x:Name="branch_number" Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Branch Number"/>
 					<TextBlock x:Name="branch_number_error" Style="{StaticResource error}"/>
+					<Rectangle Style="{StaticResource input_separator}"/>
 					<TextBox x:Name="account_number" Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Account Number"/>
 					<TextBlock x:Name="account_number_error" Style="{StaticResource error}"/>
+					<Rectangle Style="{StaticResource input_separator}"/>
 					<Button Click="SignUp">
 						<StackPanel Orientation="Horizontal">
 							<md:PackIcon Kind="AccountPlus"/>

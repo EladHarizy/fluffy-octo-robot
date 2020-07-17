@@ -6,8 +6,10 @@
 				<TextBlock TextAlignment="Center" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Host Sign In</TextBlock>
 				<TextBox x:Name="email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Email"/>
 				<TextBlock x:Name="email_error" Style="{StaticResource error}"/>
+				<Rectangle Style="{StaticResource input_separator}"/>
 				<PasswordBox x:Name="password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" md:HintAssist.Hint="Password"/>
 				<TextBlock x:Name="password_error" Style="{StaticResource error}"/>
+				<Rectangle Style="{StaticResource input_separator}"/>
 				<Button Click="SignIn">
 					<StackPanel Orientation="Horizontal">
 						<md:PackIcon Kind="AccountCircle"/>
