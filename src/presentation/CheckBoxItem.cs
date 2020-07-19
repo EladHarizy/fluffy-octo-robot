@@ -1,12 +1,15 @@
+using System;
+
 namespace presentation {
 
-	internal class CheckBoxItem<T> {
+	public class CheckBoxItem<T> {
 		public T Object { get; }
 
 		public bool Selected { get; set; }
 
-		public string Name {
-			get => Object.ToString();
+		public CheckBoxItem(T obj, bool selected = false) {
+			Object = obj;
+			Selected = selected;
 		}
 	}
 

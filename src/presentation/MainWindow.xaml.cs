@@ -22,7 +22,7 @@ namespace presentation {
 		public MainWindow() {
 			InitializeComponent();
 			OriginalTitle = Title;
-			Business = new Business();
+			Business = BusinessFactory.New();
 
 			HostSession = new Session<Host>(Business, HostPage);
 			GuestSession = new Session<Guest>(Business, GuestPage);

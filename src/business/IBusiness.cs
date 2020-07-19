@@ -8,17 +8,17 @@ namespace business {
 	public interface IBusiness {
 		void AddGuestRequest(GuestRequest guest_request);
 
-		void UpdateGuestRequest(GuestRequest guest_request);
+		void EditGuestRequest(GuestRequest guest_request);
 
 		void AddUnit(Unit unit);
 
 		void DeleteUnit(Unit unit);
 
-		void UpdateUnit(Unit unit);
+		void EditUnit(Unit unit);
 
 		void AddOrder(Order order);
 
-		void UpdateOrder(ID id, Order.Status status);
+		void EditOrder(ID id, Order.Status status);
 
 		Guest Guest(ID id);
 
@@ -32,17 +32,27 @@ namespace business {
 
 		void AddHost(Host host);
 
-		void UpdateHost(Host host);
+		void EditHost(Host host);
 
 		bool SignIn<TPerson>(TPerson person, string password) where TPerson : Person;
 
-		IEnumerable<Unit> Units();
+		IEnumerable<Amenity> Amenities { get; }
+
+		IEnumerable<City> Cities { get; }
+
+		IEnumerable<Unit.Type> UnitTypes { get; }
+
+		IEnumerable<Unit> Units { get; }
 
 		IEnumerable<Unit> UnitsOf(Host host);
 
 		IEnumerable<GuestRequest> GuestRequests();
 
 		IEnumerable<Order> Orders();
+
+		IEnumerable<Order> Orders(Host host);
+
+		IEnumerable<Order> Orders(Unit unit);
 
 		IEnumerable<BankBranch> BankBranches();
 

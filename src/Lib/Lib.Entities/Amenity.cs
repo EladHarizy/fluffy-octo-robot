@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
@@ -20,6 +21,15 @@ namespace Lib.Entities {
 
 		public Amenity Clone() {
 			return new Amenity(Name);
+		}
+
+		public override bool Equals(object obj) {
+			return obj is Amenity amenity
+				&& Name == amenity.Name;
+		}
+
+		public override int GetHashCode() {
+			return 539060726 + EqualityComparer<string>.Default.GetHashCode(Name);
 		}
 
 		public static implicit operator Amenity(string name) {

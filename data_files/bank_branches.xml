@@ -1803,7 +1803,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -1820,7 +1820,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -1922,7 +1922,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -1956,7 +1956,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -1990,7 +1990,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2007,7 +2007,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>15/02/2011</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2024,7 +2024,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2041,7 +2041,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2075,7 +2075,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2143,14 +2143,14 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/09/1990</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
   <Bank_Code>11</Bank_Code>
   <Bank_Name>Israel Discount Bank Ltd</Bank_Name>
-
   <Branch_Code>303</Branch_Code>
   <Branch_Name>Modi&apos;in</Branch_Name>
   <Address>Modi&apos;in-Makkabbim-Re&apos;ut</Address>
@@ -2161,7 +2161,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>31/08/2004</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2178,7 +2178,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2195,7 +2195,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>21/11/1995</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2212,7 +2212,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>16/08/1998</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2229,7 +2229,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2263,7 +2263,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2314,7 +2314,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2331,7 +2331,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2348,7 +2348,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2365,7 +2365,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2382,7 +2382,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2399,7 +2399,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2416,7 +2416,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2433,7 +2433,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2450,7 +2450,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>14/09/2008</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2467,7 +2467,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2484,7 +2484,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>16/08/1998</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2501,12 +2501,13 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/09/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
-  <Bank_Code>11</Bank_Code>
+  <Bank_Code>
+11</Bank_Code>
   <Bank_Name>Israel Discount Bank Ltd</Bank_Name>
   <Branch_Code>348</Branch_Code>
   <Branch_Name>Mmaz JLM</Branch_Name>
@@ -2525,8 +2526,7 @@ Machane Yafa, Beer Sheva 0</Address>
  <BRANCH>
   <Bank_Code>11</Bank_Code>
   <Bank_Name>Israel Discount Bank Ltd</Bank_Name>
-  <Branch_Code>
-162</Branch_Code>
+  <Branch_Code>162</Branch_Code>
   <Branch_Name>Talpiut jerusalem</Branch_Name>
   <Address>Jerusalem</Address>
   <City>Jerusalem</City>
@@ -2536,7 +2536,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2553,7 +2553,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2570,7 +2570,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2604,7 +2604,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2621,7 +2621,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>04/11/2007</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2638,7 +2638,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2655,7 +2655,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2672,7 +2672,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2706,7 +2706,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2723,7 +2723,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2740,7 +2740,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2774,7 +2774,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>07/07/2009</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2791,9 +2791,9 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
-  <Close_Date/>
+  <Close_Date>24/01/2019</Close_Date>
  </BRANCH>
  <BRANCH>
   <Bank_Code>11</Bank_Code>
@@ -2808,7 +2808,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2825,7 +2825,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2842,7 +2842,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2859,7 +2859,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>11/05/1999</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2875,8 +2875,9 @@ Machane Yafa, Beer Sheva 0</Address>
   <Telephone>076-8050754</Telephone>
   <Fax/>
   <Free_Telephone/>
+
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>16/08/1983</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2893,7 +2894,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2906,12 +2907,11 @@ Machane Yafa, Beer Sheva 0</Address>
   <City>Qiryat Ono</City>
   <Zip_Code>5542134</Zip_Code>
   <POB/>
-  <Telephone>
-076-8050617</Telephone>
+  <Telephone>076-8050617</Telephone>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2928,7 +2928,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2945,7 +2945,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>15/07/2003</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -2996,7 +2996,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>18/06/1985</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3115,7 +3115,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3132,7 +3132,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3166,7 +3166,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>16/08/1998</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3183,7 +3183,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3200,7 +3200,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3217,7 +3217,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3234,7 +3234,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3244,6 +3244,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Branch_Code>181</Branch_Code>
   <Branch_Name>Ext</Branch_Name>
   <Address>Tel Aviv - Yafo</Address>
+
   <City>Tel Aviv - Yafo</City>
   <Zip_Code>6513611</Zip_Code>
   <POB/>
@@ -3268,7 +3269,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>26/05/1998</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3286,7 +3287,6 @@ Machane Yafa, Beer Sheva 0</Address>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
   <Day_Closed/>
-
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3303,7 +3303,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3320,7 +3320,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3337,7 +3337,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3405,7 +3405,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1984</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3422,7 +3422,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3439,7 +3439,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3456,7 +3456,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3490,7 +3490,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3507,7 +3507,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3524,7 +3524,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>07/12/1993</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3558,7 +3558,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>16/03/2001</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3575,7 +3575,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3592,7 +3592,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/11/1995</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3609,11 +3609,12 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>09/12/2007</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
+
   <Bank_Code>11</Bank_Code>
   <Bank_Name>Israel Discount Bank Ltd</Bank_Name>
   <Branch_Code>506</Branch_Code>
@@ -3626,7 +3627,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>28/12/2000</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3643,7 +3644,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>03/05/2001</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3660,9 +3661,8 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/09/2005</Open_Date>
-
   <Close_Date/>
  </BRANCH>
  <BRANCH>
@@ -3678,7 +3678,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3695,7 +3695,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>03/07/2012</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3712,7 +3712,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3729,7 +3729,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3746,7 +3746,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>07/09/1993</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3780,7 +3780,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3797,7 +3797,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3814,7 +3814,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3831,7 +3831,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>15/02/2001</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3848,7 +3848,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3865,7 +3865,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3882,7 +3882,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/09/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3899,7 +3899,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3916,7 +3916,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/01/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3933,7 +3933,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3950,7 +3950,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>10/09/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -3967,14 +3967,15 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>24/07/1994</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
   <Bank_Code>11</Bank_Code>
   <Bank_Name>Israel Discount Bank Ltd</Bank_Name>
-  <Branch_Code>384</Branch_Code>
+  <Branch_Code>
+384</Branch_Code>
   <Branch_Name>Hashfela Businees Center</Branch_Name>
   <Address>Rehovot</Address>
   <City>Rehovot</City>
@@ -3984,7 +3985,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/09/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4001,7 +4002,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4018,7 +4019,7 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>22/01/2008</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4035,14 +4036,13 @@ Machane Yafa, Beer Sheva 0</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
   <Bank_Code>11</Bank_Code>
-  <Bank_Name>
-Israel Discount Bank Ltd</Bank_Name>
+  <Bank_Name>Israel Discount Bank Ltd</Bank_Name>
   <Branch_Code>157</Branch_Code>
   <Branch_Name>Hataasiya Holon</Branch_Name>
   <Address>Holon</Address>
@@ -4053,7 +4053,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>03/12/1991</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4070,7 +4070,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4104,7 +4104,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4121,7 +4121,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4138,7 +4138,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4155,7 +4155,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4172,7 +4172,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/09/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4189,7 +4189,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4206,7 +4206,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4240,7 +4240,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/01/2008</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4257,7 +4257,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4274,7 +4274,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4291,7 +4291,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4308,7 +4308,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>24/09/1999</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4325,7 +4325,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4342,7 +4342,8 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
+
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4359,7 +4360,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4376,7 +4377,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4393,7 +4394,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4410,7 +4411,7 @@ Israel Discount Bank Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4420,15 +4421,14 @@ Israel Discount Bank Ltd</Bank_Name>
   <Branch_Code>128</Branch_Code>
   <Branch_Name>Ashkelon (Hashikma)</Branch_Name>
   <Address>Ashqelon</Address>
-  <City>
-Ashqelon</City>
+  <City>Ashqelon</City>
   <Zip_Code>7828118</Zip_Code>
   <POB/>
   <Telephone>076-8053060</Telephone>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4445,7 +4445,7 @@ Ashqelon</City>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4462,7 +4462,7 @@ Ashqelon</City>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4479,7 +4479,7 @@ Ashqelon</City>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>17/01/1995</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4496,7 +4496,7 @@ Ashqelon</City>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>06/11/2008</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -4686,6 +4686,7 @@ Ashqelon</City>
   <Day_Closed/>
   <Open_Date>01/02/1992</Open_Date>
   <Close_Date/>
+
  </BRANCH>
  <BRANCH>
   <Bank_Code>31</Bank_Code>
@@ -4758,8 +4759,7 @@ Ashqelon</City>
  <BRANCH>
   <Bank_Code>31</Bank_Code>
   <Bank_Name>The First International Bank of Israel Ltd</Bank_Name>
-  <Branch_Code>
-981</Branch_Code>
+  <Branch_Code>981</Branch_Code>
   <Branch_Name>EXT. PETAH TIKVA (HADAR GANIM)</Branch_Name>
   <Address>94,Menachem Begin St. Petah Tikva 94</Address>
   <City>Petah Tiqwa</City>
@@ -5010,6 +5010,7 @@ Ashqelon</City>
   <Day_Closed/>
   <Open_Date>01/01/2019</Open_Date>
   <Close_Date/>
+
  </BRANCH>
  <BRANCH>
   <Bank_Code>31</Bank_Code>
@@ -5083,8 +5084,7 @@ Ashqelon</City>
   <Bank_Code>31</Bank_Code>
   <Bank_Name>The First International Bank of Israel Ltd</Bank_Name>
   <Branch_Code>45</Branch_Code>
-  <Branch_Name>
-Holon</Branch_Name>
+  <Branch_Name>Holon</Branch_Name>
   <Address>41,Sokolov St.Holon 41</Address>
   <City>Holon</City>
   <Zip_Code>5825801</Zip_Code>
@@ -5342,7 +5342,8 @@ Holon</Branch_Name>
   <Branch_Name>Tel Nof</Branch_Name>
   <Address>Gedera</Address>
   <City>Gedera</City>
-  <Zip_Code>7071000</Zip_Code>
+  <Zip_Code>
+7071000</Zip_Code>
   <POB>3500</POB>
   <Telephone>08-8596995</Telephone>
   <Fax/>
@@ -5422,7 +5423,6 @@ Holon</Branch_Name>
  </BRANCH>
  <BRANCH>
   <Bank_Code>31</Bank_Code>
-
   <Bank_Name>The First International Bank of Israel Ltd</Bank_Name>
   <Branch_Code>477</Branch_Code>
   <Branch_Name>Uvda</Branch_Name>
@@ -5672,7 +5672,7 @@ Holon</Branch_Name>
   <Fax/>
   <Free_Telephone>*3009</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/04/1981</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -5688,6 +5688,7 @@ Holon</Branch_Name>
   <Telephone>09-8891200</Telephone>
   <Fax/>
   <Free_Telephone>*3009</Free_Telephone>
+
   <Handicap_Accessible>Yes</Handicap_Accessible>
   <Day_Closed/>
   <Open_Date>01/04/1981</Open_Date>
@@ -5762,7 +5763,6 @@ Holon</Branch_Name>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
-
   <Bank_Code>31</Bank_Code>
   <Bank_Name>The First International Bank of Israel Ltd</Bank_Name>
   <Branch_Code>382</Branch_Code>
@@ -6012,7 +6012,8 @@ Holon</Branch_Name>
   <Telephone>02-5655200</Telephone>
   <Fax/>
   <Free_Telephone>*3009</Free_Telephone>
-  <Handicap_Accessible>Yes</Handicap_Accessible>
+  <Handicap_Accessible>
+Yes</Handicap_Accessible>
   <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/04/1981</Open_Date>
   <Close_Date/>
@@ -6088,8 +6089,7 @@ Holon</Branch_Name>
  <BRANCH>
   <Bank_Code>31</Bank_Code>
   <Bank_Name>The First International Bank of Israel Ltd</Bank_Name>
-  <Branch_Code>
-76</Branch_Code>
+  <Branch_Code>76</Branch_Code>
   <Branch_Name>Ashdod Business</Branch_Name>
   <Address>7, Haorgim St., Ashdod 7</Address>
   <City>Ashdod</City>
@@ -6345,7 +6345,8 @@ Holon</Branch_Name>
   <Bank_Code>31</Bank_Code>
   <Bank_Name>The First International Bank of Israel Ltd</Bank_Name>
   <Branch_Code>44</Branch_Code>
-  <Branch_Name>HAOPERA</Branch_Name>
+  <Branch_Name>
+HAOPERA</Branch_Name>
   <Address>1,ALLENBY ST. TEL AVIV 1</Address>
   <City>Tel Aviv - Yafo</City>
   <Zip_Code>6332101</Zip_Code>
@@ -6418,8 +6419,7 @@ Holon</Branch_Name>
   <City>Tel Aviv - Yafo</City>
   <Zip_Code>6971904</Zip_Code>
   <POB/>
-  <Telephone>
-03-7680200</Telephone>
+  <Telephone>03-7680200</Telephone>
   <Fax/>
   <Free_Telephone>*3009</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
@@ -6644,7 +6644,7 @@ Holon</Branch_Name>
   <Fax/>
   <Free_Telephone>*3009</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>25/01/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -6672,7 +6672,8 @@ Holon</Branch_Name>
   <Branch_Name>Rosh Pina</Branch_Name>
   <Address>Rosh Pinna</Address>
   <City>Rosh Pinna</City>
-  <Zip_Code>1200000</Zip_Code>
+  <Zip_Code>
+1200000</Zip_Code>
   <POB/>
   <Telephone>04-9009200</Telephone>
   <Fax/>
@@ -6754,8 +6755,7 @@ Holon</Branch_Name>
   <Bank_Code>31</Bank_Code>
   <Bank_Name>The First International Bank of Israel Ltd</Bank_Name>
   <Branch_Code>138</Branch_Code>
-  <Branch_Name>
-ha-Technion</Branch_Name>
+  <Branch_Name>ha-Technion</Branch_Name>
   <Address>Technion, HAIFA 1</Address>
   <City>Haifa</City>
   <Zip_Code>3200003</Zip_Code>
@@ -7006,6 +7006,7 @@ ha-Technion</Branch_Name>
   <Open_Date>01/01/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
+
  <BRANCH>
   <Bank_Code>31</Bank_Code>
   <Bank_Name>The First International Bank of Israel Ltd</Bank_Name>
@@ -7083,7 +7084,6 @@ ha-Technion</Branch_Name>
   <City>Tel Aviv - Yafo</City>
   <Zip_Code>6688310</Zip_Code>
   <POB>29036</POB>
-
   <Telephone>03-7556111</Telephone>
   <Fax/>
   <Free_Telephone/>
@@ -7351,6 +7351,7 @@ ha-Technion</Branch_Name>
   <Bank_Code>12</Bank_Code>
   <Bank_Name>Bank Hapoalim B.M</Bank_Name>
   <Branch_Code>215</Branch_Code>
+
   <Branch_Name>Iksal</Branch_Name>
   <Address>iksal main street 0</Address>
   <City>Iksal</City>
@@ -7435,7 +7436,6 @@ ha-Technion</Branch_Name>
  <BRANCH>
   <Bank_Code>12</Bank_Code>
   <Bank_Name>Bank Hapoalim B.M</Bank_Name>
-
   <Branch_Code>570</Branch_Code>
   <Branch_Name>omer</Branch_Name>
   <Address>merkaz miskhari omer 1</Address>
@@ -7714,6 +7714,7 @@ ha-Technion</Branch_Name>
   <City>Haifa</City>
   <Zip_Code/>
   <POB/>
+
   <Telephone>04-8305081</Telephone>
   <Fax/>
   <Free_Telephone/>
@@ -7795,8 +7796,7 @@ ha-Technion</Branch_Name>
   <Bank_Name>Bank Hapoalim B.M</Bank_Name>
   <Branch_Code>720</Branch_Code>
   <Branch_Name>kiryat haim</Branch_Name>
-  <Address>
-24 ahi eilat blvd. kiryat haim 24</Address>
+  <Address>24 ahi eilat blvd. kiryat haim 24</Address>
   <City>Haifa</City>
   <Zip_Code/>
   <POB/>
@@ -8072,6 +8072,7 @@ ha-Technion</Branch_Name>
   <City>Tel Aviv - Yafo</City>
   <Zip_Code/>
   <POB/>
+
   <Telephone>03-5141616</Telephone>
   <Fax/>
   <Free_Telephone/>
@@ -8152,8 +8153,7 @@ ha-Technion</Branch_Name>
   <Bank_Code>12</Bank_Code>
   <Bank_Name>Bank Hapoalim B.M</Bank_Name>
   <Branch_Code>504</Branch_Code>
-  <Branch_Name>
-neot afeka</Branch_Name>
+  <Branch_Name>neot afeka</Branch_Name>
   <Address>246 bnei  fraim st.  tel aviv 246</Address>
   <City>Tel Aviv - Yafo</City>
   <Zip_Code/>
@@ -8427,7 +8427,8 @@ neot afeka</Branch_Name>
   <Branch_Code>609</Branch_Code>
   <Branch_Name>kikar rabin</Branch_Name>
   <Address>71 ibn gvirol st.  gan hair tel aviv 71</Address>
-  <City>Tel Aviv - Yafo</City>
+  <City>
+Tel Aviv - Yafo</City>
   <Zip_Code/>
   <POB/>
   <Telephone>03-7252200</Telephone>
@@ -8510,7 +8511,6 @@ neot afeka</Branch_Name>
   <Bank_Code>12</Bank_Code>
   <Bank_Name>Bank Hapoalim B.M</Bank_Name>
   <Branch_Code>580</Branch_Code>
-
   <Branch_Name>pk&apos; meyuhadim hnahr</Branch_Name>
   <Address>11 hanegev st.          tel-aviv 11</Address>
   <City>Tel Aviv - Yafo</City>
@@ -8785,7 +8785,8 @@ neot afeka</Branch_Name>
   <Branch_Code>788</Branch_Code>
   <Branch_Name>lamed</Branch_Name>
   <Address>9 efter st., tochnit-lamed, tel-aviv 9</Address>
-  <City>Tel Aviv - Yafo</City>
+  <City>
+Tel Aviv - Yafo</City>
   <Zip_Code/>
   <POB/>
   <Telephone>03-6905217</Telephone>
@@ -8868,7 +8869,6 @@ neot afeka</Branch_Name>
   <Bank_Code>12</Bank_Code>
   <Bank_Name>Bank Hapoalim B.M</Bank_Name>
   <Branch_Code>767</Branch_Code>
-
   <Branch_Name>Be Online</Branch_Name>
   <Address>hatzabar 5 azur 5</Address>
   <City>Azor</City>
@@ -9149,6 +9149,7 @@ neot afeka</Branch_Name>
   <Telephone>02-5651588</Telephone>
   <Fax/>
   <Free_Telephone/>
+
   <Handicap_Accessible>No</Handicap_Accessible>
   <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/01/1949</Open_Date>
@@ -9228,8 +9229,7 @@ neot afeka</Branch_Name>
   <Branch_Code>599</Branch_Code>
   <Branch_Name>hagan hatechnology</Branch_Name>
   <Address>hagan hatechnology m.2 malcha jeru 2</Address>
-  <City>
-Jerusalem</City>
+  <City>Jerusalem</City>
   <Zip_Code/>
   <POB/>
   <Telephone>02-6493454</Telephone>
@@ -9508,6 +9508,7 @@ Jerusalem</City>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
+
   <Day_Closed>Sunday</Day_Closed>
   <Open_Date>15/02/2015</Open_Date>
   <Close_Date/>
@@ -9549,23 +9550,6 @@ Jerusalem</City>
  <BRANCH>
   <Bank_Code>12</Bank_Code>
   <Bank_Name>Bank Hapoalim B.M</Bank_Name>
-  <Branch_Code>161</Branch_Code>
-  <Branch_Name>Talmey Menase</Branch_Name>
-  <Address>Ephraim Kishon 9 Talmey Menashe 9</Address>
-  <City>Be&apos;er Ya&apos;aqov</City>
-  <Zip_Code/>
-  <POB/>
-  <Telephone>08-9785700</Telephone>
-  <Fax/>
-  <Free_Telephone/>
-  <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed>Sunday</Day_Closed>
-  <Open_Date>15/06/2010</Open_Date>
-  <Close_Date>27/06/2017</Close_Date>
- </BRANCH>
- <BRANCH>
-  <Bank_Code>12</Bank_Code>
-  <Bank_Name>Bank Hapoalim B.M</Bank_Name>
   <Branch_Code>637</Branch_Code>
   <Branch_Name>beer yaacov</Branch_Name>
   <Address>sa nes street 17, beer yaakov
@@ -9587,7 +9571,6 @@ Jerusalem</City>
   <Branch_Code>446</Branch_Code>
   <Branch_Name>Ramat Beit Shemesh</Branch_Name>
   <Address>16 NAHAL NITSANIM,RAMAT BET SHEMEH 16</Address>
-
   <City>Bet Shemesh</City>
   <Zip_Code/>
   <POB/>
@@ -9884,7 +9867,8 @@ Jerusalem</City>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed>Friday</Day_Closed>
+  <Day_Closed>
+Friday</Day_Closed>
   <Open_Date>01/01/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -9947,7 +9931,6 @@ Jerusalem</City>
   <Address>45 tchernichovsky st.   kfar-saba 45</Address>
   <City>Kefar Sava</City>
   <Zip_Code/>
-
   <POB/>
   <Telephone>09-7474895</Telephone>
   <Fax/>
@@ -10246,6 +10229,7 @@ Jerusalem</City>
   <Open_Date>01/07/2009</Open_Date>
   <Close_Date/>
  </BRANCH>
+
  <BRANCH>
   <Bank_Code>12</Bank_Code>
   <Bank_Name>Bank Hapoalim B.M</Bank_Name>
@@ -10268,7 +10252,7 @@ Jerusalem</City>
   <Bank_Name>Bank Hapoalim B.M</Bank_Name>
   <Branch_Code>476</Branch_Code>
   <Branch_Name>kirtat hasharon</Branch_Name>
-  <Address>9 Klauzner st. TKey. Hasharon, Natanya 9</Address>
+  <Address>9 Klauzner st. K. Hasharon, Natanya 9</Address>
   <City>Netanya</City>
   <Zip_Code/>
   <POB/>
@@ -10309,8 +10293,7 @@ Jerusalem</City>
   <Telephone>04-6189400</Telephone>
   <Fax/>
   <Free_Telephone/>
-  <Handicap_Accessible>
-Yes</Handicap_Accessible>
+  <Handicap_Accessible>Yes</Handicap_Accessible>
   <Day_Closed>Friday</Day_Closed>
   <Open_Date>03/03/1997</Open_Date>
   <Close_Date/>
@@ -10609,7 +10592,8 @@ Yes</Handicap_Accessible>
   <Bank_Name>Bank Hapoalim B.M</Bank_Name>
   <Branch_Code>622</Branch_Code>
   <Branch_Name>pardes hana</Branch_Name>
-  <Address>hadekalim st.           pardes-hana 1</Address>
+  <Address>
+hadekalim st.           pardes-hana 1</Address>
   <City>Pardes Hanna-Karkur</City>
   <Zip_Code/>
   <POB/>
@@ -10673,7 +10657,6 @@ Yes</Handicap_Accessible>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
-
   <Bank_Code>12</Bank_Code>
   <Bank_Name>Bank Hapoalim B.M</Bank_Name>
   <Branch_Code>452</Branch_Code>
@@ -10961,6 +10944,7 @@ Yes</Handicap_Accessible>
   <Day_Closed>Friday</Day_Closed>
   <Open_Date>31/12/1948</Open_Date>
   <Close_Date/>
+
  </BRANCH>
  <BRANCH>
   <Bank_Code>12</Bank_Code>
@@ -11021,7 +11005,6 @@ Yes</Handicap_Accessible>
   <Address>1 keren hayesod st., k.sharet, holon 1</Address>
   <City>Holon</City>
   <Zip_Code/>
-
   <POB/>
   <Telephone>03-5576780</Telephone>
   <Fax/>
@@ -11321,7 +11304,8 @@ Yes</Handicap_Accessible>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
-  <Bank_Code>12</Bank_Code>
+  <Bank_Code>
+12</Bank_Code>
   <Bank_Name>Bank Hapoalim B.M</Bank_Name>
   <Branch_Code>173</Branch_Code>
   <Branch_Name>Tobiahu Merkaz Tifuly</Branch_Name>
@@ -11380,8 +11364,7 @@ Yes</Handicap_Accessible>
   <City>Be&apos;er Sheva</City>
   <Zip_Code/>
   <POB/>
-  <Telephone>
-08-6292249</Telephone>
+  <Telephone>08-6292249</Telephone>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
@@ -11674,6 +11657,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
+
   <Day_Closed>Friday</Day_Closed>
   <Open_Date>18/11/1996</Open_Date>
   <Close_Date/>
@@ -11735,8 +11719,7 @@ Yes</Handicap_Accessible>
   <Branch_Code>688</Branch_Code>
   <Branch_Name>kiriat arie</Branch_Name>
   <Address>Shimshon 5, Petah-Tikva 5</Address>
-  <City>
-Petah Tiqwa</City>
+  <City>Petah Tiqwa</City>
   <Zip_Code>4952702</Zip_Code>
   <POB/>
   <Telephone>03-9204320</Telephone>
@@ -12028,7 +12011,8 @@ Petah Tiqwa</City>
   <City>Jerusalem</City>
   <Zip_Code>9543501</Zip_Code>
   <POB>36333</POB>
-  <Telephone>02-5009911</Telephone>
+  <Telephone>
+02-5009911</Telephone>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
@@ -12089,8 +12073,7 @@ Petah Tiqwa</City>
  </BRANCH>
  <BRANCH>
   <Bank_Code>4</Bank_Code>
-  <Bank_Name>
-Bank Yahav for Government Employees Ltd</Bank_Name>
+  <Bank_Name>Bank Yahav for Government Employees Ltd</Bank_Name>
   <Branch_Code>115</Branch_Code>
   <Branch_Name>Hayovel Tower</Branch_Name>
   <Address>Derech Begin 125 Tel Aviv 125</Address>
@@ -12373,6 +12356,7 @@ Bank Yahav for Government Employees Ltd</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
+
   <Day_Closed/>
   <Open_Date>24/12/2012</Open_Date>
   <Close_Date/>
@@ -12433,8 +12417,7 @@ Bank Yahav for Government Employees Ltd</Bank_Name>
   <Bank_Name>Bank Yahav for Government Employees Ltd</Bank_Name>
   <Branch_Code>246</Branch_Code>
   <Branch_Name>Tiberya</Branch_Name>
-  <Address>
-KIKAR RABIN  1 TIBERYA 1</Address>
+  <Address>KIKAR RABIN  1 TIBERYA 1</Address>
   <City>Tiberias</City>
   <Zip_Code>1420001</Zip_Code>
   <POB>36333</POB>
@@ -12723,6 +12706,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Bank_Name>Bank Yahav for Government Employees Ltd</Bank_Name>
   <Branch_Code>137</Branch_Code>
   <Branch_Name>Asaf   Ha&apos;rofe</Branch_Name>
+
   <Address>ASAF SENTER BEER YAAKOV 1</Address>
   <City>Be&apos;er Ya&apos;aqov</City>
   <Zip_Code>7030094</Zip_Code>
@@ -12783,7 +12767,6 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
   <Day_Closed/>
-
   <Open_Date>04/03/2008</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13071,6 +13054,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Telephone>076-8095030</Telephone>
   <Fax/>
   <Free_Telephone>*5727</Free_Telephone>
+
   <Handicap_Accessible>Yes</Handicap_Accessible>
   <Day_Closed/>
   <Open_Date>01/01/1997</Open_Date>
@@ -13131,7 +13115,6 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Bank_Code>54</Bank_Code>
   <Bank_Name>Bank of Jerusalem Ltd</Bank_Name>
   <Branch_Code>97</Branch_Code>
-
   <Branch_Name>um el phaem</Branch_Name>
   <Address> EL MEDINA STREET EL SULTAN BLDG  0</Address>
   <City>Umm al-Fahm</City>
@@ -13421,7 +13404,8 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Bank_Code>54</Bank_Code>
   <Bank_Name>Bank of Jerusalem Ltd</Bank_Name>
   <Branch_Code>67</Branch_Code>
-  <Branch_Name>holon</Branch_Name>
+  <Branch_Name>
+holon</Branch_Name>
   <Address>28 SOKOLOV ST.       , HOLON 63</Address>
   <City>Rishon LeZiyyon</City>
   <Zip_Code>7526724</Zip_Code>
@@ -13482,8 +13466,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Free_Telephone>*5727</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
   <Day_Closed/>
-  <Open_Date>
-17/11/2013</Open_Date>
+  <Open_Date>17/11/2013</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
@@ -13652,7 +13635,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13669,7 +13652,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13703,7 +13686,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13720,7 +13703,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13737,7 +13720,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13763,7 +13746,8 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Bank_Name>Bank Leumi Le-Israel B.M</Bank_Name>
   <Branch_Code>819</Branch_Code>
   <Branch_Name>Leumi Ishi kemonaot</Branch_Name>
-  <Address>Petah Tiqwa</Address>
+  <Address>
+Petah Tiqwa</Address>
   <City>Petah Tiqwa</City>
   <Zip_Code>4952706</Zip_Code>
   <POB>0</POB>
@@ -13771,7 +13755,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5519</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>10/02/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13788,7 +13772,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5519</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>28/02/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13805,7 +13789,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5519</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>10/02/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13822,13 +13806,12 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5519</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>10/02/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
-  <Bank_Code>
-10</Bank_Code>
+  <Bank_Code>10</Bank_Code>
   <Bank_Name>Bank Leumi Le-Israel B.M</Bank_Name>
   <Branch_Code>778</Branch_Code>
   <Branch_Name>Leumi Ishi A</Branch_Name>
@@ -13840,7 +13823,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5519</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>10/02/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13857,7 +13840,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5519</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>28/02/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13891,7 +13874,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>25/03/1998</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13908,7 +13891,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>02/09/2010</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13925,7 +13908,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5519</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13942,7 +13925,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13959,7 +13942,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>07/09/2006</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13976,7 +13959,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>18/02/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -13993,7 +13976,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14010,7 +13993,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>16/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14027,7 +14010,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>12/05/2009</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14044,7 +14027,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>24/02/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14061,7 +14044,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14078,7 +14061,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>10/02/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14095,6 +14078,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax>02-6207555</Fax>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
+
   <Day_Closed>Saturday</Day_Closed>
   <Open_Date>10/10/1993</Open_Date>
   <Close_Date/>
@@ -14129,7 +14113,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>16/02/1984</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14146,7 +14130,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>20/01/2020</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14163,13 +14147,12 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
-  <Bank_Code>
-10</Bank_Code>
+  <Bank_Code>10</Bank_Code>
   <Bank_Name>Bank Leumi Le-Israel B.M</Bank_Name>
   <Branch_Code>842</Branch_Code>
   <Branch_Name> SHFARAM </Branch_Name>
@@ -14181,7 +14164,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>09/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14198,7 +14181,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>23/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14215,7 +14198,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>29/02/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14249,7 +14232,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14266,7 +14249,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14283,7 +14266,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>26/09/2011</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14300,7 +14283,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14317,7 +14300,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14334,7 +14317,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14351,7 +14334,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>02/01/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14368,7 +14351,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14385,7 +14368,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14402,7 +14385,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14419,10 +14402,11 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
+
  <BRANCH>
   <Bank_Code>10</Bank_Code>
   <Bank_Name>Bank Leumi Le-Israel B.M</Bank_Name>
@@ -14436,7 +14420,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Saturday</Day_Closed>
   <Open_Date>02/12/2012</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14453,7 +14437,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>22/01/1998</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14470,7 +14454,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>28/02/1988</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14487,7 +14471,7 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14503,9 +14487,8 @@ KIKAR RABIN  1 TIBERYA 1</Address>
   <Telephone>03-9545522</Telephone>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
-  <Handicap_Accessible>
-Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Handicap_Accessible>Yes</Handicap_Accessible>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>22/07/1999</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14522,7 +14505,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Saturday</Day_Closed>
   <Open_Date>15/01/1995</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14556,7 +14539,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>12/10/2018</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14590,7 +14573,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14607,7 +14590,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14624,7 +14607,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14641,7 +14624,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14658,7 +14641,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14675,7 +14658,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14692,7 +14675,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14709,7 +14692,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14726,7 +14709,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14743,7 +14726,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>09/11/2018</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14752,7 +14735,8 @@ Yes</Handicap_Accessible>
   <Bank_Name>Bank Leumi Le-Israel B.M</Bank_Name>
   <Branch_Code>682</Branch_Code>
   <Branch_Name> asakim ramat hachayal </Branch_Name>
-  <Address> Begin avn  7</Address>
+  <Address>
+ Begin avn  7</Address>
   <City>Ramat Gan</City>
   <Zip_Code>5268108</Zip_Code>
   <POB>0</POB>
@@ -14760,7 +14744,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/06/1998</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14844,9 +14828,8 @@ Yes</Handicap_Accessible>
   <Telephone>03-9545522</Telephone>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
-
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14863,7 +14846,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14880,7 +14863,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>27/04/1997</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14914,7 +14897,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14931,7 +14914,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14948,7 +14931,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>15/04/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14965,7 +14948,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14982,7 +14965,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -14999,7 +14982,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15016,7 +14999,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15033,7 +15016,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>13/11/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15050,7 +15033,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>13/03/2003</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15067,7 +15050,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/01/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15083,7 +15066,8 @@ Yes</Handicap_Accessible>
   <Telephone>03-9545522</Telephone>
   <Fax>077-8083958</Fax>
   <Free_Telephone>*5522</Free_Telephone>
-  <Handicap_Accessible>No</Handicap_Accessible>
+  <Handicap_Accessible>
+No</Handicap_Accessible>
   <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
@@ -15101,7 +15085,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15118,7 +15102,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>20/06/2002</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15135,7 +15119,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15152,7 +15136,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>25/12/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15169,7 +15153,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15186,9 +15170,8 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
-  <Open_Date>
-01/02/1949</Open_Date>
+  <Day_Closed>Friday</Day_Closed>
+  <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
@@ -15204,7 +15187,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15221,7 +15204,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15255,7 +15238,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15272,7 +15255,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>21/06/2015</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15289,7 +15272,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15340,7 +15323,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15357,7 +15340,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15374,7 +15357,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>17/02/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15416,6 +15399,7 @@ Yes</Handicap_Accessible>
   <Bank_Code>10</Bank_Code>
   <Bank_Name>Bank Leumi Le-Israel B.M</Bank_Name>
   <Branch_Code>964</Branch_Code>
+
   <Branch_Name> natzrat </Branch_Name>
   <Address> echsel natzrat  9</Address>
   <City>Nazareth</City>
@@ -15425,7 +15409,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15442,7 +15426,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>26/08/2018</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15459,7 +15443,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>16/02/1998</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15476,7 +15460,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15493,7 +15477,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/04/2001</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15510,7 +15494,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>21/12/1997</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15526,9 +15510,8 @@ Yes</Handicap_Accessible>
   <Telephone>03-9545522</Telephone>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
-  <Handicap_Accessible>
-Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Handicap_Accessible>Yes</Handicap_Accessible>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15545,7 +15528,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>06/09/2012</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15562,7 +15545,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>24/02/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15579,7 +15562,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15596,7 +15579,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/03/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15613,7 +15596,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15630,7 +15613,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15647,7 +15630,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15664,7 +15647,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15681,7 +15664,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15698,7 +15681,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5519</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/10/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15715,7 +15698,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15732,7 +15715,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5519</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/10/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15747,9 +15730,10 @@ Yes</Handicap_Accessible>
   <POB/>
   <Telephone>03-9545519</Telephone>
   <Fax/>
-  <Free_Telephone>*5519</Free_Telephone>
+  <Free_Telephone>
+*5519</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/10/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15766,7 +15750,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>18/06/1991</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15783,7 +15767,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>24/11/2002</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15800,7 +15784,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15834,7 +15818,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15869,8 +15853,7 @@ Yes</Handicap_Accessible>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
   <Day_Closed/>
-  <Open_Date>
-04/07/2004</Open_Date>
+  <Open_Date>04/07/2004</Open_Date>
   <Close_Date>25/10/2017</Close_Date>
  </BRANCH>
  <BRANCH>
@@ -15920,7 +15903,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Saturday</Day_Closed>
   <Open_Date>01/01/2014</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15937,7 +15920,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>06/05/1991</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15954,7 +15937,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>14/06/2001</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15971,7 +15954,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Saturday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -15988,7 +15971,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16022,7 +16005,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Saturday</Day_Closed>
   <Open_Date>02/01/1992</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16039,7 +16022,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>02/01/2002</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16056,7 +16039,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16073,7 +16056,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16084,13 +16067,14 @@ Yes</Handicap_Accessible>
   <Branch_Name> city ashdod </Branch_Name>
   <Address> shderut atziunot city ashdod  13</Address>
   <City>Ashdod</City>
-  <Zip_Code>7745614</Zip_Code>
+  <Zip_Code>
+7745614</Zip_Code>
   <POB>0</POB>
   <Telephone>03-9545522</Telephone>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>28/08/2006</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16107,7 +16091,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>25/11/1998</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16141,7 +16125,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16158,7 +16142,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>21/01/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16175,7 +16159,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>22/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16192,7 +16176,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>21/09/1983</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16209,7 +16193,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>22/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16218,8 +16202,7 @@ Yes</Handicap_Accessible>
   <Bank_Name>Bank Leumi Le-Israel B.M</Bank_Name>
   <Branch_Code>825</Branch_Code>
   <Branch_Name> KAFAR MANDA </Branch_Name>
-  <Address>
- VILLAGE ENTRANCE , KAFAR MANDA  0</Address>
+  <Address> VILLAGE ENTRANCE , KAFAR MANDA  0</Address>
   <City>Kafar Manda</City>
   <Zip_Code>1790700</Zip_Code>
   <POB/>
@@ -16227,7 +16210,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>15/02/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16244,7 +16227,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16261,7 +16244,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/10/1990</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16278,7 +16261,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>16/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16312,7 +16295,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16346,7 +16329,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>05/05/2008</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16363,7 +16346,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16380,7 +16363,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16397,7 +16380,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16414,9 +16397,10 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>08/05/1997</Open_Date>
   <Close_Date/>
+
  </BRANCH>
  <BRANCH>
   <Bank_Code>10</Bank_Code>
@@ -16448,7 +16432,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16482,7 +16466,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16516,7 +16500,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16533,7 +16517,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Saturday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16550,15 +16534,14 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
   <Bank_Code>10</Bank_Code>
   <Bank_Name>Bank Leumi Le-Israel B.M</Bank_Name>
-  <Branch_Code>
-905</Branch_Code>
+  <Branch_Code>905</Branch_Code>
   <Branch_Name> ramot eshkol </Branch_Name>
   <Address> faaran ramot eshkol  15</Address>
   <City>Jerusalem</City>
@@ -16568,7 +16551,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16585,7 +16568,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>10/10/2011</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16602,7 +16585,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16636,7 +16619,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16653,7 +16636,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16687,7 +16670,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16704,7 +16687,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Saturday</Day_Closed>
   <Open_Date>15/01/2012</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16721,7 +16704,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>02/01/2000</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16738,7 +16721,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16749,13 +16732,14 @@ Yes</Handicap_Accessible>
   <Branch_Name> asakim har hozvim </Branch_Name>
   <Address> har hotzvim  1</Address>
   <City>Jerusalem</City>
+
   <Zip_Code>7019900</Zip_Code>
   <POB>0</POB>
   <Telephone>03-9545522</Telephone>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>15/04/1999</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16789,7 +16773,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16806,7 +16790,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>02/01/1992</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16840,7 +16824,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>11/08/2009</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16857,7 +16841,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16874,7 +16858,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16891,7 +16875,7 @@ Yes</Handicap_Accessible>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16899,8 +16883,7 @@ Yes</Handicap_Accessible>
   <Bank_Code>10</Bank_Code>
   <Bank_Name>Bank Leumi Le-Israel B.M</Bank_Name>
   <Branch_Code>813</Branch_Code>
-  <Branch_Name>
-bazel</Branch_Name>
+  <Branch_Name>bazel</Branch_Name>
   <Address>ashela bazel 9</Address>
   <City>Tel Aviv - Yafo</City>
   <Zip_Code>6228309</Zip_Code>
@@ -16926,7 +16909,7 @@ bazel</Branch_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16943,7 +16926,7 @@ bazel</Branch_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>07/04/2008</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -16994,7 +16977,7 @@ bazel</Branch_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17011,7 +16994,7 @@ bazel</Branch_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17028,7 +17011,7 @@ bazel</Branch_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17062,7 +17045,7 @@ bazel</Branch_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>12/04/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17079,7 +17062,8 @@ bazel</Branch_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>
+Friday</Day_Closed>
   <Open_Date>14/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17096,7 +17080,7 @@ bazel</Branch_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17113,7 +17097,7 @@ bazel</Branch_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>07/06/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17130,7 +17114,7 @@ bazel</Branch_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>22/02/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17147,7 +17131,7 @@ bazel</Branch_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17164,7 +17148,7 @@ bazel</Branch_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>28/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17181,7 +17165,7 @@ bazel</Branch_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>03/03/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17215,7 +17199,7 @@ bazel</Branch_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>07/02/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17232,14 +17216,13 @@ bazel</Branch_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Saturday</Day_Closed>
   <Open_Date>08/05/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
   <Bank_Code>10</Bank_Code>
-  <Bank_Name>
-Bank Leumi Le-Israel B.M</Bank_Name>
+  <Bank_Name>Bank Leumi Le-Israel B.M</Bank_Name>
   <Branch_Code>832</Branch_Code>
   <Branch_Name> pinkas </Branch_Name>
   <Address> pinkas  48</Address>
@@ -17250,7 +17233,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17267,7 +17250,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>26/02/2002</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17284,7 +17267,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17318,7 +17301,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17335,7 +17318,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17352,7 +17335,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17369,7 +17352,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17403,14 +17386,15 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
   <Bank_Code>10</Bank_Code>
   <Bank_Name>Bank Leumi Le-Israel B.M</Bank_Name>
-  <Branch_Code>991</Branch_Code>
+  <Branch_Code>
+991</Branch_Code>
   <Branch_Name> ANAF SLIKA UMISHLOACH </Branch_Name>
   <Address> lilinblom  10</Address>
   <City>Tel Aviv - Yafo</City>
@@ -17420,7 +17404,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>21/09/2008</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17454,7 +17438,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17471,7 +17455,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17488,7 +17472,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17505,7 +17489,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Saturday</Day_Closed>
   <Open_Date>02/01/2002</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17522,7 +17506,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17573,10 +17557,9 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
-
  </BRANCH>
  <BRANCH>
   <Bank_Code>10</Bank_Code>
@@ -17608,7 +17591,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17625,7 +17608,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17676,7 +17659,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17710,7 +17693,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17727,7 +17710,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>31/07/2007</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17738,7 +17721,8 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Branch_Name>halutzay hataasia</Branch_Name>
   <Address>halotzy hataasia 9</Address>
   <City>Haifa</City>
-  <Zip_Code>2629409</Zip_Code>
+  <Zip_Code>
+2629409</Zip_Code>
   <POB/>
   <Telephone>076-8674599</Telephone>
   <Fax>076-8674589</Fax>
@@ -17761,7 +17745,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17778,7 +17762,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17812,7 +17796,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17829,7 +17813,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Saturday</Day_Closed>
   <Open_Date>25/02/2007</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17846,7 +17830,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/06/2008</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17863,7 +17847,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>09/11/1997</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17880,7 +17864,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17897,7 +17881,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17915,7 +17899,6 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
   <Day_Closed>Sunday</Day_Closed>
-
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17932,7 +17915,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>05/02/2002</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17949,7 +17932,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17966,7 +17949,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -17983,7 +17966,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18034,7 +18017,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>20/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18051,7 +18034,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18068,14 +18051,15 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
   <Bank_Code>10</Bank_Code>
   <Bank_Name>Bank Leumi Le-Israel B.M</Bank_Name>
-  <Branch_Code>795</Branch_Code>
+  <Branch_Code>
+795</Branch_Code>
   <Branch_Name> PEKIIN </Branch_Name>
   <Address> CENTER VILLAGE , PEKIIN  0</Address>
   <City>Peqi&apos;in (Buqei&apos;a)</City>
@@ -18085,7 +18069,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>14/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18102,7 +18086,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18119,7 +18103,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18136,7 +18120,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>18/03/1998</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18153,7 +18137,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>07/07/2008</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18170,7 +18154,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18187,7 +18171,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18204,7 +18188,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>21/02/2008</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18221,7 +18205,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>26/11/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18238,7 +18222,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Saturday</Day_Closed>
   <Open_Date>01/01/2018</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18255,12 +18239,11 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
-
   <Bank_Code>10</Bank_Code>
   <Bank_Name>Bank Leumi Le-Israel B.M</Bank_Name>
   <Branch_Code>37</Branch_Code>
@@ -18290,7 +18273,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>12/07/2011</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18307,7 +18290,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>22/02/2001</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18324,7 +18307,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>17/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18341,7 +18324,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>28/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18358,7 +18341,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18375,7 +18358,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>17/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18392,7 +18375,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>22/02/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18407,9 +18390,10 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <POB/>
   <Telephone>03-9545522</Telephone>
   <Fax/>
-  <Free_Telephone>*5522</Free_Telephone>
+  <Free_Telephone>
+*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>11/04/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18443,7 +18427,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>30/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18460,7 +18444,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>28/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18494,7 +18478,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>23/10/2006</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18511,7 +18495,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18528,7 +18512,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>02/12/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18545,7 +18529,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>09/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18562,7 +18546,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>23/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18579,7 +18563,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>24/12/1997</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18596,14 +18580,13 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
   <Bank_Code>10</Bank_Code>
   <Bank_Name>Bank Leumi Le-Israel B.M</Bank_Name>
-
   <Branch_Code>787</Branch_Code>
   <Branch_Name> jat </Branch_Name>
   <Address> elshafeie  0</Address>
@@ -18614,7 +18597,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>21/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18631,7 +18614,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18665,7 +18648,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18682,7 +18665,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>12/10/2010</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18699,7 +18682,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18716,7 +18699,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>20/11/2000</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18740,6 +18723,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
  <BRANCH>
   <Bank_Code>10</Bank_Code>
   <Bank_Name>Bank Leumi Le-Israel B.M</Bank_Name>
+
   <Branch_Code>715</Branch_Code>
   <Branch_Name> private banking horev </Branch_Name>
   <Address> Horev 14 Haifa  14</Address>
@@ -18750,7 +18734,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>*5522</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>27/05/2015</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18784,7 +18768,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>15/08/1998</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18801,7 +18785,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18818,7 +18802,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>11/01/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18835,7 +18819,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>27/06/1993</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18852,7 +18836,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>15/07/2008</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18869,7 +18853,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/11/1999</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18886,7 +18870,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18920,7 +18904,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18947,7 +18931,6 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Branch_Code>505</Branch_Code>
   <Branch_Name>Matam haifa</Branch_Name>
   <Address>Andrei Sacharov St. Haifa 6</Address>
-
   <City>Haifa</City>
   <Zip_Code>3508406</Zip_Code>
   <POB/>
@@ -18955,7 +18938,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>16/06/2009</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18972,7 +18955,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -18989,7 +18972,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>15/12/1994</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19006,7 +18989,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19023,7 +19006,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>15/10/1983</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19040,7 +19023,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>02-9406176</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>19/11/2017</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19057,7 +19040,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>12/04/2015</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19075,7 +19058,8 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
   <Day_Closed/>
-  <Open_Date>15/01/1992</Open_Date>
+  <Open_Date>
+15/01/1992</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
@@ -19091,7 +19075,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/01/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19108,7 +19092,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/01/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19125,7 +19109,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>15/05/2002</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19142,7 +19126,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19159,7 +19143,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19278,7 +19262,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/11/2010</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19291,12 +19275,11 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <City>Tel Aviv - Yafo</City>
   <Zip_Code>6971036</Zip_Code>
   <POB/>
-  <Telephone>
-076-8041280</Telephone>
+  <Telephone>076-8041280</Telephone>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>03/04/2001</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19305,15 +19288,15 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Bank_Name>Mizrahi Tefahot Bank Ltd</Bank_Name>
   <Branch_Code>436</Branch_Code>
   <Branch_Name>Yaffa Courts</Branch_Name>
-  <Address>Salame St. Yafo 4</Address>
+  <Address>Salame St. Yafo 15</Address>
   <City>Tel Aviv - Yafo</City>
-  <Zip_Code>6811114</Zip_Code>
+  <Zip_Code>6802142</Zip_Code>
   <POB/>
   <Telephone>03-5133222</Telephone>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19330,7 +19313,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19347,7 +19330,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>25/11/1983</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19364,7 +19347,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>20/09/1983</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19381,7 +19364,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19409,13 +19392,14 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Branch_Name>Kikar Hamedina</Branch_Name>
   <Address>Weizman St. Tel Aviv 32</Address>
   <City>Tel Aviv - Yafo</City>
+
   <Zip_Code>6209105</Zip_Code>
   <POB/>
   <Telephone>076-8040100</Telephone>
   <Fax/>
   <Free_Telephone>03-7106060</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/07/1999</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19432,7 +19416,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19466,7 +19450,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>30/10/1993</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19483,7 +19467,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19500,7 +19484,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8622927</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>26/03/2018</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19534,7 +19518,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>06/12/1983</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19551,7 +19535,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19568,7 +19552,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19585,7 +19569,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19602,7 +19586,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>22/03/2015</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19619,7 +19603,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8622950</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>30/04/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19635,9 +19619,8 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Telephone>076-8041930</Telephone>
   <Fax/>
   <Free_Telephone>076-8622953</Free_Telephone>
-
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>28/04/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19739,7 +19722,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>25/10/1983</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19747,6 +19730,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Bank_Code>20</Bank_Code>
   <Bank_Name>Mizrahi Tefahot Bank Ltd</Bank_Name>
   <Branch_Code>565</Branch_Code>
+
   <Branch_Name>Ashdod City</Branch_Name>
   <Address>Jerusalem Blvd , Asdod 12</Address>
   <City>Ashdod</City>
@@ -19756,7 +19740,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/01/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19790,7 +19774,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/08/2008</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19807,7 +19791,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/11/2011</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19824,7 +19808,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>05/01/2015</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19841,7 +19825,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/12/1999</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19858,7 +19842,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19875,7 +19859,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19892,7 +19876,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/01/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19909,7 +19893,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>15/11/2006</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19926,7 +19910,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19943,7 +19927,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>10/09/2013</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19960,7 +19944,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -19977,9 +19961,8 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
-  <Open_Date>
-28/01/1949</Open_Date>
+  <Day_Closed>Friday</Day_Closed>
+  <Open_Date>28/01/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
@@ -20012,7 +19995,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>15/12/1995</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20029,7 +20012,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>15/09/1996</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20046,7 +20029,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>05/07/1999</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20079,8 +20062,9 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Telephone>076-8041630</Telephone>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
-  <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Handicap_Accessible>
+Yes</Handicap_Accessible>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>27/12/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20114,7 +20098,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>06/03/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20131,7 +20115,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20165,7 +20149,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20182,7 +20166,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20191,15 +20175,15 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Bank_Name>Mizrahi Tefahot Bank Ltd</Bank_Name>
   <Branch_Code>406</Branch_Code>
   <Branch_Name>Hatzrot Yafo</Branch_Name>
-  <Address>Salame,Tel Aviv Yafo 4</Address>
+  <Address>Salame,Tel Aviv Yafo 15</Address>
   <City>Tel Aviv - Yafo</City>
-  <Zip_Code>6811114</Zip_Code>
+  <Zip_Code>6802142</Zip_Code>
   <POB/>
   <Telephone>03-5133222</Telephone>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20216,7 +20200,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20250,7 +20234,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>10/01/2010</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20267,7 +20251,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>18/09/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20284,7 +20268,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/01/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20301,7 +20285,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>14/10/2018</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20318,13 +20302,12 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/01/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
-  <Bank_Code>
-20</Bank_Code>
+  <Bank_Code>20</Bank_Code>
   <Bank_Name>Mizrahi Tefahot Bank Ltd</Bank_Name>
   <Branch_Code>542</Branch_Code>
   <Branch_Name>Netanya Business Center</Branch_Name>
@@ -20336,7 +20319,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/03/2012</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20353,7 +20336,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/03/2012</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20370,7 +20353,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20387,7 +20370,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20404,7 +20387,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>19/08/2018</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20413,6 +20396,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Bank_Name>Mizrahi Tefahot Bank Ltd</Bank_Name>
   <Branch_Code>549</Branch_Code>
   <Branch_Name>Baqa al-Gharbiyye</Branch_Name>
+
   <Address>Alkuds, Baqa al-Gharbiyye 1</Address>
   <City>Baqa Al-Gharbiyye</City>
   <Zip_Code>3010000</Zip_Code>
@@ -20421,7 +20405,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>26/09/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20438,7 +20422,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>17/05/2015</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20455,7 +20439,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>29/12/2014</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20668,8 +20652,7 @@ Bank Leumi Le-Israel B.M</Bank_Name>
   <Bank_Name>Mizrahi Tefahot Bank Ltd</Bank_Name>
   <Branch_Code>476</Branch_Code>
   <Branch_Name>Beni Barak Business Center</Branch_Name>
-  <Address>
-Rabbi Tarfon St. Benei Bark 1</Address>
+  <Address>Rabbi Tarfon St. Benei Bark 1</Address>
   <City>Bene Beraq</City>
   <Zip_Code>5141901</Zip_Code>
   <POB/>
@@ -20677,7 +20660,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20694,7 +20677,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20711,7 +20694,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>30/12/2014</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20728,7 +20711,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20745,7 +20728,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20757,12 +20740,13 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Address>Hanassi Blvd. Dimona 1</Address>
   <City>Dimona</City>
   <Zip_Code>8603401</Zip_Code>
+
   <POB/>
   <Telephone>076-8040560</Telephone>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>15/11/1983</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20779,7 +20763,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>09-7678767</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>21/02/2018</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20796,7 +20780,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>15/12/2014</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20813,7 +20797,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>15/09/1999</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20830,7 +20814,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20847,7 +20831,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>12/03/2020</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -20983,7 +20967,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>03/09/2012</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21022,7 +21006,6 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
-
   <Bank_Code>20</Bank_Code>
   <Bank_Name>Mizrahi Tefahot Bank Ltd</Bank_Name>
   <Branch_Code>488</Branch_Code>
@@ -21103,8 +21086,9 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
-  <Open_Date>01/01/2005</Open_Date>
+  <Day_Closed>Friday</Day_Closed>
+  <Open_Date>
+01/01/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
@@ -21120,7 +21104,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/11/1999</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21137,7 +21121,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21154,7 +21138,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21171,7 +21155,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/11/1999</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21205,7 +21189,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21222,7 +21206,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21239,7 +21223,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21256,7 +21240,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21341,7 +21325,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>03-7106060</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/01/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21358,7 +21342,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>28/08/2008</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21371,8 +21355,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <City>Ramat Gan</City>
   <Zip_Code>5252007</Zip_Code>
   <POB/>
-  <Telephone>
-03-7559550</Telephone>
+  <Telephone>03-7559550</Telephone>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
@@ -21393,7 +21376,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>30/07/1983</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21410,7 +21393,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>12/07/1993</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21427,7 +21410,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>20/01/1980</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21445,6 +21428,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
   <Day_Closed/>
+
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21461,7 +21445,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21529,7 +21513,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21563,7 +21547,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/01/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21580,7 +21564,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21614,7 +21598,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21665,7 +21649,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>26/08/1998</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21682,7 +21666,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21699,7 +21683,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21716,13 +21700,12 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
-  <Bank_Code>
-20</Bank_Code>
+  <Bank_Code>20</Bank_Code>
   <Bank_Name>Mizrahi Tefahot Bank Ltd</Bank_Name>
   <Branch_Code>420</Branch_Code>
   <Branch_Name>Hadera</Branch_Name>
@@ -21734,7 +21717,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21751,7 +21734,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21768,7 +21751,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>23/06/1994</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21785,8 +21768,9 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
-  <Open_Date>02/04/2009</Open_Date>
+  <Day_Closed>Friday</Day_Closed>
+  <Open_Date>
+02/04/2009</Open_Date>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
@@ -21802,7 +21786,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>No</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>15/02/2017</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21819,7 +21803,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21853,7 +21837,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>25/09/1983</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21870,7 +21854,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21887,7 +21871,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>04/04/1994</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21904,7 +21888,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21921,7 +21905,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>25/03/1996</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -21938,7 +21922,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22068,7 +22052,6 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Branch_Name>Ecselent 2 Kup&quot;g</Branch_Name>
   <Address>Petah Tiqwa</Address>
   <City>Petah Tiqwa</City>
-
   <Zip_Code>4951125</Zip_Code>
   <POB/>
   <Telephone>03-7536655</Telephone>
@@ -22092,7 +22075,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>03-7106060</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/01/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22109,7 +22092,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/09/2010</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22126,8 +22109,9 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>30/07/1983</Open_Date>
+
   <Close_Date/>
  </BRANCH>
  <BRANCH>
@@ -22143,7 +22127,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>02/06/1998</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22160,7 +22144,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22177,7 +22161,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22194,7 +22178,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22228,7 +22212,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/01/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22245,7 +22229,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/01/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22262,7 +22246,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>19/09/2016</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22313,7 +22297,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/01/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22347,7 +22331,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22364,7 +22348,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>26/06/2018</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22381,7 +22365,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/01/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22406,7 +22390,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Bank_Code>20</Bank_Code>
   <Bank_Name>Mizrahi Tefahot Bank Ltd</Bank_Name>
   <Branch_Code>464</Branch_Code>
-  <Branch_Name>TKey.TKey.L</Branch_Name>
+  <Branch_Name>K.K.L</Branch_Name>
   <Address>Kakal St. Beer Sheva 130</Address>
   <City>Be&apos;er Sheva</City>
   <Zip_Code>8420187</Zip_Code>
@@ -22414,7 +22398,6 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Telephone>076-8041440</Telephone>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
-
   <Handicap_Accessible>Yes</Handicap_Accessible>
   <Day_Closed/>
   <Open_Date>01/02/1949</Open_Date>
@@ -22433,7 +22416,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22450,7 +22433,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22465,9 +22448,10 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <POB/>
   <Telephone>076-8040390</Telephone>
   <Fax/>
+
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>01/02/1949</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22484,7 +22468,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>16/05/2019</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22501,7 +22485,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>05/09/1999</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22518,7 +22502,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>15/12/1994</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22535,7 +22519,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>01/01/2005</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22552,7 +22536,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Sunday</Day_Closed>
   <Open_Date>05/09/2007</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22586,7 +22570,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Fax/>
   <Free_Telephone>076-8048860</Free_Telephone>
   <Handicap_Accessible>Yes</Handicap_Accessible>
-  <Day_Closed/>
+  <Day_Closed>Friday</Day_Closed>
   <Open_Date>03/07/1991</Open_Date>
   <Close_Date/>
  </BRANCH>
@@ -22765,7 +22749,6 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Bank_Name>Bank Massad Ltd</Bank_Name>
   <Branch_Code>520</Branch_Code>
   <Branch_Name>AOM AL FAHEM</Branch_Name>
-
   <Address>SEVEN CENTER 1</Address>
   <City>Umm al-Fahm</City>
   <Zip_Code>3001000</Zip_Code>
@@ -22817,6 +22800,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Bank_Name>Bank Massad Ltd</Bank_Name>
   <Branch_Code>515</Branch_Code>
   <Branch_Name>Jerusalem</Branch_Name>
+
   <Address>Shamai St. 16 , Jerusalem 16</Address>
   <City>Jerusalem</City>
   <Zip_Code>9463122</Zip_Code>
@@ -23135,7 +23119,6 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Open_Date>31/07/2008</Open_Date>
   <Close_Date/>
  </BRANCH>
-
  <BRANCH>
   <Bank_Code>17</Bank_Code>
   <Bank_Name>Mercantile Discount Bank ltd</Bank_Name>
@@ -23186,6 +23169,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Day_Closed/>
   <Open_Date>02/02/1949</Open_Date>
   <Close_Date/>
+
  </BRANCH>
  <BRANCH>
   <Bank_Code>17</Bank_Code>
@@ -23505,8 +23489,7 @@ Rabbi Tarfon St. Benei Bark 1</Address>
   <Telephone>076-8063200</Telephone>
   <Fax/>
   <Free_Telephone/>
-  <Handicap_Accessible>
-No</Handicap_Accessible>
+  <Handicap_Accessible>No</Handicap_Accessible>
   <Day_Closed/>
   <Open_Date>14/06/2005</Open_Date>
   <Close_Date/>
@@ -23557,6 +23540,7 @@ No</Handicap_Accessible>
   <Telephone>076-8064500</Telephone>
   <Fax/>
   <Free_Telephone/>
+
   <Handicap_Accessible>No</Handicap_Accessible>
   <Day_Closed/>
   <Open_Date>15/11/1996</Open_Date>
@@ -23872,8 +23856,7 @@ No</Handicap_Accessible>
   <Bank_Code>17</Bank_Code>
   <Bank_Name>Mercantile Discount Bank ltd</Bank_Name>
   <Branch_Code>734</Branch_Code>
-  <Branch_Name>
-Beitar Elit</Branch_Name>
+  <Branch_Name>Beitar Elit</Branch_Name>
   <Address>Hearn 20</Address>
   <City>Betar Illit</City>
   <Zip_Code/>
@@ -23924,7 +23907,8 @@ Beitar Elit</Branch_Name>
   <Bank_Code>17</Bank_Code>
   <Bank_Name>Mercantile Discount Bank ltd</Bank_Name>
   <Branch_Code>625</Branch_Code>
-  <Branch_Name>Mi&apos;iliya</Branch_Name>
+  <Branch_Name>
+Mi&apos;iliya</Branch_Name>
   <Address>Mi&apos;iliya 0</Address>
   <City>Mi&apos;elya</City>
   <Zip_Code>2514000</Zip_Code>
@@ -24238,7 +24222,6 @@ Beitar Elit</Branch_Name>
   <Telephone>076-8069400</Telephone>
   <Fax/>
   <Free_Telephone/>
-
   <Handicap_Accessible>Yes</Handicap_Accessible>
   <Day_Closed/>
   <Open_Date>01/02/1949</Open_Date>
@@ -24287,7 +24270,8 @@ Beitar Elit</Branch_Name>
   <City>Ashdod</City>
   <Zip_Code>7710201</Zip_Code>
   <POB/>
-  <Telephone>076-8067600</Telephone>
+  <Telephone>
+076-8067600</Telephone>
   <Fax/>
   <Free_Telephone/>
   <Handicap_Accessible>No</Handicap_Accessible>
@@ -24603,8 +24587,7 @@ Beitar Elit</Branch_Name>
  </BRANCH>
  <BRANCH>
   <Bank_Code>17</Bank_Code>
-  <Bank_Name>
-Mercantile Discount Bank ltd</Bank_Name>
+  <Bank_Name>Mercantile Discount Bank ltd</Bank_Name>
   <Branch_Code>746</Branch_Code>
   <Branch_Name>Romema</Branch_Name>
   <Address>Jeremia 48</Address>
@@ -24654,7 +24637,8 @@ Mercantile Discount Bank ltd</Bank_Name>
   <Close_Date/>
  </BRANCH>
  <BRANCH>
-  <Bank_Code>17</Bank_Code>
+  <Bank_Code>
+17</Bank_Code>
   <Bank_Name>Mercantile Discount Bank ltd</Bank_Name>
   <Branch_Code>661</Branch_Code>
   <Branch_Name>Kanfai Nesharim</Branch_Name>
@@ -24945,8 +24929,7 @@ Mercantile Discount Bank ltd</Bank_Name>
  <BRANCH>
   <Bank_Code>52</Bank_Code>
   <Bank_Name>Poaley Agudat Israel Bank Ltd</Bank_Name>
-  <Branch_Code>
-172</Branch_Code>
+  <Branch_Code>172</Branch_Code>
   <Branch_Name>Ramot</Branch_Name>
   <Address>17,kisofim st. jerusalem 17</Address>
   <City>Jerusalem</City>
@@ -24989,7 +24972,8 @@ Mercantile Discount Bank ltd</Bank_Name>
   <Telephone>02-5011200</Telephone>
   <Fax>03-5134185</Fax>
   <Free_Telephone>*3009</Free_Telephone>
-  <Handicap_Accessible>No</Handicap_Accessible>
+  <Handicap_Accessible>
+No</Handicap_Accessible>
   <Day_Closed/>
   <Open_Date>27/12/1983</Open_Date>
   <Close_Date/>
@@ -25267,3 +25251,5 @@ Mercantile Discount Bank ltd</Bank_Name>
   <Close_Date/>
  </BRANCH>
 </BRANCHES>
+
+

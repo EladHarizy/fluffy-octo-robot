@@ -1,8 +1,8 @@
 using System.Text;
-using Lib.DataTypes;
+using Lib.Entities;
 using Lib.Interfaces;
 
-namespace Lib.Entities {
+namespace Lib.DataTypes {
 	public class BankAccount : ICloneable<BankAccount> {
 		public BankBranch Branch { get; private set; }
 
