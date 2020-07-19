@@ -10,6 +10,13 @@ using Lib.Entities;
 namespace presentation {
 	public partial class AddGuestRequestsPage : Page {
 		private MainWindow MainWindow { get; }
+
+		public CheckBoxList<Amenity> Amenities { get; }
+
+		public CheckBoxList<City> Cities { get; }
+
+		public CheckBoxList<Unit.Type> UnitTypes { get; }
+
 		private Validator<DatePicker> StartDateValidator { get; }
 
 		private Validator<DatePicker> EndDateValidator { get; }
@@ -46,6 +53,10 @@ namespace presentation {
 			InitializeComponent();
 			Business = business;
 			GuestSession = guest_session;
+			DataContext = this;
+			Amenities = new CheckBoxList<Amenity>(Business.Amenities);
+			UnitTypes = new CheckBoxList<Unit.Type>(Business.UnitTypes);
+			Cities = new CheckBoxList<City>(Business.Cities);
 
 			StartDateValidator = new Validator<DatePicker>(start_date, start_date_error);
 			StartDateValidator.AddCheck(
@@ -74,7 +85,13 @@ namespace presentation {
 		}
 
 		private void AddGuestRequest(object sender, RoutedEventArgs e) {
-			if (!StartDateValidator.Validate() || !EndDateValidator.Validate() || !NumberOfAdultsValidator.Validate() || !NumberOfChildrenValidator.Validate()) {
+			bool valid = true;
+			valid = StartDateValidator.Validate() ? valid : false;
+			valid = EndDateValidator.Validate() ? valid : false;
+			valid = NumberOfAdultsValidator.Validate() ? valid : false;
+			valid = NumberOfChildrenValidator.Validate() ? valid : false;
+
+			if (!valid) {
 				return;
 			}
 
