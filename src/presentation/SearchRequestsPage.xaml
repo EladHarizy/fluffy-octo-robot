@@ -30,12 +30,16 @@
 						</Grid>
 						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=start_date_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
 							<StackPanel Style="{StaticResource side_panel_sub_row}">
-								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="start_date_filter_type" ItemsSource="{Binding StartDateCondition.FilterTypes}" Visibility="{Binding IsChecked, ElementName=start_date_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-								<TextBlock x:Name="start_date_filter_type_error" Style="{StaticResource error}" Visibility="{Binding Visibility, ElementName=start_date_filter_type}"/>
-								<DatePicker x:Name="start_date_filter_value_1" md:HintAssist.Hint="Date" Visibility="{Binding Path=SelectedItem.Control1Visibility, ElementName=start_date_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
-								<TextBlock x:Name="start_date_filter_value_1_error" Style="{StaticResource error}" Visibility="{Binding Visibility, ElementName=start_date_filter_value_1}"/>
-								<DatePicker x:Name="start_date_filter_value_2" md:HintAssist.Hint="Date" Visibility="{Binding Path=SelectedItem.Control2Visibility, ElementName=start_date_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
-								<TextBlock x:Name="start_date_filter_value_2_error" Style="{StaticResource error}" Visibility="{Binding Visibility, ElementName=start_date_filter_value_2}"/>
+								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="start_date_filter_type" ItemsSource="{Binding StartDateCondition.FilterTypes}"/>
+								<TextBlock x:Name="start_date_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.Control1Visibility, ElementName=start_date_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<DatePicker x:Name="start_date_filter_value_1" md:HintAssist.Hint="Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+									<TextBlock x:Name="start_date_filter_value_1_error" Style="{StaticResource error}"/>
+								</StackPanel>
+								<StackPanel Visibility="{Binding Path=SelectedItem.Control2Visibility, ElementName=start_date_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<DatePicker x:Name="start_date_filter_value_2" md:HintAssist.Hint="Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+									<TextBlock x:Name="start_date_filter_value_2_error" Style="{StaticResource error}"/>
+								</StackPanel>
 							</StackPanel>
 						</Border>
 						<Separator/>
@@ -47,45 +51,16 @@
 						</Grid>
 						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=end_date_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
 							<StackPanel Style="{StaticResource side_panel_sub_row}">
-								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="end_date_filter_type">
-									<ComboBoxItem x:Name="end_date_filter_type_equals">Equals</ComboBoxItem>
-									<ComboBoxItem x:Name="end_date_filter_type_before">Before</ComboBoxItem>
-									<ComboBoxItem x:Name="end_date_filter_type_after">After</ComboBoxItem>
-									<ComboBoxItem x:Name="end_date_filter_type_between">Between</ComboBoxItem>
-								</ComboBox>
-								<DatePicker x:Name="end_date_filter_value_1" md:HintAssist.Hint="Date">
-									<DatePicker.Style>
-										<Style TargetType="DatePicker" BasedOn="{StaticResource MaterialDesignFloatingHintDatePicker}">
-											<Setter Property="Visibility" Value="Collapsed"/>
-											<Style.Triggers>
-												<DataTrigger Binding="{Binding ElementName=end_date_filter_type_equals, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-												<DataTrigger Binding="{Binding ElementName=end_date_filter_type_before, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-												<DataTrigger Binding="{Binding ElementName=end_date_filter_type_after, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-												<DataTrigger Binding="{Binding ElementName=end_date_filter_type_between, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-											</Style.Triggers>
-										</Style>
-									</DatePicker.Style>
-								</DatePicker>
-								<DatePicker x:Name="end_date_filter_value_2" md:HintAssist.Hint="Date">
-									<DatePicker.Style>
-										<Style TargetType="DatePicker" BasedOn="{StaticResource MaterialDesignFloatingHintDatePicker}">
-											<Setter Property="Visibility" Value="Collapsed"/>
-											<Style.Triggers>
-												<DataTrigger Binding="{Binding ElementName=end_date_filter_type_between, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-											</Style.Triggers>
-										</Style>
-									</DatePicker.Style>
-								</DatePicker>
+								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="end_date_filter_type" ItemsSource="{Binding EndDateCondition.FilterTypes}"/>
+								<TextBlock x:Name="end_date_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.Control1Visibility, ElementName=end_date_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<DatePicker x:Name="end_date_filter_value_1" md:HintAssist.Hint="Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+									<TextBlock x:Name="end_date_filter_value_1_error" Style="{StaticResource error}"/>
+								</StackPanel>
+								<StackPanel Visibility="{Binding Path=SelectedItem.Control2Visibility, ElementName=end_date_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<DatePicker x:Name="end_date_filter_value_2" md:HintAssist.Hint="Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+									<TextBlock x:Name="end_date_filter_value_2_error" Style="{StaticResource error}"/>
+								</StackPanel>
 							</StackPanel>
 						</Border>
 						<Separator/>
@@ -97,45 +72,16 @@
 						</Grid>
 						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=adults_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
 							<StackPanel Style="{StaticResource side_panel_sub_row}">
-								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="adults_filter_type">
-									<ComboBoxItem x:Name="adults_filter_type_equals">Equals</ComboBoxItem>
-									<ComboBoxItem x:Name="adults_filter_type_less">Less than</ComboBoxItem>
-									<ComboBoxItem x:Name="adults_filter_type_more">More than</ComboBoxItem>
-									<ComboBoxItem x:Name="adults_filter_type_between">Between</ComboBoxItem>
-								</ComboBox>
-								<TextBox x:Name="adults_filter_value_1" md:HintAssist.Hint="Number">
-									<TextBox.Style>
-										<Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
-											<Setter Property="Visibility" Value="Collapsed"/>
-											<Style.Triggers>
-												<DataTrigger Binding="{Binding ElementName=adults_filter_type_equals, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-												<DataTrigger Binding="{Binding ElementName=adults_filter_type_less, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-												<DataTrigger Binding="{Binding ElementName=adults_filter_type_more, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-												<DataTrigger Binding="{Binding ElementName=adults_filter_type_between, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-											</Style.Triggers>
-										</Style>
-									</TextBox.Style>
-								</TextBox>
-								<TextBox x:Name="adults_filter_value_2" md:HintAssist.Hint="Number">
-									<TextBox.Style>
-										<Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
-											<Setter Property="Visibility" Value="Collapsed"/>
-											<Style.Triggers>
-												<DataTrigger Binding="{Binding ElementName=adults_filter_type_between, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-											</Style.Triggers>
-										</Style>
-									</TextBox.Style>
-								</TextBox>
+								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="adults_filter_type" ItemsSource="{Binding AdultsCondition.FilterTypes}"/>
+								<TextBlock x:Name="adults_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.Control1Visibility, ElementName=adults_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBox x:Name="adults_filter_value_1" md:HintAssist.Hint="Number" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+									<TextBlock x:Name="adults_filter_value_1_error" Style="{StaticResource error}"/>
+								</StackPanel>
+								<StackPanel Visibility="{Binding Path=SelectedItem.Control2Visibility, ElementName=adults_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBox x:Name="adults_filter_value_2" md:HintAssist.Hint="Number" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+									<TextBlock x:Name="adults_filter_value_2_error" Style="{StaticResource error}"/>
+								</StackPanel>
 							</StackPanel>
 						</Border>
 						<Separator/>
@@ -147,45 +93,16 @@
 						</Grid>
 						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=children_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
 							<StackPanel Style="{StaticResource side_panel_sub_row}">
-								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="children_filter_type">
-									<ComboBoxItem x:Name="children_filter_type_equals">Equals</ComboBoxItem>
-									<ComboBoxItem x:Name="children_filter_type_less">Less than</ComboBoxItem>
-									<ComboBoxItem x:Name="children_filter_type_more">More than</ComboBoxItem>
-									<ComboBoxItem x:Name="children_filter_type_between">Between</ComboBoxItem>
-								</ComboBox>
-								<TextBox x:Name="children_filter_value_1" md:HintAssist.Hint="Number">
-									<TextBox.Style>
-										<Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
-											<Setter Property="Visibility" Value="Collapsed"/>
-											<Style.Triggers>
-												<DataTrigger Binding="{Binding ElementName=children_filter_type_equals, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-												<DataTrigger Binding="{Binding ElementName=children_filter_type_less, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-												<DataTrigger Binding="{Binding ElementName=children_filter_type_more, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-												<DataTrigger Binding="{Binding ElementName=children_filter_type_between, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-											</Style.Triggers>
-										</Style>
-									</TextBox.Style>
-								</TextBox>
-								<TextBox x:Name="children_filter_value_2" md:HintAssist.Hint="Number">
-									<TextBox.Style>
-										<Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
-											<Setter Property="Visibility" Value="Collapsed"/>
-											<Style.Triggers>
-												<DataTrigger Binding="{Binding ElementName=children_filter_type_between, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-											</Style.Triggers>
-										</Style>
-									</TextBox.Style>
-								</TextBox>
+								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="children_filter_type" ItemsSource="{Binding ChildrenCondition.FilterTypes}"/>
+								<TextBlock x:Name="children_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.Control1Visibility, ElementName=children_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBox x:Name="children_filter_value_1" md:HintAssist.Hint="Number" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+									<TextBlock x:Name="children_filter_value_1_error" Style="{StaticResource error}"/>
+								</StackPanel>
+								<StackPanel Visibility="{Binding Path=SelectedItem.Control2Visibility, ElementName=children_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBox x:Name="children_filter_value_2" md:HintAssist.Hint="Number" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+									<TextBlock x:Name="children_filter_value_2_error" Style="{StaticResource error}"/>
+								</StackPanel>
 							</StackPanel>
 						</Border>
 						<Separator/>
@@ -197,16 +114,18 @@
 						</Grid>
 						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=city_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
 							<StackPanel Style="{StaticResource side_panel_sub_row}">
-								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type">
-									<ComboBoxItem IsSelected="True">Contains some of</ComboBoxItem>
-								</ComboBox>
-								<ItemsControl ItemsSource="{Binding Cities}">
-									<ItemsControl.ItemTemplate>
-										<DataTemplate>
-											<CheckBox IsChecked="{Binding Selected, Mode=TwoWay}" Content="{Binding Object.Name}"/>
-										</DataTemplate>
-									</ItemsControl.ItemTemplate>
-								</ItemsControl>
+								<ComboBox x:Name="cities_filter_type" Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" ItemsSource="{Binding CitiesCondition.FilterTypes}"/>
+								<TextBlock x:Name="cities_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.CheckBoxListVisibility, ElementName=cities_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBlock x:Name="cities_filter_checkboxes_error" Style="{StaticResource error}"/>
+									<ItemsControl x:Name="cities_filter_checkboxes" ItemsSource="{Binding Cities}">
+										<ItemsControl.ItemTemplate>
+											<DataTemplate>
+												<CheckBox IsChecked="{Binding Selected, Mode=TwoWay}" Content="{Binding Object.Name}"/>
+											</DataTemplate>
+										</ItemsControl.ItemTemplate>
+									</ItemsControl>
+								</StackPanel>
 							</StackPanel>
 						</Border>
 						<Separator/>
@@ -321,8 +240,8 @@
 								<GridViewColumn x:Name="adults_column" DisplayMemberBinding="{Binding Adults}" Header="ADULTS"/>
 								<GridViewColumn x:Name="children_column" DisplayMemberBinding="{Binding Children}" Header="CHILDREN"/>
 								<GridViewColumn DisplayMemberBinding="{Binding Region, Converter={StaticResource IEnumerableConverter}}" Header="CITIES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
-								<GridViewColumn DisplayMemberBinding="{Binding UnitTypes, Converter={StaticResource IEnumerableConverter}}" Header="UNIT TYPES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
-								<GridViewColumn DisplayMemberBinding="{Binding Amenities, Converter={StaticResource IEnumerableConverter}}" Header="AMENITIES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
+								<GridViewColumn DisplayMemberBinding="{Binding DesiredUnitTypes, Converter={StaticResource IEnumerableConverter}}" Header="UNIT TYPES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
+								<GridViewColumn DisplayMemberBinding="{Binding DesiredAmenities, Converter={StaticResource IEnumerableConverter}}" Header="AMENITIES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
 								<GridViewColumn x:Name="view_column">
 									<GridViewColumn.CellTemplate>
 										<DataTemplate>

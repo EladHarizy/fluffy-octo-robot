@@ -22,11 +22,11 @@ namespace presentation {
 
 		public IEnumerable<FilterType> FilterTypes { get; }
 
-		public SingleValueCondition(ToggleButton toggle, ComboBox filter_type_combo_box, DatePicker value_1, DatePicker value_2, Func<TObj, TValue> obj_to_value, Func<Control, TValue> control_to_value) {
+		public SingleValueCondition(ToggleButton toggle, ComboBox filter_type_combo_box, Control control_1, Control control_2, Func<TObj, TValue> obj_to_value, Func<Control, TValue> control_to_value) {
 			Toggle = toggle;
 			FilterTypeComboBox = filter_type_combo_box;
-			Control1 = value_1;
-			Control2 = value_2;
+			Control1 = control_1;
+			Control2 = control_2;
 			ObjToValue = obj_to_value;
 			ControlToValue = control_to_value;
 
@@ -42,7 +42,7 @@ namespace presentation {
 		}
 
 		public bool Test(TObj obj) {
-			return (Toggle.IsChecked ?? false) && (FilterTypeComboBox.SelectedItem as FilterType).Test(ObjToValue(obj), Control1, Control2);
+			return !(Toggle.IsChecked ?? false) || (FilterTypeComboBox.SelectedItem as FilterType).Test(ObjToValue(obj), Control1, Control2);
 		}
 	}
 }

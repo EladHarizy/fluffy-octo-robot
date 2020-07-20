@@ -10,7 +10,7 @@ namespace presentation {
 			// This is what would be shown in the GUI when the user selects a FilterType
 			public string Label { get; }
 
-			// A function which re
+			// A function which returns true if the condition succeeds
 			public Func<TValue, Control, Control, bool> Test { get; }
 
 			public Visibility Control1Visibility { get; }
