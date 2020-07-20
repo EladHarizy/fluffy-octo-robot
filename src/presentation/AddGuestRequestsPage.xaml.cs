@@ -11,6 +11,12 @@ namespace presentation {
 	public partial class AddGuestRequestsPage : ValidatedPage {
 		private MainWindow MainWindow { get; }
 
+		public CheckBoxList<Amenity> Amenities { get; }
+
+		public CheckBoxList<City> Cities { get; }
+
+		public CheckBoxList<Unit.Type> UnitTypes { get; }
+
 		private IBusiness Business { get; }
 
 		private Session<Guest> GuestSession { get; }
@@ -23,22 +29,14 @@ namespace presentation {
 
 		private int NumberOfChildren;
 
-		private IEnumerable<City> Region {
-			get; // TODO: Make this return an enumerable of the checked cities
-		}
-
-		private IEnumerable<Amenity> DesiredAmenities {
-			get; // TODO: Make this return an enumerable of the checked cities
-		}
-
-		private IEnumerable<Unit.Type> DesiredUnitTypes {
-			get; // TODO: Make this return an enumerable of the checked cities
-		}
-
 		public AddGuestRequestsPage(IBusiness business, Session<Guest> guest_session) {
 			InitializeComponent();
 			Business = business;
 			GuestSession = guest_session;
+			DataContext = this;
+			Amenities = new CheckBoxList<Amenity>(Business.Amenities);
+			UnitTypes = new CheckBoxList<Unit.Type>(Business.UnitTypes);
+			Cities = new CheckBoxList<City>(Business.Cities);
 
 			Validators = new List<IValidator>() {
 				new Validator<DatePicker>(start_date, start_date_error,
@@ -66,23 +64,19 @@ namespace presentation {
 			if (!Validate()) {
 				return;
 			}
-
-			try {
-				Business.AddGuestRequest(new GuestRequest(
-					Guest,
-					((DateTime) start_date.SelectedDate).ToDate(),
-					((DateTime) end_date.SelectedDate).ToDate(),
-					NumberOfAdults,
-					NumberOfChildren,
-					Region.ToHashSet(),
-					DesiredUnitTypes.ToHashSet(),
-					DesiredAmenities.ToHashSet()
-				));
-			}
-			// TODO: Catch all the errors that the try might throw instead of catching Exception
-			catch (Exception) {
-				return;
-			}
+			
+			IEnumerable<City> selected_cities = Cities.SelectedItems;
+			IEnumerable<Unit.Type> selected_types = UnitTypes.SelectedItems;
+			Business.AddGuestRequest(new GuestRequest(
+				Guest,
+				((DateTime) start_date.SelectedDate).ToDate(),
+				((DateTime) end_date.SelectedDate).ToDate(),
+				NumberOfAdults,
+				NumberOfChildren,
+				(selected_cities.Count() == 0 ? Business.Cities : selected_cities).ToHashSet(),
+				(selected_types.Count() == 0 ? Business.UnitTypes : selected_types).ToHashSet(),
+				Amenities.SelectedItems.ToHashSet()
+			));
 		}
 
 		private void Cancel(object sender, RoutedEventArgs e) {
