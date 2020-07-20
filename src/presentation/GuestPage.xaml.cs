@@ -6,30 +6,39 @@ using business;
 using Lib.Entities;
 
 namespace presentation {
-    public partial class GuestPage : Page {
-        private IBusiness Business { get; }
+	public partial class GuestPage : Page {
+		private IBusiness Business { get; }
 
-        private Frame Frame { get; }
+		private Frame Frame { get; }
 
-        private Session<Guest> GuestSession { get; }
+		private Session<Guest> GuestSession { get; }
 
-        public Guest Guest {
-            get => GuestSession.Person;
-        }
+		public Guest Guest {
+			get => GuestSession.Person;
+		}
 
-        public ObservableCollection<GuestRequest> GuestRequests { get; }
+		public ObservableCollection<GuestRequest> GuestRequests { get; }
 
-        public GuestPage(IBusiness business, Session<Guest> guest_session, Frame frame) {
-            InitializeComponent();
-            Business = business;
-            GuestSession = guest_session;
-            Frame = frame;
-            GuestRequests = new ObservableCollection<GuestRequest>(Business.GuestRequests());
-            DataContext = this;
-        }
+		public GuestPage(IBusiness business, Session<Guest> guest_session, Frame frame) {
+			InitializeComponent();
+			Business = business;
+			GuestSession = guest_session;
+			Frame = frame;
+			GuestRequests = new ObservableCollection<GuestRequest>(Business.GuestRequests());
+			DataContext = this;
+		}
 
-        private void SignOut(object sender, RoutedEventArgs e) {
-            GuestSession.SignOut();
-        }
-    }
+		private void SignOut(object sender, RoutedEventArgs e) {
+			GuestSession.SignOut();
+		}
+
+		private void NewGuestRequest(object sender, RoutedEventArgs e) {
+			Frame.Navigate(new AddGuestRequestsPage(Business, Frame, Guest));
+		}
+
+		private void IgnorePreviewMouseWheel(object sender, MouseWheelEventArgs e) {
+			HandlePreviewMouseWheel.IgnorePreviewMouseWheel(sender, e);
+		}
+
+	}
 }

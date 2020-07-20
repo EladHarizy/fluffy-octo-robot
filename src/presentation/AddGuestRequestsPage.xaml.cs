@@ -11,6 +11,8 @@ namespace presentation {
 	public partial class AddGuestRequestsPage : ValidatedPage {
 		private MainWindow MainWindow { get; }
 
+		private Frame Frame { get; }
+
 		public CheckBoxList<Amenity> Amenities { get; }
 
 		public CheckBoxList<City> Cities { get; }
@@ -19,20 +21,17 @@ namespace presentation {
 
 		private IBusiness Business { get; }
 
-		private Session<Guest> GuestSession { get; }
-
-		private Guest Guest {
-			get => GuestSession.Person;
-		}
+		private Guest Guest { get; }
 
 		private int NumberOfAdults;
 
 		private int NumberOfChildren;
 
-		public AddGuestRequestsPage(IBusiness business, Session<Guest> guest_session) {
+		public AddGuestRequestsPage(IBusiness business, Frame frame, Guest guest) {
 			InitializeComponent();
 			Business = business;
-			GuestSession = guest_session;
+			Frame = frame;
+			Guest = guest;
 			DataContext = this;
 			Amenities = new CheckBoxList<Amenity>(Business.Amenities);
 			UnitTypes = new CheckBoxList<Unit.Type>(Business.UnitTypes);
@@ -64,7 +63,7 @@ namespace presentation {
 			if (!Validate()) {
 				return;
 			}
-			
+
 			IEnumerable<City> selected_cities = Cities.SelectedItems;
 			IEnumerable<Unit.Type> selected_types = UnitTypes.SelectedItems;
 			Business.AddGuestRequest(new GuestRequest(
@@ -80,7 +79,7 @@ namespace presentation {
 		}
 
 		private void Cancel(object sender, RoutedEventArgs e) {
-			GuestSession.SignOut();
+			Frame.GoBack();
 		}
 	}
 }
