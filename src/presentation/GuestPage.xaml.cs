@@ -40,5 +40,13 @@ namespace presentation {
 			HandlePreviewMouseWheel.IgnorePreviewMouseWheel(sender, e);
 		}
 
+		private void ViewGuestRequest(object sender, RoutedEventArgs e) {
+			// TODO
+		}
+
+		private void EditGuestRequest(object sender, RoutedEventArgs e) {
+			GuestRequest guest_request = (sender as Button).CommandParameter as GuestRequest;
+			Frame.Navigate(new EditGuestRequest());
+		}
 	}
 }

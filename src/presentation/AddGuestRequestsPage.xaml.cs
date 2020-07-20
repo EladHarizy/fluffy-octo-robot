@@ -76,6 +76,8 @@ namespace presentation {
 				(selected_types.Count() == 0 ? Business.UnitTypes : selected_types).ToHashSet(),
 				Amenities.SelectedItems.ToHashSet()
 			));
+
+			Frame.GoBack();
 		}
 
 		private void Cancel(object sender, RoutedEventArgs e) {
