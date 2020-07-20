@@ -7,7 +7,7 @@ using Lib.DataTypes;
 using Lib.Entities;
 
 namespace presentation {
-	public partial class AddUnitPage : Page {
+	public partial class AddUnitPage : ValidatedPage {
 		public IBusiness Business { get; }
 
 		private Frame Frame { get; }
@@ -15,12 +15,6 @@ namespace presentation {
 		private Host Host { get; }
 
 		public CheckBoxList<Amenity> Amenities { get; }
-
-		private Validator<TextBox> UnitNameValidator { get; }
-
-		private Validator<ComboBox> UnitTypeValidator { get; }
-
-		private Validator<ComboBox> CityValidator { get; }
 
 		ICollection<Unit> UiUnits { get; }
 
@@ -33,23 +27,23 @@ namespace presentation {
 			Amenities = new CheckBoxList<Amenity>(Business.Amenities);
 			UiUnits = ui_units;
 
-			UnitNameValidator = new Validator<TextBox>(name, name_error);
-			UnitNameValidator.AddCheck(control => control.Text == "" ? "Error: Unit name is required." : "");
-			UnitNameValidator.AddCheck(control => control.Text.Length > 30 ? "Error: Unit name is too long." : "");
+			Validators = new List<IValidator>() {
+				new Validator<TextBox>(name, name_error,
+						control => control.Text == "" ? "Error: Unit name is required." : "",
+						control => control.Text.Length > 30 ? "Error: Unit name is too long." : ""
+					),
 
-			UnitTypeValidator = new Validator<ComboBox>(unit_type, unit_type_error);
-			UnitTypeValidator.AddCheck(control => control.SelectedValue == null ? "Error: Unit type is required." : "");
+					new Validator<ComboBox>(unit_type, unit_type_error,
+						control => control.SelectedValue == null ? "Error: Unit type is required." : ""
+					),
 
-			CityValidator = new Validator<ComboBox>(city, city_error);
-			CityValidator.AddCheck(control => control.SelectedValue == null ? "Error: City is required." : "");
+					new Validator<ComboBox>(city, city_error,
+						control => control.SelectedValue == null ? "Error: City is required." : ""
+					)
+			};
 		}
 		private void AddUnit(object sender, RoutedEventArgs e) {
-			bool valid = true;
-			valid = UnitNameValidator.Validate() ? valid : false;
-			valid = UnitTypeValidator.Validate() ? valid : false;
-			valid = CityValidator.Validate() ? valid : false;
-
-			if (!valid) {
+			if (!Validate()) {
 				return;
 			}
 
