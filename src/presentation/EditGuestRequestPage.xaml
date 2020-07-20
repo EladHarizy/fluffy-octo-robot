@@ -2,21 +2,44 @@
     <StackPanel Style="{StaticResource stack_of_cards}">
         <md:Card Style="{StaticResource padded_stack_card}">
             <StackPanel><!-- Card contents -->
-                <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Edit Your Holiday</TextBlock>
-                <Separator Height="20"/>
-                <TextBlock>Fill in the details below and we&apos;ll get back to you with relevant rental offers.</TextBlock>
-                <Rectangle Height="20"/>
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel Width="300"><!-- Form -->
-                        <DatePicker Style="{StaticResource MaterialDesignFloatingHintDatePicker}" md:HintAssist.Hint="Start Date" x:Name="start_date"/>
-                        <TextBlock x:Name="start_date_error" Style="{StaticResource error}"/>
-                        <DatePicker Style="{StaticResource MaterialDesignFloatingHintDatePicker}" md:HintAssist.Hint="End Date" x:Name="end_date"/>
-                        <TextBlock x:Name="end_date_error" Style="{StaticResource error}"/>
-                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Number of Adults" x:Name="number_of_adults"/>
-                        <TextBlock x:Name="number_of_adults_error" Style="{StaticResource error}"/>
-                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Number of Children" x:Name="number_of_children"/>
-                        <TextBlock x:Name="number_of_children_error" Style="{StaticResource error}"/>
-                    </StackPanel>
+                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="Edit Guest Request "></TextBlock>
+                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="{Binding GuestRequest}"/>
+                </StackPanel>
+                <Separator Height="30"/>
+                <StackPanel Orientation="Horizontal">
+                    <Grid><!-- Form -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/><!-- Field labels -->
+                            <ColumnDefinition Width="20"/><!-- Space -->
+                            <ColumnDefinition Width="250"/><!-- Field inputs -->
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <DatePicker Grid.Column="0" Grid.Row="0">Start Date</DatePicker>
+                        <ComboBox Grid.Column="2" Grid.Row="0" x:Name="start_date" SelectedItem="{Binding GuestRequest.StartDate, Mode=OneTime}"/>
+                        <TextBlock Grid.Column="2" Grid.Row="1" x:Name="start_date_error" Style="{StaticResource error}"/>
+                        <DatePicker Grid.Column="0" Grid.Row="3">End Date</DatePicker>
+                        <ComboBox Grid.Column="2" Grid.Row="3" x:Name="end_date" SelectedItem="{Binding GuestRequest.EndDate, Mode=OneTime}"/>
+                        <TextBlock Grid.Column="2" Grid.Row="4" x:Name="end_date_error" Style="{StaticResource error}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="6">Number of Adults</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="6" x:Name="number_of_adults" Text="{Binding GuestRequest.NumberOfAdults, Mode=OneTime}"/>
+                        <TextBox Grid.Column="2" Grid.Row="7" x:Name="number_of_adults_error" Style="{StaticResourse error}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="9">Number of Children</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="9" x:Name="number_of_children" Text="{Binding GuestRequest.NumberOfChildren, Mode=OneTime}"/>
+                        <TextBlock Grid.Column="2" Grid.Row="10" x:Name="number_of_children_error" Style="{StaticResource error}"/>
+                    </Grid>
                     <Rectangle Width="40"/>
                     <StackPanel><!-- Cities Checkboxes -->
                         <TextBlock>Cities</TextBlock>
@@ -56,10 +79,10 @@
                 </StackPanel>
                 <Separator Height="30"/>
                 <StackPanel Grid.Row="5" Orientation="Horizontal"><!-- Submit buttons -->
-                    <Button Click="AddGuestRequest">
+                    <Button Click="EditGuestRequest">
                         <StackPanel Orientation="Horizontal">
-                            <md:PackIcon Kind="AddCircle"/>
-                            <TextBlock Margin="5 0 5 0">ADD REQUEST</TextBlock>
+                            <md:PackIcon Kind="ContentSave"/>
+                            <TextBlock Margin="5 0 5 0">SAVE</TextBlock>
                         </StackPanel>
                     </Button>
                     <Rectangle Width="10"/>
