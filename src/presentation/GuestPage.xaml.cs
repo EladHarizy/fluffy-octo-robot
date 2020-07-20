@@ -27,5 +27,9 @@ namespace presentation {
             GuestRequests = new ObservableCollection<GuestRequest>(Business.GuestRequests());
             DataContext = this;
         }
+
+        private void SignOut(object sender, RoutedEventArgs e) {
+            GuestSession.SignOut();
+        }
     }
 }
