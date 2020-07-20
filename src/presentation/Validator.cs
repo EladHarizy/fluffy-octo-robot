@@ -5,10 +5,14 @@ using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace presentation {
-	internal class Validator<TControl> where TControl : Control {
+	internal class Validator<TControl> : IValidator where TControl : Control {
+		public Control BaseControl {
+			get => Control;
+		}
+
 		private TControl Control { get; }
 
-		private TextBlock ErrorBlock { get; }
+		public TextBlock ErrorBlock { get; }
 
 		private Brush InitialBorder { get; }
 
