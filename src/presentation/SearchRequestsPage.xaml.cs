@@ -31,6 +31,8 @@ namespace presentation {
 
 		public CheckBoxList<Unit.Type> UnitTypes { get; }
 
+		public CollectionSimpleCondition<GuestRequest, Unit.Type> UnitTypesCondition { get; }
+
 		public CheckBoxList<Amenity> Amenities { get; }
 
 		public SearchRequestsPage(IBusiness business, Frame frame, Host host) {
@@ -80,10 +82,17 @@ namespace presentation {
 			);
 
 			CitiesCondition = new CollectionSimpleCondition<GuestRequest, City>(
-				city_filter_toggle,
+				cities_filter_toggle,
 				cities_filter_type,
 				Cities,
 				guest_request => guest_request.Region
+			);
+
+			UnitTypesCondition = new CollectionSimpleCondition<GuestRequest, Unit.Type>(
+				unit_types_filter_toggle,
+				unit_types_filter_type,
+				UnitTypes,
+				guest_request => guest_request.DesiredUnitTypes
 			);
 
 			Validators = new List<IValidator>() {
@@ -154,7 +163,13 @@ namespace presentation {
 					new Validator<ComboBox>(cities_filter_type, cities_filter_type_error, control => control.SelectedItem == null ? "Error: A filter type must be picked" : ""),
 
 					new Validator<ItemsControl>(cities_filter_checkboxes, cities_filter_checkboxes_error,
-						checkbox_list => (checkbox_list.ItemsSource as CheckBoxList<City>).SelectedItems.Count() <= 0 ? "Error: Must select at least one city." : ""
+						checkbox_list => (checkbox_list.ItemsSource as CheckBoxList<City>).SelectedItems.Count() <= 0 ? "Error: Must select at least one city to use this filter." : ""
+					),
+
+					new Validator<ComboBox>(unit_types_filter_type, unit_types_filter_type_error, control => control.SelectedItem == null ? "Error: A filter type must be picked" : ""),
+
+					new Validator<ItemsControl>(unit_types_filter_checkboxes, unit_types_filter_checkboxes_error,
+						checkbox_list => (checkbox_list.ItemsSource as CheckBoxList<Unit.Type>).SelectedItems.Count() <= 0 ? "Error: Must select at least one unit type to use this filter." : ""
 					)
 			};
 
@@ -174,7 +189,7 @@ namespace presentation {
 				return;
 			}
 
-			Filter = new Filter<GuestRequest>(Business.GuestRequests(), StartDateCondition, EndDateCondition, AdultsCondition, ChildrenCondition, CitiesCondition /*, UnitTypeCondition, AmenitiesCondition*/ );
+			Filter = new Filter<GuestRequest>(Business.GuestRequests(), StartDateCondition, EndDateCondition, AdultsCondition, ChildrenCondition, CitiesCondition, UnitTypesCondition /*,AmenitiesCondition*/ );
 			filtered_guest_requests.ItemsSource = Filter.ApplyFilter();
 		}
 

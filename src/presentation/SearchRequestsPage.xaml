@@ -109,10 +109,10 @@
 						<Grid Style="{StaticResource side_panel_row}">
 							<ItemsControl Style="{StaticResource split_grid}">
 								<TextBlock Grid.Column="0">City</TextBlock>
-								<ToggleButton Grid.Column="2" x:Name="city_filter_toggle"/>
+								<ToggleButton Grid.Column="2" x:Name="cities_filter_toggle"/>
 							</ItemsControl>
 						</Grid>
-						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=city_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
+						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=cities_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
 							<StackPanel Style="{StaticResource side_panel_sub_row}">
 								<ComboBox x:Name="cities_filter_type" Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" ItemsSource="{Binding CitiesCondition.FilterTypes}"/>
 								<TextBlock x:Name="cities_filter_type_error" Style="{StaticResource error}"/>
@@ -132,21 +132,23 @@
 						<Grid Style="{StaticResource side_panel_row}">
 							<ItemsControl Style="{StaticResource split_grid}">
 								<TextBlock Grid.Column="0">Unit type</TextBlock>
-								<ToggleButton Grid.Column="2" x:Name="unit_type_filter_toggle"/>
+								<ToggleButton Grid.Column="2" x:Name="unit_types_filter_toggle"/>
 							</ItemsControl>
 						</Grid>
-						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=unit_type_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
+						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=unit_types_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
 							<StackPanel Style="{StaticResource side_panel_sub_row}">
-								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type">
-									<ComboBoxItem IsSelected="True">Contains some of</ComboBoxItem>
-								</ComboBox>
-								<ItemsControl ItemsSource="{Binding UnitTypes}">
-									<ItemsControl.ItemTemplate>
-										<DataTemplate>
-											<CheckBox IsChecked="{Binding Selected, Mode=TwoWay}" Content="{Binding Object.Name}"/>
-										</DataTemplate>
-									</ItemsControl.ItemTemplate>
-								</ItemsControl>
+								<ComboBox x:Name="unit_types_filter_type" Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" ItemsSource="{Binding UnitTypesCondition.FilterTypes}"/>
+								<TextBlock x:Name="unit_types_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.CheckBoxListVisibility, ElementName=unit_types_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBlock x:Name="unit_types_filter_checkboxes_error" Style="{StaticResource error}"/>
+									<ItemsControl x:Name="unit_types_filter_checkboxes" ItemsSource="{Binding UnitTypes}">
+										<ItemsControl.ItemTemplate>
+											<DataTemplate>
+												<CheckBox IsChecked="{Binding Selected, Mode=TwoWay}" Content="{Binding Object.Name}"/>
+											</DataTemplate>
+										</ItemsControl.ItemTemplate>
+									</ItemsControl>
+								</StackPanel>
 							</StackPanel>
 						</Border>
 						<Separator/>
