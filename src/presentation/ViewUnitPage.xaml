@@ -12,29 +12,19 @@
 					</Button>
 				</ItemsControl>
 				<Separator Height="30"/>
-				<Grid>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="Auto"/><!-- Field labels -->
-						<ColumnDefinition Width="20"/><!-- Space -->
-						<ColumnDefinition Width="250"/><!-- Field inputs -->
-						<ColumnDefinition Width="*"/>
-					</Grid.ColumnDefinitions>
-					<Grid.RowDefinitions>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition Height="Auto"/>
-					</Grid.RowDefinitions>
-					<TextBlock Grid.Column="0" Grid.Row="0">Name</TextBlock>
-					<TextBox Grid.Column="2" Grid.Row="0" Text="{Binding Unit.Name, Mode=OneTime}" IsReadOnly="True"/>
-					<TextBlock Grid.Column="0" Grid.Row="1">Type</TextBlock>
-					<TextBox Grid.Column="2" Grid.Row="1" Text="{Binding Unit.UnitType, Mode=OneTime}" IsReadOnly="True"/>
-					<TextBlock Grid.Column="0" Grid.Row="2">City</TextBlock>
-					<TextBox Grid.Column="2" Grid.Row="2" Text="{Binding Unit.City, Mode=OneTime}" IsReadOnly="True"/>
-					<TextBlock Grid.Column="0" Grid.Row="3">Amenities</TextBlock>
-					<TextBlock Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Text="{Binding Unit.Amenities, Converter={StaticResource IEnumerableConverter}}" TextWrapping="Wrap"/>
-				</Grid>
-				<Rectangle Width="40"/>
+				<StackPanel Orientation="Horizontal">
+					<StackPanel MinWidth="200">
+						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Name" Text="{Binding Unit.Name, Mode=OneTime}" IsReadOnly="True"/>
+						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Unit type" Text="{Binding Unit.UnitType, Mode=OneTime}" IsReadOnly="True"/>
+						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="City" Text="{Binding Unit.City, Mode=OneTime}" IsReadOnly="True"/>
+					</StackPanel>
+					<Rectangle Width="40"/>
+					<StackPanel><!-- Amenities -->
+						<TextBlock Grid.Column="0" Grid.Row="3">Amenities</TextBlock>
+						<Separator/>
+						<ItemsControl ItemsSource="{Binding Unit.Amenities}"/>
+					</StackPanel>
+				</StackPanel>
 			</StackPanel>
 		</md:Card>
 		<Separator/>

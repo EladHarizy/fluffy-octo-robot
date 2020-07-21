@@ -205,7 +205,8 @@ namespace presentation {
 		}
 
 		private void ViewGuestRequest(object sender, RoutedEventArgs e) {
-			// TODO
+			GuestRequest guest_request = (sender as Button).CommandParameter as GuestRequest;
+			Frame.Navigate(new ViewGuestRequestForHostPage(Business, Frame, guest_request));
 		}
 
 		private void IgnorePreviewMouseWheel(object sender, MouseWheelEventArgs e) {
