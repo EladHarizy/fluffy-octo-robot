@@ -1,24 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
 <guest_requests>
-	<guest_request>
-		<id>00000001</id>
-		<guest_id>00000004</guest_id>
-		<creation_date>15/06/2020</creation_date>
-		<start_date>26/10/2020</start_date>
-		<end_date>31/10/2020</end_date>
-		<active>True</active>
-		<adults>2</adults>
-		<children>0</children>
-		<desired_cities>
-			<city>Jerusalem</city>
-			<city>Ofakim</city>
-		</desired_cities>
-		<desired_unit_types>
-			<unit_type>Hotel</unit_type>
-			<unit_type>Villa</unit_type>
-		</desired_unit_types>
-		<desired_amenities>
-			<amenity>Wi-Fi</amenity>
-			<amenity>Swimming pool</amenity>
-		</desired_amenities>
-	</guest_request>
+  <guest_request>
+    <id>00000001</id>
+    <guest_id>00000004</guest_id>
+    <creation_date>15/06/2020</creation_date>
+    <start_date>26/10/2020</start_date>
+    <end_date>31/10/2020</end_date>
+    <active>True</active>
+    <adults>2</adults>
+    <children>0</children>
+    <desired_cities>
+      <city>Jerusalem</city>
+      <city>Ofakim</city>
+    </desired_cities>
+    <desired_unit_types>
+      <unit_type>Hotel</unit_type>
+      <unit_type>Villa</unit_type>
+    </desired_unit_types>
+    <desired_amenities>
+      <amenity>Wi-Fi</amenity>
+      <amenity>Swimming pool</amenity>
+    </desired_amenities>
+  </guest_request>
+  <guest_request>
+    <id>00000002</id>
+    <guest_id>00000004</guest_id>
+    <creation_date>2020-07-20</creation_date>
+    <start_date>2020-07-31</start_date>
+    <end_date>2020-08-31</end_date>
+    <active>true</active>
+    <adults>8</adults>
+    <children>4</children>
+    <desired_cities>
+      <city>Eilat</city>
+      <city>Netanya</city>
+      <city>Tel Aviv-Yafo</city>
+    </desired_cities>
+    <desired_unit_types>
+      <unit_type>Apartment</unit_type>
+      <unit_type>Chalet</unit_type>
+      <unit_type>Cottage</unit_type>
+      <unit_type>Hotel</unit_type>
+      <unit_type>House</unit_type>
+      <unit_type>Villa</unit_type>
+    </desired_unit_types>
+    <desired_amenities>
+      <amenity>Kitchen</amenity>
+      <amenity>Laptop-friendly workspace</amenity>
+      <amenity>TV</amenity>
+      <amenity>Private bathroom</amenity>
+      <amenity>Swimming pool</amenity>
+      <amenity>Jacuzzi</amenity>
+    </desired_amenities>
+  </guest_request>
 </guest_requests>
