@@ -1,10 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <orders>
-	<order>
-		<id>00000001</id>
-		<unit_id>00000003</unit_id>
-		<guest_request_id>00000001</guest_request_id>
-		<status>Not addressed</status>
-		<creation_date>22/06/2020</creation_date>
-		<email_delivery_date>23/06/2020</email_delivery_date>
-	</order>
+  <order>
+    <id>00000001</id>
+    <unit_id>00000002</unit_id>
+    <guest_request_id>00000001</guest_request_id>
+    <status>Not addressed</status>
+    <creation_date>22/06/2020</creation_date>
+    <email_delivery_date>23/06/2020</email_delivery_date>
+    <message>Please come to my place</message>
+  </order>
+  <order>
+    <id>00000002</id>
+    <unit_id>00000004</unit_id>
+    <guest_request_id>00000001</guest_request_id>
+    <status>Not addressed</status>
+    <creation_date>22/7/20</creation_date>
+    <email_delivery_date />
+    <message>It's really spooky, I'm telling you.</message>
+  </order>
 </orders>

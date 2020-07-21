@@ -16,6 +16,7 @@
 						<TextBlock x:Name="number_of_adults_error" Style="{StaticResource error}"/>
 						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Number of Children" x:Name="number_of_children"/>
 						<TextBlock x:Name="number_of_children_error" Style="{StaticResource error}"/>
+						<TextBox x:Name="message" Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Message for potential hosts to see" TextWrapping="Wrap" AcceptsReturn="True"/>
 					</StackPanel>
 					<Rectangle Width="40"/>
 					<StackPanel><!-- Cities Checkboxes -->

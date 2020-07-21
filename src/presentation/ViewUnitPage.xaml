@@ -13,10 +13,11 @@
 				</ItemsControl>
 				<Separator Height="30"/>
 				<StackPanel Orientation="Horizontal">
-					<StackPanel MinWidth="200">
+					<StackPanel MinWidth="200" MaxWidth="350">
 						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Name" Text="{Binding Unit.Name, Mode=OneTime}" IsReadOnly="True"/>
 						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Unit type" Text="{Binding Unit.UnitType, Mode=OneTime}" IsReadOnly="True"/>
 						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="City" Text="{Binding Unit.City, Mode=OneTime}" IsReadOnly="True"/>
+						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Description" Text="{Binding Unit.Description, Mode=OneTime}" IsReadOnly="True" TextWrapping="Wrap"/>
 					</StackPanel>
 					<Rectangle Width="40"/>
 					<StackPanel><!-- Amenities -->

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using business.Extensions;
@@ -58,7 +59,10 @@ namespace business {
 		}
 
 		public void EditOrder(ID id, Order.Status status) {
-			Order order = data.Order[id];
+			EditOrder(data.Order[id], status);
+		}
+
+		public void EditOrder(Order order, Order.Status status) {
 			// Order is already closed
 			if (order.OrderStatus == "Closed due to customer unresponsiveness" || order.OrderStatus == "Closed due to customer response") {
 				throw new OrderClosedException(order);
@@ -80,8 +84,8 @@ namespace business {
 					}
 				}
 			}
-			if (status == "Sent Mail") {
-				//TODO Send email
+			if (status == "Sent mail") {
+				new InvitationSender(order).Send();
 			}
 			order.OrderStatus = status;
 			data.Order.Edit(order);
@@ -218,7 +222,7 @@ namespace business {
 		public IDictionary<City, IEnumerable<GuestRequest>> GuestRequestsByCity() {
 			IDictionary<City, IEnumerable<GuestRequest>> dict = new Dictionary<City, IEnumerable<GuestRequest>>();
 			foreach (City city in data.City.All) {
-				dict[city] = data.GuestRequest.All.Where(guest_request => guest_request.Region.Contains(city));
+				dict[city] = data.GuestRequest.All.Where(guest_request => guest_request.DesiredCities.Contains(city));
 			}
 			return dict;
 		}

@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
 namespace presentation {
-	// This type of condition checks that some object (such as a GuestRequest) with a collection IEnumerable<TObj> (such as Region) matches some condition (determined by the selected FilterType). However, it can only filter by "Contains some of". (In this example the host who is searching only would be interested in knowing if the guest request contains at least one of the cities in which he has a hosting unit.)
+	// This type of condition checks that some object (such as a GuestRequest) with a collection IEnumerable<TObj> (such as DesiredCities) matches some condition (determined by the selected FilterType). However, it can only filter by "Contains some of". (In this example the host who is searching only would be interested in knowing if the guest request contains at least one of the cities in which he has a hosting unit.)
 	// TObj is the type of object being filtered, and TValue is the type that these objects are being filtered by
 	public partial class CollectionSimpleCondition<TObj, TValue> : ICondition<TObj> {
 		private ToggleButton Toggle { get; }

@@ -28,7 +28,7 @@ namespace Lib.DataTypes {
 		}
 
 		public static bool operator ==(Email email1, Email email2) {
-			return email1.Equals(email2);
+			return email1 is null ? email2 is null : email1.Equals(email2);
 		}
 
 		public static bool operator !=(Email email1, Email email2) {

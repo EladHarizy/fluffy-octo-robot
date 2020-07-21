@@ -14,6 +14,7 @@
 						<TextBlock x:Name="unit_type_error" Style="{StaticResource error}"/>
 						<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="City" x:Name="city" ItemsSource="{Binding Business.Cities}"/>
 						<TextBlock x:Name="city_error" Style="{StaticResource error}"/>
+						<TextBox x:Name="description" Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Description" TextWrapping="Wrap" AcceptsReturn="True"/>
 					</StackPanel>
 					<Rectangle Width="40"/>
 					<StackPanel><!-- Amenities Checkboxes -->

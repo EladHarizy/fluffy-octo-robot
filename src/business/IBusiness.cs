@@ -20,6 +20,8 @@ namespace business {
 
 		void EditOrder(ID id, Order.Status status);
 
+		void EditOrder(Order order, Order.Status status);
+
 		Guest Guest(ID id);
 
 		Guest Guest(Email email);

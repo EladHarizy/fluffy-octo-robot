@@ -64,7 +64,7 @@ namespace presentation {
 			if (!Validate()) {
 				return;
 			}
-			
+
 			IEnumerable<City> selected_cities = Cities.SelectedItems;
 			IEnumerable<Unit.Type> selected_types = UnitTypes.SelectedItems;
 			Business.AddGuestRequest(new GuestRequest(
@@ -73,6 +73,7 @@ namespace presentation {
 				((DateTime) end_date.SelectedDate).ToDate(),
 				NumberOfAdults,
 				NumberOfChildren,
+				message.Text,
 				(selected_cities.Count() == 0 ? Business.Cities : selected_cities).ToHashSet(),
 				(selected_types.Count() == 0 ? Business.UnitTypes : selected_types).ToHashSet(),
 				Amenities.SelectedItems.ToHashSet()

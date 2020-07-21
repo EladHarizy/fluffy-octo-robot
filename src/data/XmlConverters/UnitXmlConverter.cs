@@ -30,6 +30,7 @@ namespace data {
 				element.Element("id").Value.Trim(),
 				Hosts[element.Element("host_id").Value.Trim()],
 				element.Element("name").Value.Trim(),
+				element.Element("description").Value.Trim(),
 				element.Element("city").Value.Trim(),
 				amenities,
 				element.Element("unit_type").Value.Trim(),
@@ -62,6 +63,7 @@ namespace data {
 				calendar_xml,
 				new XElement("host_id", unit.Host.ID),
 				new XElement("name", unit.Name),
+				new XElement("description", unit.Description),
 				new XElement("city", unit.City),
 				amenities_xml,
 				new XElement("unit_type", unit.UnitType)

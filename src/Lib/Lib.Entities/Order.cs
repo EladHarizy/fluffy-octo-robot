@@ -18,15 +18,18 @@ namespace Lib.Entities {
 		// Email delivery date to customer
 		public Date? EmailDeliveryDate { get; set; }
 
-		public Order(Unit hosting_unit, GuestRequest guest_request) : this(null, hosting_unit, guest_request, new Status("Not Addressed"), Date.Today, null) {}
+		public string Message { get; set; }
 
-		public Order(ID id, Unit hosting_unit, GuestRequest guest_request, Status status, Date creation_date, Date? order_date) {
+		public Order(Unit hosting_unit, GuestRequest guest_request, string message) : this(null, hosting_unit, guest_request, new Status("Not addressed"), Date.Today, null, message) {}
+
+		public Order(ID id, Unit hosting_unit, GuestRequest guest_request, Status status, Date creation_date, Date? email_delivery_date, string message) {
 			ID = id;
 			Unit = hosting_unit;
 			GuestRequest = guest_request;
 			OrderStatus = status;
 			CreationDate = creation_date;
-			EmailDeliveryDate = order_date;
+			EmailDeliveryDate = email_delivery_date;
+			Message = message;
 		}
 
 		public override string ToString() {
@@ -75,7 +78,7 @@ namespace Lib.Entities {
 		}
 
 		public Order Clone() {
-			return new Order(ID, Unit.Clone(), GuestRequest.Clone(), OrderStatus, CreationDate, EmailDeliveryDate);
+			return new Order(ID, Unit.Clone(), GuestRequest.Clone(), OrderStatus, CreationDate, EmailDeliveryDate, Message);
 		}
 	}
 }

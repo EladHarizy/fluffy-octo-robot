@@ -62,7 +62,7 @@ namespace presentation {
 		}
 
 		private void SearchRequests(object sender, RoutedEventArgs e) {
-			Frame.Navigate(new SearchRequestsPage(Business, Frame, Host));
+			Frame.Navigate(new SearchRequestsPage(Business, Frame, Host, Orders));
 		}
 
 		private void ViewOrder(object sender, RoutedEventArgs e) {

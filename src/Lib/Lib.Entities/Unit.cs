@@ -12,6 +12,8 @@ namespace Lib.Entities {
 
 		public string Name { get; set; }
 
+		public string Description { get; set; }
+
 		public City City { get; set; }
 
 		public IEnumerable<Amenity> Amenities { get; set; }
@@ -25,6 +27,7 @@ namespace Lib.Entities {
 		public Unit(
 			Host host,
 			string name,
+			string description,
 			City city,
 			ICollection<Amenity> amenities,
 			Type unit_type
@@ -32,16 +35,18 @@ namespace Lib.Entities {
 			null, // initialized ID to null
 			host,
 			name,
+			description,
 			city,
 			amenities,
 			unit_type,
 			new Calendar()
 		) {}
 
-		public Unit(ID id, Host host, string name, City city, ICollection<Amenity> amenities, Type unit_type, Calendar bookings) {
+		public Unit(ID id, Host host, string name, string description, City city, ICollection<Amenity> amenities, Type unit_type, Calendar bookings) {
 			ID = id;
 			Host = host;
 			Name = name;
+			Description = description;
 			City = city;
 			Amenities = amenities;
 			UnitType = unit_type;
@@ -61,7 +66,7 @@ namespace Lib.Entities {
 		}
 
 		public Unit Clone() {
-			return new Unit(ID, Host, Name, City, new HashSet<Amenity>(Amenities), UnitType, Bookings.Clone());
+			return new Unit(ID, Host, Name, Description, City, new HashSet<Amenity>(Amenities), UnitType, Bookings.Clone());
 		}
 
 		public override bool Equals(object obj) {

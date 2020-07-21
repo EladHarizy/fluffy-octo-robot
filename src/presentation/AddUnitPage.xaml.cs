@@ -47,7 +47,7 @@ namespace presentation {
 				return;
 			}
 
-			Unit unit = new Unit(Host, name.Text, city.SelectedValue as City, new HashSet<Amenity>(Amenities.SelectedItems), unit_type.SelectedValue as Unit.Type);
+			Unit unit = new Unit(Host, name.Text, description.Text, city.SelectedValue as City, new HashSet<Amenity>(Amenities.SelectedItems), unit_type.SelectedValue as Unit.Type);
 			Business.AddUnit(unit);
 			UiUnits.Add(unit);
 

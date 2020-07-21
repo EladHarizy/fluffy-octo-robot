@@ -2,10 +2,17 @@
 <config>
   <fee_per_day>10</fee_per_day>
   <latest_ids>
-    <guests.xml>00000006</guests.xml>
-    <guest_requests.xml>00000001</guest_requests.xml>
+    <guests.xml>00000007</guests.xml>
+    <guest_requests.xml>00000003</guest_requests.xml>
     <hosts.xml>00000006</hosts.xml>
-    <orders.xml>00000001</orders.xml>
-    <units.xml>00000007</units.xml>
+    <orders.xml>00000002</orders.xml>
+    <units.xml>00000008</units.xml>
   </latest_ids>
+  <smtp_client>
+    <port>587</port>
+    <host>smtp.zoho.eu</host>
+    <username>fluffyoctorobot@zohomail.com</username>
+    <password>uMbV3pfNPw6E</password>
+  </smtp_client>
+  <admin_email>fluffyoctorobot@outlook.com</admin_email>
 </config>

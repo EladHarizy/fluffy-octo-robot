@@ -10,7 +10,7 @@ namespace data {
 			get => DataFactory.Data.Guest;
 		}
 
-		private readonly CollectionXmlConverter<City, HashSet<City>> region_converter = new CollectionXmlConverter<City, HashSet<City>>("region", "city");
+		private readonly CollectionXmlConverter<City, HashSet<City>> region_converter = new CollectionXmlConverter<City, HashSet<City>>("desired_cities", "city");
 
 		private readonly CollectionXmlConverter<Unit.Type, HashSet<Unit.Type>> unit_types_converter = new CollectionXmlConverter<Unit.Type, HashSet<Unit.Type>>("desired_unit_types", "unit_type");
 
@@ -26,7 +26,8 @@ namespace data {
 				bool.Parse(element.Element("active").Value.Trim()),
 				int.Parse(element.Element("adults").Value.Trim()),
 				int.Parse(element.Element("children").Value.Trim()),
-				region_converter.XmlToObj(element.Element("region")),
+				element.Element("message").Value.Trim(),
+				region_converter.XmlToObj(element.Element("desired_cities")),
 				unit_types_converter.XmlToObj(element.Element("desired_unit_types")),
 				amenities_converter.XmlToObj(element.Element("desired_amenities"))
 			);
@@ -43,7 +44,8 @@ namespace data {
 				new XElement("active", guest_request.Active),
 				new XElement("adults", guest_request.Adults),
 				new XElement("children", guest_request.Children),
-				region_converter.ObjToXml(guest_request.Region),
+				new XElement("message", guest_request.Message),
+				region_converter.ObjToXml(guest_request.DesiredCities),
 				unit_types_converter.ObjToXml(guest_request.DesiredUnitTypes),
 				amenities_converter.ObjToXml(guest_request.DesiredAmenities)
 			);

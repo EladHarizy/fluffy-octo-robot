@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,8 +15,6 @@ namespace presentation {
 		public Frame Frame { get; }
 
 		public Host Host { get; }
-
-		private Filter<GuestRequest> Filter { get; set; }
 
 		public SingleValueCondition<GuestRequest, Date> StartDateCondition { get; }
 
@@ -37,12 +36,16 @@ namespace presentation {
 
 		public CollectionComplexCondition<GuestRequest, Amenity> AmenitiesCondition { get; }
 
-		public SearchRequestsPage(IBusiness business, Frame frame, Host host) {
+		// The list of orders which must be passed on to AddOrderPage, in case an order is added.
+		private ObservableCollection<Order> Orders { get; }
+
+		public SearchRequestsPage(IBusiness business, Frame frame, Host host, ObservableCollection<Order> orders) {
 			InitializeComponent();
 			DataContext = this;
 			Business = business;
 			Frame = frame;
 			Host = host;
+			Orders = orders;
 			Cities = new CheckBoxList<City>(Business.Cities, Business.UnitsOf(Host).Select(unit => unit.City).Distinct());
 			UnitTypes = new CheckBoxList<Unit.Type>(Business.UnitTypes, Business.UnitsOf(Host).Select(unit => unit.UnitType).Distinct());
 			Amenities = new CheckBoxList<Amenity>(Business.Amenities, Business.UnitsOf(Host).Aggregate<Unit, IEnumerable<Amenity>>(new HashSet<Amenity>(), (acc, unit) => acc.Union(unit.Amenities)));
@@ -87,7 +90,7 @@ namespace presentation {
 				cities_filter_toggle,
 				cities_filter_type,
 				Cities,
-				guest_request => guest_request.Region
+				guest_request => guest_request.DesiredCities
 			);
 
 			UnitTypesCondition = new CollectionSimpleCondition<GuestRequest, Unit.Type>(
@@ -200,13 +203,13 @@ namespace presentation {
 				return;
 			}
 
-			Filter = new Filter<GuestRequest>(Business.GuestRequests(), StartDateCondition, EndDateCondition, AdultsCondition, ChildrenCondition, CitiesCondition, UnitTypesCondition, AmenitiesCondition);
-			filtered_guest_requests.ItemsSource = Filter.ApplyFilter();
+			Filter<GuestRequest> filter = new Filter<GuestRequest>(Business.GuestRequests().Where(guest_request => guest_request.Active), StartDateCondition, EndDateCondition, AdultsCondition, ChildrenCondition, CitiesCondition, UnitTypesCondition, AmenitiesCondition);
+			filtered_guest_requests.ItemsSource = filter.ApplyFilter();
 		}
 
 		private void ViewGuestRequest(object sender, RoutedEventArgs e) {
 			GuestRequest guest_request = (sender as Button).CommandParameter as GuestRequest;
-			Frame.Navigate(new ViewGuestRequestForHostPage(Business, Frame, guest_request));
+			Frame.Navigate(new AddOrderPage(Business, Frame, guest_request, Business.UnitsOf(Host), Orders));
 		}
 
 		private void IgnorePreviewMouseWheel(object sender, MouseWheelEventArgs e) {

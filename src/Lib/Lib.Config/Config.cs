@@ -1,6 +1,8 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Xml.Linq;
 using Lib.DataTypes;
 
@@ -35,6 +37,38 @@ namespace Lib.Config {
 					fee_per_day = int.Parse(ConfigXml.Element("fee_per_day").Value.Trim());
 				}
 				return fee_per_day ?? 0;
+			}
+		}
+
+		private static SmtpClient smtp_client;
+		public static SmtpClient SmtpClient {
+			get {
+				if (smtp_client == null) {
+					XElement smtp_client_xml = ConfigXml.Element("smtp_client");
+					smtp_client = new SmtpClient();
+
+					smtp_client.EnableSsl = true;
+					smtp_client.UseDefaultCredentials = false;
+					smtp_client.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+					string username = smtp_client_xml.Element("username").Value;
+					string password = smtp_client_xml.Element("password").Value;
+
+					smtp_client.Credentials = new NetworkCredential(username, password);
+					smtp_client.Port = int.Parse(smtp_client_xml.Element("port").Value.Trim());
+					smtp_client.Host = smtp_client_xml.Element("host").Value;
+				}
+				return smtp_client;
+			}
+		}
+
+		private static Email admin_email;
+		public static Email AdminEmail {
+			get {
+				if (admin_email == null) {
+					admin_email = config_xml.Element("admin_email").Value.Trim();
+				}
+				return admin_email;
 			}
 		}
 
