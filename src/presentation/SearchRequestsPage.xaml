@@ -160,30 +160,18 @@
 						</Grid>
 						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=amenities_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
 							<StackPanel Style="{StaticResource side_panel_sub_row}">
-								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type">
-									<ComboBoxItem x:Name="amenities_filter_type_some">Contains some of</ComboBoxItem>
-									<ComboBoxItem x:Name="amenities_filter_type_only">Contains only some of</ComboBoxItem>
-								</ComboBox>
-								<ItemsControl ItemsSource="{Binding Amenities}">
-									<ItemsControl.Style>
-										<Style TargetType="ItemsControl">
-											<Setter Property="Visibility" Value="Collapsed"/>
-											<Style.Triggers>
-												<DataTrigger Binding="{Binding ElementName=amenities_filter_type_some, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-												<DataTrigger Binding="{Binding ElementName=amenities_filter_type_only, Path=IsSelected}" Value="True">
-													<Setter Property="Visibility" Value="Visible"/>
-												</DataTrigger>
-											</Style.Triggers>
-										</Style>
-									</ItemsControl.Style>
-									<ItemsControl.ItemTemplate>
-										<DataTemplate>
-											<CheckBox IsChecked="{Binding Selected, Mode=TwoWay}" Content="{Binding Object.Name}"/>
-										</DataTemplate>
-									</ItemsControl.ItemTemplate>
-								</ItemsControl>
+								<ComboBox x:Name="amenities_filter_type" Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" ItemsSource="{Binding AmenitiesCondition.FilterTypes}"/>
+								<TextBlock x:Name="amenities_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.CheckBoxListVisibility, ElementName=amenities_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBlock x:Name="amenities_filter_checkboxes_error" Style="{StaticResource error}"/>
+									<ItemsControl x:Name="amenities_filter_checkboxes" ItemsSource="{Binding Amenities}">
+										<ItemsControl.ItemTemplate>
+											<DataTemplate>
+												<CheckBox IsChecked="{Binding Selected, Mode=TwoWay}" Content="{Binding Object.Name}"/>
+											</DataTemplate>
+										</ItemsControl.ItemTemplate>
+									</ItemsControl>
+								</StackPanel>
 							</StackPanel>
 						</Border>
 						<Separator/>

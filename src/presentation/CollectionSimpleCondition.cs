@@ -14,7 +14,10 @@ namespace presentation {
 
 		private CheckBoxList<TValue> CheckBoxItems { get; }
 
-		public IEnumerable<FilterType> FilterTypes { get; }
+		protected ICollection<FilterType> FilterTypesCollection { get; } = new List<FilterType>();
+		public IEnumerable<FilterType> FilterTypes {
+			get => FilterTypesCollection;
+		}
 
 		private Func<TObj, IEnumerable<TValue>> ObjToCollection { get; }
 
@@ -24,9 +27,7 @@ namespace presentation {
 			ObjToCollection = obj_to_collection;
 			CheckBoxItems = check_box_items;
 
-			FilterTypes = new List<FilterType> {
-				new FilterType("Contains some of", (obj_vals, checkbox_list) => obj_vals.Intersect(checkbox_list.SelectedItems).Count() != 0),
-			};
+			FilterTypesCollection.Add(new FilterType("Contains some of", (obj_vals, checkbox_list) => obj_vals.Intersect(checkbox_list.SelectedItems).Count() != 0));
 		}
 
 		public bool Test(TObj obj) {

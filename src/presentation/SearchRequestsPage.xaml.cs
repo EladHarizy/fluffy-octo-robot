@@ -35,6 +35,8 @@ namespace presentation {
 
 		public CheckBoxList<Amenity> Amenities { get; }
 
+		public CollectionComplexCondition<GuestRequest, Amenity> AmenitiesCondition { get; }
+
 		public SearchRequestsPage(IBusiness business, Frame frame, Host host) {
 			InitializeComponent();
 			DataContext = this;
@@ -43,7 +45,7 @@ namespace presentation {
 			Host = host;
 			Cities = new CheckBoxList<City>(Business.Cities, Business.UnitsOf(Host).Select(unit => unit.City).Distinct());
 			UnitTypes = new CheckBoxList<Unit.Type>(Business.UnitTypes, Business.UnitsOf(Host).Select(unit => unit.UnitType).Distinct());
-			Amenities = new CheckBoxList<Amenity>(Business.Amenities /* TODO: autoselect some amenities based on units he owns , Business.UnitsOf(Host).Select(unit => unit.UnitType).Distinct()*/ );
+			Amenities = new CheckBoxList<Amenity>(Business.Amenities, Business.UnitsOf(Host).Aggregate<Unit, IEnumerable<Amenity>>(new HashSet<Amenity>(), (acc, unit) => acc.Union(unit.Amenities)));
 
 			StartDateCondition = new SingleValueCondition<GuestRequest, Date>(
 				start_date_filter_toggle,
@@ -93,6 +95,13 @@ namespace presentation {
 				unit_types_filter_type,
 				UnitTypes,
 				guest_request => guest_request.DesiredUnitTypes
+			);
+
+			AmenitiesCondition = new CollectionComplexCondition<GuestRequest, Amenity>(
+				amenities_filter_toggle,
+				amenities_filter_type,
+				Amenities,
+				guest_request => guest_request.DesiredAmenities
 			);
 
 			Validators = new List<IValidator>() {
@@ -170,7 +179,9 @@ namespace presentation {
 
 					new Validator<ItemsControl>(unit_types_filter_checkboxes, unit_types_filter_checkboxes_error,
 						checkbox_list => (checkbox_list.ItemsSource as CheckBoxList<Unit.Type>).SelectedItems.Count() <= 0 ? "Error: Must select at least one unit type to use this filter." : ""
-					)
+					),
+
+					new Validator<ComboBox>(amenities_filter_type, amenities_filter_type_error, control => control.SelectedItem == null ? "Error: A filter type must be picked" : "")
 			};
 
 			Search();
@@ -189,7 +200,7 @@ namespace presentation {
 				return;
 			}
 
-			Filter = new Filter<GuestRequest>(Business.GuestRequests(), StartDateCondition, EndDateCondition, AdultsCondition, ChildrenCondition, CitiesCondition, UnitTypesCondition /*,AmenitiesCondition*/ );
+			Filter = new Filter<GuestRequest>(Business.GuestRequests(), StartDateCondition, EndDateCondition, AdultsCondition, ChildrenCondition, CitiesCondition, UnitTypesCondition, AmenitiesCondition);
 			filtered_guest_requests.ItemsSource = Filter.ApplyFilter();
 		}
 
