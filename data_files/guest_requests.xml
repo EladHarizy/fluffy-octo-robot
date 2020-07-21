@@ -8,10 +8,10 @@
 		<active>True</active>
 		<adults>2</adults>
 		<children>0</children>
-		<region>
+		<desired_cities>
 			<city>Jerusalem</city>
 			<city>Ofakim</city>
-		</region>
+		</desired_cities>
 		<desired_unit_types>
 			<unit_type>Hotel</unit_type>
 			<unit_type>Villa</unit_type>
