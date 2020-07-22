@@ -29,9 +29,16 @@ namespace data {
 			if (obj.Key() != null) {
 				throw new ObjectInDBException(obj, "Object with ID " + obj.Key() + " already exits in the database.");
 			}
-			obj.Key(next_key());
-			if (cache != null) {
-				cache.Add(obj.Key(), clone(obj));
+			while (true) {
+				obj.Key(next_key());
+				if (cache != null) {
+					try {
+						cache.Add(obj.Key(), clone(obj));
+						break;
+					} catch (ArgumentException) {
+						continue;
+					}
+				}
 			}
 			collection_xml.Add(Converter.ObjToXml(obj));
 			root.Save(FileName);
