@@ -5,14 +5,14 @@
     <guests.xml>00000007</guests.xml>
     <guest_requests.xml>00000003</guest_requests.xml>
     <hosts.xml>00000006</hosts.xml>
-    <orders.xml>00000002</orders.xml>
+    <orders.xml>00000017</orders.xml>
     <units.xml>00000008</units.xml>
   </latest_ids>
   <smtp_client>
     <port>587</port>
-    <host>smtp.zoho.eu</host>
-    <username>fluffyoctorobot@zohomail.com</username>
+    <host>smtp.gmail.com</host>
+    <username>fluffyoctorobot@gmail.com</username>
     <password>uMbV3pfNPw6E</password>
   </smtp_client>
-  <admin_email>fluffyoctorobot@outlook.com</admin_email>
+  <admin_email>fluffyoctorobot@gmail.com</admin_email>
 </config>

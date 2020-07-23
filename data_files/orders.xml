@@ -18,4 +18,139 @@
     <email_delivery_date />
     <message>It's really spooky, I'm telling you.</message>
   </order>
+  <order>
+    <id>00000003</id>
+    <unit_id>00000003</unit_id>
+    <guest_request_id>00000002</guest_request_id>
+    <status>Not addressed</status>
+    <creation_date>22/7/20</creation_date>
+    <email_delivery_date />
+    <message>Email test 1</message>
+  </order>
+  <order>
+    <id>00000004</id>
+    <unit_id>00000007</unit_id>
+    <guest_request_id>00000003</guest_request_id>
+    <status>Not addressed</status>
+    <creation_date>22/7/20</creation_date>
+    <email_delivery_date />
+    <message>email test 2</message>
+  </order>
+  <order>
+    <id>00000005</id>
+    <unit_id>00000006</unit_id>
+    <guest_request_id>00000001</guest_request_id>
+    <status>Not addressed</status>
+    <creation_date>22/7/20</creation_date>
+    <email_delivery_date />
+    <message>email test 3</message>
+  </order>
+  <order>
+    <id>00000006</id>
+    <unit_id>00000004</unit_id>
+    <guest_request_id>00000001</guest_request_id>
+    <status>Sent email</status>
+    <creation_date>22/7/20</creation_date>
+    <email_delivery_date />
+    <message>email test 4</message>
+  </order>
+  <order>
+    <id>00000007</id>
+    <unit_id>00000007</unit_id>
+    <guest_request_id>00000003</guest_request_id>
+    <status>Sent email</status>
+    <creation_date>22/7/20</creation_date>
+    <email_delivery_date />
+    <message>Please stay at my bungalo. PLEASEEE</message>
+  </order>
+  <order>
+    <id>00000008</id>
+    <unit_id>00000004</unit_id>
+    <guest_request_id>00000003</guest_request_id>
+    <status>Sent email</status>
+    <creation_date>22/7/20</creation_date>
+    <email_delivery_date />
+    <message>Its really spooky, im telling u</message>
+  </order>
+  <order>
+    <id>00000009</id>
+    <unit_id>00000006</unit_id>
+    <guest_request_id>00000002</guest_request_id>
+    <status>Sent email</status>
+    <creation_date>22/7/20</creation_date>
+    <email_delivery_date />
+    <message>Its a real nice chalet</message>
+  </order>
+  <order>
+    <id>00000010</id>
+    <unit_id>00000004</unit_id>
+    <guest_request_id>00000001</guest_request_id>
+    <status>Sent email</status>
+    <creation_date>22/7/20</creation_date>
+    <email_delivery_date />
+    <message>its spooky</message>
+  </order>
+  <order>
+    <id>00000011</id>
+    <unit_id>00000005</unit_id>
+    <guest_request_id>00000001</guest_request_id>
+    <status>Sent email</status>
+    <creation_date>22/7/20</creation_date>
+    <email_delivery_date />
+    <message>its a cool hotel</message>
+  </order>
+  <order>
+    <id>00000012</id>
+    <unit_id>00000003</unit_id>
+    <guest_request_id>00000001</guest_request_id>
+    <status>Not addressed</status>
+    <creation_date>22/7/20</creation_date>
+    <email_delivery_date />
+    <message>this should fail</message>
+  </order>
+  <order>
+    <id>00000013</id>
+    <unit_id>00000006</unit_id>
+    <guest_request_id>00000001</guest_request_id>
+    <status>Not addressed</status>
+    <creation_date>22/7/20</creation_date>
+    <email_delivery_date />
+    <message>this shouldnt work</message>
+  </order>
+  <order>
+    <id>00000014</id>
+    <unit_id>00000006</unit_id>
+    <guest_request_id>00000001</guest_request_id>
+    <status>Not addressed</status>
+    <creation_date>22/7/20</creation_date>
+    <email_delivery_date />
+    <message>this shouldnt work</message>
+  </order>
+  <order>
+    <id>00000015</id>
+    <unit_id>00000007</unit_id>
+    <guest_request_id>00000001</guest_request_id>
+    <status>Not addressed</status>
+    <creation_date>22/7/20</creation_date>
+    <email_delivery_date />
+    <message>this wont work</message>
+  </order>
+  <order>
+    <id>00000016</id>
+    <unit_id>00000007</unit_id>
+    <guest_request_id>00000001</guest_request_id>
+    <status>Not addressed</status>
+    <creation_date>22/7/20</creation_date>
+    <email_delivery_date />
+    <message>this wont work</message>
+  </order>
+  <order>
+    <id>00000017</id>
+    <unit_id>00000007</unit_id>
+    <guest_request_id>00000001</guest_request_id>
+    <status>Not addressed</status>
+    <creation_date>22/7/20</creation_date>
+    <email_delivery_date />
+    <message>this wont work</message>
+  </order>
 </orders>
