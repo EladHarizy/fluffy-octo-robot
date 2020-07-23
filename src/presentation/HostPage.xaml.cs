@@ -65,12 +65,9 @@ namespace presentation {
 			Frame.Navigate(new SearchRequestsPage(Business, Frame, Host, Orders));
 		}
 
-		private void ViewOrder(object sender, RoutedEventArgs e) {
-			// TODO
-		}
-
 		private void EditOrder(object sender, RoutedEventArgs e) {
-			// TODO
+			Order order = (sender as Button).CommandParameter as Order;
+			Frame.Navigate(new EditOrderPage(Business, Frame, order));
 		}
 
 		private void DeleteOrder(object sender, RoutedEventArgs e) {

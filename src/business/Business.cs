@@ -37,7 +37,7 @@ namespace business {
 
 		public void DeleteUnit(Unit unit) {
 			foreach (Order order in data.Order.All) {
-				if (order.OrderStatus == "Sent Mail" && order.Unit.ID == unit.ID) {
+				if (order.OrderStatus == "Sent email" && order.Unit.ID == unit.ID) {
 					throw new DeletingUnitWithOpenOrderException(unit, order);
 				}
 			}
@@ -83,12 +83,22 @@ namespace business {
 						EditOrder(order1.ID, "Closed due to customer unresponsiveness");
 					}
 				}
-			}
-			if (status == "Sent mail") {
-				new InvitationSender(order).Send();
+			} else if (status == "Sent email") {
+				try {
+					new InvitationSender(order).Send();
+				} catch (Exception e) when(e is InvalidOperationException || e is ObjectDisposedException || e is SmtpException || e is SmtpFailedRecipientException || e is SmtpFailedRecipientsException) {
+					return;
+				}
 			}
 			order.OrderStatus = status;
 			data.Order.Edit(order);
+		}
+
+		public void DeleteOrder(ID id) {
+			data.Order.Remove(id);
+		}
+		public void DeleteOrder(Order order) {
+			DeleteOrder(order.ID);
 		}
 
 		public Guest Guest(ID id) {
@@ -127,7 +137,7 @@ namespace business {
 			}
 			if (!host.DebitAuthorisation) {
 				foreach (Order order in data.Order.All) {
-					if (order.OrderStatus == "Sent Mail" && order.Unit.Host.ID == host.ID) {
+					if (order.OrderStatus == "Sent email" && order.Unit.Host.ID == host.ID) {
 						throw new AuthoriaztionRevokedWithOpenOrderException(host, order);
 					}
 				}
@@ -163,6 +173,10 @@ namespace business {
 
 		public IEnumerable<Unit> UnitsOf(Host host) {
 			return data.Unit.All.Where(unit => unit.Host.ID == host.ID);
+		}
+
+		public IEnumerable<Order.Status> OrderStatuses {
+			get => data.OrderStatus.All;
 		}
 
 		public IEnumerable<GuestRequest> GuestRequests() {

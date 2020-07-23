@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Net.Mail;
 using System.Windows;
 using System.Windows.Controls;
 using business;
@@ -37,9 +39,10 @@ namespace presentation {
 			Unit unit = unit_combo_box.SelectedItem as Unit;
 			Order order = new Order(unit, GuestRequest, message.Text);
 			Business.AddOrder(order);
-			Business.EditOrder(order, "Sent mail");
+			Business.EditOrder(order, "Sent email");
 			Orders.Add(order); // Update the UI Orders list
-			Frame.GoBack();
+			Frame.Navigate(new EditOrderPage(Business, Frame, order));
+			Frame.RemoveBackEntry();
 		}
 	}
 }

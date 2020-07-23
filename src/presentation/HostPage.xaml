@@ -166,7 +166,6 @@
 							<ColumnDefinition Width="*"/>
 							<ColumnDefinition Width="Auto"/>
 							<ColumnDefinition Width="Auto"/>
-							<ColumnDefinition Width="Auto"/>
 							<ColumnDefinition Width="20"/>
 						</Grid.ColumnDefinitions>
 						<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=order_id_column}"/>
@@ -174,9 +173,8 @@
 						<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=order_guest_column}"/>
 						<Rectangle Grid.Column="3" Width="{Binding ActualWidth, ElementName=order_status_column}"/>
 						<Rectangle Grid.Column="4" x:Name="order_wide_column"/>
-						<Rectangle Grid.Column="5" Width="{Binding ActualWidth, ElementName=order_view_column}"/>
-						<Rectangle Grid.Column="6" Width="{Binding ActualWidth, ElementName=order_edit_column}"/>
-						<Rectangle Grid.Column="7" Width="{Binding ActualWidth, ElementName=order_delete_column}"/>
+						<Rectangle Grid.Column="5" Width="{Binding ActualWidth, ElementName=order_edit_column}"/>
+						<Rectangle Grid.Column="6" Width="{Binding ActualWidth, ElementName=order_delete_column}"/>
 					</Grid>
 					<ListView ItemsSource="{Binding Orders, Mode=OneWay}" PreviewMouseWheel="IgnorePreviewMouseWheel">
 						<ListView.View>
@@ -186,15 +184,6 @@
 								<GridViewColumn x:Name="order_guest_column" DisplayMemberBinding="{Binding GuestRequest.Guest.Name}" Header="GUEST"/>
 								<GridViewColumn x:Name="order_status_column" DisplayMemberBinding="{Binding OrderStatus}" Header="STATUS"/>
 								<GridViewColumn DisplayMemberBinding="{Binding CreationDate}" Header="CREATION DATE" Width="{Binding ActualWidth, ElementName=order_wide_column}"/>
-								<GridViewColumn x:Name="order_view_column">
-									<GridViewColumn.CellTemplate>
-										<DataTemplate>
-											<Button Style="{StaticResource MaterialDesignToolButton}" Click="ViewOrder" CommandParameter="{Binding}" Height="14" Padding="0">
-												<md:PackIcon Kind="Eye"/>
-											</Button>
-										</DataTemplate>
-									</GridViewColumn.CellTemplate>
-								</GridViewColumn>
 								<GridViewColumn x:Name="order_edit_column">
 									<GridViewColumn.CellTemplate>
 										<DataTemplate>
