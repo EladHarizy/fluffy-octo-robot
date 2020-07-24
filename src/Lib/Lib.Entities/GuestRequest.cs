@@ -166,5 +166,16 @@ namespace Lib.Entities {
 		public GuestRequest Clone() {
 			return new GuestRequest(ID, Guest.Clone(), CreationDate, StartDate, EndDate, Active, Adults, Children, Message, new HashSet<City>(DesiredCities), new HashSet<Unit.Type>(DesiredUnitTypes), new HashSet<Amenity>(DesiredAmenities));
 		}
+
+		public override bool Equals(object obj) {
+			return obj is GuestRequest request
+				&& EqualityComparer<ID>.Default.Equals(ID, request.ID);
+		}
+
+		public override int GetHashCode() {
+			int hashCode = -704701015;
+			hashCode = hashCode * -1521134295 + EqualityComparer<ID>.Default.GetHashCode(ID);
+			return hashCode;
+		}
 	}
 }

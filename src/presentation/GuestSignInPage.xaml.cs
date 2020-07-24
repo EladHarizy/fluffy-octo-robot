@@ -25,7 +25,7 @@ namespace presentation {
 			Frame = frame;
 
 			// Test
-			email.Text = "abrahammurciano@gmail.com";
+			email.Text = "abrahammurciano+g1@gmail.com";
 			password.Password = "password";
 			// End test
 

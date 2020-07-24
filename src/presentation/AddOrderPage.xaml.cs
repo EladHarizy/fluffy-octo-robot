@@ -18,17 +18,21 @@ namespace presentation {
 
 		public IEnumerable<Unit> Units { get; }
 
-		// If an order is added, it must be reflected in the UI
-		private ObservableCollection<Order> Orders { get; }
+		// If a unit is added, it must be reflected in the UI
+		private ObservableCollection<Unit> UiUnits { get; }
 
-		public AddOrderPage(IBusiness business, Frame frame, GuestRequest guest_request, IEnumerable<Unit> units, ObservableCollection<Order> orders) {
+		// If an order is added, it must be reflected in the UI
+		private ObservableCollection<Order> UiOrders { get; }
+
+		public AddOrderPage(IBusiness business, Frame frame, GuestRequest guest_request, IEnumerable<Unit> units, ObservableCollection<Unit> ui_units, ObservableCollection<Order> ui_orders) {
 			InitializeComponent();
 			DataContext = this;
 			Business = business;
 			Frame = frame;
 			GuestRequest = guest_request;
 			Units = units;
-			Orders = orders;
+			UiUnits = ui_units;
+			UiOrders = ui_orders;
 		}
 
 		private void Back(object sender, RoutedEventArgs e) {
@@ -40,8 +44,8 @@ namespace presentation {
 			Order order = new Order(unit, GuestRequest, message.Text);
 			Business.AddOrder(order);
 			Business.EditOrder(order, "Sent email");
-			Orders.Add(order); // Update the UI Orders list
-			Frame.Navigate(new EditOrderPage(Business, Frame, order, Orders));
+			UiOrders.Add(order); // Update the UI Orders list
+			Frame.Navigate(new EditOrderPage(Business, Frame, order, UiUnits, UiOrders));
 		}
 	}
 }

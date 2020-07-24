@@ -62,13 +62,12 @@ namespace presentation {
 		}
 
 		private void SearchRequests(object sender, RoutedEventArgs e) {
-			Frame.Navigate(new SearchRequestsPage(Business, Frame, Host, Orders));
+			Frame.Navigate(new SearchRequestsPage(Business, Frame, Host, Units, Orders));
 		}
 
 		private void EditOrder(object sender, RoutedEventArgs e) {
 			Order order = (sender as Button).CommandParameter as Order;
-			Frame.Navigate(new EditOrderPage(Business, Frame, order, Orders));
-			Frame.BringIntoView();
+			Frame.Navigate(new EditOrderPage(Business, Frame, order, Units, Orders));
 		}
 
 		private void DeleteOrder(object sender, RoutedEventArgs e) {

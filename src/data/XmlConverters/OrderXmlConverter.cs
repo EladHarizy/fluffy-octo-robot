@@ -4,7 +4,7 @@ using Lib.DataTypes;
 using Lib.Entities;
 
 namespace data {
-	internal class OrderXmlConverter : IXmlConverter<Order> {
+	internal class OrderXmlConverter : IIndexedXmlConverter<ID, Order> {
 		private DataAccessorReadOnly<ID, Unit> Units {
 			get => DataFactory.Data.Unit;
 		}
@@ -29,7 +29,7 @@ namespace data {
 			string email_delivery_date_string = element.Element("email_delivery_date").Value.Trim();
 			Date? email_delivery_date = email_delivery_date_string == "" ? null : (Date?) Date.Parse(email_delivery_date_string);
 			return new Order(
-				element.Element("id").Value.Trim(),
+				XmlToKey(element),
 				Units[element.Element("unit_id").Value.Trim()],
 				GuestRequests[element.Element("guest_request_id").Value.Trim()],
 				element.Element("status").Value.Trim(),
@@ -37,6 +37,10 @@ namespace data {
 				email_delivery_date,
 				element.Element("message").Value.Trim()
 			);
+		}
+
+		public ID XmlToKey(XElement element) {
+			return element.Element("id").Value.Trim();
 		}
 	}
 }

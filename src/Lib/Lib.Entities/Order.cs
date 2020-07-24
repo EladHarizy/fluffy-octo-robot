@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using Lib.DataTypes;
 using Lib.Interfaces;
@@ -58,6 +59,17 @@ namespace Lib.Entities {
 
 		public Order Clone() {
 			return new Order(ID, Unit.Clone(), GuestRequest.Clone(), OrderStatus, CreationDate, EmailDeliveryDate, Message);
+		}
+
+		public override bool Equals(object obj) {
+			return obj is Order order
+				&& EqualityComparer<ID>.Default.Equals(ID, order.ID);
+		}
+
+		public override int GetHashCode() {
+			int hashCode = 1699725681;
+			hashCode = hashCode * -1521134295 + EqualityComparer<ID>.Default.GetHashCode(ID);
+			return hashCode;
 		}
 	}
 }

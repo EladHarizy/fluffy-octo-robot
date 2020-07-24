@@ -5,7 +5,7 @@ using Lib.DataTypes;
 using Lib.Entities;
 
 namespace data {
-	class GuestRequestXmlConverter : IXmlConverter<GuestRequest> {
+	class GuestRequestXmlConverter : IIndexedXmlConverter<ID, GuestRequest> {
 		private DataAccessorReadOnly<ID, Guest> Guests {
 			get => DataFactory.Data.Guest;
 		}
@@ -18,7 +18,7 @@ namespace data {
 
 		public GuestRequest XmlToObj(XElement element) {
 			return new GuestRequest(
-				element.Element("id").Value.Trim(),
+				XmlToKey(element),
 				Guests[element.Element("guest_id").Value.Trim()],
 				Date.Parse(element.Element("creation_date").Value.Trim()),
 				Date.Parse(element.Element("start_date").Value.Trim()),
@@ -49,6 +49,10 @@ namespace data {
 				unit_types_converter.ObjToXml(guest_request.DesiredUnitTypes),
 				amenities_converter.ObjToXml(guest_request.DesiredAmenities)
 			);
+		}
+
+		public ID XmlToKey(XElement element) {
+			return element.Element("id").Value.Trim();
 		}
 	}
 }

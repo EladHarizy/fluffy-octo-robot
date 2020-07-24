@@ -58,31 +58,45 @@ namespace business {
 			data.Order.Add(order);
 		}
 
-		public void EditOrder(ID id, Order.Status status) {
-			EditOrder(data.Order[id], status);
-		}
-
-		public void EditOrder(Order order, Order.Status status) {
-			// Order is already closed
-			if (order.OrderStatus == "Closed" || order.OrderStatus == "Confirmed") {
-				throw new OrderStatusChangedException(order, "Error: Could not change the status because the order is already closed.");
+		// Edits the given order and returns a collection of all affected orders
+		public IEnumerable<Order> EditOrder(Order order, Order.Status status) {
+			// Order is already cancelled
+			if (order.OrderStatus == "Cancelled" || order.OrderStatus == "Confirmed") {
+				throw new OrderStatusChangedException(order, "Error: Could not change the status because the order is already closed (confirmed or cancelled).");
 			}
 			// Order is being opened
 			if (status == "Not addressed" && order.OrderStatus != status) {
 				throw new OrderStatusChangedException(order, "Error: An order cannot be reopened.");
 			}
-			// Order is being closed
+
+			ICollection<Order> affected_orders = new List<Order>();
+			affected_orders.Add(order);
+
+			// Order is being cancelled
 			if (status == "Confirmed") {
 				if (!order.Unit.Host.DebitAuthorisation) {
 					throw new OrderStatusChangedException(order, "Error: Cannot close the order because the host does not have debit authorisation.");
 				}
 				int fee = Config.FeePerDay * order.GuestRequest.Duration;
-				order.Unit.Bookings.Add(new Unit.Calendar.Booking(order.GuestRequest.StartDate, order.GuestRequest.Duration));
+				try {
+					order.Unit.Bookings.Add(new Unit.Calendar.Booking(order.GuestRequest.StartDate, order.GuestRequest.Duration));
+				} catch (BookingOverlapException) {
+					throw new OrderStatusChangedException(order, "Error: Cannot confirm this order because the your unit is occupied on the requested dates.");
+				}
+				data.Unit.Edit(order.Unit); // Update the unit's calendar in the database
 
-				// Close all other orders on this guest request or that overlap the same hosting unit
-				IEnumerable<Order> orders_to_close = data.Order.All.Where(order1 => order.ID != order1.ID && (order.GuestRequest.ID == order1.GuestRequest.ID || (order.Unit.ID == order1.Unit.ID && order.Overlaps(order1))));
-				foreach (Order order1 in orders_to_close) {
-					EditOrder(order1.ID, "Closed");
+				// Close all other open orders on this guest request or that overlap the same hosting unit
+				List<Order> orders_to_close = data.Order.All.Where(order1 =>
+					order.ID != order1.ID // It's a different order
+					&& (order1.OrderStatus == "Not addresses" || order1.OrderStatus == "Sent email") // The order is open
+					&& (
+						order.GuestRequest.ID == order1.GuestRequest.ID // The order is on the same guest request as the confirmed one
+						|| (order.Unit.ID == order1.Unit.ID && order.Overlaps(order1)) // The orders overlap on the same unit
+					)
+				).ToList();
+				for (int i = 0; i < orders_to_close.Count; ++i) {
+					EditOrder(orders_to_close[i], "Cancelled");
+					affected_orders.Add(orders_to_close[i]);
 				}
 			} else if (status == "Sent email") {
 				try {
@@ -93,6 +107,7 @@ namespace business {
 			}
 			order.OrderStatus = status;
 			data.Order.Edit(order);
+			return affected_orders;
 		}
 
 		public void DeleteOrder(ID id) {

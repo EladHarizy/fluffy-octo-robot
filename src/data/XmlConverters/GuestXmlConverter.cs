@@ -6,9 +6,9 @@ using Lib.DataTypes;
 using Lib.Entities;
 
 namespace data {
-	class GuestXmlConverter : IXmlConverter<Guest> {
+	class GuestXmlConverter : IIndexedXmlConverter<ID, Guest> {
 		public Guest XmlToObj(XElement element) {
-			ID id = element.Element("id").Value.Trim();
+			ID id = XmlToKey(element);
 			string first_name = element.Element("first_name").Value.Trim();
 			string last_name = element.Element("last_name").Value.Trim();
 			Email email = element.Element("email").Value.Trim();
@@ -27,6 +27,10 @@ namespace data {
 				new XElement("phone", guest.Phone),
 				new XElement("password_hash", Convert.ToBase64String(guest.PasswordHash.ToArray()))
 			);
+		}
+
+		public ID XmlToKey(XElement element) {
+			return element.Element("id").Value.Trim();
 		}
 	}
 }

@@ -20,9 +20,7 @@ namespace business {
 
 		void DeleteOrder(Order order);
 
-		void EditOrder(ID id, Order.Status status);
-
-		void EditOrder(Order order, Order.Status status);
+		IEnumerable<Order> EditOrder(Order order, Order.Status status);
 
 		Guest Guest(ID id);
 

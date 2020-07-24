@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using business;
@@ -13,14 +15,17 @@ namespace presentation {
 
 		public Order Order { get; }
 
+		public ObservableCollection<Unit> UiUnits { get; }
+
 		public ObservableCollection<Order> UiOrders { get; }
 
-		public EditOrderPage(IBusiness business, Frame frame, Order order, ObservableCollection<Order> ui_orders) {
+		public EditOrderPage(IBusiness business, Frame frame, Order order, ObservableCollection<Unit> ui_units, ObservableCollection<Order> ui_orders) {
 			InitializeComponent();
 			DataContext = this;
 			Business = business;
 			Frame = frame;
 			Order = order;
+			UiUnits = ui_units;
 			UiOrders = ui_orders;
 		}
 
@@ -30,10 +35,18 @@ namespace presentation {
 
 		private void ChangeStatus(object sender, RoutedEventArgs e) {
 			try {
-				Business.EditOrder(Order, order_status.SelectedItem as Order.Status);
-				int i = UiOrders.IndexOf(Order);
-				UiOrders.RemoveAt(i);
-				UiOrders.Insert(i, Order);
+				IEnumerable<Order> affected_orders = Business.EditOrder(Order, order_status.SelectedItem as Order.Status).Where(order => order.Unit.Host.ID == Order.Unit.Host.ID);
+				foreach (Order order in affected_orders) {
+					int i = UiOrders.IndexOf(order);
+					UiOrders.RemoveAt(i);
+					UiOrders.Insert(i, order);
+				}
+				if (Order.OrderStatus == "Confirmed") {
+					int i = UiUnits.IndexOf(Order.Unit);
+					UiUnits.RemoveAt(i);
+					UiUnits.Insert(i, Order.Unit);
+				}
+				Frame.GoBack();
 			} catch (OrderStatusChangedException error) {
 				MaterialDesignThemes.Wpf.DialogHost.Show(error);
 			}

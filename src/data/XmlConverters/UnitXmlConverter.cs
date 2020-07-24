@@ -5,7 +5,7 @@ using Lib.DataTypes;
 using Lib.Entities;
 
 namespace data {
-	class UnitXmlConverter : IXmlConverter<Unit> {
+	class UnitXmlConverter : IIndexedXmlConverter<ID, Unit> {
 		private DataAccessorReadOnly<ID, Host> Hosts {
 			get => DataFactory.Data.Host;
 		}
@@ -27,7 +27,7 @@ namespace data {
 			}
 
 			return new Unit(
-				element.Element("id").Value.Trim(),
+				XmlToKey(element),
 				Hosts[element.Element("host_id").Value.Trim()],
 				element.Element("name").Value.Trim(),
 				element.Element("description").Value.Trim(),
@@ -68,6 +68,10 @@ namespace data {
 				amenities_xml,
 				new XElement("unit_type", unit.UnitType)
 			);
+		}
+
+		public ID XmlToKey(XElement element) {
+			return element.Element("id").Value.Trim();
 		}
 	}
 }

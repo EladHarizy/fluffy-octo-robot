@@ -36,16 +36,20 @@ namespace presentation {
 
 		public CollectionComplexCondition<GuestRequest, Amenity> AmenitiesCondition { get; }
 
-		// The list of orders which must be passed on to AddOrderPage, in case an order is added.
-		private ObservableCollection<Order> Orders { get; }
+		// The list of units which must be passed on to AddOrderPage, in case a unit has an order confirmed.
+		private ObservableCollection<Unit> UiUnits { get; }
 
-		public SearchRequestsPage(IBusiness business, Frame frame, Host host, ObservableCollection<Order> orders) {
+		// The list of orders which must be passed on to AddOrderPage, in case an order is added.
+		private ObservableCollection<Order> UiOrders { get; }
+
+		public SearchRequestsPage(IBusiness business, Frame frame, Host host, ObservableCollection<Unit> ui_units, ObservableCollection<Order> ui_orders) {
 			InitializeComponent();
 			DataContext = this;
 			Business = business;
 			Frame = frame;
 			Host = host;
-			Orders = orders;
+			UiUnits = ui_units;
+			UiOrders = ui_orders;
 			Cities = new CheckBoxList<City>(Business.Cities, Business.UnitsOf(Host).Select(unit => unit.City).Distinct());
 			UnitTypes = new CheckBoxList<Unit.Type>(Business.UnitTypes, Business.UnitsOf(Host).Select(unit => unit.UnitType).Distinct());
 			Amenities = new CheckBoxList<Amenity>(Business.Amenities, Business.UnitsOf(Host).Aggregate<Unit, IEnumerable<Amenity>>(new HashSet<Amenity>(), (acc, unit) => acc.Union(unit.Amenities)));
@@ -209,7 +213,7 @@ namespace presentation {
 
 		private void ViewGuestRequest(object sender, RoutedEventArgs e) {
 			GuestRequest guest_request = (sender as Button).CommandParameter as GuestRequest;
-			Frame.Navigate(new AddOrderPage(Business, Frame, guest_request, Business.UnitsOf(Host), Orders));
+			Frame.Navigate(new AddOrderPage(Business, Frame, guest_request, Business.UnitsOf(Host), UiUnits, UiOrders));
 		}
 
 		private void IgnorePreviewMouseWheel(object sender, MouseWheelEventArgs e) {
