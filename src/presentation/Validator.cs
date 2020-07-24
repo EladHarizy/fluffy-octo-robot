@@ -1,13 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace presentation {
-	internal class Validator<TControl> where TControl : Control {
+	internal class Validator<TControl> : IValidator where TControl : Control {
+		public Control BaseControl {
+			get => Control;
+		}
+
 		private TControl Control { get; }
 
-		private TextBlock ErrorBlock { get; }
+		public TextBlock ErrorBlock { get; }
 
 		private Brush InitialBorder { get; }
 
@@ -41,10 +46,12 @@ namespace presentation {
 		public void SetError(string message) {
 			Control.BorderBrush = Brushes.Red;
 			ErrorBlock.Text = message;
+			ErrorBlock.Visibility = Visibility.Visible;
 		}
 
 		public void ResetError() {
 			Control.BorderBrush = InitialBorder;
+			ErrorBlock.Visibility = Visibility.Collapsed;
 			ErrorBlock.Text = "";
 		}
 	}

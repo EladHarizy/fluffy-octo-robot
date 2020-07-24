@@ -79,5 +79,16 @@ namespace Lib.Entities {
 		public Host Clone() {
 			return new Host(ID, FirstName, LastName, Email, Phone, PasswordHash, BankAccount, DebitAuthorisation);
 		}
+
+		public override bool Equals(object obj) {
+			return obj is Host host
+				&& base.Equals(obj);
+		}
+
+		public override int GetHashCode() {
+			int hashCode = 1708286331;
+			hashCode = hashCode * -1521134295 + base.GetHashCode();
+			return hashCode;
+		}
 	}
 }

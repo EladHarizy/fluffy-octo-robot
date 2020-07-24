@@ -9,7 +9,10 @@
 			</ResourceDictionary.MergedDictionaries>
 			<s:Boolean x:Key="True">True</s:Boolean>
 			<s:Boolean x:Key="False">False</s:Boolean>
-			<local:IEnumerableConverter x:Key="AmenitiesConverter"/>
+			<local:IEnumerableConverter x:Key="IEnumerableConverter"/>
+			<local:BoolYesNoConverter x:Key="BoolYesNoConverter"/>
+			<local:NullVisibilityConverter x:Key="NullVisibilityConverter"/>
+			<local:VisibilityNegationConverter x:Key="VisibilityNegationConverter"/>
 			<Style x:Key="padded_card" TargetType="md:Card">
 				<Setter Property="Padding" Value="20"/>
 			</Style>
@@ -34,10 +37,42 @@
 			<Style x:Key="error" TargetType="TextBlock">
 				<Setter Property="TextWrapping" Value="Wrap"/>
 				<Setter Property="Foreground" Value="Red"/>
+				<Setter Property="Visibility" Value="Collapsed"/>
+				<Setter Property="FontSize" Value="10"/>
+			</Style>
+			<Style x:Key="input_separator" TargetType="Rectangle">
+				<Setter Property="Height" Value="8"/>
+				<Setter Property="Visibility" Value="Hidden"/>
 			</Style>
 			<Style x:Key="narrow_form" TargetType="StackPanel">
 				<Setter Property="Margin" Value="20"/>
 				<Setter Property="Width" Value="300"/>
+			</Style>
+			<Style x:Key="side_panel_row" TargetType="{x:Type FrameworkElement}">
+				<Setter Property="Margin" Value="20 15"/>
+			</Style>
+			<Style x:Key="side_panel_sub_row" TargetType="{x:Type FrameworkElement}">
+				<Setter Property="Margin" Value="12 2 20 10"/>
+			</Style>
+			<Style x:Key="side_panel_sub_row_border" TargetType="{x:Type Border}">
+				<Setter Property="BorderThickness" Value="4 0 0 0"/>
+				<Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}"/>
+				<Setter Property="Margin" Value="4 0 0 15"/>
+			</Style>
+			<Style x:Key="split_grid" TargetType="ItemsControl">
+				<Setter Property="ItemsPanel">
+					<Setter.Value>
+						<ItemsPanelTemplate>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="Auto"/>
+								</Grid.ColumnDefinitions>
+							</Grid>
+						</ItemsPanelTemplate>
+					</Setter.Value>
+				</Setter>
 			</Style>
 		</ResourceDictionary>
 	</Application.Resources>

@@ -49,17 +49,17 @@ namespace Lib.Entities {
 
 				foreach (Booking booking in Bookings) {
 					if (booking.End > prev_end_date) {
-						sb.Append(prev_end_date.ToString("dd/MM/yyyy"));
+						sb.Append(prev_end_date.ToString("yyyy-MM-dd"));
 						sb.Append('\n');
 					}
 					sb.Append('\t', tabs);
-					sb.Append(booking.Start.ToString("dd/MM/yyyy"));
+					sb.Append(booking.Start.ToString("yyyy-MM-dd"));
 					sb.Append(" - ");
 					prev_end_date = booking.End;
 				}
 
 				if (Bookings.Count > 0) {
-					sb.Append(prev_end_date.ToString("dd/MM/yyyy"));
+					sb.Append(prev_end_date.ToString("yyyy-MM-dd"));
 				}
 
 				return sb.ToString();

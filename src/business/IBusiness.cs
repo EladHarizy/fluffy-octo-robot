@@ -18,7 +18,9 @@ namespace business {
 
 		void AddOrder(Order order);
 
-		void EditOrder(ID id, Order.Status status);
+		void DeleteOrder(Order order);
+
+		IEnumerable<Order> EditOrder(Order order, Order.Status status);
 
 		Guest Guest(ID id);
 
@@ -42,13 +44,19 @@ namespace business {
 
 		IEnumerable<Unit.Type> UnitTypes { get; }
 
-		IEnumerable<Unit> Units();
+		IEnumerable<Unit> Units { get; }
+
+		IEnumerable<Order.Status> OrderStatuses { get; }
 
 		IEnumerable<Unit> UnitsOf(Host host);
 
 		IEnumerable<GuestRequest> GuestRequests();
 
 		IEnumerable<Order> Orders();
+
+		IEnumerable<Order> Orders(Host host);
+
+		IEnumerable<Order> Orders(Unit unit);
 
 		IEnumerable<BankBranch> BankBranches();
 

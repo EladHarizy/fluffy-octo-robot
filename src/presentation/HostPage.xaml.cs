@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using business;
 using Lib.Entities;
 
@@ -10,13 +11,15 @@ namespace presentation {
 
 		private Session<Host> HostSession { get; }
 
-		public Frame Frame { get; }
+		private Frame Frame { get; }
 
-		private Host Host {
+		public Host Host {
 			get => HostSession.Person;
 		}
 
-		private ObservableCollection<Unit> Units { get; }
+		public ObservableCollection<Unit> Units { get; }
+
+		public ObservableCollection<Order> Orders { get; }
 
 		public HostPage(IBusiness business, Session<Host> host_session, Frame frame) {
 			InitializeComponent();
@@ -24,8 +27,8 @@ namespace presentation {
 			HostSession = host_session;
 			Frame = frame;
 			Units = new ObservableCollection<Unit>(Business.UnitsOf(Host));
-			units_details_card.DataContext = Units;
-			host_details_card.DataContext = Host;
+			Orders = new ObservableCollection<Order>(Business.Orders(Host));
+			DataContext = this;
 		}
 
 		private void SignOut(object sender, RoutedEventArgs e) {
@@ -34,6 +37,10 @@ namespace presentation {
 
 		private void NewHostingUnit(object sender, RoutedEventArgs e) {
 			Frame.Navigate(new AddUnitPage(Business, Frame, Host, Units));
+		}
+
+		private void IgnorePreviewMouseWheel(object sender, MouseWheelEventArgs e) {
+			HandlePreviewMouseWheel.IgnorePreviewMouseWheel(sender, e);
 		}
 
 		private void ViewUnit(object sender, RoutedEventArgs e) {
@@ -52,6 +59,21 @@ namespace presentation {
 				Business.DeleteUnit(unit);
 				Units.Remove(unit);
 			}
+		}
+
+		private void SearchRequests(object sender, RoutedEventArgs e) {
+			Frame.Navigate(new SearchRequestsPage(Business, Frame, Host, Units, Orders));
+		}
+
+		private void EditOrder(object sender, RoutedEventArgs e) {
+			Order order = (sender as Button).CommandParameter as Order;
+			Frame.Navigate(new EditOrderPage(Business, Frame, order, Units, Orders));
+		}
+
+		private void DeleteOrder(object sender, RoutedEventArgs e) {
+			Order order = (sender as Button).CommandParameter as Order;
+			Business.DeleteOrder(order);
+			Orders.Remove(order);
 		}
 	}
 }

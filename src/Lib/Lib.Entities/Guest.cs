@@ -34,5 +34,13 @@ namespace Lib.Entities {
 		public Guest Clone() {
 			return new Guest(ID, FirstName, LastName, Email, Phone, PasswordHash);
 		}
+
+		public override bool Equals(object obj) {
+			return base.Equals(obj);
+		}
+
+		public override int GetHashCode() {
+			return base.GetHashCode();
+		}
 	}
 }

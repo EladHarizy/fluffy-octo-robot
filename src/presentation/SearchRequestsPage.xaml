@@ -1,0 +1,253 @@
+<local:ValidatedPage xmlns:local="clr-namespace:presentation" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" TextElement.Foreground="{DynamicResource MaterialDesignBody}" TextElement.FontWeight="Medium" TextElement.FontSize="14" TextOptions.TextFormattingMode="Ideal" TextOptions.TextRenderingMode="Auto" Background="{DynamicResource MaterialDesignPaper}" FontFamily="{DynamicResource MaterialDesignFont}" x:Class="presentation.SearchRequestsPage" Title="Search Guest Requests">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="300"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<md:Card Grid.Column="0">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				<StackPanel Grid.Row="0">
+					<ItemsControl Style="{StaticResource split_grid}">
+						<TextBlock Grid.Column="0" Style="{StaticResource MaterialDesignHeadline5TextBlock}" Margin="20 15">Filters</TextBlock>
+						<Button Click="Search" Style="{StaticResource MaterialDesignFloatingActionButton}" Grid.Column="2" Height="40" Width="40" Margin="0 0 20 0">
+							<md:PackIcon Kind="Search"/>
+						</Button>
+					</ItemsControl>
+					<Separator/>
+				</StackPanel>
+				<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+					<StackPanel>
+						<Grid Style="{StaticResource side_panel_row}">
+							<ItemsControl Style="{StaticResource split_grid}">
+								<TextBlock Grid.Column="0">Start date</TextBlock>
+								<ToggleButton Grid.Column="2" x:Name="start_date_filter_toggle"/>
+							</ItemsControl>
+						</Grid>
+						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=start_date_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<StackPanel Style="{StaticResource side_panel_sub_row}">
+								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="start_date_filter_type" ItemsSource="{Binding StartDateCondition.FilterTypes}"/>
+								<TextBlock x:Name="start_date_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.Control1Visibility, ElementName=start_date_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<DatePicker x:Name="start_date_filter_value_1" md:HintAssist.Hint="Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+									<TextBlock x:Name="start_date_filter_value_1_error" Style="{StaticResource error}"/>
+								</StackPanel>
+								<StackPanel Visibility="{Binding Path=SelectedItem.Control2Visibility, ElementName=start_date_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<DatePicker x:Name="start_date_filter_value_2" md:HintAssist.Hint="Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+									<TextBlock x:Name="start_date_filter_value_2_error" Style="{StaticResource error}"/>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+						<Separator/>
+						<Grid Style="{StaticResource side_panel_row}">
+							<ItemsControl Style="{StaticResource split_grid}">
+								<TextBlock Grid.Column="0">End date</TextBlock>
+								<ToggleButton Grid.Column="2" x:Name="end_date_filter_toggle"/>
+							</ItemsControl>
+						</Grid>
+						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=end_date_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<StackPanel Style="{StaticResource side_panel_sub_row}">
+								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="end_date_filter_type" ItemsSource="{Binding EndDateCondition.FilterTypes}"/>
+								<TextBlock x:Name="end_date_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.Control1Visibility, ElementName=end_date_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<DatePicker x:Name="end_date_filter_value_1" md:HintAssist.Hint="Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+									<TextBlock x:Name="end_date_filter_value_1_error" Style="{StaticResource error}"/>
+								</StackPanel>
+								<StackPanel Visibility="{Binding Path=SelectedItem.Control2Visibility, ElementName=end_date_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<DatePicker x:Name="end_date_filter_value_2" md:HintAssist.Hint="Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+									<TextBlock x:Name="end_date_filter_value_2_error" Style="{StaticResource error}"/>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+						<Separator/>
+						<Grid Style="{StaticResource side_panel_row}">
+							<ItemsControl Style="{StaticResource split_grid}">
+								<TextBlock Grid.Column="0">Number of adults</TextBlock>
+								<ToggleButton Grid.Column="2" x:Name="adults_filter_toggle"/>
+							</ItemsControl>
+						</Grid>
+						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=adults_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<StackPanel Style="{StaticResource side_panel_sub_row}">
+								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="adults_filter_type" ItemsSource="{Binding AdultsCondition.FilterTypes}"/>
+								<TextBlock x:Name="adults_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.Control1Visibility, ElementName=adults_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBox x:Name="adults_filter_value_1" md:HintAssist.Hint="Number" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+									<TextBlock x:Name="adults_filter_value_1_error" Style="{StaticResource error}"/>
+								</StackPanel>
+								<StackPanel Visibility="{Binding Path=SelectedItem.Control2Visibility, ElementName=adults_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBox x:Name="adults_filter_value_2" md:HintAssist.Hint="Number" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+									<TextBlock x:Name="adults_filter_value_2_error" Style="{StaticResource error}"/>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+						<Separator/>
+						<Grid Style="{StaticResource side_panel_row}">
+							<ItemsControl Style="{StaticResource split_grid}">
+								<TextBlock Grid.Column="0">Number of children</TextBlock>
+								<ToggleButton Grid.Column="2" x:Name="children_filter_toggle"/>
+							</ItemsControl>
+						</Grid>
+						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=children_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<StackPanel Style="{StaticResource side_panel_sub_row}">
+								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="children_filter_type" ItemsSource="{Binding ChildrenCondition.FilterTypes}"/>
+								<TextBlock x:Name="children_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.Control1Visibility, ElementName=children_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBox x:Name="children_filter_value_1" md:HintAssist.Hint="Number" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+									<TextBlock x:Name="children_filter_value_1_error" Style="{StaticResource error}"/>
+								</StackPanel>
+								<StackPanel Visibility="{Binding Path=SelectedItem.Control2Visibility, ElementName=children_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBox x:Name="children_filter_value_2" md:HintAssist.Hint="Number" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+									<TextBlock x:Name="children_filter_value_2_error" Style="{StaticResource error}"/>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+						<Separator/>
+						<Grid Style="{StaticResource side_panel_row}">
+							<ItemsControl Style="{StaticResource split_grid}">
+								<TextBlock Grid.Column="0">City</TextBlock>
+								<ToggleButton Grid.Column="2" x:Name="cities_filter_toggle"/>
+							</ItemsControl>
+						</Grid>
+						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=cities_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<StackPanel Style="{StaticResource side_panel_sub_row}">
+								<ComboBox x:Name="cities_filter_type" Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" ItemsSource="{Binding CitiesCondition.FilterTypes}"/>
+								<TextBlock x:Name="cities_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.CheckBoxListVisibility, ElementName=cities_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBlock x:Name="cities_filter_checkboxes_error" Style="{StaticResource error}"/>
+									<ItemsControl x:Name="cities_filter_checkboxes" ItemsSource="{Binding Cities}">
+										<ItemsControl.ItemTemplate>
+											<DataTemplate>
+												<CheckBox IsChecked="{Binding Selected, Mode=TwoWay}" Content="{Binding Object.Name}"/>
+											</DataTemplate>
+										</ItemsControl.ItemTemplate>
+									</ItemsControl>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+						<Separator/>
+						<Grid Style="{StaticResource side_panel_row}">
+							<ItemsControl Style="{StaticResource split_grid}">
+								<TextBlock Grid.Column="0">Unit type</TextBlock>
+								<ToggleButton Grid.Column="2" x:Name="unit_types_filter_toggle"/>
+							</ItemsControl>
+						</Grid>
+						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=unit_types_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<StackPanel Style="{StaticResource side_panel_sub_row}">
+								<ComboBox x:Name="unit_types_filter_type" Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" ItemsSource="{Binding UnitTypesCondition.FilterTypes}"/>
+								<TextBlock x:Name="unit_types_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.CheckBoxListVisibility, ElementName=unit_types_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBlock x:Name="unit_types_filter_checkboxes_error" Style="{StaticResource error}"/>
+									<ItemsControl x:Name="unit_types_filter_checkboxes" ItemsSource="{Binding UnitTypes}">
+										<ItemsControl.ItemTemplate>
+											<DataTemplate>
+												<CheckBox IsChecked="{Binding Selected, Mode=TwoWay}" Content="{Binding Object.Name}"/>
+											</DataTemplate>
+										</ItemsControl.ItemTemplate>
+									</ItemsControl>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+						<Separator/>
+						<Grid Style="{StaticResource side_panel_row}">
+							<ItemsControl Style="{StaticResource split_grid}">
+								<TextBlock Grid.Column="0">Amenities</TextBlock>
+								<ToggleButton Grid.Column="2" x:Name="amenities_filter_toggle"/>
+							</ItemsControl>
+						</Grid>
+						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=amenities_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<StackPanel Style="{StaticResource side_panel_sub_row}">
+								<ComboBox x:Name="amenities_filter_type" Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" ItemsSource="{Binding AmenitiesCondition.FilterTypes}"/>
+								<TextBlock x:Name="amenities_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.CheckBoxListVisibility, ElementName=amenities_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBlock x:Name="amenities_filter_checkboxes_error" Style="{StaticResource error}"/>
+									<ItemsControl x:Name="amenities_filter_checkboxes" ItemsSource="{Binding Amenities}">
+										<ItemsControl.ItemTemplate>
+											<DataTemplate>
+												<CheckBox IsChecked="{Binding Selected, Mode=TwoWay}" Content="{Binding Object.Name}"/>
+											</DataTemplate>
+										</ItemsControl.ItemTemplate>
+									</ItemsControl>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+						<Separator/>
+					</StackPanel>
+				</ScrollViewer>
+				<Button Grid.Row="2" Margin="10" Click="Search">
+					<StackPanel Orientation="Horizontal">
+						<md:PackIcon Kind="Search"/>
+						<TextBlock Margin="5 0 5 0">SEARCH</TextBlock>
+					</StackPanel>
+				</Button>
+			</Grid>
+		</md:Card>
+		<ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1">
+			<StackPanel Style="{StaticResource stack_of_cards}">
+				<md:Card Style="{StaticResource padded_stack_card}">
+					<StackPanel>
+						<ItemsControl Style="{StaticResource split_grid}">
+							<TextBlock Grid.Column="0" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Filtered Orders</TextBlock>
+							<Button Grid.Column="2" Click="Back">
+								<StackPanel Orientation="Horizontal">
+									<md:PackIcon Kind="ArrowBack"/>
+									<TextBlock Margin="5 0 5 0">BACK</TextBlock>
+								</StackPanel>
+							</Button>
+						</ItemsControl>
+						<Separator Height="30"/>
+						<Grid Visibility="Hidden"><!-- Hack to make a column take up the rest of the available space -->
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="20"/>
+							</Grid.ColumnDefinitions>
+							<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=creation_date_column}"/>
+							<Rectangle Grid.Column="1" Width="{Binding ActualWidth, ElementName=start_date_column}"/>
+							<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=end_date_column}"/>
+							<Rectangle Grid.Column="3" Width="{Binding ActualWidth, ElementName=adults_column}"/>
+							<Rectangle Grid.Column="4" Width="{Binding ActualWidth, ElementName=children_column}"/>
+							<Rectangle Grid.Column="5" x:Name="wide_column"/>
+							<Rectangle Grid.Column="6"/>
+							<Rectangle Grid.Column="7"/>
+							<Rectangle Grid.Column="8" Width="{Binding ActualWidth, ElementName=view_column}"/>
+						</Grid>
+						<ListView x:Name="filtered_guest_requests" PreviewMouseWheel="IgnorePreviewMouseWheel">
+							<ListView.View>
+								<GridView>
+									<GridViewColumn x:Name="creation_date_column" DisplayMemberBinding="{Binding CreationDate}" Header="CREATED ON"/>
+									<GridViewColumn x:Name="start_date_column" DisplayMemberBinding="{Binding StartDate}" Header="FROM"/>
+									<GridViewColumn x:Name="end_date_column" DisplayMemberBinding="{Binding EndDate}" Header="UNTIL"/>
+									<GridViewColumn x:Name="adults_column" DisplayMemberBinding="{Binding Adults}" Header="ADULTS"/>
+									<GridViewColumn x:Name="children_column" DisplayMemberBinding="{Binding Children}" Header="CHILDREN"/>
+									<GridViewColumn DisplayMemberBinding="{Binding DesiredCities, Converter={StaticResource IEnumerableConverter}}" Header="CITIES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
+									<GridViewColumn DisplayMemberBinding="{Binding DesiredUnitTypes, Converter={StaticResource IEnumerableConverter}}" Header="UNIT TYPES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
+									<GridViewColumn DisplayMemberBinding="{Binding DesiredAmenities, Converter={StaticResource IEnumerableConverter}}" Header="AMENITIES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
+									<GridViewColumn x:Name="view_column">
+										<GridViewColumn.CellTemplate>
+											<DataTemplate>
+												<Button Style="{StaticResource MaterialDesignToolButton}" Click="ViewGuestRequest" CommandParameter="{Binding}" Height="14" Padding="0">
+													<md:PackIcon Kind="Eye"/>
+												</Button>
+											</DataTemplate>
+										</GridViewColumn.CellTemplate>
+									</GridViewColumn>
+								</GridView>
+							</ListView.View>
+						</ListView>
+					</StackPanel>
+				</md:Card>
+			</StackPanel>
+		</ScrollViewer>
+	</Grid>
+</local:ValidatedPage>

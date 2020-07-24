@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using Lib.DataTypes;
 using Lib.Interfaces;
@@ -18,52 +19,34 @@ namespace Lib.Entities {
 		// Email delivery date to customer
 		public Date? EmailDeliveryDate { get; set; }
 
-		public Order(Unit hosting_unit, GuestRequest guest_request) : this(null, hosting_unit, guest_request, new Status("Not Addressed"), Date.Today, null) {}
+		public string Message { get; set; }
 
-		public Order(ID id, Unit hosting_unit, GuestRequest guest_request, Status status, Date creation_date, Date? order_date) {
+		public Date StartDate {
+			get => GuestRequest.StartDate;
+		}
+
+		public Date EndDate {
+			get => GuestRequest.EndDate;
+		}
+
+		public int Duration {
+			get => GuestRequest.Duration;
+		}
+
+		public Order(Unit hosting_unit, GuestRequest guest_request, string message) : this(null, hosting_unit, guest_request, new Status("Not addressed"), Date.Today, null, message) {}
+
+		public Order(ID id, Unit hosting_unit, GuestRequest guest_request, Status status, Date creation_date, Date? email_delivery_date, string message) {
 			ID = id;
 			Unit = hosting_unit;
 			GuestRequest = guest_request;
 			OrderStatus = status;
 			CreationDate = creation_date;
-			EmailDeliveryDate = order_date;
+			EmailDeliveryDate = email_delivery_date;
+			Message = message;
 		}
 
 		public override string ToString() {
-			return ToString(0);
-		}
-
-		public string ToString(int tabs) {
-			StringBuilder sb = new StringBuilder();
-			sb.Append('\t', tabs);
-			sb.Append("Order Details");
-			sb.Append("\n");
-
-			sb.Append('\t', tabs);
-			sb.Append("-------------");
-			sb.Append("\n");
-
-			sb.Append('\t', tabs);
-			sb.Append("Order ID:\t\t");
-			sb.Append(ID);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Hosting Unit Key:\t");
-			sb.Append(Unit.ID);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Guest Request Key:\t");
-			sb.Append(GuestRequest.ID);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Status:\t\t\t");
-			sb.Append(OrderStatus);
-			sb.Append("\n");
-
-			return sb.ToString();
+			return "Order " + ID.ToString();
 		}
 
 		public ID Key() {
@@ -75,7 +58,18 @@ namespace Lib.Entities {
 		}
 
 		public Order Clone() {
-			return new Order(ID, Unit.Clone(), GuestRequest.Clone(), OrderStatus, CreationDate, EmailDeliveryDate);
+			return new Order(ID, Unit.Clone(), GuestRequest.Clone(), OrderStatus, CreationDate, EmailDeliveryDate, Message);
+		}
+
+		public override bool Equals(object obj) {
+			return obj is Order order
+				&& EqualityComparer<ID>.Default.Equals(ID, order.ID);
+		}
+
+		public override int GetHashCode() {
+			int hashCode = 1699725681;
+			hashCode = hashCode * -1521134295 + EqualityComparer<ID>.Default.GetHashCode(ID);
+			return hashCode;
 		}
 	}
 }

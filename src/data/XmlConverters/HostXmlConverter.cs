@@ -6,11 +6,11 @@ using Lib.DataTypes;
 using Lib.Entities;
 
 namespace data {
-	class HostXmlConverter : IXmlConverter<Host> {
+	class HostXmlConverter : IIndexedXmlConverter<ID, Host> {
 		private BankAccountXmlConverter bank_account_converter = new BankAccountXmlConverter();
 
 		public Host XmlToObj(XElement element) {
-			ID id = element.Element("id").Value.Trim();
+			ID id = XmlToKey(element);
 			string first_name = element.Element("first_name").Value.Trim();
 			string last_name = element.Element("last_name").Value.Trim();
 			Email email = element.Element("email").Value.Trim();
@@ -33,6 +33,10 @@ namespace data {
 				bank_account_converter.ObjToXml(host.BankAccount),
 				new XElement("collection_clearance", host.DebitAuthorisation)
 			);
+		}
+
+		public ID XmlToKey(XElement element) {
+			return element.Element("id").Value.Trim();
 		}
 	}
 }
