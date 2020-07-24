@@ -67,11 +67,14 @@ namespace presentation {
 
 		private void EditOrder(object sender, RoutedEventArgs e) {
 			Order order = (sender as Button).CommandParameter as Order;
-			Frame.Navigate(new EditOrderPage(Business, Frame, order));
+			Frame.Navigate(new EditOrderPage(Business, Frame, order, Orders));
+			Frame.BringIntoView();
 		}
 
 		private void DeleteOrder(object sender, RoutedEventArgs e) {
-			// TODO
+			Order order = (sender as Button).CommandParameter as Order;
+			Business.DeleteOrder(order);
+			Orders.Remove(order);
 		}
 	}
 }

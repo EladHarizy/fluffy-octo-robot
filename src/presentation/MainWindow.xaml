@@ -17,17 +17,9 @@
 				</StackPanel>
 			</ItemsControl>
 		</md:ColorZone>
-		<ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Visibility="{Binding IsChecked, ElementName=rbTab1, Converter={StaticResource BooleanToVisibilityConverter}}">
-			<Frame x:Name="HomePage" Source="HomePage.xaml" NavigationUIVisibility="Hidden"/>
-		</ScrollViewer>
-		<ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Visibility="{Binding IsChecked, ElementName=rbTab2, Converter={StaticResource BooleanToVisibilityConverter}}">
-			<Frame x:Name="GuestPage" NavigationUIVisibility="Hidden"/>
-		</ScrollViewer>
-		<ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Visibility="{Binding IsChecked, ElementName=rbTab3, Converter={StaticResource BooleanToVisibilityConverter}}">
-			<Frame x:Name="HostPage" NavigationUIVisibility="Hidden"/>
-		</ScrollViewer>
-		<ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Visibility="{Binding IsChecked, ElementName=rbTab4, Converter={StaticResource BooleanToVisibilityConverter}}">
-			<Frame x:Name="AdminPage" NavigationUIVisibility="Hidden"/>
-		</ScrollViewer>
+		<Frame x:Name="HomePage" Source="HomePage.xaml" NavigationUIVisibility="Hidden" Grid.Row="1" Visibility="{Binding IsChecked, ElementName=rbTab1, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+		<Frame x:Name="GuestPage" NavigationUIVisibility="Hidden" Grid.Row="1" Visibility="{Binding IsChecked, ElementName=rbTab2, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+		<Frame x:Name="HostPage" NavigationUIVisibility="Hidden" Grid.Row="1" Visibility="{Binding IsChecked, ElementName=rbTab3, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+		<Frame x:Name="AdminPage" NavigationUIVisibility="Hidden" Grid.Row="1" Visibility="{Binding IsChecked, ElementName=rbTab4, Converter={StaticResource BooleanToVisibilityConverter}}"/>
 	</Grid>
 </Window>

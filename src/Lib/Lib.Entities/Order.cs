@@ -20,6 +20,18 @@ namespace Lib.Entities {
 
 		public string Message { get; set; }
 
+		public Date StartDate {
+			get => GuestRequest.StartDate;
+		}
+
+		public Date EndDate {
+			get => GuestRequest.EndDate;
+		}
+
+		public int Duration {
+			get => GuestRequest.Duration;
+		}
+
 		public Order(Unit hosting_unit, GuestRequest guest_request, string message) : this(null, hosting_unit, guest_request, new Status("Not addressed"), Date.Today, null, message) {}
 
 		public Order(ID id, Unit hosting_unit, GuestRequest guest_request, Status status, Date creation_date, Date? email_delivery_date, string message) {
@@ -33,40 +45,7 @@ namespace Lib.Entities {
 		}
 
 		public override string ToString() {
-			return ToString(0);
-		}
-
-		public string ToString(int tabs) {
-			StringBuilder sb = new StringBuilder();
-			sb.Append('\t', tabs);
-			sb.Append("Order Details");
-			sb.Append("\n");
-
-			sb.Append('\t', tabs);
-			sb.Append("-------------");
-			sb.Append("\n");
-
-			sb.Append('\t', tabs);
-			sb.Append("Order ID:\t\t");
-			sb.Append(ID);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Hosting Unit Key:\t");
-			sb.Append(Unit.ID);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Guest Request Key:\t");
-			sb.Append(GuestRequest.ID);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Status:\t\t\t");
-			sb.Append(OrderStatus);
-			sb.Append("\n");
-
-			return sb.ToString();
+			return "Order " + ID.ToString();
 		}
 
 		public ID Key() {

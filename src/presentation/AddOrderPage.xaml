@@ -1,93 +1,95 @@
 <Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" TextElement.Foreground="{DynamicResource MaterialDesignBody}" TextElement.FontWeight="Medium" TextElement.FontSize="14" TextOptions.TextFormattingMode="Ideal" TextOptions.TextRenderingMode="Auto" Background="{DynamicResource MaterialDesignPaper}" FontFamily="{DynamicResource MaterialDesignFont}" x:Class="presentation.AddOrderPage" Title="Create an Order">
-	<StackPanel Style="{StaticResource stack_of_cards}">
-		<md:Card Style="{StaticResource padded_stack_card}">
-			<StackPanel>
-				<ItemsControl Style="{StaticResource split_grid}">
-					<TextBlock Grid.Column="0" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Create Order &amp; Send Invitation</TextBlock>
-					<Button Grid.Column="2" Click="Back">
-						<StackPanel Orientation="Horizontal">
-							<md:PackIcon Kind="ArrowBack"/>
-							<TextBlock Margin="5 0 5 0">BACK</TextBlock>
-						</StackPanel>
-					</Button>
-				</ItemsControl>
-				<Separator Height="30"/>
-				<TextBlock>If you think this guest may like one of your hosting units, choose said hosting unit in the drop down menu below, and an invitation will be sent to the guest.</TextBlock>
-				<StackPanel Orientation="Horizontal">
-					<ComboBox x:Name="unit_combo_box" Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Hosting unit" ItemsSource="{Binding Units}" MinWidth="250"/>
-				</StackPanel>
-				<TextBox x:Name="message" Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Please enter a message you would like the guest to see" TextWrapping="Wrap" AcceptsReturn="True"/>
-				<Separator Height="30"/>
-				<StackPanel Orientation="Horizontal">
-					<Button Click="Send">
-						<StackPanel Orientation="Horizontal">
-							<md:PackIcon Kind="Send"/>
-							<TextBlock Margin="5 0 5 0">SEND INVITATION</TextBlock>
-						</StackPanel>
-					</Button>
-				</StackPanel>
-			</StackPanel>
-		</md:Card>
-		<Separator/>
-		<md:Card Style="{StaticResource padded_stack_card}">
-			<StackPanel><!-- Card contents -->
-				<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Guest Request</TextBlock>
-				<Separator Height="30"/>
-				<StackPanel Orientation="Horizontal">
-					<StackPanel MinWidth="200" MaxWidth="350">
-						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Guest name" Text="{Binding GuestRequest.Guest.Name, Mode=OneTime}" IsReadOnly="True"/>
-						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Creation date" Text="{Binding GuestRequest.CreationDate, Mode=OneTime}" IsReadOnly="True"/>
-						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Start date" Text="{Binding GuestRequest.StartDate, Mode=OneTime}" IsReadOnly="True"/>
-						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="End date" Text="{Binding GuestRequest.EndDate, Mode=OneTime}" IsReadOnly="True"/>
-						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Duration" Text="{Binding GuestRequest.Duration, Mode=OneTime}" IsReadOnly="True"/>
-						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Adults" Text="{Binding GuestRequest.Adults, Mode=OneTime}" IsReadOnly="True"/>
-						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Children" Text="{Binding GuestRequest.Children, Mode=OneTime}" IsReadOnly="True"/>
-						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Active" Text="{Binding GuestRequest.Active, Mode=OneTime, Converter={StaticResource BoolYesNoConverter}}" IsReadOnly="True"/>
-						<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Message from guest" Text="{Binding GuestRequest.Message, Mode=OneTime}" IsReadOnly="True" TextWrapping="Wrap"/>
+	<ScrollViewer VerticalScrollBarVisibility="Auto">
+		<StackPanel Style="{StaticResource stack_of_cards}">
+			<md:Card Style="{StaticResource padded_stack_card}">
+				<StackPanel>
+					<ItemsControl Style="{StaticResource split_grid}">
+						<TextBlock Grid.Column="0" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Create Order &amp; Send Invitation</TextBlock>
+						<Button Grid.Column="2" Click="Back">
+							<StackPanel Orientation="Horizontal">
+								<md:PackIcon Kind="ArrowBack"/>
+								<TextBlock Margin="5 0 5 0">BACK</TextBlock>
+							</StackPanel>
+						</Button>
+					</ItemsControl>
+					<Separator Height="30"/>
+					<TextBlock>If you think this guest may like one of your hosting units, choose said hosting unit in the drop down menu below, and an invitation will be sent to the guest.</TextBlock>
+					<StackPanel Orientation="Horizontal">
+						<ComboBox x:Name="unit_combo_box" Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Hosting unit" ItemsSource="{Binding Units}" MinWidth="250"/>
 					</StackPanel>
-					<Rectangle Width="40"/>
-					<StackPanel><!-- Amenities -->
-						<TextBlock Grid.Column="0" Grid.Row="3">Desired amenities</TextBlock>
-						<Separator/>
-						<ItemsControl ItemsSource="{Binding GuestRequest.DesiredAmenities}"/>
-					</StackPanel>
-					<Rectangle Width="40"/>
-					<StackPanel><!-- Amenities -->
-						<TextBlock Grid.Column="0" Grid.Row="3">Desired unit types</TextBlock>
-						<Separator/>
-						<ItemsControl ItemsSource="{Binding GuestRequest.DesiredUnitTypes}"/>
-					</StackPanel>
-					<Rectangle Width="40"/>
-					<StackPanel><!-- Amenities -->
-						<TextBlock Grid.Column="0" Grid.Row="3">Desired cities</TextBlock>
-						<Separator/>
-						<ItemsControl ItemsSource="{Binding GuestRequest.DesiredCities}"/>
+					<TextBox x:Name="message" Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Please enter a message you would like the guest to see" TextWrapping="Wrap" AcceptsReturn="True"/>
+					<Separator Height="30"/>
+					<StackPanel Orientation="Horizontal">
+						<Button Click="Send">
+							<StackPanel Orientation="Horizontal">
+								<md:PackIcon Kind="Send"/>
+								<TextBlock Margin="5 0 5 0">SEND INVITATION</TextBlock>
+							</StackPanel>
+						</Button>
 					</StackPanel>
 				</StackPanel>
-			</StackPanel>
-		</md:Card>
-		<StackPanel Visibility="{Binding SelectedItem, ElementName=unit_combo_box, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
+			</md:Card>
 			<Separator/>
 			<md:Card Style="{StaticResource padded_stack_card}">
 				<StackPanel><!-- Card contents -->
-					<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Hosting Unit</TextBlock>
+					<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Guest Request</TextBlock>
 					<Separator Height="30"/>
 					<StackPanel Orientation="Horizontal">
 						<StackPanel MinWidth="200" MaxWidth="350">
-							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Name" Text="{Binding SelectedItem.Name, ElementName=unit_combo_box, Mode=OneWay}" IsReadOnly="True"/>
-							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Unit type" Text="{Binding SelectedItem.UnitType, ElementName=unit_combo_box, Mode=OneWay}" IsReadOnly="True"/>
-							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="City" Text="{Binding SelectedItem.City, ElementName=unit_combo_box, Mode=OneWay}" IsReadOnly="True"/>
-							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Description" Text="{Binding SelectedItem.Description, ElementName=unit_combo_box, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap"/>
+							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Guest name" Text="{Binding GuestRequest.Guest.Name, Mode=OneTime}" IsReadOnly="True"/>
+							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Creation date" Text="{Binding GuestRequest.CreationDate, Mode=OneTime}" IsReadOnly="True"/>
+							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Start date" Text="{Binding GuestRequest.StartDate, Mode=OneTime}" IsReadOnly="True"/>
+							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="End date" Text="{Binding GuestRequest.EndDate, Mode=OneTime}" IsReadOnly="True"/>
+							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Duration" Text="{Binding GuestRequest.Duration, Mode=OneTime}" IsReadOnly="True"/>
+							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Adults" Text="{Binding GuestRequest.Adults, Mode=OneTime}" IsReadOnly="True"/>
+							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Children" Text="{Binding GuestRequest.Children, Mode=OneTime}" IsReadOnly="True"/>
+							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Active" Text="{Binding GuestRequest.Active, Mode=OneTime, Converter={StaticResource BoolYesNoConverter}}" IsReadOnly="True"/>
+							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Message from guest" Text="{Binding GuestRequest.Message, Mode=OneTime}" IsReadOnly="True" TextWrapping="Wrap"/>
 						</StackPanel>
 						<Rectangle Width="40"/>
 						<StackPanel><!-- Amenities -->
-							<TextBlock Grid.Column="0" Grid.Row="3">Amenities</TextBlock>
+							<TextBlock Grid.Column="0" Grid.Row="3">Desired amenities</TextBlock>
 							<Separator/>
-							<ItemsControl ItemsSource="{Binding SelectedItem.Amenities, ElementName=unit_combo_box}"/>
+							<ItemsControl ItemsSource="{Binding GuestRequest.DesiredAmenities}"/>
+						</StackPanel>
+						<Rectangle Width="40"/>
+						<StackPanel><!-- Amenities -->
+							<TextBlock Grid.Column="0" Grid.Row="3">Desired unit types</TextBlock>
+							<Separator/>
+							<ItemsControl ItemsSource="{Binding GuestRequest.DesiredUnitTypes}"/>
+						</StackPanel>
+						<Rectangle Width="40"/>
+						<StackPanel><!-- Amenities -->
+							<TextBlock Grid.Column="0" Grid.Row="3">Desired cities</TextBlock>
+							<Separator/>
+							<ItemsControl ItemsSource="{Binding GuestRequest.DesiredCities}"/>
 						</StackPanel>
 					</StackPanel>
 				</StackPanel>
 			</md:Card>
+			<StackPanel Visibility="{Binding SelectedItem, ElementName=unit_combo_box, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
+				<Separator/>
+				<md:Card Style="{StaticResource padded_stack_card}">
+					<StackPanel><!-- Card contents -->
+						<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Hosting Unit</TextBlock>
+						<Separator Height="30"/>
+						<StackPanel Orientation="Horizontal">
+							<StackPanel MinWidth="200" MaxWidth="350">
+								<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Name" Text="{Binding SelectedItem.Name, ElementName=unit_combo_box, Mode=OneWay}" IsReadOnly="True"/>
+								<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Unit type" Text="{Binding SelectedItem.UnitType, ElementName=unit_combo_box, Mode=OneWay}" IsReadOnly="True"/>
+								<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="City" Text="{Binding SelectedItem.City, ElementName=unit_combo_box, Mode=OneWay}" IsReadOnly="True"/>
+								<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Description" Text="{Binding SelectedItem.Description, ElementName=unit_combo_box, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap"/>
+							</StackPanel>
+							<Rectangle Width="40"/>
+							<StackPanel><!-- Amenities -->
+								<TextBlock Grid.Column="0" Grid.Row="3">Amenities</TextBlock>
+								<Separator/>
+								<ItemsControl ItemsSource="{Binding SelectedItem.Amenities, ElementName=unit_combo_box}"/>
+							</StackPanel>
+						</StackPanel>
+					</StackPanel>
+				</md:Card>
+			</StackPanel>
 		</StackPanel>
-	</StackPanel>
+	</ScrollViewer>
 </Page>

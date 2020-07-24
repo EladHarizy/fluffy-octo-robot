@@ -41,8 +41,7 @@ namespace presentation {
 			Business.AddOrder(order);
 			Business.EditOrder(order, "Sent email");
 			Orders.Add(order); // Update the UI Orders list
-			Frame.Navigate(new EditOrderPage(Business, Frame, order));
-			Frame.RemoveBackEntry();
+			Frame.Navigate(new EditOrderPage(Business, Frame, order, Orders));
 		}
 	}
 }

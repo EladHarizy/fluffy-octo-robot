@@ -12,7 +12,7 @@ namespace presentation {
 	public partial class SearchRequestsPage : ValidatedPage {
 		public IBusiness Business { get; }
 
-		public Frame Frame { get; }
+		private Frame Frame { get; }
 
 		public Host Host { get; }
 

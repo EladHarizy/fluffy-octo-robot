@@ -64,30 +64,31 @@ namespace business {
 
 		public void EditOrder(Order order, Order.Status status) {
 			// Order is already closed
-			if (order.OrderStatus == "Closed due to customer unresponsiveness" || order.OrderStatus == "Closed due to customer response") {
-				throw new OrderClosedException(order);
+			if (order.OrderStatus == "Closed" || order.OrderStatus == "Confirmed") {
+				throw new OrderStatusChangedException(order, "Error: Could not change the status because the order is already closed.");
 			}
 			// Order is being opened
 			if (status == "Not addressed" && order.OrderStatus != status) {
-				throw new ArgumentException("Error: An order cannot be reopened.");
+				throw new OrderStatusChangedException(order, "Error: An order cannot be reopened.");
 			}
 			// Order is being closed
-			if (status == "Closed due to customer response") {
+			if (status == "Confirmed") {
 				if (!order.Unit.Host.DebitAuthorisation) {
-					throw new NoDebitAuthorisationException("Error: Cannot change the order status to anything other than 'Not addressed' because the host does not have debit authorisation.");
+					throw new OrderStatusChangedException(order, "Error: Cannot close the order because the host does not have debit authorisation.");
 				}
 				int fee = Config.FeePerDay * order.GuestRequest.Duration;
 				order.Unit.Bookings.Add(new Unit.Calendar.Booking(order.GuestRequest.StartDate, order.GuestRequest.Duration));
-				foreach (Order order1 in data.Order.All) {
-					if (order.Unit.ID == order1.Unit.ID && order.ID != order1.ID) {
-						EditOrder(order1.ID, "Closed due to customer unresponsiveness");
-					}
+
+				// Close all other orders on this guest request or that overlap the same hosting unit
+				IEnumerable<Order> orders_to_close = data.Order.All.Where(order1 => order.ID != order1.ID && (order.GuestRequest.ID == order1.GuestRequest.ID || (order.Unit.ID == order1.Unit.ID && order.Overlaps(order1))));
+				foreach (Order order1 in orders_to_close) {
+					EditOrder(order1.ID, "Closed");
 				}
 			} else if (status == "Sent email") {
 				try {
 					new InvitationSender(order).Send();
 				} catch (Exception e) when(e is InvalidOperationException || e is ObjectDisposedException || e is SmtpException || e is SmtpFailedRecipientException || e is SmtpFailedRecipientsException) {
-					return;
+					throw new OrderStatusChangedException(order, "Error: Could not send invitation to the guest. Please check your internet connection.", e);
 				}
 			}
 			order.OrderStatus = status;

@@ -66,7 +66,7 @@ namespace Lib.Config {
 		public static Email AdminEmail {
 			get {
 				if (admin_email == null) {
-					admin_email = config_xml.Element("admin_email").Value.Trim();
+					admin_email = new Email(ConfigXml.Element("admin_email").Value.Trim());
 				}
 				return admin_email;
 			}
