@@ -48,6 +48,11 @@ namespace presentation {
 					}
 				}
 			);
+
+			// Test
+			email.Text = "abrahammurciano@gmail.com";
+			password.Password = "password";
+			// End test
 		}
 
 		public void SignIn() {
@@ -71,7 +76,7 @@ namespace presentation {
 			try {
 				AdminSession.SignIn(admin, password.Password);
 				PasswordValidator.ResetError();
-				Frame.Navigate(new AdminPage(Business, AdminSession));
+				Frame.Navigate(new AdminPage(Business, Frame));
 			} catch (WrongPasswordException error) {
 				PasswordValidator.SetError(error.Message);
 			}
