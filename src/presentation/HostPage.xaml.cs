@@ -14,7 +14,7 @@ namespace presentation {
 		private Frame Frame { get; }
 
 		public Host Host {
-			get => HostSession.Person;
+			get => HostSession.User;
 		}
 
 		public ObservableCollection<Unit> Units { get; }

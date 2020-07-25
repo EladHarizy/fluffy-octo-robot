@@ -22,7 +22,7 @@ namespace presentation {
 		private Session<Guest> GuestSession { get; }
 
 		private Guest Guest {
-			get => GuestSession.Person;
+			get => GuestSession.User;
 		}
 
 		private int NumberOfAdults;

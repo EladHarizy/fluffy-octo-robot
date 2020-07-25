@@ -14,6 +14,7 @@ namespace data {
 
 			InitializeConfig();
 			InitializeAmenities();
+			InitializeAdmins();
 			InitializeBankBranches();
 			InitializeCities();
 			InitializeGuestRequests();
@@ -28,6 +29,14 @@ namespace data {
 		private static void InitializeConfig() {
 			string path = Path.Combine(Config.BasePath, "config.xml");
 			string url = "https://raw.githubusercontent.com/EladHarizy/fluffy-octo-robot/master/data_files/config.xml";
+			if (!File.Exists(path)) {
+				DownloadFile(url, path);
+			}
+		}
+
+		private static void InitializeAdmins() {
+			string path = Path.Combine(Config.BasePath, "data/admins.xml");
+			string url = "https://raw.githubusercontent.com/EladHarizy/fluffy-octo-robot/master/data_files/admins.xml";
 			if (!File.Exists(path)) {
 				DownloadFile(url, path);
 			}

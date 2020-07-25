@@ -5,6 +5,8 @@ using Lib.Interfaces;
 
 namespace data {
 	public interface IData {
+		DataAccessor<Admin> Admin { get; }
+
 		DataAccessorReadOnly<string, Amenity> Amenity { get; }
 
 		DataAccessorReadOnly<Tuple<ID, ID>, BankBranch> BankBranch { get; }
