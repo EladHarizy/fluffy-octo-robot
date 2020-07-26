@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,15 +24,18 @@ namespace presentation {
 
 		private Guest Guest { get; }
 
+		public ObservableCollection<GuestRequest> GuestRequests { get; }
+
 		private int NumberOfAdults;
 
 		private int NumberOfChildren;
 
-		public AddGuestRequestsPage(IBusiness business, Frame frame, Guest guest) {
+		public AddGuestRequestsPage(IBusiness business, Frame frame, Guest guest, System.Collections.ObjectModel.ObservableCollection<GuestRequest> guest_requests) {
 			InitializeComponent();
 			Business = business;
 			Frame = frame;
 			Guest = guest;
+			GuestRequests = guest_requests;
 			DataContext = this;
 			Amenities = new CheckBoxList<Amenity>(Business.Amenities);
 			UnitTypes = new CheckBoxList<Unit.Type>(Business.UnitTypes);
@@ -66,7 +70,7 @@ namespace presentation {
 
 			IEnumerable<City> selected_cities = Cities.SelectedItems;
 			IEnumerable<Unit.Type> selected_types = UnitTypes.SelectedItems;
-			Business.AddGuestRequest(new GuestRequest(
+			GuestRequest guest_request = new GuestRequest(
 				Guest,
 				((DateTime) start_date.SelectedDate).ToDate(),
 				((DateTime) end_date.SelectedDate).ToDate(),
@@ -75,8 +79,9 @@ namespace presentation {
 				(selected_cities.Count() == 0 ? Business.Cities : selected_cities).ToHashSet(),
 				(selected_types.Count() == 0 ? Business.UnitTypes : selected_types).ToHashSet(),
 				Amenities.SelectedItems.ToHashSet()
-			));
-
+			);
+			Business.AddGuestRequest(guest_request);
+			GuestRequests.Add(guest_request);
 			Frame.GoBack();
 		}
 

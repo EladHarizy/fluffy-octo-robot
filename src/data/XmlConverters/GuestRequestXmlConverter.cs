@@ -34,7 +34,7 @@ namespace data {
 
 		public XElement ObjToXml(GuestRequest guest_request) {
 			return new XElement(
-				"guest",
+				"guest_request",
 				new XElement("id", guest_request.ID),
 				new XElement("guest", guest_request.Guest.ID),
 				new XElement("creation_date", guest_request.CreationDate.ToString("yyyy-MM-dd")),

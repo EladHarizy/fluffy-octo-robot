@@ -33,7 +33,7 @@ namespace presentation {
 		}
 
 		private void NewGuestRequest(object sender, RoutedEventArgs e) {
-			Frame.Navigate(new AddGuestRequestsPage(Business, Frame, Guest));
+			Frame.Navigate(new AddGuestRequestsPage(Business, Frame, Guest, GuestRequests));
 		}
 
 		private void IgnorePreviewMouseWheel(object sender, MouseWheelEventArgs e) {
@@ -49,7 +49,7 @@ namespace presentation {
 			Frame.Navigate(new EditGuestRequestPage(Business, Frame, Guest));
 		}
 
-		private async void DeleteGuestRequest(object sender, RoutedEventArgs e) {
+		private /*async*/ void DeleteGuestRequest(object sender, RoutedEventArgs e) {
 			// TODO
 		}
 	}

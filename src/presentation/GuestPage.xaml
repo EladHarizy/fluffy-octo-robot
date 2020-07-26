@@ -86,7 +86,7 @@
 					</Grid>
 					<ListView x:Name="filtered_guest_requests" PreviewMouseWheel="IgnorePreviewMouseWheel">
 						<ListView.View>
-							<GridView AllowColumnReorder="false">
+							<GridView AllowsColumnReorder="false">
 								<GridViewColumn x:Name="creation_date_column" DisplayMemberBinding="{Binding CreationDate}" Header="CREATED ON"/>
 								<GridViewColumn x:Name="start_date_column" DisplayMemberBinding="{Binding StartDate}" Header="FROM"/>
 								<GridViewColumn x:Name="end_date_column" DisplayMemberBinding="{Binding EndDate}" Header="UNTIL"/>
