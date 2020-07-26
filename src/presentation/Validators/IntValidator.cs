@@ -7,7 +7,7 @@ namespace presentation {
 			Checks.Add(
 				control => {
 					try {
-						control.Text = string.IsNullOrEmpty(control.Text) ? "" : int.Parse(control.Text).ToString();
+						control.Text = string.IsNullOrWhiteSpace(control.Text) ? "" : int.Parse(control.Text).ToString();
 						return "";
 					} catch (FormatException) {
 						return "Error: Input must be a number.";
@@ -18,7 +18,7 @@ namespace presentation {
 
 		public IntValidator(TextBox control, TextBlock error_block, bool required, int? min, int? max, params Func<TextBox, string>[] checks) : this(control, error_block, checks) {
 			if (required) {
-				Checks.Add(control => control.Text == "" ? "Error: A number is required here." : "");
+				Checks.Add(control => control.Text == "" ? "Error: This field is required." : "");
 			}
 			if (min != null) {
 				Checks.Add(control => int.Parse(control.Text) < (int) min ? "Error: Number must be at least " + (int) min + '.' : "");
