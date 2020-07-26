@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,6 +11,8 @@ using Lib.Entities;
 namespace presentation {
 	public partial class AddGuestRequestsPage : ValidatedPage {
 		private MainWindow MainWindow { get; }
+
+		private Frame Frame { get; }
 
 		public CheckBoxList<Amenity> Amenities { get; }
 
@@ -25,10 +28,12 @@ namespace presentation {
 			get => GuestSession.User;
 		}
 
-		public AddGuestRequestsPage(IBusiness business, Session<Guest> guest_session) {
+		public AddGuestRequestsPage(IBusiness business, Frame frame, Guest guest, ObservableCollection<GuestRequest> guest_requests, Session<Guest> guest_session) {
 			InitializeComponent();
 			Business = business;
+			Frame = frame;
 			GuestSession = guest_session;
+			UiGuestRequests = guest_requests;
 			DataContext = this;
 			Amenities = new CheckBoxList<Amenity>(Business.Amenities);
 			UnitTypes = new CheckBoxList<Unit.Type>(Business.UnitTypes);
@@ -50,7 +55,7 @@ namespace presentation {
 
 			IEnumerable<City> selected_cities = Cities.SelectedItems;
 			IEnumerable<Unit.Type> selected_types = UnitTypes.SelectedItems;
-			Business.AddGuestRequest(new GuestRequest(
+			GuestRequest guest_request = new GuestRequest(
 				Guest,
 				((DateTime) start_date.SelectedDate).ToDate(),
 				((DateTime) end_date.SelectedDate).ToDate(),
@@ -60,11 +65,14 @@ namespace presentation {
 				(selected_cities.Count() == 0 ? Business.Cities : selected_cities).ToHashSet(),
 				(selected_types.Count() == 0 ? Business.UnitTypes : selected_types).ToHashSet(),
 				Amenities.SelectedItems.ToHashSet()
-			));
+			);
+			Business.AddGuestRequest(guest_request);
+			UiGuestRequests.Add(guest_request);
+			Frame.GoBack();
 		}
 
 		private void Cancel(object sender, RoutedEventArgs e) {
-			GuestSession.SignOut();
+			Frame.GoBack();
 		}
 	}
 }
