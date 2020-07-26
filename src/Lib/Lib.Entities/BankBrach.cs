@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using Lib.DataTypes;
 using Lib.Exceptions;
@@ -80,6 +81,19 @@ namespace Lib.Entities {
 
 		public Tuple<ID, ID> Key() {
 			return new Tuple<ID, ID>(BankID, BranchID);
+		}
+
+		public override bool Equals(object obj) {
+			return obj is BankBranch branch
+				&& EqualityComparer<ID>.Default.Equals(BankID, branch.BankID)
+				&& EqualityComparer<ID>.Default.Equals(BranchID, branch.BranchID);
+		}
+
+		public override int GetHashCode() {
+			int hashCode = 208762139;
+			hashCode = hashCode * -1521134295 + EqualityComparer<ID>.Default.GetHashCode(BankID);
+			hashCode = hashCode * -1521134295 + EqualityComparer<ID>.Default.GetHashCode(BranchID);
+			return hashCode;
 		}
 	}
 }

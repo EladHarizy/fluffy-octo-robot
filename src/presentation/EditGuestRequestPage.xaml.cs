@@ -40,7 +40,7 @@ namespace presentation {
 			DataContext = this;
 			Amenities = new CheckBoxList<Amenity>(Business.Amenities, GuestRequest.DesiredAmenities);
 			UnitTypes = new CheckBoxList<Unit.Type>(Business.UnitTypes, GuestRequest.DesiredUnitTypes);
-			Cities = new CheckBoxList<City>(Business.Cities, GuestRequest.Region);
+			Cities = new CheckBoxList<City>(Business.Cities, GuestRequest.DesiredCities);
 
 			Validators = new List<IValidator>() {
 				new Validator<DatePicker>(start_date, start_date_error,
@@ -72,7 +72,7 @@ namespace presentation {
 			IEnumerable<Unit.Type> selected_types = UnitTypes.SelectedItems;
 			GuestRequest.StartDate = ((DateTime) start_date.SelectedDate).ToDate();
 			GuestRequest.EndDate = ((DateTime) end_date.SelectedDate).ToDate();
-			GuestRequest.Region = (selected_cities.Count() == 0 ? Business.Cities : selected_cities).ToHashSet();
+			GuestRequest.DesiredCities = (selected_cities.Count() == 0 ? Business.Cities : selected_cities).ToHashSet();
 			GuestRequest.DesiredUnitTypes = (selected_types.Count() == 0 ? Business.UnitTypes : selected_types).ToHashSet();
 			GuestRequest.DesiredAmenities = Amenities.SelectedItems.ToHashSet();
 

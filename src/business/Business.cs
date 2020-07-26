@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using business.Extensions;
@@ -36,7 +37,7 @@ namespace business {
 
 		public void DeleteUnit(Unit unit) {
 			foreach (Order order in data.Order.All) {
-				if (order.OrderStatus == "Sent Mail" && order.Unit.ID == unit.ID) {
+				if (order.OrderStatus == "Sent email" && order.Unit.ID == unit.ID) {
 					throw new DeletingUnitWithOpenOrderException(unit, order);
 				}
 			}
@@ -57,34 +58,63 @@ namespace business {
 			data.Order.Add(order);
 		}
 
-		public void EditOrder(ID id, Order.Status status) {
-			Order order = data.Order[id];
-			// Order is already closed
-			if (order.OrderStatus == "Closed due to customer unresponsiveness" || order.OrderStatus == "Closed due to customer response") {
-				throw new OrderClosedException(order);
+		// Edits the given order and returns a collection of all affected orders
+		public IEnumerable<Order> EditOrder(Order order, Order.Status status) {
+			// Order is already cancelled
+			if (order.OrderStatus == "Cancelled" || order.OrderStatus == "Confirmed") {
+				throw new OrderStatusChangedException(order, "Error: Could not change the status because the order is already closed (confirmed or cancelled).");
 			}
 			// Order is being opened
 			if (status == "Not addressed" && order.OrderStatus != status) {
-				throw new ArgumentException("Error: An order cannot be reopened.");
+				throw new OrderStatusChangedException(order, "Error: An order cannot be reopened.");
 			}
-			// Order is being closed
-			if (status == "Closed due to customer response") {
+
+			ICollection<Order> affected_orders = new List<Order>();
+			affected_orders.Add(order);
+
+			// Order is being cancelled
+			if (status == "Confirmed") {
 				if (!order.Unit.Host.DebitAuthorisation) {
-					throw new NoDebitAuthorisationException("Error: Cannot change the order status to anything other than 'Not addressed' because the host does not have debit authorisation.");
+					throw new OrderStatusChangedException(order, "Error: Cannot close the order because the host does not have debit authorisation.");
 				}
 				int fee = Config.FeePerDay * order.GuestRequest.Duration;
-				order.Unit.Bookings.Add(new Unit.Calendar.Booking(order.GuestRequest.StartDate, order.GuestRequest.Duration));
-				foreach (Order order1 in data.Order.All) {
-					if (order.Unit.ID == order1.Unit.ID && order.ID != order1.ID) {
-						EditOrder(order1.ID, "Closed due to customer unresponsiveness");
-					}
+				try {
+					order.Unit.Bookings.Add(new Unit.Calendar.Booking(order.GuestRequest.StartDate, order.GuestRequest.Duration));
+				} catch (BookingOverlapException) {
+					throw new OrderStatusChangedException(order, "Error: Cannot confirm this order because the your unit is occupied on the requested dates.");
 				}
-			}
-			if (status == "Sent Mail") {
-				//TODO Send email
+				data.Unit.Edit(order.Unit); // Update the unit's calendar in the database
+
+				// Close all other open orders on this guest request or that overlap the same hosting unit
+				List<Order> orders_to_close = data.Order.All.Where(order1 =>
+					order.ID != order1.ID // It's a different order
+					&& (order1.OrderStatus == "Not addresses" || order1.OrderStatus == "Sent email") // The order is open
+					&& (
+						order.GuestRequest.ID == order1.GuestRequest.ID // The order is on the same guest request as the confirmed one
+						|| (order.Unit.ID == order1.Unit.ID && order.Overlaps(order1)) // The orders overlap on the same unit
+					)
+				).ToList();
+				for (int i = 0; i < orders_to_close.Count; ++i) {
+					EditOrder(orders_to_close[i], "Cancelled");
+					affected_orders.Add(orders_to_close[i]);
+				}
+			} else if (status == "Sent email") {
+				try {
+					new InvitationSender(order).Send();
+				} catch (Exception e) when(e is InvalidOperationException || e is ObjectDisposedException || e is SmtpException || e is SmtpFailedRecipientException || e is SmtpFailedRecipientsException) {
+					throw new OrderStatusChangedException(order, "Error: Could not send invitation to the guest. Please check your internet connection.", e);
+				}
 			}
 			order.OrderStatus = status;
 			data.Order.Edit(order);
+			return affected_orders;
+		}
+
+		public void DeleteOrder(ID id) {
+			data.Order.Remove(id);
+		}
+		public void DeleteOrder(Order order) {
+			DeleteOrder(order.ID);
 		}
 
 		public Guest Guest(ID id) {
@@ -123,7 +153,7 @@ namespace business {
 			}
 			if (!host.DebitAuthorisation) {
 				foreach (Order order in data.Order.All) {
-					if (order.OrderStatus == "Sent Mail" && order.Unit.Host.ID == host.ID) {
+					if (order.OrderStatus == "Sent email" && order.Unit.Host.ID == host.ID) {
 						throw new AuthoriaztionRevokedWithOpenOrderException(host, order);
 					}
 				}
@@ -159,6 +189,10 @@ namespace business {
 
 		public IEnumerable<Unit> UnitsOf(Host host) {
 			return data.Unit.All.Where(unit => unit.Host.ID == host.ID);
+		}
+
+		public IEnumerable<Order.Status> OrderStatuses {
+			get => data.OrderStatus.All;
 		}
 
 		public IEnumerable<GuestRequest> GuestRequests() {
@@ -218,7 +252,7 @@ namespace business {
 		public IDictionary<City, IEnumerable<GuestRequest>> GuestRequestsByCity() {
 			IDictionary<City, IEnumerable<GuestRequest>> dict = new Dictionary<City, IEnumerable<GuestRequest>>();
 			foreach (City city in data.City.All) {
-				dict[city] = data.GuestRequest.All.Where(guest_request => guest_request.Region.Contains(city));
+				dict[city] = data.GuestRequest.All.Where(guest_request => guest_request.DesiredCities.Contains(city));
 			}
 			return dict;
 		}

@@ -6,9 +6,9 @@
 		<name>Sent email</name>
 	</status>
 	<status>
-		<name>Closed due to customer unresponsiveness</name>
+		<name>Cancelled</name>
 	</status>
 	<status>
-		<name>Closed due to customer response</name>
+		<name>Confirmed</name>
 	</status>
 </order_statuses>

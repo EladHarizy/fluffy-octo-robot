@@ -62,19 +62,18 @@ namespace presentation {
 		}
 
 		private void SearchRequests(object sender, RoutedEventArgs e) {
-			Frame.Navigate(new SearchRequestsPage(Business, Frame, Host));
-		}
-
-		private void ViewOrder(object sender, RoutedEventArgs e) {
-			// TODO
+			Frame.Navigate(new SearchRequestsPage(Business, Frame, Host, Units, Orders));
 		}
 
 		private void EditOrder(object sender, RoutedEventArgs e) {
-			// TODO
+			Order order = (sender as Button).CommandParameter as Order;
+			Frame.Navigate(new EditOrderPage(Business, Frame, order, Units, Orders));
 		}
 
 		private void DeleteOrder(object sender, RoutedEventArgs e) {
-			// TODO
+			Order order = (sender as Button).CommandParameter as Order;
+			Business.DeleteOrder(order);
+			Orders.Remove(order);
 		}
 	}
 }

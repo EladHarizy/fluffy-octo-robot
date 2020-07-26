@@ -5,7 +5,7 @@
 				<StackPanel>
 					<ItemsControl Style="{StaticResource split_grid}">
 						<StackPanel Grid.Column="0" Orientation="Horizontal">
-							<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Welcome </TextBlock>
+							<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Welcome  </TextBlock>
 							<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="{Binding Guest.Name}"/>
 						</StackPanel>
 						<Button Grid.Column="2" Click="SignOut">
@@ -84,7 +84,7 @@
 						<Rectangle Grid.Column="7"/>
 						<Rectangle Grid.Column="8" Width="{Binding ActualWidth, ElementName=view_column}"/>
 					</Grid>
-					<ListView x:Name="filtered_guest_requests" PreviewMouseWheel="IgnorePreviewMouseWheel">
+					<ListView ItemsSource="{Binding GuestRequests, Mode=OneWay}" x:Name="filtered_guest_requests" PreviewMouseWheel="IgnorePreviewMouseWheel">
 						<ListView.View>
 							<GridView AllowsColumnReorder="false">
 								<GridViewColumn x:Name="creation_date_column" DisplayMemberBinding="{Binding CreationDate}" Header="CREATED ON"/>

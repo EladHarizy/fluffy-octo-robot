@@ -53,8 +53,9 @@ namespace presentation {
 			Unit.UnitType = unit_type.SelectedItem as Unit.Type;
 
 			Business.EditUnit(Unit);
-			UiUnits.Remove(Unit);
-			UiUnits.Add(Unit);
+			int i = UiUnits.IndexOf(Unit);
+			UiUnits.RemoveAt(i);
+			UiUnits.Insert(i, Unit);
 
 			Frame.GoBack();
 		}

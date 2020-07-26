@@ -22,20 +22,24 @@ namespace presentation {
 
 		private IBusiness Business { get; }
 
-		private Guest Guest { get; }
+		private Session<Guest> GuestSession { get; }
 
-		public ObservableCollection<GuestRequest> GuestRequests { get; }
+		private Guest Guest {
+			get => GuestSession.Person;
+		}
+
+		public ObservableCollection<GuestRequest> UiGuestRequests { get; }
 
 		private int NumberOfAdults;
 
 		private int NumberOfChildren;
 
-		public AddGuestRequestsPage(IBusiness business, Frame frame, Guest guest, System.Collections.ObjectModel.ObservableCollection<GuestRequest> guest_requests) {
+		public AddGuestRequestsPage(IBusiness business, Frame frame, Guest guest, ObservableCollection<GuestRequest> guest_requests, Session<Guest> guest_session) {
 			InitializeComponent();
 			Business = business;
 			Frame = frame;
-			Guest = guest;
-			GuestRequests = guest_requests;
+			GuestSession = guest_session;
+			UiGuestRequests = guest_requests;
 			DataContext = this;
 			Amenities = new CheckBoxList<Amenity>(Business.Amenities);
 			UnitTypes = new CheckBoxList<Unit.Type>(Business.UnitTypes);
@@ -76,12 +80,13 @@ namespace presentation {
 				((DateTime) end_date.SelectedDate).ToDate(),
 				NumberOfAdults,
 				NumberOfChildren,
+				message.Text,
 				(selected_cities.Count() == 0 ? Business.Cities : selected_cities).ToHashSet(),
 				(selected_types.Count() == 0 ? Business.UnitTypes : selected_types).ToHashSet(),
 				Amenities.SelectedItems.ToHashSet()
 			);
 			Business.AddGuestRequest(guest_request);
-			GuestRequests.Add(guest_request);
+			UiGuestRequests.Add(guest_request);
 			Frame.GoBack();
 		}
 

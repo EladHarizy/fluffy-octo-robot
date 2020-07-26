@@ -37,7 +37,7 @@ namespace Lib.DataTypes {
 		}
 
 		public static bool operator ==(ID id1, ID id2) {
-			return (id1 is null && id2 is null) || id1.Equals(id2);
+			return id1 is null ? id2 is null : id1.Equals(id2);
 		}
 
 		public static bool operator !=(ID id1, ID id2) {

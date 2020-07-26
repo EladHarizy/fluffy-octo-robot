@@ -33,7 +33,7 @@ namespace presentation {
 		}
 
 		private void NewGuestRequest(object sender, RoutedEventArgs e) {
-			Frame.Navigate(new AddGuestRequestsPage(Business, Frame, Guest, GuestRequests));
+			Frame.Navigate(new AddGuestRequestsPage(Business, Frame, Guest, GuestRequests, GuestSession));
 		}
 
 		private void IgnorePreviewMouseWheel(object sender, MouseWheelEventArgs e) {

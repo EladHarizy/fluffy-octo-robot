@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Lib.DataTypes;
@@ -67,6 +68,19 @@ namespace Lib.Entities {
 
 		public void Key(ID key) {
 			ID = key;
+		}
+
+		public override bool Equals(object obj) {
+			return obj is Person person
+				&& (person.GetType().IsAssignableFrom(GetType()) || GetType().IsAssignableFrom(person.GetType()))
+				&& EqualityComparer<ID>.Default.Equals(ID, person.ID);
+		}
+
+		public override int GetHashCode() {
+			int hashCode = -745477792;
+			hashCode = hashCode * -1521134295 + EqualityComparer<ID>.Default.GetHashCode(ID);
+			hashCode = hashCode * -1521134295 + EqualityComparer<Type>.Default.GetHashCode(GetType());
+			return hashCode;
 		}
 	}
 }

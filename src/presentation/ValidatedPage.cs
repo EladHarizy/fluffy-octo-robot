@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace presentation {
@@ -13,7 +11,7 @@ namespace presentation {
 		protected bool Validate() {
 			bool valid = true;
 			foreach (IValidator validator in Validators) {
-				if (validator.BaseControl.Visibility == Visibility.Visible && !validator.Validate()) {
+				if (validator.BaseControl.IsVisible && !validator.Validate()) {
 					valid = false;
 				}
 			}
