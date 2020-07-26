@@ -9,7 +9,7 @@ using business;
 using Lib.Entities;
 
 namespace presentation {
-	public partial class SearchRequestsPage : ViewGuestRequestsPage {
+	public partial class SearchRequestsPage : AdminViewGuestRequestsPage {
 		public Host Host { get; }
 
 		// The list of units which must be passed on to AddOrderPage, in case a unit has an order confirmed.

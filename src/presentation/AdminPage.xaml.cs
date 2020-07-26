@@ -16,11 +16,11 @@ namespace presentation {
 		}
 
 		private void ViewGuestRequests(object sender, RoutedEventArgs e) {
-			Frame.Navigate(new ViewGuestRequestsPage(Business, Frame));
+			Frame.Navigate(new AdminViewGuestRequestsPage(Business, Frame));
 		}
 
 		private void ViewUnits(object sender, RoutedEventArgs e) {
-			Frame.Navigate(new ViewUnitsPage(Business, Frame));
+			Frame.Navigate(new AdminViewUnitsPage(Business, Frame));
 		}
 
 		private void ViewOrders(object sender, RoutedEventArgs e) {

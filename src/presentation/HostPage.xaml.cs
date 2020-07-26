@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -45,7 +46,7 @@ namespace presentation {
 
 		private void ViewUnit(object sender, RoutedEventArgs e) {
 			Unit unit = (sender as Button).CommandParameter as Unit;
-			Frame.Navigate(new ViewUnitPage(Business, Frame, unit));
+			Frame.Navigate(new ViewUnitPage(Business, Frame, unit, Units, Orders));
 		}
 
 		private void EditUnit(object sender, RoutedEventArgs e) {
@@ -67,7 +68,7 @@ namespace presentation {
 
 		private void EditOrder(object sender, RoutedEventArgs e) {
 			Order order = (sender as Button).CommandParameter as Order;
-			Frame.Navigate(new EditOrderPage(Business, Frame, order, Units, Orders));
+			Frame.Navigate(new EditOrderPage(Business, Frame, order, Units, new List<ObservableCollection<Order>> { Orders }));
 		}
 
 		private void DeleteOrder(object sender, RoutedEventArgs e) {

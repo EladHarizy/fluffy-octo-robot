@@ -45,7 +45,7 @@ namespace presentation {
 			Business.AddOrder(order);
 			Business.EditOrder(order, "Sent email");
 			UiOrders.Add(order); // Update the UI Orders list
-			Frame.Navigate(new EditOrderPage(Business, Frame, order, UiUnits, UiOrders));
+			Frame.Navigate(new EditOrderPage(Business, Frame, order, UiUnits, new List<ObservableCollection<Order>> { UiOrders }));
 		}
 	}
 }

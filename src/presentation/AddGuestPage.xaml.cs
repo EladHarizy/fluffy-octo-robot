@@ -27,9 +27,7 @@ namespace presentation {
 			Frame = frame;
 			GuestSignInPage = Guest_sign_in_page;
 
-			EmailValidator = new RequiredTextValidator(
-				email,
-				email_error,
+			EmailValidator = new RequiredTextValidator(email, email_error,
 				control => {
 					try {
 						control.Text = new Email(control.Text);
@@ -41,23 +39,17 @@ namespace presentation {
 			);
 
 			Validators = new List<IValidator>() {
-				new RequiredTextValidator(
-						first_name,
-						first_name_error,
+				new RequiredTextValidator(first_name, first_name_error,
 						control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
 					),
 
-					new RequiredTextValidator(
-						last_name,
-						last_name_error,
+					new RequiredTextValidator(last_name, last_name_error,
 						control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
 					),
 
 					EmailValidator,
 
-					new RequiredTextValidator(
-						phone,
-						phone_error,
+					new RequiredTextValidator(phone, phone_error,
 						control => {
 							try {
 								control.Text = new Phone(control.Text);
@@ -68,23 +60,9 @@ namespace presentation {
 						}
 					),
 
-					new Validator<PasswordBox>(
-						password,
-						password_error,
-						control => control.Password == "" ? "Error: Password is required." : "",
-						control => {
-							try {
-								control.Password = new Password(control.Password);
-								return "";
-							} catch (InvalidPasswordException error) {
-								return error.Message;
-							}
-						}
-					),
+					new PasswordValidator(password, password_error),
 
-					new Validator<PasswordBox>(
-						repeat_password,
-						repeat_password_error,
+					new PasswordValidator(repeat_password, repeat_password_error,
 						control => control.Password != password.Password ? "Error: Passwords do not match." : ""
 					)
 			};

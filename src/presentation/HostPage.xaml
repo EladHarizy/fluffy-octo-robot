@@ -17,46 +17,15 @@
 							</Button>
 						</ItemsControl>
 						<Separator Height="30"/>
-						<Grid>
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition Width="*"/>
-							</Grid.ColumnDefinitions>
-							<Grid Grid.Column="0">
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="20"/>
-									<ColumnDefinition Width="Auto"/>
-									<ColumnDefinition Width="20"/>
-									<ColumnDefinition Width="200"/>
-									<ColumnDefinition Width="20"/>
-								</Grid.ColumnDefinitions>
-								<Grid.RowDefinitions>
-									<RowDefinition Height="Auto"/>
-									<RowDefinition Height="10"/>
-									<RowDefinition Height="Auto"/>
-									<RowDefinition Height="10"/>
-									<RowDefinition Height="Auto"/>
-									<RowDefinition Height="10"/>
-									<RowDefinition Height="Auto"/>
-									<RowDefinition Height="10"/>
-									<RowDefinition Height="Auto"/>
-									<RowDefinition Height="10"/>
-									<RowDefinition Height="Auto"/>
-								</Grid.RowDefinitions>
-								<TextBlock Grid.Row="0" Grid.Column="1">ID</TextBlock>
-								<TextBox Grid.Row="0" Grid.Column="3" Text="{Binding Host.ID, Mode=OneTime}" IsReadOnly="True"/>
-								<TextBlock Grid.Row="2" Grid.Column="1">Email</TextBlock>
-								<TextBox Grid.Row="2" Grid.Column="3" Text="{Binding Host.Email, Mode=OneTime}" IsReadOnly="True"/>
-								<TextBlock Grid.Row="4" Grid.Column="1">Phone</TextBlock>
-								<TextBox Grid.Row="4" Grid.Column="3" Text="{Binding Host.Phone, Mode=OneTime}" IsReadOnly="True"/>
-								<TextBlock Grid.Row="6" Grid.Column="1">Bank Number</TextBlock>
-								<TextBox Grid.Row="6" Grid.Column="3" Text="{Binding Host.BankAccount.Branch.BankID, Mode=OneTime}" IsReadOnly="True"/>
-								<TextBlock Grid.Row="8" Grid.Column="1">Branch Number</TextBlock>
-								<TextBox Grid.Row="8" Grid.Column="3" Text="{Binding Host.BankAccount.Branch.BranchID, Mode=OneTime}" IsReadOnly="True"/>
-								<TextBlock Grid.Row="10" Grid.Column="1">Account Number</TextBlock>
-								<TextBox Grid.Row="10" Grid.Column="3" Text="{Binding Host.BankAccount.AccountNumber, Mode=OneTime}" IsReadOnly="True"/>
-							</Grid>
-						</Grid>
+						<StackPanel MinWidth="350" HorizontalAlignment="Left">
+							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="ID" Text="{Binding Host.ID, Mode=OneTime}" IsReadOnly="True"/>
+							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Email" Text="{Binding Host.Email, Mode=OneTime}" IsReadOnly="True"/>
+							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Phone" Text="{Binding Host.Phone, Mode=OneTime}" IsReadOnly="True"/>
+							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Bank number" Text="{Binding Host.BankAccount.Branch.BankID, Mode=OneTime}" IsReadOnly="True"/>
+							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Branch number" Text="{Binding Host.BankAccount.Branch.BranchID, Mode=OneTime}" IsReadOnly="True"/>
+							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Account number" Text="{Binding Host.BankAccount.AccountNumber, Mode=OneTime}" IsReadOnly="True"/>
+							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Debit authorisation" Text="{Binding Host.DebitAuthorisation, Mode=OneTime, Converter={StaticResource BoolYesNoConverter}}" IsReadOnly="True"/>
+						</StackPanel>
 					</StackPanel>
 				</md:Card>
 				<Separator/>
