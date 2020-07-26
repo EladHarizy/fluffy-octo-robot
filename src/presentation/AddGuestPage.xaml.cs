@@ -19,7 +19,7 @@ namespace presentation {
 
 		private BankBranch BankBranch { get; set; }
 
-		private Validator<TextBox> EmailValidator { get; }
+		private RequiredTextValidator EmailValidator { get; }
 
 		public AddGuestPage(IBusiness business, Frame frame, GuestSignInPage Guest_sign_in_page) {
 			InitializeComponent();
@@ -27,10 +27,9 @@ namespace presentation {
 			Frame = frame;
 			GuestSignInPage = Guest_sign_in_page;
 
-			EmailValidator = new Validator<TextBox>(
+			EmailValidator = new RequiredTextValidator(
 				email,
 				email_error,
-				control => control.Text == "" ? "Error: Email is required." : "",
 				control => {
 					try {
 						control.Text = new Email(control.Text);
@@ -42,38 +41,31 @@ namespace presentation {
 			);
 
 			Validators = new List<IValidator>() {
-				new Validator<TextBox>(
+				new RequiredTextValidator(
 						first_name,
 						first_name_error,
-						control => control.Text == "" ? "Error: First name is required." : "",
 						control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
 					),
 
-					new Validator<TextBox>(
+					new RequiredTextValidator(
 						last_name,
 						last_name_error,
-						control => control.Text == "" ? "Error: First name is required." : "",
 						control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
 					),
 
 					EmailValidator,
 
-					new Validator<TextBox>(
+					new RequiredTextValidator(
 						phone,
 						phone_error,
-						new Func<TextBox, string>(
-							control => control.Text == "" ? "Error: Phone number is required." : ""
-						),
-						new Func<TextBox, string>(
-							control => {
-								try {
-									control.Text = new Phone(control.Text);
-									return "";
-								} catch (InvalidPhoneException error) {
-									return error.Message;
-								}
+						control => {
+							try {
+								control.Text = new Phone(control.Text);
+								return "";
+							} catch (InvalidPhoneException error) {
+								return error.Message;
 							}
-						)
+						}
 					),
 
 					new Validator<PasswordBox>(

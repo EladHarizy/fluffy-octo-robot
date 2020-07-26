@@ -10,13 +10,13 @@ namespace presentation {
 			get => Control;
 		}
 
-		private TControl Control { get; }
+		protected TControl Control { get; }
 
 		public TextBlock ErrorBlock { get; }
 
-		private Brush InitialBorder { get; }
+		protected Brush InitialBorder { get; }
 
-		private ICollection<Func<TControl, string>> Checks { get; } = new List<Func<TControl, string>>();
+		protected ICollection<Func<TControl, string>> Checks { get; } = new List<Func<TControl, string>>();
 
 		public Validator(TControl control, TextBlock error_block, params Func<TControl, string>[] checks) {
 			Control = control;

@@ -1,0 +1,31 @@
+using System;
+using System.Windows.Controls;
+
+namespace presentation {
+	internal class IntValidator : Validator<TextBox> {
+		public IntValidator(TextBox control, TextBlock error_block, params Func<TextBox, string>[] checks) : base(control, error_block, checks) {
+			Checks.Add(
+				control => {
+					try {
+						control.Text = string.IsNullOrEmpty(control.Text) ? "" : int.Parse(control.Text).ToString();
+						return "";
+					} catch (FormatException) {
+						return "Error: Input must be a number.";
+					}
+				}
+			);
+		}
+
+		public IntValidator(TextBox control, TextBlock error_block, bool required, int? min, int? max, params Func<TextBox, string>[] checks) : this(control, error_block, checks) {
+			if (required) {
+				Checks.Add(control => control.Text == "" ? "Error: A number is required here." : "");
+			}
+			if (min != null) {
+				Checks.Add(control => int.Parse(control.Text) < (int) min ? "Error: Number must be at least " + (int) min + '.' : "");
+			}
+			if (min != null) {
+				Checks.Add(control => int.Parse(control.Text) > (int) max ? "Error: Number must be at most " + (int) max + '.' : "");
+			}
+		}
+	}
+}

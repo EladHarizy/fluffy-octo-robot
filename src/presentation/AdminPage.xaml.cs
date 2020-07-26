@@ -20,7 +20,7 @@ namespace presentation {
 		}
 
 		private void ViewUnits(object sender, RoutedEventArgs e) {
-			// Frame.Navigate(new ViewUnitsPage(Business, Frame));
+			Frame.Navigate(new ViewUnitsPage(Business, Frame));
 		}
 
 		private void ViewOrders(object sender, RoutedEventArgs e) {
