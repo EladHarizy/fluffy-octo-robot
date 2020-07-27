@@ -8,6 +8,8 @@ using Lib.Interfaces;
 
 namespace data {
 	class Data : IData {
+		public DataAccessor<Admin> Admin { get; }
+
 		public DataAccessorReadOnly<string, Amenity> Amenity { get; }
 
 		public DataAccessorReadOnly<Tuple<ID, ID>, BankBranch> BankBranch { get; }
@@ -30,6 +32,13 @@ namespace data {
 
 		public Data() {
 			FilesInitializer.InitializeAll();
+
+			Admin = new DataAccessor<Admin>(
+				Path.Combine(Config.BasePath, "data/admins.xml"),
+				"admins",
+				new AdminXmlConverter(),
+				(admin) => admin.Clone()
+			);
 
 			Amenity = new DataAccessorReadOnly<string, Amenity>(
 				Path.Combine(Config.BasePath, "data/amenities.xml"),
@@ -98,6 +107,9 @@ namespace data {
 		}
 
 		public DataAccessor<T> GetAccessor<T>() where T : IEntity<ID> {
+			if (typeof(T) == typeof(Admin)) {
+				return Admin as DataAccessor<T>;
+			}
 			if (typeof(T) == typeof(Guest)) {
 				return Guest as DataAccessor<T>;
 			}

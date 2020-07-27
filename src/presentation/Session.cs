@@ -5,7 +5,7 @@ using Lib.Entities;
 using Lib.Exceptions;
 
 namespace presentation {
-	public class Session<TPerson> where TPerson : Person {
+	public class Session<TUser> where TUser : User {
 		private IBusiness Business { get; }
 
 		private Frame Frame { get; }
@@ -22,13 +22,13 @@ namespace presentation {
 			}
 		}
 
-		public TPerson Person {
+		public TUser User {
 			get;
 			private set;
 		}
 
 		public bool IsSignedIn {
-			get => Person != null;
+			get => User != null;
 		}
 
 		public Session(IBusiness business, Frame frame) {
@@ -36,17 +36,17 @@ namespace presentation {
 			Frame = frame;
 		}
 
-		// If the email and password are valid, assigns the signed in person to Person. Otherwise throws InexistentEmailException or WrongPasswordException
-		public void SignIn(TPerson person, string password) {
-			if (Business.SignIn<TPerson>(person, password)) {
-				Person = person;
+		// If the email and password are valid, assigns the signed in user to User. Otherwise throws InexistentEmailException or WrongPasswordException
+		public void SignIn(TUser user, string password) {
+			if (Business.SignIn<TUser>(user, password)) {
+				User = user;
 			} else {
 				throw new WrongPasswordException();
 			}
 		}
 
 		public void SignOut() {
-			Person = null;
+			User = null;
 			Frame.Navigate(SignInPage);
 			Frame.ClearHistory();
 		}

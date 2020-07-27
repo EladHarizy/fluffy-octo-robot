@@ -10,7 +10,7 @@ using Lib.Entities;
 
 namespace presentation {
 	public partial class AddGuestRequestsPage : ValidatedPage {
-		private MainWindow MainWindow { get; }
+		public IBusiness Business { get; }
 
 		private Frame Frame { get; }
 
@@ -20,19 +20,13 @@ namespace presentation {
 
 		public CheckBoxList<Unit.Type> UnitTypes { get; }
 
-		private IBusiness Business { get; }
-
 		private Session<Guest> GuestSession { get; }
 
 		private Guest Guest {
-			get => GuestSession.Person;
+			get => GuestSession.User;
 		}
 
-		public ObservableCollection<GuestRequest> UiGuestRequests { get; }
-
-		private int NumberOfAdults;
-
-		private int NumberOfChildren;
+		private ObservableCollection<GuestRequest> UiGuestRequests { get; }
 
 		public AddGuestRequestsPage(IBusiness business, Frame frame, Guest guest, ObservableCollection<GuestRequest> guest_requests, Session<Guest> guest_session) {
 			InitializeComponent();
@@ -46,23 +40,10 @@ namespace presentation {
 			Cities = new CheckBoxList<City>(Business.Cities);
 
 			Validators = new List<IValidator>() {
-				new Validator<DatePicker>(start_date, start_date_error,
-						date_picker => date_picker.SelectedDate == null ? "Error: Start date is required." : ""
-					),
-
-					new Validator<DatePicker>(end_date, end_date_error,
-						date_picker => date_picker.SelectedDate == null ? "Error: End date is required." : ""
-					),
-
-					new Validator<TextBox>(number_of_adults, number_of_adults_error,
-						control => control.Text == "" ? "Error: Number of adults is required." : "",
-						control => int.TryParse(control.Text, out NumberOfAdults) ? "" : "Error: Could not interpret the input as a number."
-					),
-
-					new Validator<TextBox>(number_of_children, number_of_children_error,
-						control => control.Text == "" ? "Error: Number of children is required." : "",
-						control => int.TryParse(control.Text, out NumberOfChildren) ? "" : "Error: Could not interpret the input as a number."
-					)
+				new RequiredDateValidator(start_date, start_date_error),
+					new RequiredDateValidator(end_date, end_date_error),
+					new IntValidator(number_of_adults, number_of_adults_error, true, 1, null),
+					new IntValidator(number_of_adults, number_of_children_error, true, 0, null),
 			};
 
 		}
@@ -78,8 +59,8 @@ namespace presentation {
 				Guest,
 				((DateTime) start_date.SelectedDate).ToDate(),
 				((DateTime) end_date.SelectedDate).ToDate(),
-				NumberOfAdults,
-				NumberOfChildren,
+				int.Parse(number_of_adults.Text),
+				int.Parse(number_of_children.Text),
 				message.Text,
 				(selected_cities.Count() == 0 ? Business.Cities : selected_cities).ToHashSet(),
 				(selected_types.Count() == 0 ? Business.UnitTypes : selected_types).ToHashSet(),

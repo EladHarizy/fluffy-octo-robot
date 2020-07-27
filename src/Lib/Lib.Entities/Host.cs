@@ -39,7 +39,7 @@ namespace Lib.Entities {
 			Phone phone,
 			IEnumerable<byte> password_hash,
 			BankAccount bank_account,
-			bool collection_clearance
+			bool debit_authorisation
 		) : base(
 			id,
 			first_name,
@@ -49,7 +49,7 @@ namespace Lib.Entities {
 			password_hash
 		) {
 			BankAccount = bank_account;
-			DebitAuthorisation = collection_clearance;
+			DebitAuthorisation = debit_authorisation;
 		}
 
 		public override string ToString(int tabs) {

@@ -15,9 +15,9 @@ namespace presentation {
 
 		private Frame Frame { get; }
 
-		private Validator<TextBox> EmailValidator { get; }
+		private IValidator EmailValidator { get; }
 
-		private Validator<PasswordBox> PasswordValidator { get; }
+		private IValidator PasswordValidator { get; }
 
 		public HostSignInPage(IBusiness business, Session<Host> host_session, Frame frame) {
 			InitializeComponent();
@@ -26,20 +26,9 @@ namespace presentation {
 			HostSession = host_session;
 			Frame = frame;
 
-			EmailValidator = new Validator<TextBox>(email, email_error);
-			// Check that the email has a valid format
-			EmailValidator.AddCheck(
-				control => {
-					try {
-						control.Text = new Email(control.Text);
-						return "";
-					} catch (InvalidEmailException error) {
-						return error.Message;
-					}
-				}
-			);
+			EmailValidator = new EmailValidator(email, email_error);
 
-			PasswordValidator = new Validator<PasswordBox>(password, password_error);
+			PasswordValidator = new PasswordValidator(password, password_error);
 		}
 
 		public void SignIn() {

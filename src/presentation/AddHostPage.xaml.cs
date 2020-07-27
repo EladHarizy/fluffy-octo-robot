@@ -20,7 +20,7 @@ namespace presentation {
 
 		private BankBranch BankBranch { get; set; }
 
-		private Validator<TextBox> EmailValidator { get; }
+		private EmailValidator EmailValidator { get; }
 
 		public AddHostPage(IBusiness business, Frame frame, HostSignInPage host_sign_in_page) {
 			InitializeComponent();
@@ -28,60 +28,28 @@ namespace presentation {
 			Frame = frame;
 			HostSignInPage = host_sign_in_page;
 
-			EmailValidator = new Validator<TextBox>(email, email_error,
-				control => control.Text == "" ? "Error: Email is required." : "",
-				control => {
-					try {
-						control.Text = new Email(control.Text);
-						return "";
-					} catch (InvalidEmailException error) {
-						return error.Message;
-					}
-				}
-			);
+			EmailValidator = new EmailValidator(email, email_error);
 
 			Validators = new List<IValidator>() {
-				new Validator<TextBox>(first_name, first_name_error,
-						control => control.Text == "" ? "Error: First name is required." : "",
+				new RequiredTextValidator(first_name, first_name_error,
 						control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
 					),
 
-					new Validator<TextBox>(last_name, last_name_error,
-						control => control.Text == "" ? "Error: First name is required." : "",
+					new RequiredTextValidator(last_name, last_name_error,
 						control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
 					),
 
 					EmailValidator,
 
-					new Validator<TextBox>(phone, phone_error,
-						control => control.Text == "" ? "Error: Phone number is required." : "",
-						control => {
-							try {
-								control.Text = new Phone(control.Text);
-								return "";
-							} catch (InvalidPhoneException error) {
-								return error.Message;
-							}
-						}
-					),
+					new PhoneValidator(phone, phone_error),
 
-					new Validator<PasswordBox>(password, password_error,
-						control => control.Password == "" ? "Error: Password is required." : "",
-						control => {
-							try {
-								control.Password = new Password(control.Password);
-								return "";
-							} catch (InvalidPasswordException error) {
-								return error.Message;
-							}
-						}
-					),
+					new PasswordValidator(password, password_error),
 
-					new Validator<PasswordBox>(repeat_password, repeat_password_error,
+					new PasswordValidator(repeat_password, repeat_password_error,
 						control => control.Password != password.Password ? "Error: Passwords do not match." : ""
 					),
 
-					new Validator<TextBox>(bank_number, bank_number_error,
+					new IntValidator(bank_number, bank_number_error, true, 0, null,
 						control => {
 							try {
 								control.Text = new ID(control.Text, 2);
@@ -97,7 +65,7 @@ namespace presentation {
 						}
 					),
 
-					new Validator<TextBox>(branch_number, branch_number_error,
+					new IntValidator(branch_number, branch_number_error, true, 0, null,
 						control => {
 							try {
 								control.Text = new ID(control.Text, 3);
@@ -113,9 +81,7 @@ namespace presentation {
 						}
 					),
 
-					new Validator<TextBox>(
-						account_number,
-						account_number_error,
+					new IntValidator(account_number, account_number_error, true, 0, null,
 						control => {
 							try {
 								control.Text = new ID(control.Text, 6);

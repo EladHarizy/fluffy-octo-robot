@@ -6,27 +6,32 @@ using Lib.Entities;
 using Lib.Exceptions;
 
 namespace presentation {
-	public partial class GuestSignInPage : Page {
+	public partial class AdminSignInPage : Page {
 		private IBusiness Business { get; }
 
-		private Session<Guest> GuestSession { get; }
+		private Session<Admin> AdminSession { get; }
 
 		private Frame Frame { get; }
 
-		private IValidator EmailValidator { get; }
+		private EmailValidator EmailValidator { get; }
 
-		private IValidator PasswordValidator { get; }
+		private PasswordValidator PasswordValidator { get; }
 
-		public GuestSignInPage(IBusiness business, Session<Guest> guest_session, Frame frame) {
+		public AdminSignInPage(IBusiness business, Session<Admin> admin_session, Frame frame) {
 			InitializeComponent();
 			Business = business;
-			guest_session.SignInPage = this;
-			GuestSession = guest_session;
+			admin_session.SignInPage = this;
+			AdminSession = admin_session;
 			Frame = frame;
 
 			EmailValidator = new EmailValidator(email, email_error);
 
 			PasswordValidator = new PasswordValidator(password, password_error);
+
+			// Test
+			email.Text = "abrahammurciano@gmail.com";
+			password.Password = "password";
+			// End test
 		}
 
 		public void SignIn() {
@@ -34,9 +39,9 @@ namespace presentation {
 				return;
 			}
 
-			Guest guest;
+			Admin admin;
 			try {
-				guest = Business.Guest(new Email(email.Text));
+				admin = Business.Admin(new Email(email.Text));
 				EmailValidator.ResetError();
 			} catch (InexistentEmailException error) {
 				EmailValidator.SetError(error.Message);
@@ -48,9 +53,9 @@ namespace presentation {
 			}
 
 			try {
-				GuestSession.SignIn(guest, password.Password);
+				AdminSession.SignIn(admin, password.Password);
 				PasswordValidator.ResetError();
-				Frame.Navigate(new GuestPage(Business, GuestSession, Frame));
+				Frame.Navigate(new AdminPage(Business, Frame));
 			} catch (WrongPasswordException error) {
 				PasswordValidator.SetError(error.Message);
 			}
@@ -58,10 +63,6 @@ namespace presentation {
 
 		private void SignIn(object sender, RoutedEventArgs e) {
 			SignIn();
-		}
-
-		private void SignUp(object sender, RoutedEventArgs e) {
-			Frame.Navigate(new AddGuestPage(Business, Frame, this));
 		}
 	}
 }
