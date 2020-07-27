@@ -19,7 +19,7 @@ namespace presentation {
 
 		private BankBranch BankBranch { get; set; }
 
-		private RequiredTextValidator EmailValidator { get; }
+		private IValidator EmailValidator { get; }
 
 		public AddGuestPage(IBusiness business, Frame frame, GuestSignInPage Guest_sign_in_page) {
 			InitializeComponent();
@@ -27,16 +27,7 @@ namespace presentation {
 			Frame = frame;
 			GuestSignInPage = Guest_sign_in_page;
 
-			EmailValidator = new RequiredTextValidator(email, email_error,
-				control => {
-					try {
-						control.Text = new Email(control.Text);
-						return "";
-					} catch (InvalidEmailException error) {
-						return error.Message;
-					}
-				}
-			);
+			EmailValidator = new EmailValidator(email, email_error);
 
 			Validators = new List<IValidator>() {
 				new RequiredTextValidator(first_name, first_name_error,
