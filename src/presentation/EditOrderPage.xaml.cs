@@ -17,9 +17,9 @@ namespace presentation {
 
 		public ObservableCollection<Unit> UiUnits { get; }
 
-		public ObservableCollection<Order> UiOrders { get; }
+		public IEnumerable<ObservableCollection<Order>> UiOrders { get; }
 
-		public EditOrderPage(IBusiness business, Frame frame, Order order, ObservableCollection<Unit> ui_units, ObservableCollection<Order> ui_orders) {
+		public EditOrderPage(IBusiness business, Frame frame, Order order, ObservableCollection<Unit> ui_units, IEnumerable<ObservableCollection<Order>> ui_orders) {
 			InitializeComponent();
 			DataContext = this;
 			Business = business;
@@ -37,9 +37,11 @@ namespace presentation {
 			try {
 				IEnumerable<Order> affected_orders = Business.EditOrder(Order, order_status.SelectedItem as Order.Status).Where(order => order.Unit.Host.ID == Order.Unit.Host.ID);
 				foreach (Order order in affected_orders) {
-					int i = UiOrders.IndexOf(order);
-					UiOrders.RemoveAt(i);
-					UiOrders.Insert(i, order);
+					foreach (ObservableCollection<Order> orders in UiOrders) {
+						int i = orders.IndexOf(order);
+						orders.RemoveAt(i);
+						orders.Insert(i, order);
+					}
 				}
 				if (Order.OrderStatus == "Confirmed") {
 					int i = UiUnits.IndexOf(Order.Unit);

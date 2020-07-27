@@ -7,5 +7,9 @@ namespace presentation {
 		Control BaseControl { get; }
 
 		TextBlock ErrorBlock { get; }
+
+		void SetError(string message);
+
+		void ResetError();
 	}
 }

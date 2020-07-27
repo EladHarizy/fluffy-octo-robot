@@ -17,8 +17,8 @@ namespace data {
 			Phone phone = element.Element("phone").Value.Trim();
 			IEnumerable<byte> password_hash = Convert.FromBase64String(element.Element("password_hash").Value.Trim());
 			BankAccount account = bank_account_converter.XmlToObj(element.Element("bank_account"));
-			bool collection_clearance = bool.Parse(element.Element("collection_clearance").Value.Trim());
-			return new Host(id, first_name, last_name, email, phone, password_hash, account, collection_clearance);
+			bool debit_authorisation = bool.Parse(element.Element("debit_authorisation").Value.Trim());
+			return new Host(id, first_name, last_name, email, phone, password_hash, account, debit_authorisation);
 		}
 
 		public XElement ObjToXml(Host host) {
@@ -31,7 +31,7 @@ namespace data {
 				new XElement("phone", host.Phone),
 				new XElement("password_hash", Convert.ToBase64String(host.PasswordHash.ToArray())),
 				bank_account_converter.ObjToXml(host.BankAccount),
-				new XElement("collection_clearance", host.DebitAuthorisation)
+				new XElement("debit_authorisation", host.DebitAuthorisation)
 			);
 		}
 

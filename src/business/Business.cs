@@ -15,9 +15,9 @@ namespace business {
 	internal class Business : IBusiness {
 		private IData data = DataFactory.New();
 
-		private TPerson Person<TPerson>(Email email) where TPerson : Person {
+		private TUser User<TUser>(Email email) where TUser : User {
 			try {
-				return data.GetAccessor<TPerson>().All.First(p => p.Email == email);
+				return data.GetAccessor<TUser>().All.First(p => p.Email == email);
 			} catch (InvalidOperationException error) {
 				throw new InexistentEmailException(email, error);
 			}
@@ -117,12 +117,16 @@ namespace business {
 			DeleteOrder(order.ID);
 		}
 
+		public Admin Admin(Email email) {
+			return User<Admin>(email);
+		}
+
 		public Guest Guest(ID id) {
 			return data.Guest[id];
 		}
 
 		public Guest Guest(Email email) {
-			return Person<Guest>(email);
+			return User<Guest>(email);
 		}
 
 		public void AddGuest(Guest guest) {
@@ -137,7 +141,7 @@ namespace business {
 		}
 
 		public Host Host(Email email) {
-			return Person<Host>(email);
+			return User<Host>(email);
 		}
 
 		public void AddHost(Host host) {
@@ -164,7 +168,7 @@ namespace business {
 		// Returns the person with the given email and password
 		// If the password is wrong WrongPasswordException is thrown
 		// If the email doesn't exist InexistentEmailException is thrown
-		public bool SignIn<TPerson>(TPerson person, string password) where TPerson : Person {
+		public bool SignIn<TUser>(TUser person, string password) where TUser : User {
 			if (new Password(password).MatchesHash(person.PasswordHash)) {
 				return true;
 			}

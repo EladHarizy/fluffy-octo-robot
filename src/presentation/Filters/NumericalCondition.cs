@@ -7,7 +7,7 @@ using Lib.Entities;
 
 namespace presentation {
 	// TObj is the type of object being filtered, and TValue is the type that these objects are being filtered by
-	public partial class SingleValueCondition<TObj, TValue> : ICondition<TObj> where TValue : IComparable<TValue> {
+	public partial class NumericalCondition<TObj, TValue> : ICondition<TObj> where TValue : IComparable<TValue> {
 		private ToggleButton Toggle { get; }
 
 		private ComboBox FilterTypeComboBox { get; }
@@ -22,7 +22,7 @@ namespace presentation {
 
 		public IEnumerable<FilterType> FilterTypes { get; }
 
-		public SingleValueCondition(ToggleButton toggle, ComboBox filter_type_combo_box, Control control_1, Control control_2, Func<TObj, TValue> obj_to_value, Func<Control, TValue> control_to_value) {
+		public NumericalCondition(ToggleButton toggle, ComboBox filter_type_combo_box, Control control_1, Control control_2, Func<TObj, TValue> obj_to_value, Func<Control, TValue> control_to_value) {
 			Toggle = toggle;
 			FilterTypeComboBox = filter_type_combo_box;
 			Control1 = control_1;

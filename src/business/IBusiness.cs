@@ -22,6 +22,8 @@ namespace business {
 
 		IEnumerable<Order> EditOrder(Order order, Order.Status status);
 
+		Admin Admin(Email email);
+
 		Guest Guest(ID id);
 
 		Guest Guest(Email email);
@@ -36,7 +38,7 @@ namespace business {
 
 		void EditHost(Host host);
 
-		bool SignIn<TPerson>(TPerson person, string password) where TPerson : Person;
+		bool SignIn<TUser>(TUser user, string password) where TUser : User;
 
 		IEnumerable<Amenity> Amenities { get; }
 

@@ -32,15 +32,7 @@
 			<Separator/>
 			<md:Card Style="{StaticResource padded_stack_card}"><!-- Orders Details -->
 				<StackPanel>
-					<ItemsControl Style="{StaticResource split_grid}">
-						<TextBlock Grid.Column="0" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Orders</TextBlock>
-						<Button Grid.Column="2" Click="SearchRequests">
-							<StackPanel Orientation="Horizontal">
-								<md:PackIcon Kind="Search"/>
-								<TextBlock Margin="5 0 5 0">SEARCH REQUESTS</TextBlock>
-							</StackPanel>
-						</Button>
-					</ItemsControl>
+					<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Orders</TextBlock>
 					<Separator Height="30"/>
 					<Grid Visibility="Hidden"><!-- Hack to make a column take up the rest of the available space -->
 						<Grid.ColumnDefinitions>
@@ -50,33 +42,22 @@
 							<ColumnDefinition Width="*"/>
 							<ColumnDefinition Width="Auto"/>
 							<ColumnDefinition Width="Auto"/>
-							<ColumnDefinition Width="Auto"/>
 							<ColumnDefinition Width="20"/>
 						</Grid.ColumnDefinitions>
 						<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=id_column}"/>
 						<Rectangle Grid.Column="1" Width="{Binding ActualWidth, ElementName=guest_request_column}"/>
 						<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=status_column}"/>
 						<Rectangle Grid.Column="3" x:Name="wide_column"/>
-						<Rectangle Grid.Column="4" Width="{Binding ActualWidth, ElementName=view_column}"/>
-						<Rectangle Grid.Column="5" Width="{Binding ActualWidth, ElementName=edit_column}"/>
-						<Rectangle Grid.Column="6" Width="{Binding ActualWidth, ElementName=delete_column}"/>
+						<Rectangle Grid.Column="4" Width="{Binding ActualWidth, ElementName=edit_column}"/>
+						<Rectangle Grid.Column="5" Width="{Binding ActualWidth, ElementName=delete_column}"/>
 					</Grid>
-					<ListView ItemsSource="{Binding Orders, Mode=OneWay}">
+					<ListView ItemsSource="{Binding UiOrders, Mode=OneWay}">
 						<ListView.View>
 							<GridView AllowsColumnReorder="false">
 								<GridViewColumn x:Name="id_column" DisplayMemberBinding="{Binding ID}" Header="ID"/>
 								<GridViewColumn x:Name="guest_request_column" DisplayMemberBinding="{Binding GuestRequest.ID}" Header="GUEST REQUEST"/>
 								<GridViewColumn x:Name="status_column" DisplayMemberBinding="{Binding OrderStatus}" Header="STATUS"/>
 								<GridViewColumn DisplayMemberBinding="{Binding CreationDate}" Header="CREATION DATE" Width="{Binding ActualWidth, ElementName=wide_column}"/>
-								<GridViewColumn x:Name="view_column">
-									<GridViewColumn.CellTemplate>
-										<DataTemplate>
-											<Button Style="{StaticResource MaterialDesignToolButton}" Click="ViewOrder" CommandParameter="{Binding}" Height="14" Padding="0">
-												<md:PackIcon Kind="Eye"/>
-											</Button>
-										</DataTemplate>
-									</GridViewColumn.CellTemplate>
-								</GridViewColumn>
 								<GridViewColumn x:Name="edit_column">
 									<GridViewColumn.CellTemplate>
 										<DataTemplate>

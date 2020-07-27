@@ -92,9 +92,9 @@
 								<GridViewColumn x:Name="end_date_column" DisplayMemberBinding="{Binding EndDate}" Header="UNTIL"/>
 								<GridViewColumn x:Name="adults_column" DisplayMemberBinding="{Binding Adults}" Header="ADULTS"/>
 								<GridViewColumn x:Name="children_column" DisplayMemberBinding="{Binding Children}" Header="CHILDREN"/>
-								<GridViewColumn DisplayMemberBinding="{Binding Region, Converter={StaticResource IEnumerableConverter}}" Header="CITIES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
-								<GridViewColumn DisplayMemberBinding="{Binding UnitTypes, Converter={StaticResource IEnumerableConverter}}" Header="UNIT TYPES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
-								<GridViewColumn DisplayMemberBinding="{Binding Amenities, Converter={StaticResource IEnumerableConverter}}" Header="AMENITIES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
+								<GridViewColumn DisplayMemberBinding="{Binding DesiredCities, Converter={StaticResource IEnumerableConverter}}" Header="CITIES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
+								<GridViewColumn DisplayMemberBinding="{Binding DesiredUnitTypes, Converter={StaticResource IEnumerableConverter}}" Header="UNIT TYPES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
+								<GridViewColumn DisplayMemberBinding="{Binding DesiredAmenities, Converter={StaticResource IEnumerableConverter}}" Header="AMENITIES" Width="{Binding ActualWidth, ElementName=wide_column}"/>
 								<GridViewColumn x:Name="view_column">
 									<GridViewColumn.CellTemplate>
 										<DataTemplate>

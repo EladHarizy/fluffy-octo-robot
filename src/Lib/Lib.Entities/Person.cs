@@ -2,13 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Lib.DataTypes;
-using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
-	public abstract class Person : IEntity<ID> {
-		public virtual ID ID { get; set; }
-
+	public abstract class Person : User {
 		public virtual string FirstName { get; }
 
 		public virtual string LastName { get; }
@@ -16,19 +13,11 @@ namespace Lib.Entities {
 		public virtual string Name {
 			get => FirstName + ' ' + LastName;
 		}
-
-		public virtual Email Email { get; set; }
-
-		public virtual IEnumerable<byte> PasswordHash { get; }
-
 		public virtual Phone Phone { get; }
 
-		public Person(ID id, string first_name, string last_name, Email email, Phone phone, IEnumerable<byte> password_hash) {
-			ID = id;
+		public Person(ID id, string first_name, string last_name, Email email, Phone phone, IEnumerable<byte> password_hash) : base(id, email, password_hash) {
 			FirstName = first_name;
 			LastName = last_name;
-			Email = email;
-			PasswordHash = password_hash;
 			Phone = phone;
 		}
 
@@ -60,14 +49,6 @@ namespace Lib.Entities {
 			sb.Append('\n');
 
 			return sb.ToString();
-		}
-
-		public ID Key() {
-			return ID;
-		}
-
-		public void Key(ID key) {
-			ID = key;
 		}
 
 		public override bool Equals(object obj) {

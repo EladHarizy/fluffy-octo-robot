@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,35 +13,37 @@ namespace presentation {
 
 		public Unit Unit { get; }
 
-		public ObservableCollection<Order> Orders { get; }
+		private ObservableCollection<Unit> UiUnits { get; }
 
-		public ViewUnitPage(IBusiness business, Frame frame, Unit unit) {
+		public ObservableCollection<Order> UiOrders { get; }
+
+		private ObservableCollection<Order> HostPageUiOrders { get; }
+
+		public ViewUnitPage(IBusiness business, Frame frame, Unit unit, ObservableCollection<Unit> ui_units, ObservableCollection<Order> host_page_ui_orders) {
 			InitializeComponent();
 			Business = business;
 			Frame = frame;
 			Unit = unit;
-			Orders = new ObservableCollection<Order>(Business.Orders(unit));
+			UiOrders = new ObservableCollection<Order>(Business.Orders(unit));
 			DataContext = this;
+			UiUnits = ui_units;
+			HostPageUiOrders = host_page_ui_orders;
 		}
 
 		private void Back(object sender, RoutedEventArgs e) {
 			Frame.GoBack();
 		}
 
-		private void SearchRequests(object sender, RoutedEventArgs e) {
-			// TODO
-		}
-
-		private void ViewOrder(object sender, RoutedEventArgs e) {
-			// TODO
-		}
-
 		private void EditOrder(object sender, RoutedEventArgs e) {
-			// TODO
+			Order order = (sender as Button).CommandParameter as Order;
+			Frame.Navigate(new EditOrderPage(Business, Frame, order, UiUnits, new List<ObservableCollection<Order>> { UiOrders, HostPageUiOrders }));
 		}
 
 		private void DeleteOrder(object sender, RoutedEventArgs e) {
-			// TODO
+			Order order = (sender as Button).CommandParameter as Order;
+			Business.DeleteOrder(order);
+			UiOrders.Remove(order);
+			HostPageUiOrders.Remove(order);
 		}
 	}
 }
