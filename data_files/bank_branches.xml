@@ -23192,7 +23192,7 @@ Mizrahi Tefahot Bank Ltd</Bank_Name>
   <Bank_Code>17</Bank_Code>
   <Bank_Name>Mercantile Discount Bank ltd</Bank_Name>
   <Branch_Code>702</Branch_Code>
-  <Branch_Name>Jerusalem and Southern Region</Branch_Name>
+  <Branch_Name>Jerusalem and Southern DesiredCities</Branch_Name>
   <Address>Kanfei Nesharim 24</Address>
   <City>Jerusalem</City>
   <Zip_Code>9546493</Zip_Code>
@@ -24197,7 +24197,7 @@ Mizrahi Tefahot Bank Ltd</Bank_Name>
   <Bank_Code>17</Bank_Code>
   <Bank_Name>Mercantile Discount Bank ltd</Bank_Name>
   <Branch_Code>701</Branch_Code>
-  <Branch_Name>Tel-Aviv and Central Region</Branch_Name>
+  <Branch_Name>Tel-Aviv and Central DesiredCities</Branch_Name>
   <Address>Menachem Beggin 26</Address>
   <City>Holon</City>
   <Zip_Code>5885800</Zip_Code>
@@ -24743,7 +24743,7 @@ Mizrahi Tefahot Bank Ltd</Bank_Name>
   <Bank_Code>17</Bank_Code>
   <Bank_Name>Mercantile Discount Bank ltd</Bank_Name>
   <Branch_Code>703</Branch_Code>
-  <Branch_Name>Haifa and Sharon Region</Branch_Name>
+  <Branch_Name>Haifa and Sharon DesiredCities</Branch_Name>
   <Address>Bar Yehuda Road 147</Address>
   <City>Nesher</City>
   <Zip_Code>3688306</Zip_Code>
@@ -25269,5 +25269,3 @@ Mizrahi Tefahot Bank Ltd</Bank_Name>
   <Close_Date/>
  </BRANCH>
 </BRANCHES>
-
-

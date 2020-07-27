@@ -10,7 +10,7 @@ using Lib.Entities;
 
 namespace presentation {
 	public partial class AddGuestRequestsPage : ValidatedPage {
-		private MainWindow MainWindow { get; }
+		public IBusiness Business { get; }
 
 		private Frame Frame { get; }
 
@@ -20,13 +20,13 @@ namespace presentation {
 
 		public CheckBoxList<Unit.Type> UnitTypes { get; }
 
-		private IBusiness Business { get; }
-
 		private Session<Guest> GuestSession { get; }
 
 		private Guest Guest {
 			get => GuestSession.User;
 		}
+
+		private ObservableCollection<GuestRequest> UiGuestRequests { get; }
 
 		public AddGuestRequestsPage(IBusiness business, Frame frame, Guest guest, ObservableCollection<GuestRequest> guest_requests, Session<Guest> guest_session) {
 			InitializeComponent();

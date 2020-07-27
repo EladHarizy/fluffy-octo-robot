@@ -14,7 +14,7 @@ namespace presentation {
 		private Session<Guest> GuestSession { get; }
 
 		public Guest Guest {
-			get => GuestSession.Person;
+			get => GuestSession.User;
 		}
 
 		public ObservableCollection<GuestRequest> GuestRequests { get; }
