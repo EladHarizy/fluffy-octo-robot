@@ -18,8 +18,8 @@ namespace business {
 		private TUser User<TUser>(Email email) where TUser : User {
 			try {
 				return data.GetAccessor<TUser>().All.First(p => p.Email == email);
-			} catch (InvalidOperationException error) {
-				throw new InexistentEmailException(email, error);
+			} catch (InvalidOperationException ex) {
+				throw new InexistentEmailException(email, ex);
 			}
 		}
 
@@ -101,8 +101,8 @@ namespace business {
 			} else if (status == "Sent email") {
 				try {
 					new InvitationSender(order).Send();
-				} catch (Exception e) when(e is InvalidOperationException || e is ObjectDisposedException || e is SmtpException || e is SmtpFailedRecipientException || e is SmtpFailedRecipientsException) {
-					throw new OrderStatusChangedException(order, "Error: Could not send invitation to the guest. Please check your internet connection.", e);
+				} catch (Exception ex) when(ex is InvalidOperationException || ex is ObjectDisposedException || ex is SmtpException || ex is SmtpFailedRecipientException || ex is SmtpFailedRecipientsException) {
+					throw new OrderStatusChangedException(order, "Error: Could not send invitation to the guest. Please check your internet connection.", ex);
 				}
 			}
 			order.OrderStatus = status;
@@ -203,15 +203,15 @@ namespace business {
 			return data.GuestRequest.All;
 		}
 
-		public IEnumerable<Order> Orders() {
-			return data.Order.All;
+		public IEnumerable<Order> Orders {
+			get => data.Order.All;
 		}
 
-		public IEnumerable<Order> Orders(Host host) {
+		public IEnumerable<Order> OrdersOf(Host host) {
 			return data.Order.All.Where(order => order.Unit.Host.ID == host.ID);
 		}
 
-		public IEnumerable<Order> Orders(Unit unit) {
+		public IEnumerable<Order> OrdersOf(Unit unit) {
 			return data.Order.All.Where(order => order.Unit.ID == unit.ID);
 		}
 

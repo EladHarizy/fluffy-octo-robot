@@ -44,10 +44,10 @@ namespace presentation {
 				PasswordValidator.ResetError();
 
 				Frame.Navigate(new HostPage(Business, HostSession, Frame));
-			} catch (InexistentEmailException error) {
-				EmailValidator.SetError(error.Message);
-			} catch (WrongPasswordException error) {
-				PasswordValidator.SetError(error.Message);
+			} catch (InexistentEmailException ex) {
+				EmailValidator.SetError(ex.Message);
+			} catch (WrongPasswordException ex) {
+				PasswordValidator.SetError(ex.Message);
 			}
 		}
 

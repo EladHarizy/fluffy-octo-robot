@@ -11,8 +11,8 @@ namespace presentation {
 					try {
 						control.Text = new Email(control.Text);
 						return "";
-					} catch (InvalidEmailException error) {
-						return error.Message;
+					} catch (InvalidEmailException ex) {
+						return ex.Message;
 					}
 				}
 			);

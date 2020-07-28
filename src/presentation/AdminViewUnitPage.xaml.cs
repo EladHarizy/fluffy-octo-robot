@@ -18,7 +18,7 @@ namespace presentation {
 			Business = business;
 			Frame = frame;
 			Unit = unit;
-			Orders = Business.Orders(Unit);
+			Orders = Business.OrdersOf(Unit);
 		}
 
 		private void Back(object sender, RoutedEventArgs e) {

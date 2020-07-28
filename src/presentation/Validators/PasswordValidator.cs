@@ -11,8 +11,8 @@ namespace presentation {
 					try {
 						control.Password = new Password(control.Password);
 						return "";
-					} catch (InvalidPasswordException error) {
-						return error.Message;
+					} catch (InvalidPasswordException ex) {
+						return ex.Message;
 					}
 				}
 			);

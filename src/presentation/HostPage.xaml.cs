@@ -28,7 +28,7 @@ namespace presentation {
 			HostSession = host_session;
 			Frame = frame;
 			Units = new ObservableCollection<Unit>(Business.UnitsOf(Host));
-			Orders = new ObservableCollection<Order>(Business.Orders(Host));
+			Orders = new ObservableCollection<Order>(Business.OrdersOf(Host));
 			DataContext = this;
 		}
 
