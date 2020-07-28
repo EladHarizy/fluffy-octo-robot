@@ -31,6 +31,10 @@ namespace business {
 			data.GuestRequest.Edit(guest_request);
 		}
 
+		public void DeleteGuestRequest(GuestRequest guest_request) {
+			data.GuestRequest.Remove(guest_request.ID);
+		}
+
 		public void AddUnit(Unit unit) {
 			data.Unit.Add(unit);
 		}

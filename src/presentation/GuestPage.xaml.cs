@@ -50,8 +50,12 @@ namespace presentation {
 			Frame.Navigate(new EditGuestRequestPage(Business, Frame, guest_request, GuestRequests));
 		}
 
-		private /*async*/ void DeleteGuestRequest(object sender, RoutedEventArgs e) {
-			// TODO
+		private async void DeleteGuestRequest(object sender, RoutedEventArgs e) {
+			GuestRequest guest_request = (sender as Button).CommandParameter as GuestRequest;
+			if ((bool) await MaterialDesignThemes.Wpf.DialogHost.Show(guest_request)) {
+				Business.DeleteGuestRequest(guest_request);
+				GuestRequests.Remove(guest_request);
+			}
 		}
 	}
 }

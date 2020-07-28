@@ -10,6 +10,8 @@ namespace business {
 
 		void EditGuestRequest(GuestRequest guest_request);
 
+		void DeleteGuestRequest(GuestRequest guest_request);
+
 		void AddUnit(Unit unit);
 
 		void DeleteUnit(Unit unit);
