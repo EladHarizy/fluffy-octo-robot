@@ -41,7 +41,8 @@ namespace presentation {
 		}
 
 		private void ViewGuestRequest(object sender, RoutedEventArgs e) {
-			// TODO
+			GuestRequest guest_request = (sender as Button).CommandParameter as GuestRequest;
+			Frame.Navigate(new ViewGuestRequestPage(Business, Frame, guest_request));
 		}
 
 		private void EditGuestRequest(object sender, RoutedEventArgs e) {
