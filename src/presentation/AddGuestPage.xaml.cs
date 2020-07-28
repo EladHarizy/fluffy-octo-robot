@@ -40,16 +40,7 @@ namespace presentation {
 
 					EmailValidator,
 
-					new RequiredTextValidator(phone, phone_error,
-						control => {
-							try {
-								control.Text = new Phone(control.Text);
-								return "";
-							} catch (InvalidPhoneException error) {
-								return error.Message;
-							}
-						}
-					),
+					new PhoneValidator(phone, phone_error),
 
 					new PasswordValidator(password, password_error),
 

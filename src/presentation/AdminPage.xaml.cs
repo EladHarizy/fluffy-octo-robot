@@ -24,7 +24,7 @@ namespace presentation {
 		}
 
 		private void ViewOrders(object sender, RoutedEventArgs e) {
-			// Frame.Navigate(new ViewOrdersPage(Business, Frame));
+			Frame.Navigate(new AdminViewOrdersPage(Business, Frame));
 		}
 	}
 }
