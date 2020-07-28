@@ -27,6 +27,11 @@ namespace presentation {
 			EmailValidator = new EmailValidator(email, email_error);
 
 			PasswordValidator = new PasswordValidator(password, password_error);
+
+			// Test
+			email.Text = "abrahammurciano@gmail.com";
+			password.Password = "password";
+			// End test
 		}
 
 		public void SignIn() {

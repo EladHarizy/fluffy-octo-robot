@@ -10,6 +10,8 @@ namespace business {
 
 		void EditGuestRequest(GuestRequest guest_request);
 
+		void DeleteGuestRequest(GuestRequest guest_request);
+
 		void AddUnit(Unit unit);
 
 		void DeleteUnit(Unit unit);
@@ -17,6 +19,8 @@ namespace business {
 		void EditUnit(Unit unit);
 
 		void AddOrder(Order order);
+
+		void DeleteOrder(Order order);
 
 		IEnumerable<Order> EditOrder(Order order, Order.Status status);
 

@@ -47,7 +47,7 @@ namespace Lib.Entities {
 		private int adults;
 		public int Adults {
 			get => adults;
-			private set {
+			set {
 				if (value < 1) {
 					adults = 1;
 					throw new NonPositiveAdultsException(value);
@@ -59,7 +59,7 @@ namespace Lib.Entities {
 		private int children;
 		public int Children {
 			get => children;
-			private set => children = Math.Max(0, value);
+			set => children = Math.Max(0, value);
 		}
 
 		public string Message { get; }

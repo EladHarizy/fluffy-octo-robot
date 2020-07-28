@@ -13,6 +13,7 @@
 			<local:BoolYesNoConverter x:Key="BoolYesNoConverter"/>
 			<local:NullVisibilityConverter x:Key="NullVisibilityConverter"/>
 			<local:VisibilityNegationConverter x:Key="VisibilityNegationConverter"/>
+			<local:DateNullableDateTimeConverter x:Key="DateNullableDateTimeConverter"/>
 			<Style x:Key="padded_card" TargetType="md:Card">
 				<Setter Property="Padding" Value="20"/>
 			</Style>

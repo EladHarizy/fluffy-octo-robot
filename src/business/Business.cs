@@ -31,6 +31,10 @@ namespace business {
 			data.GuestRequest.Edit(guest_request);
 		}
 
+		public void DeleteGuestRequest(GuestRequest guest_request) {
+			data.GuestRequest.Remove(guest_request.ID);
+		}
+
 		public void AddUnit(Unit unit) {
 			data.Unit.Add(unit);
 		}
@@ -108,6 +112,13 @@ namespace business {
 			order.OrderStatus = status;
 			data.Order.Edit(order);
 			return affected_orders;
+		}
+
+		public void DeleteOrder(ID id) {
+			data.Order.Remove(id);
+		}
+		public void DeleteOrder(Order order) {
+			DeleteOrder(order.ID);
 		}
 
 		public Admin Admin(Email email) {
