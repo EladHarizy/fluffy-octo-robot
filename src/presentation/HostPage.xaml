@@ -135,6 +135,7 @@
 								<ColumnDefinition Width="Auto"/>
 								<ColumnDefinition Width="*"/>
 								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
 								<ColumnDefinition Width="20"/>
 							</Grid.ColumnDefinitions>
 							<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=order_id_column}"/>
@@ -143,6 +144,7 @@
 							<Rectangle Grid.Column="3" Width="{Binding ActualWidth, ElementName=order_status_column}"/>
 							<Rectangle Grid.Column="4" x:Name="order_wide_column"/>
 							<Rectangle Grid.Column="5" Width="{Binding ActualWidth, ElementName=order_edit_column}"/>
+							<Rectangle Grid.Column="6" Width="{Binding ActualWidth, ElementName=order_delete_column}"/>
 						</Grid>
 						<ListView ItemsSource="{Binding Orders, Mode=OneWay}" PreviewMouseWheel="IgnorePreviewMouseWheel">
 							<ListView.View>
@@ -157,6 +159,15 @@
 											<DataTemplate>
 												<Button Style="{StaticResource MaterialDesignToolButton}" Click="EditOrder" CommandParameter="{Binding}" Height="14" Padding="0">
 													<md:PackIcon Kind="Edit"/>
+												</Button>
+											</DataTemplate>
+										</GridViewColumn.CellTemplate>
+									</GridViewColumn>
+									<GridViewColumn x:Name="order_delete_column">
+										<GridViewColumn.CellTemplate>
+											<DataTemplate>
+												<Button Style="{StaticResource MaterialDesignToolButton}" Click="DeleteOrder" CommandParameter="{Binding}" Height="14" Padding="0">
+													<md:PackIcon Kind="Delete"/>
 												</Button>
 											</DataTemplate>
 										</GridViewColumn.CellTemplate>

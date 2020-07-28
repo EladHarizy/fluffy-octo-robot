@@ -18,6 +18,8 @@ namespace business {
 
 		void AddOrder(Order order);
 
+		void DeleteOrder(Order order);
+
 		IEnumerable<Order> EditOrder(Order order, Order.Status status);
 
 		Admin Admin(Email email);
