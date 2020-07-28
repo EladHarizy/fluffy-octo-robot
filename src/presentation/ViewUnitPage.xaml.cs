@@ -38,12 +38,5 @@ namespace presentation {
 			Order order = (sender as Button).CommandParameter as Order;
 			Frame.Navigate(new EditOrderPage(Business, Frame, order, UiUnits, new List<ObservableCollection<Order>> { UiOrders, HostPageUiOrders }));
 		}
-
-		private void DeleteOrder(object sender, RoutedEventArgs e) {
-			Order order = (sender as Button).CommandParameter as Order;
-			Business.DeleteOrder(order);
-			UiOrders.Remove(order);
-			HostPageUiOrders.Remove(order);
-		}
 	}
 }
