@@ -110,13 +110,6 @@ namespace business {
 			return affected_orders;
 		}
 
-		public void DeleteOrder(ID id) {
-			data.Order.Remove(id);
-		}
-		public void DeleteOrder(Order order) {
-			DeleteOrder(order.ID);
-		}
-
 		public Admin Admin(Email email) {
 			return User<Admin>(email);
 		}

@@ -42,7 +42,6 @@
 							<ColumnDefinition Width="Auto"/>
 							<ColumnDefinition Width="*"/>
 							<ColumnDefinition Width="Auto"/>
-							<ColumnDefinition Width="Auto"/>
 							<ColumnDefinition Width="20"/>
 						</Grid.ColumnDefinitions>
 						<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=id_column}"/>
@@ -50,7 +49,6 @@
 						<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=status_column}"/>
 						<Rectangle Grid.Column="3" x:Name="wide_column"/>
 						<Rectangle Grid.Column="4" Width="{Binding ActualWidth, ElementName=edit_column}"/>
-						<Rectangle Grid.Column="5" Width="{Binding ActualWidth, ElementName=delete_column}"/>
 					</Grid>
 					<ListView ItemsSource="{Binding UiOrders, Mode=OneWay}">
 						<ListView.View>
@@ -64,15 +62,6 @@
 										<DataTemplate>
 											<Button Style="{StaticResource MaterialDesignToolButton}" Click="EditOrder" CommandParameter="{Binding}" Height="14" Padding="0">
 												<md:PackIcon Kind="Edit"/>
-											</Button>
-										</DataTemplate>
-									</GridViewColumn.CellTemplate>
-								</GridViewColumn>
-								<GridViewColumn x:Name="delete_column">
-									<GridViewColumn.CellTemplate>
-										<DataTemplate>
-											<Button Style="{StaticResource MaterialDesignToolButton}" Click="DeleteOrder" CommandParameter="{Binding}" Height="14" Padding="0">
-												<md:PackIcon Kind="Delete"/>
 											</Button>
 										</DataTemplate>
 									</GridViewColumn.CellTemplate>
