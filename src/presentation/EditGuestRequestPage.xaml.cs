@@ -22,43 +22,38 @@ namespace presentation {
 
 		private IBusiness Business { get; }
 
-		private Guest Guest { get; }
-
-		private int NumberOfAdults;
-
-		private int NumberOfChildren;
-
 		public GuestRequest GuestRequest { get; }
 
-		Collection<GuestRequest> UiGuestRequest { get; }
+		ObservableCollection<GuestRequest> UiGuestRequest { get; }
 
-		public EditGuestRequestPage(IBusiness business, Frame frame, Guest guest) {
+		public EditGuestRequestPage(IBusiness business, Frame frame, GuestRequest guest_request, ObservableCollection<GuestRequest> ui_guest_request) {
 			InitializeComponent();
 			Business = business;
 			Frame = frame;
-			Guest = guest;
+			GuestRequest = guest_request;
+			UiGuestRequest = ui_guest_request;
 			DataContext = this;
 			Amenities = new CheckBoxList<Amenity>(Business.Amenities, GuestRequest.DesiredAmenities);
 			UnitTypes = new CheckBoxList<Unit.Type>(Business.UnitTypes, GuestRequest.DesiredUnitTypes);
 			Cities = new CheckBoxList<City>(Business.Cities, GuestRequest.DesiredCities);
 
 			Validators = new List<IValidator>() {
-				new Validator<DatePicker>(start_date, start_date_error,
-						date_picker => date_picker.SelectedDate == null ? "Error: Start date is required." : ""
+				new RequiredDateValidator(start_date, start_date_error,
+						date_picker => date_picker.SelectedDate < Date.Today ? "Error: Date cannot be in the past." : ""
 					),
 
-					new Validator<DatePicker>(end_date, end_date_error,
-						date_picker => date_picker.SelectedDate == null ? "Error: End date is required." : ""
+					new RequiredDateValidator(end_date, end_date_error,
+						date_picker => date_picker.SelectedDate <= start_date.SelectedDate ? "Error: End date must be after Start date." : ""
 					),
 
 					new Validator<TextBox>(number_of_adults, number_of_adults_error,
 						control => control.Text == "" ? "Error: Number of adults is required." : "",
-						control => int.TryParse(control.Text, out NumberOfAdults) ? "" : "Error: Could not interpret the input as a number."
+						control => int.TryParse(control.Text, out int _) ? "" : "Error: Could not interpret the input as a number."
 					),
 
 					new Validator<TextBox>(number_of_children, number_of_children_error,
 						control => control.Text == "" ? "Error: Number of children is required." : "",
-						control => int.TryParse(control.Text, out NumberOfChildren) ? "" : "Error: Could not interpret the input as a number."
+						control => int.TryParse(control.Text, out int _) ? "" : "Error: Could not interpret the input as a number."
 					)
 			};
 		}
@@ -72,13 +67,16 @@ namespace presentation {
 			IEnumerable<Unit.Type> selected_types = UnitTypes.SelectedItems;
 			GuestRequest.StartDate = ((DateTime) start_date.SelectedDate).ToDate();
 			GuestRequest.EndDate = ((DateTime) end_date.SelectedDate).ToDate();
+			GuestRequest.Adults = int.Parse(number_of_adults.Text);
+			GuestRequest.Children = int.Parse(number_of_children.Text);
 			GuestRequest.DesiredCities = (selected_cities.Count() == 0 ? Business.Cities : selected_cities).ToHashSet();
 			GuestRequest.DesiredUnitTypes = (selected_types.Count() == 0 ? Business.UnitTypes : selected_types).ToHashSet();
 			GuestRequest.DesiredAmenities = Amenities.SelectedItems.ToHashSet();
 
 			Business.EditGuestRequest(GuestRequest);
-			UiGuestRequest.Remove(GuestRequest);
-			UiGuestRequest.Add(GuestRequest);
+			int i = UiGuestRequest.IndexOf(GuestRequest);
+			UiGuestRequest.RemoveAt(i);
+			UiGuestRequest.Insert(i, GuestRequest);
 
 			Frame.GoBack();
 		}

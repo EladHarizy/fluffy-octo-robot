@@ -25,7 +25,7 @@ namespace presentation {
 			if (min != null) {
 				Checks.Add(control => int.Parse(control.Text) < (int) min ? "Error: Number must be at least " + (int) min + '.' : "");
 			}
-			if (min != null) {
+			if (max != null) {
 				Checks.Add(control => int.Parse(control.Text) > (int) max ? "Error: Number must be at most " + (int) max + '.' : "");
 			}
 		}

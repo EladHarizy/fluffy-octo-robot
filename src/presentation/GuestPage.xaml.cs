@@ -46,7 +46,7 @@ namespace presentation {
 
 		private void EditGuestRequest(object sender, RoutedEventArgs e) {
 			GuestRequest guest_request = (sender as Button).CommandParameter as GuestRequest;
-			Frame.Navigate(new EditGuestRequestPage(Business, Frame, Guest));
+			Frame.Navigate(new EditGuestRequestPage(Business, Frame, guest_request, GuestRequests));
 		}
 
 		private /*async*/ void DeleteGuestRequest(object sender, RoutedEventArgs e) {

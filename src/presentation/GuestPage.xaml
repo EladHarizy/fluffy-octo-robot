@@ -73,6 +73,8 @@
 								<ColumnDefinition Width="*"/>
 								<ColumnDefinition Width="*"/>
 								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
 								<ColumnDefinition Width="20"/>
 							</Grid.ColumnDefinitions>
 							<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=creation_date_column}"/>
@@ -84,6 +86,8 @@
 							<Rectangle Grid.Column="6"/>
 							<Rectangle Grid.Column="7"/>
 							<Rectangle Grid.Column="8" Width="{Binding ActualWidth, ElementName=view_column}"/>
+							<Rectangle Grid.Column="9" Width="{Binding ActualWidth, ElementName=edit_column}"/>
+							<Rectangle Grid.Column="10" Width="{Binding ActualWidth, ElementName=delete_column}"/>
 						</Grid>
 						<ListView ItemsSource="{Binding GuestRequests, Mode=OneWay}" x:Name="filtered_guest_requests" PreviewMouseWheel="IgnorePreviewMouseWheel">
 							<ListView.View>
@@ -105,7 +109,7 @@
 											</DataTemplate>
 										</GridViewColumn.CellTemplate>
 									</GridViewColumn>
-									<GridViewColumn x:Name="order_edit_column">
+									<GridViewColumn x:Name="edit_column">
 										<GridViewColumn.CellTemplate>
 											<DataTemplate>
 												<Button Style="{StaticResource MaterialDesignToolButton}" Click="EditGuestRequest" CommandParameter="{Binding}" Height="14" Padding="0">
@@ -114,7 +118,7 @@
 											</DataTemplate>
 										</GridViewColumn.CellTemplate>
 									</GridViewColumn>
-									<GridViewColumn x:Name="order_delete_column">
+									<GridViewColumn x:Name="delete_column">
 										<GridViewColumn.CellTemplate>
 											<DataTemplate>
 												<Button Style="{StaticResource MaterialDesignToolButton}" Click="DeleteGuestRequest" CommandParameter="{Binding}" Height="14" Padding="0">
@@ -135,7 +139,7 @@
 				<StackPanel Margin="20" Width="350">
 					<TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}">Confirm Delete</TextBlock>
 					<Separator Height="10"/>
-					<TextBlock>Are you sure you want to delete this Guest Request?</TextBlock>
+					<TextBlock>Are you sure you want to delete this request?</TextBlock>
 					<TextBlock Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Text="{Binding Name}"/>
 					<Rectangle Height="20"/>
 					<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">

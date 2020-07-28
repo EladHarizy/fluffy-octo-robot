@@ -272,6 +272,10 @@ namespace System {
 			result = new Date(d);
 			return success;
 		}
+
+		public DateTime ToDateTime() {
+			return _dt;
+		}
 	}
 
 	public static class DateTimeExtensions {
