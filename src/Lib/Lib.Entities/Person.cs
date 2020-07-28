@@ -22,33 +22,7 @@ namespace Lib.Entities {
 		}
 
 		public override string ToString() {
-			return ToString(0);
-		}
-
-		public virtual string ToString(int tabs) {
-			StringBuilder sb = new StringBuilder();
-
-			sb.Append('\t', tabs);
-			sb.Append("ID:\t");
-			sb.Append(ID);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Name:\t");
-			sb.Append(Name);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Email:\t");
-			sb.Append(Email);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Phone:\t");
-			sb.Append(Phone);
-			sb.Append('\n');
-
-			return sb.ToString();
+			return ID.ToString() + " - " + Name;
 		}
 
 		public override bool Equals(object obj) {

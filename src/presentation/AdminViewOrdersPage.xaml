@@ -266,22 +266,30 @@
 								<ColumnDefinition Width="Auto"/>
 								<ColumnDefinition Width="Auto"/>
 								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition Width="*"/>
 								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="*"/>
 								<ColumnDefinition Width="Auto"/>
 								<ColumnDefinition Width="20"/>
 							</Grid.ColumnDefinitions>
 							<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=id_column}"/>
-							<Rectangle Grid.Column="1" Width="{Binding ActualWidth, ElementName=order_column}"/>
-							<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=status_column}"/>
-							<Rectangle Grid.Column="3" x:Name="wide_column"/>
-							<Rectangle Grid.Column="4" Width="{Binding ActualWidth, ElementName=view_column}"/>
+							<Rectangle Grid.Column="1" Width="{Binding ActualWidth, ElementName=unit_column}"/>
+							<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=host_column}"/>
+							<Rectangle Grid.Column="3" Width="{Binding ActualWidth, ElementName=guest_request_column}"/>
+							<Rectangle Grid.Column="4" Width="{Binding ActualWidth, ElementName=guest_column}"/>
+							<Rectangle Grid.Column="5" Width="{Binding ActualWidth, ElementName=status_column}"/>
+							<Rectangle Grid.Column="6" x:Name="wide_column"/>
+							<Rectangle Grid.Column="7" Width="{Binding ActualWidth, ElementName=view_column}"/>
 						</Grid>
 						<ListView x:Name="filtered_orders">
 							<ListView.View>
 								<GridView AllowsColumnReorder="false">
 									<GridViewColumn x:Name="id_column" DisplayMemberBinding="{Binding ID}" Header="ID"/>
-									<GridViewColumn x:Name="order_column" DisplayMemberBinding="{Binding GuestRequest.ID}" Header="GUEST REQUEST"/>
+									<GridViewColumn x:Name="unit_column" DisplayMemberBinding="{Binding Unit}" Header="UNIT"/>
+									<GridViewColumn x:Name="host_column" DisplayMemberBinding="{Binding Unit.Host}" Header="HOST"/>
+									<GridViewColumn x:Name="guest_request_column" DisplayMemberBinding="{Binding GuestRequest}" Header="GUEST REQUEST"/>
+									<GridViewColumn x:Name="guest_column" DisplayMemberBinding="{Binding GuestRequest.Guest}" Header="GUEST"/>
 									<GridViewColumn x:Name="status_column" DisplayMemberBinding="{Binding OrderStatus}" Header="STATUS"/>
 									<GridViewColumn DisplayMemberBinding="{Binding CreationDate}" Header="CREATION DATE" Width="{Binding ActualWidth, ElementName=wide_column}"/>
 									<GridViewColumn x:Name="view_column">

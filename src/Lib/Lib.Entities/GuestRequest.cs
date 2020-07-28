@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Xml.Linq;
 using Lib.DataTypes;
 using Lib.Exceptions;
-using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
@@ -117,7 +114,7 @@ namespace Lib.Entities {
 			ID = id;
 			Guest = guest;
 			CreationDate = creation_date;
-			StartDate = start_date;
+			this.start_date = start_date; // If loading from database, may be in the past
 			EndDate = end_date;
 			Active = active;
 			Adults = adults;
@@ -128,31 +125,8 @@ namespace Lib.Entities {
 			DesiredAmenities = desired_amenities;
 		}
 
-		// Same as the partial constructor, but takes an int as the number of days instead of an end date
-		public GuestRequest(
-			Guest guest,
-			Date start_date,
-			int duration,
-			int adults,
-			int children,
-			string message,
-			HashSet<City> desired_cities,
-			HashSet<Unit.Type> desired_unit_types,
-			HashSet<Amenity> desired_amenities
-		) : this(
-			guest,
-			start_date,
-			start_date.AddDays(duration),
-			adults,
-			children,
-			message,
-			desired_cities,
-			desired_unit_types,
-			desired_amenities
-		) {}
-
 		public override string ToString() {
-			return " Guest request " + ID;
+			return ID;
 		}
 
 		public ID Key() {
