@@ -59,6 +59,8 @@ namespace presentation {
 								return "Error: Bank number must be at most two digits.";
 							} catch (FormatException) {
 								return "Error: Could not parse the input as a bank number.";
+							} catch (OverflowException) {
+								return "Error: Number is too large to be a bank number.";
 							} catch (InvalidOperationException) {
 								return "Error: No bank with this number was found.";
 							}
@@ -75,6 +77,8 @@ namespace presentation {
 								return "Error: Branch number must be at most three digits.";
 							} catch (FormatException) {
 								return "Error: Could not parse the input as a branch number.";
+							} catch (OverflowException) {
+								return "Error: Number is too large to be a branch number.";
 							} catch (InvalidOperationException) {
 								return "Error: No branch with this number was found for bank " + bank_number.Text + '.';
 							}
@@ -90,6 +94,8 @@ namespace presentation {
 								return "Error: Account number must be six digits.";
 							} catch (FormatException) {
 								return "Error: Could not parse the input as an account number.";
+							} catch (OverflowException) {
+								return "Error: Number is too large to be an account number.";
 							}
 						}
 					)

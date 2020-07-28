@@ -47,19 +47,19 @@
 							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Message from guest" Text="{Binding GuestRequest.Message, Mode=OneTime}" IsReadOnly="True" TextWrapping="Wrap"/>
 						</StackPanel>
 						<Rectangle Width="40"/>
-						<StackPanel><!-- Amenities -->
+						<StackPanel>
 							<TextBlock Grid.Column="0" Grid.Row="3">Desired amenities</TextBlock>
 							<Separator/>
 							<ItemsControl ItemsSource="{Binding GuestRequest.DesiredAmenities}"/>
 						</StackPanel>
 						<Rectangle Width="40"/>
-						<StackPanel><!-- Amenities -->
+						<StackPanel>
 							<TextBlock Grid.Column="0" Grid.Row="3">Desired unit types</TextBlock>
 							<Separator/>
 							<ItemsControl ItemsSource="{Binding GuestRequest.DesiredUnitTypes}"/>
 						</StackPanel>
 						<Rectangle Width="40"/>
-						<StackPanel><!-- Amenities -->
+						<StackPanel>
 							<TextBlock Grid.Column="0" Grid.Row="3">Desired cities</TextBlock>
 							<Separator/>
 							<ItemsControl ItemsSource="{Binding GuestRequest.DesiredCities}"/>
@@ -81,7 +81,7 @@
 								<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Description" Text="{Binding SelectedItem.Description, ElementName=unit_combo_box, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap"/>
 							</StackPanel>
 							<Rectangle Width="40"/>
-							<StackPanel><!-- Amenities -->
+							<StackPanel>
 								<TextBlock Grid.Column="0" Grid.Row="3">Amenities</TextBlock>
 								<Separator/>
 								<ItemsControl ItemsSource="{Binding SelectedItem.Amenities, ElementName=unit_combo_box}"/>

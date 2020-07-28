@@ -43,8 +43,8 @@ namespace presentation {
 			try {
 				admin = Business.Admin(new Email(email.Text));
 				EmailValidator.ResetError();
-			} catch (InexistentEmailException error) {
-				EmailValidator.SetError(error.Message);
+			} catch (InexistentEmailException ex) {
+				EmailValidator.SetError(ex.Message);
 				return;
 			}
 
@@ -56,8 +56,8 @@ namespace presentation {
 				AdminSession.SignIn(admin, password.Password);
 				PasswordValidator.ResetError();
 				Frame.Navigate(new AdminPage(Business, Frame));
-			} catch (WrongPasswordException error) {
-				PasswordValidator.SetError(error.Message);
+			} catch (WrongPasswordException ex) {
+				PasswordValidator.SetError(ex.Message);
 			}
 		}
 

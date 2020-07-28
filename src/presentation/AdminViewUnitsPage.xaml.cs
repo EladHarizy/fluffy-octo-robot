@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using business;
+using Lib.DataTypes;
 using Lib.Entities;
 
 namespace presentation {
@@ -13,19 +12,23 @@ namespace presentation {
 
 		protected Frame Frame { get; }
 
-		public NumericalCondition<Unit, int> OccupancyCondition { get; }
+		protected Filter<Unit> Filter { get; }
 
-		public CheckBoxList<City> Cities { get; }
+		public UnorderedCondition<Unit, ID> IDCondition { get; }
+
+		public NumericalCondition<Unit, int> OccupancyCondition { get; }
 
 		public NominalCondition<Unit, City> CitiesCondition { get; }
 
-		public CheckBoxList<Unit.Type> UnitTypes { get; }
-
 		public NominalCondition<Unit, Unit.Type> UnitTypesCondition { get; }
 
-		public CheckBoxList<Amenity> Amenities { get; }
-
 		public CollectionComplexCondition<Unit, Amenity> AmenitiesCondition { get; }
+
+		public CheckBoxList<City> Cities { get; }
+
+		public CheckBoxList<Unit.Type> UnitTypes { get; }
+
+		public CheckBoxList<Amenity> Amenities { get; }
 
 		public AdminViewUnitsPage(IBusiness business, Frame frame) {
 			InitializeComponent();
@@ -35,6 +38,14 @@ namespace presentation {
 			Cities = new CheckBoxList<City>(Business.Cities);
 			UnitTypes = new CheckBoxList<Unit.Type>(Business.UnitTypes);
 			Amenities = new CheckBoxList<Amenity>(Business.Amenities);
+
+			IDCondition = new UnorderedCondition<Unit, ID>(
+				id_filter_toggle,
+				id_filter_type,
+				id_filter_value,
+				unit => unit.ID,
+				control => (control as TextBox).Text
+			);
 
 			OccupancyCondition = new NumericalCondition<Unit, int>(
 				occupied_days_filter_toggle,
@@ -66,8 +77,14 @@ namespace presentation {
 				unit => unit.Amenities
 			);
 
+			Filter = new Filter<Unit>(IDCondition, OccupancyCondition, CitiesCondition, UnitTypesCondition, AmenitiesCondition);
+
 			Validators = new List<IValidator>() {
-				new RequiredComboBoxValidator(occupied_days_filter_type, occupied_days_filter_type_error),
+				new RequiredComboBoxValidator(id_filter_type, id_filter_type_error),
+
+					new IDValidator(id_filter_value, id_filter_value_error, 8),
+
+					new RequiredComboBoxValidator(occupied_days_filter_type, occupied_days_filter_type_error),
 
 					new IntValidator(occupied_days_filter_value_1, occupied_days_filter_value_1_error, true, null, null),
 
@@ -97,9 +114,7 @@ namespace presentation {
 			if (!Validate()) {
 				return;
 			}
-
-			Filter<Unit> filter = new Filter<Unit>(Business.Units, OccupancyCondition, CitiesCondition, UnitTypesCondition, AmenitiesCondition);
-			filtered_units.ItemsSource = filter.ApplyFilter();
+			filtered_units.ItemsSource = Filter.ApplyFilter(Business.Units);
 		}
 
 		protected virtual void ViewUnit(object sender, RoutedEventArgs e) {

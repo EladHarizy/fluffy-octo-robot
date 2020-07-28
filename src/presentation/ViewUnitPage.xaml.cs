@@ -24,7 +24,7 @@ namespace presentation {
 			Business = business;
 			Frame = frame;
 			Unit = unit;
-			UiOrders = new ObservableCollection<Order>(Business.Orders(unit));
+			UiOrders = new ObservableCollection<Order>(Business.OrdersOf(unit));
 			DataContext = this;
 			UiUnits = ui_units;
 			HostPageUiOrders = host_page_ui_orders;
