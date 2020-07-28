@@ -24,6 +24,91 @@
 					<StackPanel>
 						<Grid Style="{StaticResource side_panel_row}">
 							<ItemsControl Style="{StaticResource split_grid}">
+								<TextBlock Grid.Column="0">ID</TextBlock>
+								<ToggleButton Grid.Column="2" x:Name="id_filter_toggle"/>
+							</ItemsControl>
+						</Grid>
+						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=id_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<StackPanel Style="{StaticResource side_panel_sub_row}">
+								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="id_filter_type" ItemsSource="{Binding IDCondition.FilterTypes}"/>
+								<TextBlock x:Name="id_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.ControlVisibility, ElementName=id_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBox x:Name="id_filter_value" md:HintAssist.Hint="ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+									<TextBlock x:Name="id_filter_value_error" Style="{StaticResource error}"/>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+						<Separator/>
+						<Grid Style="{StaticResource side_panel_row}">
+							<ItemsControl Style="{StaticResource split_grid}">
+								<TextBlock Grid.Column="0">Guest request ID</TextBlock>
+								<ToggleButton Grid.Column="2" x:Name="guest_request_id_filter_toggle"/>
+							</ItemsControl>
+						</Grid>
+						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=guest_request_id_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<StackPanel Style="{StaticResource side_panel_sub_row}">
+								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="guest_request_id_filter_type" ItemsSource="{Binding GuestRequestIDCondition.FilterTypes}"/>
+								<TextBlock x:Name="guest_request_id_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.ControlVisibility, ElementName=guest_request_id_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBox x:Name="guest_request_id_filter_value" md:HintAssist.Hint="ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+									<TextBlock x:Name="guest_request_id_filter_value_error" Style="{StaticResource error}"/>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+						<Separator/>
+						<Grid Style="{StaticResource side_panel_row}">
+							<ItemsControl Style="{StaticResource split_grid}">
+								<TextBlock Grid.Column="0">Hosting unit ID</TextBlock>
+								<ToggleButton Grid.Column="2" x:Name="unit_id_filter_toggle"/>
+							</ItemsControl>
+						</Grid>
+						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=unit_id_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<StackPanel Style="{StaticResource side_panel_sub_row}">
+								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="unit_id_filter_type" ItemsSource="{Binding UnitIDCondition.FilterTypes}"/>
+								<TextBlock x:Name="unit_id_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.ControlVisibility, ElementName=unit_id_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBox x:Name="unit_id_filter_value" md:HintAssist.Hint="ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+									<TextBlock x:Name="unit_id_filter_value_error" Style="{StaticResource error}"/>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+						<Separator/>
+						<Grid Style="{StaticResource side_panel_row}">
+							<ItemsControl Style="{StaticResource split_grid}">
+								<TextBlock Grid.Column="0">Guest email</TextBlock>
+								<ToggleButton Grid.Column="2" x:Name="guest_email_filter_toggle"/>
+							</ItemsControl>
+						</Grid>
+						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=guest_email_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<StackPanel Style="{StaticResource side_panel_sub_row}">
+								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="guest_email_filter_type" ItemsSource="{Binding GuestEmailCondition.FilterTypes}"/>
+								<TextBlock x:Name="guest_email_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.ControlVisibility, ElementName=guest_email_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBox x:Name="guest_email_filter_value" md:HintAssist.Hint="ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+									<TextBlock x:Name="guest_email_filter_value_error" Style="{StaticResource error}"/>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+						<Separator/>
+						<Grid Style="{StaticResource side_panel_row}">
+							<ItemsControl Style="{StaticResource split_grid}">
+								<TextBlock Grid.Column="0">Host email</TextBlock>
+								<ToggleButton Grid.Column="2" x:Name="host_email_filter_toggle"/>
+							</ItemsControl>
+						</Grid>
+						<Border Style="{StaticResource side_panel_sub_row_border}" Visibility="{Binding IsChecked, ElementName=host_email_filter_toggle, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<StackPanel Style="{StaticResource side_panel_sub_row}">
+								<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" md:HintAssist.Hint="Filter type" x:Name="host_email_filter_type" ItemsSource="{Binding HostEmailCondition.FilterTypes}"/>
+								<TextBlock x:Name="host_email_filter_type_error" Style="{StaticResource error}"/>
+								<StackPanel Visibility="{Binding Path=SelectedItem.ControlVisibility, ElementName=host_email_filter_type, TargetNullValue=Collapsed, FallbackValue=Collapsed}">
+									<TextBox x:Name="host_email_filter_value" md:HintAssist.Hint="ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+									<TextBlock x:Name="host_email_filter_value_error" Style="{StaticResource error}"/>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+						<Separator/>
+						<Grid Style="{StaticResource side_panel_row}">
+							<ItemsControl Style="{StaticResource split_grid}">
 								<TextBlock Grid.Column="0">Start date</TextBlock>
 								<ToggleButton Grid.Column="2" x:Name="start_date_filter_toggle"/>
 							</ItemsControl>
@@ -181,22 +266,30 @@
 								<ColumnDefinition Width="Auto"/>
 								<ColumnDefinition Width="Auto"/>
 								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition Width="*"/>
 								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="*"/>
 								<ColumnDefinition Width="Auto"/>
 								<ColumnDefinition Width="20"/>
 							</Grid.ColumnDefinitions>
 							<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=id_column}"/>
-							<Rectangle Grid.Column="1" Width="{Binding ActualWidth, ElementName=order_column}"/>
-							<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=status_column}"/>
-							<Rectangle Grid.Column="3" x:Name="wide_column"/>
-							<Rectangle Grid.Column="4" Width="{Binding ActualWidth, ElementName=view_column}"/>
+							<Rectangle Grid.Column="1" Width="{Binding ActualWidth, ElementName=unit_column}"/>
+							<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=host_column}"/>
+							<Rectangle Grid.Column="3" Width="{Binding ActualWidth, ElementName=guest_request_column}"/>
+							<Rectangle Grid.Column="4" Width="{Binding ActualWidth, ElementName=guest_column}"/>
+							<Rectangle Grid.Column="5" Width="{Binding ActualWidth, ElementName=status_column}"/>
+							<Rectangle Grid.Column="6" x:Name="wide_column"/>
+							<Rectangle Grid.Column="7" Width="{Binding ActualWidth, ElementName=view_column}"/>
 						</Grid>
 						<ListView x:Name="filtered_orders">
 							<ListView.View>
 								<GridView AllowsColumnReorder="false">
 									<GridViewColumn x:Name="id_column" DisplayMemberBinding="{Binding ID}" Header="ID"/>
-									<GridViewColumn x:Name="order_column" DisplayMemberBinding="{Binding GuestRequest.ID}" Header="GUEST REQUEST"/>
+									<GridViewColumn x:Name="unit_column" DisplayMemberBinding="{Binding Unit}" Header="UNIT"/>
+									<GridViewColumn x:Name="host_column" DisplayMemberBinding="{Binding Unit.Host}" Header="HOST"/>
+									<GridViewColumn x:Name="guest_request_column" DisplayMemberBinding="{Binding GuestRequest}" Header="GUEST REQUEST"/>
+									<GridViewColumn x:Name="guest_column" DisplayMemberBinding="{Binding GuestRequest.Guest}" Header="GUEST"/>
 									<GridViewColumn x:Name="status_column" DisplayMemberBinding="{Binding OrderStatus}" Header="STATUS"/>
 									<GridViewColumn DisplayMemberBinding="{Binding CreationDate}" Header="CREATION DATE" Width="{Binding ActualWidth, ElementName=wide_column}"/>
 									<GridViewColumn x:Name="view_column">

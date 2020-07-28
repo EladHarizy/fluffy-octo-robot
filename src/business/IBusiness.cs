@@ -54,11 +54,11 @@ namespace business {
 
 		IEnumerable<GuestRequest> GuestRequests();
 
-		IEnumerable<Order> Orders();
+		IEnumerable<Order> Orders { get; }
 
-		IEnumerable<Order> Orders(Host host);
+		IEnumerable<Order> OrdersOf(Host host);
 
-		IEnumerable<Order> Orders(Unit unit);
+		IEnumerable<Order> OrdersOf(Unit unit);
 
 		IEnumerable<BankBranch> BankBranches();
 

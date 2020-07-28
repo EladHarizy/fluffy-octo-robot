@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using business;
+using Lib.DataTypes;
 using Lib.Entities;
 
 namespace presentation {
@@ -12,6 +13,10 @@ namespace presentation {
 		public IBusiness Business { get; }
 
 		protected Frame Frame { get; }
+
+		protected Filter<GuestRequest> Filter { get; }
+
+		public UnorderedCondition<GuestRequest, ID> IDCondition { get; }
 
 		public NumericalCondition<GuestRequest, Date> StartDateCondition { get; }
 
@@ -21,17 +26,17 @@ namespace presentation {
 
 		public NumericalCondition<GuestRequest, int> ChildrenCondition { get; }
 
-		public CheckBoxList<City> Cities { get; }
-
 		public CollectionSimpleCondition<GuestRequest, City> CitiesCondition { get; }
-
-		public CheckBoxList<Unit.Type> UnitTypes { get; }
 
 		public CollectionSimpleCondition<GuestRequest, Unit.Type> UnitTypesCondition { get; }
 
-		public CheckBoxList<Amenity> Amenities { get; }
-
 		public CollectionComplexCondition<GuestRequest, Amenity> AmenitiesCondition { get; }
+
+		public CheckBoxList<City> Cities { get; }
+
+		public CheckBoxList<Unit.Type> UnitTypes { get; }
+
+		public CheckBoxList<Amenity> Amenities { get; }
 
 		public AdminViewGuestRequestsPage(IBusiness business, Frame frame) {
 			InitializeComponent();
@@ -41,6 +46,14 @@ namespace presentation {
 			Cities = new CheckBoxList<City>(Business.Cities);
 			UnitTypes = new CheckBoxList<Unit.Type>(Business.UnitTypes);
 			Amenities = new CheckBoxList<Amenity>(Business.Amenities);
+
+			IDCondition = new UnorderedCondition<GuestRequest, ID>(
+				id_filter_toggle,
+				id_filter_type,
+				id_filter_value,
+				guest_request => guest_request.ID,
+				control => (control as TextBox).Text
+			);
 
 			StartDateCondition = new NumericalCondition<GuestRequest, Date>(
 				start_date_filter_toggle,
@@ -99,8 +112,14 @@ namespace presentation {
 				guest_request => guest_request.DesiredAmenities
 			);
 
+			Filter = new Filter<GuestRequest>(IDCondition, StartDateCondition, EndDateCondition, AdultsCondition, ChildrenCondition, CitiesCondition, UnitTypesCondition, AmenitiesCondition);
+
 			Validators = new List<IValidator>() {
-				new RequiredComboBoxValidator(start_date_filter_type, start_date_filter_type_error),
+				new RequiredComboBoxValidator(id_filter_type, id_filter_type_error),
+
+					new IDValidator(id_filter_value, id_filter_value_error, 8),
+
+					new RequiredComboBoxValidator(start_date_filter_type, start_date_filter_type_error),
 
 					new RequiredDateValidator(start_date_filter_value_1, start_date_filter_value_1_error),
 
@@ -150,9 +169,7 @@ namespace presentation {
 			if (!Validate()) {
 				return;
 			}
-
-			Filter<GuestRequest> filter = new Filter<GuestRequest>(Business.GuestRequests().Where(guest_request => guest_request.Active), StartDateCondition, EndDateCondition, AdultsCondition, ChildrenCondition, CitiesCondition, UnitTypesCondition, AmenitiesCondition);
-			filtered_guest_requests.ItemsSource = filter.ApplyFilter();
+			filtered_guest_requests.ItemsSource = Filter.ApplyFilter(Business.GuestRequests().Where(guest_request => guest_request.Active));
 		}
 
 		protected virtual void ViewGuestRequest(object sender, RoutedEventArgs e) {

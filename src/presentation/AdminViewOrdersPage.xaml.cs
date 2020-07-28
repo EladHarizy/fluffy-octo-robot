@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using business;
+using Lib.DataTypes;
 using Lib.Entities;
 
 namespace presentation {
@@ -12,6 +12,18 @@ namespace presentation {
 		public IBusiness Business { get; }
 
 		protected Frame Frame { get; }
+
+		protected Filter<Order> Filter { get; }
+
+		public UnorderedCondition<Order, ID> IDCondition { get; }
+
+		public UnorderedCondition<Order, ID> GuestRequestIDCondition { get; }
+
+		public UnorderedCondition<Order, Email> GuestEmailCondition { get; }
+
+		public UnorderedCondition<Order, ID> UnitIDCondition { get; }
+
+		public UnorderedCondition<Order, Email> HostEmailCondition { get; }
 
 		public NumericalCondition<Order, Date> StartDateCondition { get; }
 
@@ -21,13 +33,13 @@ namespace presentation {
 
 		public NumericalCondition<Order, int> ChildrenCondition { get; }
 
-		public CheckBoxList<City> Cities { get; }
-
 		public NominalCondition<Order, City> CitiesCondition { get; }
 
-		public CheckBoxList<Unit.Type> UnitTypes { get; }
-
 		public NominalCondition<Order, Unit.Type> UnitTypesCondition { get; }
+
+		public CheckBoxList<City> Cities { get; }
+
+		public CheckBoxList<Unit.Type> UnitTypes { get; }
 
 		public CheckBoxList<Amenity> Amenities { get; }
 
@@ -39,6 +51,46 @@ namespace presentation {
 			Cities = new CheckBoxList<City>(Business.Cities);
 			UnitTypes = new CheckBoxList<Unit.Type>(Business.UnitTypes);
 			Amenities = new CheckBoxList<Amenity>(Business.Amenities);
+
+			IDCondition = new UnorderedCondition<Order, ID>(
+				id_filter_toggle,
+				id_filter_type,
+				id_filter_value,
+				order => order.ID,
+				control => (control as TextBox).Text
+			);
+
+			GuestRequestIDCondition = new UnorderedCondition<Order, ID>(
+				guest_request_id_filter_toggle,
+				guest_request_id_filter_type,
+				guest_request_id_filter_value,
+				order => order.GuestRequest.ID,
+				control => (control as TextBox).Text
+			);
+
+			GuestEmailCondition = new UnorderedCondition<Order, Email>(
+				guest_email_filter_toggle,
+				guest_email_filter_type,
+				guest_email_filter_value,
+				order => order.GuestRequest.Guest.Email,
+				control => (control as TextBox).Text
+			);
+
+			UnitIDCondition = new UnorderedCondition<Order, ID>(
+				unit_id_filter_toggle,
+				unit_id_filter_type,
+				unit_id_filter_value,
+				order => order.Unit.ID,
+				control => (control as TextBox).Text
+			);
+
+			HostEmailCondition = new UnorderedCondition<Order, Email>(
+				host_email_filter_toggle,
+				host_email_filter_type,
+				host_email_filter_value,
+				order => order.Unit.Host.Email,
+				control => (control as TextBox).Text
+			);
 
 			StartDateCondition = new NumericalCondition<Order, Date>(
 				start_date_filter_toggle,
@@ -90,8 +142,30 @@ namespace presentation {
 				order => order.Unit.UnitType
 			);
 
+			Filter = new Filter<Order>(IDCondition, GuestRequestIDCondition, GuestEmailCondition, UnitIDCondition, HostEmailCondition, StartDateCondition, EndDateCondition, AdultsCondition, ChildrenCondition, CitiesCondition, UnitTypesCondition);
+
 			Validators = new List<IValidator>() {
-				new RequiredComboBoxValidator(start_date_filter_type, start_date_filter_type_error),
+				new RequiredComboBoxValidator(id_filter_type, id_filter_type_error),
+
+					new IDValidator(id_filter_value, id_filter_value_error, 8),
+
+					new RequiredComboBoxValidator(guest_request_id_filter_type, guest_request_id_filter_type_error),
+
+					new IDValidator(guest_request_id_filter_value, guest_request_id_filter_value_error, 8),
+
+					new RequiredComboBoxValidator(guest_email_filter_type, guest_email_filter_type_error),
+
+					new EmailValidator(guest_email_filter_value, guest_email_filter_value_error),
+
+					new RequiredComboBoxValidator(unit_id_filter_type, unit_id_filter_type_error),
+
+					new IDValidator(unit_id_filter_value, unit_id_filter_value_error, 8),
+
+					new RequiredComboBoxValidator(host_email_filter_type, host_email_filter_type_error),
+
+					new EmailValidator(host_email_filter_value, host_email_filter_value_error),
+
+					new RequiredComboBoxValidator(start_date_filter_type, start_date_filter_type_error),
 
 					new RequiredDateValidator(start_date_filter_value_1, start_date_filter_value_1_error),
 
@@ -139,9 +213,7 @@ namespace presentation {
 			if (!Validate()) {
 				return;
 			}
-
-			Filter<Order> filter = new Filter<Order>(Business.Orders().Where(order => order.GuestRequest.Active), StartDateCondition, EndDateCondition, AdultsCondition, ChildrenCondition, CitiesCondition, UnitTypesCondition);
-			filtered_orders.ItemsSource = filter.ApplyFilter();
+			filtered_orders.ItemsSource = Filter.ApplyFilter(Business.Orders);
 		}
 
 		protected virtual void ViewOrder(object sender, RoutedEventArgs e) {

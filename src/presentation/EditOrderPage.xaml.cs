@@ -49,8 +49,8 @@ namespace presentation {
 					UiUnits.Insert(i, Order.Unit);
 				}
 				Frame.GoBack();
-			} catch (OrderStatusChangedException error) {
-				MaterialDesignThemes.Wpf.DialogHost.Show(error);
+			} catch (OrderStatusChangedException ex) {
+				MaterialDesignThemes.Wpf.DialogHost.Show(ex);
 			}
 		}
 	}

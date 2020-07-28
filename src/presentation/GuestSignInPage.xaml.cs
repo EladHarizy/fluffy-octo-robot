@@ -38,8 +38,8 @@ namespace presentation {
 			try {
 				guest = Business.Guest(new Email(email.Text));
 				EmailValidator.ResetError();
-			} catch (InexistentEmailException error) {
-				EmailValidator.SetError(error.Message);
+			} catch (InexistentEmailException ex) {
+				EmailValidator.SetError(ex.Message);
 				return;
 			}
 
@@ -51,8 +51,8 @@ namespace presentation {
 				GuestSession.SignIn(guest, password.Password);
 				PasswordValidator.ResetError();
 				Frame.Navigate(new GuestPage(Business, GuestSession, Frame));
-			} catch (WrongPasswordException error) {
-				PasswordValidator.SetError(error.Message);
+			} catch (WrongPasswordException ex) {
+				PasswordValidator.SetError(ex.Message);
 			}
 		}
 

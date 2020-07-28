@@ -11,6 +11,8 @@ namespace presentation {
 						return "";
 					} catch (FormatException) {
 						return "Error: Input must be a number.";
+					} catch (OverflowException) {
+						return "Error: Number is too large.";
 					}
 				}
 			);

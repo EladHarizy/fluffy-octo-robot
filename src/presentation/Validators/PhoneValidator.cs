@@ -11,8 +11,8 @@ namespace presentation {
 					try {
 						control.Text = new Phone(control.Text);
 						return "";
-					} catch (InvalidPhoneException error) {
-						return error.Message;
+					} catch (InvalidPhoneException ex) {
+						return ex.Message;
 					}
 				}
 			);

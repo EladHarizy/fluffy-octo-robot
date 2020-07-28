@@ -52,30 +52,6 @@ namespace Lib.Entities {
 			DebitAuthorisation = debit_authorisation;
 		}
 
-		public override string ToString(int tabs) {
-			StringBuilder sb = new StringBuilder();
-
-			sb.Append('\t', tabs);
-			sb.Append("Host Details");
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("------------");
-			sb.Append('\n');
-
-			sb.Append(base.ToString(tabs));
-
-			sb.Append('\t', tabs);
-			sb.Append("Bank Account:");
-			sb.Append(BankAccount.ToString(tabs + 1));
-
-			sb.Append('\t', tabs);
-			sb.Append("Collection Clearance:\t");
-			sb.Append('\n');
-
-			return sb.ToString();
-		}
-
 		public Host Clone() {
 			return new Host(ID, FirstName, LastName, Email, Phone, PasswordHash, BankAccount, DebitAuthorisation);
 		}
