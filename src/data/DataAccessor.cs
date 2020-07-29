@@ -11,14 +11,14 @@ namespace data {
 		// An XElement which represents the root of the XML file
 		private readonly XElement root;
 
-		private IXmlConverter<T> Converter {
-			get => (IXmlConverter<T>) ConverterReadOnly;
+		private IIndexedXmlConverter<ID, T> Converter {
+			get => (IIndexedXmlConverter<ID, T>) ConverterReadOnly;
 		}
 
 		internal DataAccessor(
 			string file_name,
 			string collection_tag_name,
-			IXmlConverter<T> converter,
+			IIndexedXmlConverter<ID, T> converter,
 			Func<T, T> copier = null
 		) : base(file_name, converter) {
 			root = XElement.Load(file_name);
@@ -29,9 +29,17 @@ namespace data {
 			if (obj.Key() != null) {
 				throw new ObjectInDBException(obj, "Object with ID " + obj.Key() + " already exits in the database.");
 			}
-			obj.Key(next_key());
-			if (cache != null) {
-				cache.Add(obj.Key(), clone(obj));
+			while (true) {
+				obj.Key(next_key());
+				if (cache == null) {
+					break;
+				}
+				try {
+					cache.Add(obj.Key(), clone(obj));
+					break;
+				} catch (ArgumentException) {
+					continue;
+				}
 			}
 			collection_xml.Add(Converter.ObjToXml(obj));
 			root.Save(FileName);
@@ -45,7 +53,7 @@ namespace data {
 			root.Save(FileName);
 		}
 
-		public void Update(T obj) {
+		public void Edit(T obj) {
 			if (obj.Key() == null) {
 				throw new ObjectNotInDBException(obj, "This object does not exits in the database.");
 			}
@@ -60,7 +68,7 @@ namespace data {
 
 		// Returns true if the XElement has the key provided
 		private bool xml_matches_key(XElement element, ID key) {
-			return ConverterReadOnly.XmlToObj(element).Key().Equals(key);
+			return Converter.XmlToKey(element) == key;
 		}
 
 		// Given a key, returns an XElement representing the object with that key

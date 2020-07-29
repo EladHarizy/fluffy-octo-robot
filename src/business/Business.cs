@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using business.Extensions;
@@ -11,14 +12,14 @@ using Lib.Entities;
 using Lib.Exceptions;
 
 namespace business {
-	public class Business : IBusiness {
+	internal class Business : IBusiness {
 		private IData data = DataFactory.New();
 
-		private TPerson Person<TPerson>(Email email) where TPerson : Person {
+		private TUser User<TUser>(Email email) where TUser : User {
 			try {
-				return data.GetAccessor<TPerson>().All.First(p => p.Email == email);
-			} catch (InvalidOperationException error) {
-				throw new InexistentEmailException(email, error);
+				return data.GetAccessor<TUser>().All.First(p => p.Email == email);
+			} catch (InvalidOperationException ex) {
+				throw new InexistentEmailException(email, ex);
 			}
 		}
 
@@ -26,8 +27,12 @@ namespace business {
 			data.GuestRequest.Add(guest_request);
 		}
 
-		public void UpdateGuestRequest(GuestRequest guest_request) {
-			data.GuestRequest.Update(guest_request);
+		public void EditGuestRequest(GuestRequest guest_request) {
+			data.GuestRequest.Edit(guest_request);
+		}
+
+		public void DeleteGuestRequest(GuestRequest guest_request) {
+			data.GuestRequest.Remove(guest_request.ID);
 		}
 
 		public void AddUnit(Unit unit) {
@@ -36,15 +41,15 @@ namespace business {
 
 		public void DeleteUnit(Unit unit) {
 			foreach (Order order in data.Order.All) {
-				if (order.OrderStatus == "Sent Mail" && order.Unit.ID == unit.ID) {
+				if (order.OrderStatus == "Sent email" && order.Unit.ID == unit.ID) {
 					throw new DeletingUnitWithOpenOrderException(unit, order);
 				}
 			}
 			data.Unit.Remove(unit.ID);
 		}
 
-		public void UpdateUnit(Unit unit) {
-			data.Unit.Update(unit);
+		public void EditUnit(Unit unit) {
+			data.Unit.Edit(unit);
 		}
 
 		public void AddOrder(Order order) {
@@ -57,34 +62,60 @@ namespace business {
 			data.Order.Add(order);
 		}
 
-		public void UpdateOrder(ID id, Order.Status status) {
-			Order order = data.Order[id];
-			// Order is already closed
-			if (order.OrderStatus == "Closed due to customer unresponsiveness" || order.OrderStatus == "Closed due to customer response") {
-				throw new OrderClosedException(order);
+		// Edits the given order and returns a collection of all affected orders
+		public IEnumerable<Order> EditOrder(Order order, Order.Status status) {
+			// Order is already cancelled
+			if (order.OrderStatus == "Cancelled" || order.OrderStatus == "Confirmed") {
+				throw new OrderStatusChangedException(order, "Error: Could not change the status because the order is already closed (confirmed or cancelled).");
 			}
 			// Order is being opened
 			if (status == "Not addressed" && order.OrderStatus != status) {
-				throw new ArgumentException("Error: An order cannot be reopened.");
+				throw new OrderStatusChangedException(order, "Error: An order cannot be reopened.");
 			}
-			// Order is being closed
-			if (status == "Closed due to customer response") {
+
+			ICollection<Order> affected_orders = new List<Order>();
+			affected_orders.Add(order);
+
+			// Order is being cancelled
+			if (status == "Confirmed") {
 				if (!order.Unit.Host.DebitAuthorisation) {
-					throw new NoDebitAuthorisationException("Error: Cannot change the order status to anything other than 'Not addressed' because the host does not have debit authorisation.");
+					throw new OrderStatusChangedException(order, "Error: Cannot close the order because the host does not have debit authorisation.");
 				}
 				int fee = Config.FeePerDay * order.GuestRequest.Duration;
-				order.Unit.Bookings.Add(new Unit.Calendar.Booking(order.GuestRequest.StartDate, order.GuestRequest.Duration));
-				foreach (Order order1 in data.Order.All) {
-					if (order.Unit.ID == order1.Unit.ID && order.ID != order1.ID) {
-						UpdateOrder(order1.ID, "Closed due to customer unresponsiveness");
-					}
+				try {
+					order.Unit.Bookings.Add(new Unit.Calendar.Booking(order.GuestRequest.StartDate, order.GuestRequest.Duration));
+				} catch (BookingOverlapException) {
+					throw new OrderStatusChangedException(order, "Error: Cannot confirm this order because the your unit is occupied on the requested dates.");
+				}
+				data.Unit.Edit(order.Unit); // Update the unit's calendar in the database
+
+				// Close all other open orders on this guest request or that overlap the same hosting unit
+				List<Order> orders_to_close = data.Order.All.Where(order1 =>
+					order.ID != order1.ID // It's a different order
+					&& (order1.OrderStatus == "Not addresses" || order1.OrderStatus == "Sent email") // The order is open
+					&& (
+						order.GuestRequest.ID == order1.GuestRequest.ID // The order is on the same guest request as the confirmed one
+						|| (order.Unit.ID == order1.Unit.ID && order.Overlaps(order1)) // The orders overlap on the same unit
+					)
+				).ToList();
+				for (int i = 0; i < orders_to_close.Count; ++i) {
+					EditOrder(orders_to_close[i], "Cancelled");
+					affected_orders.Add(orders_to_close[i]);
+				}
+			} else if (status == "Sent email") {
+				try {
+					new InvitationSender(order).Send();
+				} catch (Exception ex) when(ex is InvalidOperationException || ex is ObjectDisposedException || ex is SmtpException || ex is SmtpFailedRecipientException || ex is SmtpFailedRecipientsException) {
+					throw new OrderStatusChangedException(order, "Error: Could not send invitation to the guest. Please check your internet connection.", ex);
 				}
 			}
-			if (status == "Sent Mail") {
-				//TODO Send email
-			}
 			order.OrderStatus = status;
-			data.Order.Update(order);
+			data.Order.Edit(order);
+			return affected_orders;
+		}
+
+		public Admin Admin(Email email) {
+			return User<Admin>(email);
 		}
 
 		public Guest Guest(ID id) {
@@ -92,7 +123,7 @@ namespace business {
 		}
 
 		public Guest Guest(Email email) {
-			return Person<Guest>(email);
+			return User<Guest>(email);
 		}
 
 		public void AddGuest(Guest guest) {
@@ -107,7 +138,7 @@ namespace business {
 		}
 
 		public Host Host(Email email) {
-			return Person<Host>(email);
+			return User<Host>(email);
 		}
 
 		public void AddHost(Host host) {
@@ -117,24 +148,24 @@ namespace business {
 			data.Host.Add(host);
 		}
 
-		public void UpdateHost(Host host) {
+		public void EditHost(Host host) {
 			if (data.Host.All.FirstOrDefault(h => h.Email == host.Email && h.ID != host.ID) != null) {
 				throw new EmailExistsException(host.Email);
 			}
 			if (!host.DebitAuthorisation) {
 				foreach (Order order in data.Order.All) {
-					if (order.OrderStatus == "Sent Mail" && order.Unit.Host.ID == host.ID) {
+					if (order.OrderStatus == "Sent email" && order.Unit.Host.ID == host.ID) {
 						throw new AuthoriaztionRevokedWithOpenOrderException(host, order);
 					}
 				}
 			}
-			data.Host.Update(host);
+			data.Host.Edit(host);
 		}
 
 		// Returns the person with the given email and password
 		// If the password is wrong WrongPasswordException is thrown
 		// If the email doesn't exist InexistentEmailException is thrown
-		public bool SignIn<TPerson>(TPerson person, string password) where TPerson : Person {
+		public bool SignIn<TUser>(TUser person, string password) where TUser : User {
 			if (new Password(password).MatchesHash(person.PasswordHash)) {
 				return true;
 			}
@@ -153,20 +184,32 @@ namespace business {
 			get => data.UnitType.All;
 		}
 
-		public IEnumerable<Unit> Units() {
-			return data.Unit.All;
+		public IEnumerable<Unit> Units {
+			get => data.Unit.All;
 		}
 
 		public IEnumerable<Unit> UnitsOf(Host host) {
 			return data.Unit.All.Where(unit => unit.Host.ID == host.ID);
 		}
 
+		public IEnumerable<Order.Status> OrderStatuses {
+			get => data.OrderStatus.All;
+		}
+
 		public IEnumerable<GuestRequest> GuestRequests() {
 			return data.GuestRequest.All;
 		}
 
-		public IEnumerable<Order> Orders() {
-			return data.Order.All;
+		public IEnumerable<Order> Orders {
+			get => data.Order.All;
+		}
+
+		public IEnumerable<Order> OrdersOf(Host host) {
+			return data.Order.All.Where(order => order.Unit.Host.ID == host.ID);
+		}
+
+		public IEnumerable<Order> OrdersOf(Unit unit) {
+			return data.Order.All.Where(order => order.Unit.ID == unit.ID);
 		}
 
 		public IEnumerable<BankBranch> BankBranches() {
@@ -210,7 +253,7 @@ namespace business {
 		public IDictionary<City, IEnumerable<GuestRequest>> GuestRequestsByCity() {
 			IDictionary<City, IEnumerable<GuestRequest>> dict = new Dictionary<City, IEnumerable<GuestRequest>>();
 			foreach (City city in data.City.All) {
-				dict[city] = data.GuestRequest.All.Where(guest_request => guest_request.Region.Contains(city));
+				dict[city] = data.GuestRequest.All.Where(guest_request => guest_request.DesiredCities.Contains(city));
 			}
 			return dict;
 		}

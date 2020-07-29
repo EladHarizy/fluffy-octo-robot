@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Xml.Linq;
 using Lib.DataTypes;
 using Lib.Exceptions;
-using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
@@ -50,7 +47,7 @@ namespace Lib.Entities {
 		private int adults;
 		public int Adults {
 			get => adults;
-			private set {
+			set {
 				if (value < 1) {
 					adults = 1;
 					throw new NonPositiveAdultsException(value);
@@ -62,10 +59,12 @@ namespace Lib.Entities {
 		private int children;
 		public int Children {
 			get => children;
-			private set => children = Math.Max(0, value);
+			set => children = Math.Max(0, value);
 		}
 
-		public ICollection<City> Region { get; set; }
+		public string Message { get; }
+
+		public ICollection<City> DesiredCities { get; set; }
 
 		public ICollection<Unit.Type> DesiredUnitTypes { get; set; }
 
@@ -78,7 +77,8 @@ namespace Lib.Entities {
 			Date end_date,
 			int adults,
 			int children,
-			ICollection<City> region,
+			string message,
+			ICollection<City> desired_cities,
 			ICollection<Unit.Type> desired_unit_types,
 			ICollection<Amenity> desired_amenities
 		) : this(
@@ -90,7 +90,8 @@ namespace Lib.Entities {
 			true, // Initializes active to true
 			adults,
 			children,
-			region,
+			message,
+			desired_cities,
 			desired_unit_types,
 			desired_amenities
 		) {}
@@ -105,112 +106,27 @@ namespace Lib.Entities {
 			bool active,
 			int adults,
 			int children,
-			ICollection<City> region,
+			string message,
+			ICollection<City> desired_cities,
 			ICollection<Unit.Type> desired_unit_types,
 			ICollection<Amenity> desired_amenities
 		) {
 			ID = id;
 			Guest = guest;
 			CreationDate = creation_date;
-			StartDate = start_date;
+			this.start_date = start_date; // If loading from database, may be in the past
 			EndDate = end_date;
 			Active = active;
 			Adults = adults;
 			Children = children;
-			Region = region;
+			Message = message;
+			DesiredCities = desired_cities;
 			DesiredUnitTypes = desired_unit_types;
 			DesiredAmenities = desired_amenities;
 		}
 
-		// Same as the partial constructor, but takes an int as the number of days instead of an end date
-		public GuestRequest(
-			Guest guest,
-			Date start_date,
-			int duration,
-			int adults,
-			int children,
-			HashSet<City> region,
-			HashSet<Unit.Type> desired_unit_types,
-			HashSet<Amenity> desired_amenities
-		) : this(
-			guest,
-			start_date,
-			start_date.AddDays(duration),
-			adults, children,
-			region,
-			desired_unit_types,
-			desired_amenities
-		) {}
-
 		public override string ToString() {
-			return ToString(0);
-		}
-
-		public string ToString(int tabs) {
-			StringBuilder sb = new StringBuilder();
-			sb.Append('\t', tabs);
-			sb.Append("Guest Request Details");
-			sb.Append("\n");
-
-			sb.Append('\t', tabs);
-			sb.Append("---------------------");
-			sb.Append("\n");
-
-			sb.Append('\t', tabs);
-			sb.Append("ID:\t\t\t");
-			sb.Append(ID);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Guest:\t\t\n");
-			sb.Append(Guest.ToString(tabs + 1));
-
-			sb.Append('\t', tabs);
-			sb.Append("Created on:\t\t");
-			sb.Append(CreationDate.ToString("dd/MM/yyyy"));
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Start date:\t\t");
-			sb.Append(StartDate.ToString("dd/MM/yyyy"));
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("End date:\t\t");
-			sb.Append(EndDate.ToString("dd/MM/yyyy"));
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Active:\t\t\t");
-			sb.Append(Active ? "Yes" : "No");
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Adults:\t\t\t");
-			sb.Append(Adults);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Children:\t\t");
-			sb.Append(Children);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Region:\t\t\t");
-			sb.Append(string.Join(", ", Region));
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Unit types:\t\t");
-			sb.Append(string.Join(", ", DesiredUnitTypes));
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Desired amenities:\t");
-			sb.Append(string.Join(", ", DesiredAmenities));
-			sb.Append('\n');
-
-			return sb.ToString();
+			return ID;
 		}
 
 		public ID Key() {
@@ -222,7 +138,18 @@ namespace Lib.Entities {
 		}
 
 		public GuestRequest Clone() {
-			return new GuestRequest(ID, Guest.Clone(), CreationDate, StartDate, EndDate, Active, Adults, Children, new HashSet<City>(Region), new HashSet<Unit.Type>(DesiredUnitTypes), new HashSet<Amenity>(DesiredAmenities));
+			return new GuestRequest(ID, Guest.Clone(), CreationDate, StartDate, EndDate, Active, Adults, Children, Message, new HashSet<City>(DesiredCities), new HashSet<Unit.Type>(DesiredUnitTypes), new HashSet<Amenity>(DesiredAmenities));
+		}
+
+		public override bool Equals(object obj) {
+			return obj is GuestRequest request
+				&& EqualityComparer<ID>.Default.Equals(ID, request.ID);
+		}
+
+		public override int GetHashCode() {
+			int hashCode = -704701015;
+			hashCode = hashCode * -1521134295 + EqualityComparer<ID>.Default.GetHashCode(ID);
+			return hashCode;
 		}
 	}
 }

@@ -16,7 +16,7 @@ namespace business.Extensions {
 			if (bookings.Overlaps(booking)) {
 				throw new BookingOverlapException("Error: Cannot add booking to a unit because it overlaps with another booking.");
 			}
-			bookings.Add(booking);
+			bookings.Bookings.Add(booking);
 		}
 	}
 }

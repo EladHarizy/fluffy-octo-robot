@@ -1,17 +1,22 @@
 using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace presentation {
-	internal class Validator<TControl> where TControl : Control {
-		private TControl Control { get; }
+	internal class Validator<TControl> : IValidator where TControl : Control {
+		public Control BaseControl {
+			get => Control;
+		}
 
-		private TextBlock ErrorBlock { get; }
+		protected TControl Control { get; }
 
-		private Brush InitialBorder { get; }
+		public TextBlock ErrorBlock { get; }
 
-		private ICollection<Func<TControl, string>> Checks { get; } = new List<Func<TControl, string>>();
+		protected Brush InitialBorder { get; }
+
+		protected ICollection<Func<TControl, string>> Checks { get; } = new List<Func<TControl, string>>();
 
 		public Validator(TControl control, TextBlock error_block, params Func<TControl, string>[] checks) {
 			Control = control;
@@ -41,10 +46,12 @@ namespace presentation {
 		public void SetError(string message) {
 			Control.BorderBrush = Brushes.Red;
 			ErrorBlock.Text = message;
+			ErrorBlock.Visibility = Visibility.Visible;
 		}
 
 		public void ResetError() {
 			Control.BorderBrush = InitialBorder;
+			ErrorBlock.Visibility = Visibility.Collapsed;
 			ErrorBlock.Text = "";
 		}
 	}

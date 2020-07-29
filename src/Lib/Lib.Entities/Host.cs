@@ -2,9 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using System.Xml.Linq;
 using Lib.DataTypes;
-using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
@@ -41,7 +39,7 @@ namespace Lib.Entities {
 			Phone phone,
 			IEnumerable<byte> password_hash,
 			BankAccount bank_account,
-			bool collection_clearance
+			bool debit_authorisation
 		) : base(
 			id,
 			first_name,
@@ -51,35 +49,22 @@ namespace Lib.Entities {
 			password_hash
 		) {
 			BankAccount = bank_account;
-			DebitAuthorisation = collection_clearance;
-		}
-
-		public override string ToString(int tabs) {
-			StringBuilder sb = new StringBuilder();
-
-			sb.Append('\t', tabs);
-			sb.Append("Host Details");
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("------------");
-			sb.Append('\n');
-
-			sb.Append(base.ToString(tabs));
-
-			sb.Append('\t', tabs);
-			sb.Append("Bank Account:");
-			sb.Append(BankAccount.ToString(tabs + 1));
-
-			sb.Append('\t', tabs);
-			sb.Append("Collection Clearance:\t");
-			sb.Append('\n');
-
-			return sb.ToString();
+			DebitAuthorisation = debit_authorisation;
 		}
 
 		public Host Clone() {
 			return new Host(ID, FirstName, LastName, Email, Phone, PasswordHash, BankAccount, DebitAuthorisation);
+		}
+
+		public override bool Equals(object obj) {
+			return obj is Host host
+				&& base.Equals(obj);
+		}
+
+		public override int GetHashCode() {
+			int hashCode = 1708286331;
+			hashCode = hashCode * -1521134295 + base.GetHashCode();
+			return hashCode;
 		}
 	}
 }

@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using System.Text;
 using Lib.DataTypes;
-using Lib.Extensions;
 using Lib.Interfaces;
 
 namespace Lib.Entities {
@@ -12,13 +10,15 @@ namespace Lib.Entities {
 
 		public Host Host { get; }
 
-		public string UnitName { get; private set; }
+		public string Name { get; set; }
 
-		public City City { get; }
+		public string Description { get; set; }
 
-		public ICollection<Amenity> Amenities { get; }
+		public City City { get; set; }
 
-		public Type UnitType { get; }
+		public IEnumerable<Amenity> Amenities { get; set; }
+
+		public Type UnitType { get; set; }
 
 		public int OccupiedDays {
 			get => Bookings.OccupiedDays;
@@ -26,24 +26,27 @@ namespace Lib.Entities {
 
 		public Unit(
 			Host host,
-			string hosting_unit_name,
+			string name,
+			string description,
 			City city,
 			ICollection<Amenity> amenities,
 			Type unit_type
 		) : this(
 			null, // initialized ID to null
 			host,
-			hosting_unit_name,
+			name,
+			description,
 			city,
 			amenities,
 			unit_type,
 			new Calendar()
 		) {}
 
-		public Unit(ID id, Host host, string hosting_unit_name, City city, ICollection<Amenity> amenities, Type unit_type, Calendar bookings) {
+		public Unit(ID id, Host host, string name, string description, City city, ICollection<Amenity> amenities, Type unit_type, Calendar bookings) {
 			ID = id;
 			Host = host;
-			UnitName = hosting_unit_name;
+			Name = name;
+			Description = description;
 			City = city;
 			Amenities = amenities;
 			UnitType = unit_type;
@@ -51,36 +54,7 @@ namespace Lib.Entities {
 		}
 
 		public override string ToString() {
-			return ToString(0);
-		}
-
-		public string ToString(int tabs) {
-			StringBuilder sb = new StringBuilder();
-
-			sb.Append('\t', tabs);
-			sb.Append("Hosting Unit Details");
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("--------------------");
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Host Name:\t");
-			sb.Append(Host.Name);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Unit Name:\t");
-			sb.Append(UnitName);
-			sb.Append('\n');
-
-			sb.Append('\t', tabs);
-			sb.Append("Occupied on:");
-			sb.Append('\n');
-			sb.Append(Bookings.ToString(tabs + 1));
-
-			return sb.ToString();
+			return (string) ID + " - " + Name;
 		}
 
 		public ID Key() {
@@ -92,7 +66,20 @@ namespace Lib.Entities {
 		}
 
 		public Unit Clone() {
-			return new Unit(ID, Host, UnitName, City, new HashSet<Amenity>(Amenities), UnitType, Bookings.Clone());
+			return new Unit(ID, Host, Name, Description, City, new HashSet<Amenity>(Amenities), UnitType, Bookings.Clone());
+		}
+
+		public override bool Equals(object obj) {
+			return obj is Unit unit
+				&& EqualityComparer<ID>.Default.Equals(ID, unit.ID)
+				&& EqualityComparer<Host>.Default.Equals(Host, unit.Host);
+		}
+
+		public override int GetHashCode() {
+			int hashCode = 1325579111;
+			hashCode = hashCode * -1521134295 + EqualityComparer<ID>.Default.GetHashCode(ID);
+			hashCode = hashCode * -1521134295 + EqualityComparer<Host>.Default.GetHashCode(Host);
+			return hashCode;
 		}
 	}
 }

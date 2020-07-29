@@ -13,6 +13,9 @@ namespace presentation {
 
 		private string OriginalTitle { get; }
 
+		// Stores the admin who is signed in, if any
+		private Session<Admin> AdminSession { get; }
+
 		// Stores the host who is signed in, if any
 		private Session<Host> HostSession { get; }
 
@@ -22,17 +25,15 @@ namespace presentation {
 		public MainWindow() {
 			InitializeComponent();
 			OriginalTitle = Title;
-			Business = new Business();
+			Business = BusinessFactory.New();
 
+			AdminSession = new Session<Admin>(Business, AdminPage);
 			HostSession = new Session<Host>(Business, HostPage);
 			GuestSession = new Session<Guest>(Business, GuestPage);
 
-			Page HostSignInPage = new HostSignInPage(Business, HostSession, HostPage);
-			Page GuestSignInPage = new GuestSignInPage(Business, GuestSession, GuestPage);
-			GuestPage.Navigate(GuestSignInPage);
-			HostPage.Navigate(HostSignInPage);
-
-			AdminPage.Navigate(new AdminPage());
+			AdminPage.Navigate(new AdminSignInPage(Business, AdminSession, AdminPage));
+			HostPage.Navigate(new HostSignInPage(Business, HostSession, HostPage));
+			GuestPage.Navigate(new GuestSignInPage(Business, GuestSession, GuestPage));
 		}
 	}
 }

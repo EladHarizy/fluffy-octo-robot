@@ -13,7 +13,7 @@ namespace Lib.Exceptions {
 
 		public UnitUnavailableException(string message) : base(message) {}
 
-		public UnitUnavailableException(Unit unit, Date date, int duration) : this(unit, date, duration, "Error: The unit " + unit.ID + " is unavailable between " + date.ToString("dd/MM/yyyy") + " and " + date.AddDays(duration).ToString("dd/MM/yyyy") + '.') {}
+		public UnitUnavailableException(Unit unit, Date date, int duration) : this(unit, date, duration, "Error: The unit " + unit.ID + " is unavailable between " + date.ToString("yyyy-MM-dd") + " and " + date.AddDays(duration).ToString("yyyy-MM-dd") + '.') {}
 
 		public UnitUnavailableException(Unit unit, Date date, int duration, string message) : base(message) {
 			Unit = unit;

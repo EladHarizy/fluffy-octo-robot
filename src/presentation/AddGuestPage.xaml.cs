@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -9,7 +10,7 @@ using Lib.Entities;
 using Lib.Exceptions;
 
 namespace presentation {
-	public partial class AddGuestPage : Page {
+	public partial class AddGuestPage : ValidatedPage {
 		private IBusiness Business { get; }
 
 		private Frame Frame { get; }
@@ -18,17 +19,7 @@ namespace presentation {
 
 		private BankBranch BankBranch { get; set; }
 
-		private Validator<TextBox> FirstNameValidator { get; }
-
-		private Validator<TextBox> LastNameValidator { get; }
-
-		private Validator<TextBox> EmailValidator { get; }
-
-		private Validator<TextBox> PhoneValidator { get; }
-
-		private Validator<PasswordBox> PasswordValidator { get; }
-
-		private Validator<PasswordBox> RepeatPasswordValidator { get; }
+		private IValidator EmailValidator { get; }
 
 		public AddGuestPage(IBusiness business, Frame frame, GuestSignInPage Guest_sign_in_page) {
 			InitializeComponent();
@@ -36,86 +27,34 @@ namespace presentation {
 			Frame = frame;
 			GuestSignInPage = Guest_sign_in_page;
 
-			FirstNameValidator = new Validator<TextBox>(
-				first_name,
-				first_name_error,
-				control => control.Text == "" ? "Error: First name is required." : "",
-				control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
-			);
+			EmailValidator = new EmailValidator(email, email_error);
 
-			LastNameValidator = new Validator<TextBox>(
-				last_name,
-				last_name_error,
-				control => control.Text == "" ? "Error: First name is required." : "",
-				control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
-			);
+			Validators = new List<IValidator>() {
+				new RequiredTextValidator(first_name, first_name_error,
+						control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
+					),
 
-			EmailValidator = new Validator<TextBox>(
-				email,
-				email_error,
-				control => control.Text == "" ? "Error: Email is required." : "",
-				control => {
-					try {
-						control.Text = new Email(control.Text);
-						return "";
-					} catch (InvalidEmailException error) {
-						return error.Message;
-					}
-				}
-			);
+					new RequiredTextValidator(last_name, last_name_error,
+						control => Regex.Match(control.Text, @"^[a-z ,.'-]+$", RegexOptions.IgnoreCase).Success ? "" : "Error: Cannot have these symbols in your name."
+					),
 
-			PhoneValidator = new Validator<TextBox>(
-				phone,
-				phone_error,
-				new Func<TextBox, string>(
-					control => control.Text == "" ? "Error: Phone number is required." : ""
-				),
-				new Func<TextBox, string>(
-					control => {
-						try {
-							control.Text = new Phone(control.Text);
-							return "";
-						} catch (InvalidPhoneException error) {
-							return error.Message;
-						}
-					}
-				)
-			);
+					EmailValidator,
 
-			PasswordValidator = new Validator<PasswordBox>(
-				password,
-				password_error,
-				control => control.Password == "" ? "Error: Password is required." : "",
-				control => {
-					try {
-						control.Password = new Password(control.Password);
-						return "";
-					} catch (InvalidPasswordException error) {
-						return error.Message;
-					}
-				}
-			);
+					new PhoneValidator(phone, phone_error),
 
-			RepeatPasswordValidator = new Validator<PasswordBox>(
-				repeat_password,
-				repeat_password_error,
-				control => control.Password != password.Password ? "Error: Passwords do not match." : ""
-			);
+					new PasswordValidator(password, password_error),
+
+					new PasswordValidator(repeat_password, repeat_password_error,
+						control => control.Password != password.Password ? "Error: Passwords do not match." : ""
+					)
+			};
 		}
 
 		private void SignUp(object sender, RoutedEventArgs e) {
 			first_name.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(first_name.Text.ToLower());
 			last_name.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(last_name.Text.ToLower());
 
-			bool valid = true;
-			valid = FirstNameValidator.Validate() ? valid : false;
-			valid = LastNameValidator.Validate() ? valid : false;
-			valid = EmailValidator.Validate() ? valid : false;
-			valid = PhoneValidator.Validate() ? valid : false;
-			valid = PasswordValidator.Validate() ? valid : false;
-			valid = RepeatPasswordValidator.Validate() ? valid : false;
-
-			if (!valid) {
+			if (!Validate()) {
 				return;
 			}
 

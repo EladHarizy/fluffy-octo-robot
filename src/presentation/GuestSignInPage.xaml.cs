@@ -13,9 +13,9 @@ namespace presentation {
 
 		private Frame Frame { get; }
 
-		private Validator<TextBox> EmailValidator { get; }
+		private IValidator EmailValidator { get; }
 
-		private Validator<PasswordBox> PasswordValidator { get; }
+		private IValidator PasswordValidator { get; }
 
 		public GuestSignInPage(IBusiness business, Session<Guest> guest_session, Frame frame) {
 			InitializeComponent();
@@ -24,35 +24,9 @@ namespace presentation {
 			GuestSession = guest_session;
 			Frame = frame;
 
-			// Test
-			email.Text = "daisy@dunn.com";
-			password.Password = "password";
-			// End test
+			EmailValidator = new EmailValidator(email, email_error);
 
-			EmailValidator = new Validator<TextBox>(email, email_error);
-			// Check that the email has a valid format
-			EmailValidator.AddCheck(
-				control => {
-					try {
-						control.Text = new Email(control.Text);
-						return "";
-					} catch (InvalidEmailException error) {
-						return error.Message;
-					}
-				}
-			);
-
-			PasswordValidator = new Validator<PasswordBox>(password, password_error);
-			PasswordValidator.AddCheck(
-				control => {
-					try {
-						control.Password = new Password(control.Password);
-						return "";
-					} catch (InvalidPasswordException) {
-						return "Error: Wrong password.";
-					}
-				}
-			);
+			PasswordValidator = new PasswordValidator(password, password_error);
 		}
 
 		public void SignIn() {
@@ -64,8 +38,8 @@ namespace presentation {
 			try {
 				guest = Business.Guest(new Email(email.Text));
 				EmailValidator.ResetError();
-			} catch (InexistentEmailException error) {
-				EmailValidator.SetError(error.Message);
+			} catch (InexistentEmailException ex) {
+				EmailValidator.SetError(ex.Message);
 				return;
 			}
 
@@ -76,9 +50,9 @@ namespace presentation {
 			try {
 				GuestSession.SignIn(guest, password.Password);
 				PasswordValidator.ResetError();
-				Frame.Navigate(new AddGuestRequestsPage(Business, GuestSession));
-			} catch (WrongPasswordException error) {
-				PasswordValidator.SetError(error.Message);
+				Frame.Navigate(new GuestPage(Business, GuestSession, Frame));
+			} catch (WrongPasswordException ex) {
+				PasswordValidator.SetError(ex.Message);
 			}
 		}
 
