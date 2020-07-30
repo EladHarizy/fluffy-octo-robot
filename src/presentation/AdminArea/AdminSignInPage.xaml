@@ -5,10 +5,10 @@
 				<StackPanel Style="{StaticResource narrow_form}">
 					<Image Width="128" Source="/images/octopus.png"/>
 					<TextBlock TextAlignment="Center" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Admin Sign In</TextBlock>
-					<TextBox x:Name="email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Email"/>
+					<TextBox x:Name="email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Email" Text="admin@fluffy-octo-robot.com"/>
 					<TextBlock x:Name="email_error" Style="{StaticResource error}"/>
 					<Rectangle Style="{StaticResource input_separator}"/>
-					<PasswordBox x:Name="password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" md:HintAssist.Hint="Password"/>
+					<PasswordBox x:Name="password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" md:HintAssist.Hint="Password" Password="password"/>
 					<TextBlock x:Name="password_error" Style="{StaticResource error}"/>
 					<Rectangle Style="{StaticResource input_separator}"/>
 					<Button Click="SignIn">
