@@ -26,6 +26,14 @@ namespace Lib.Entities {
 				return 539060726 + EqualityComparer<string>.Default.GetHashCode(Name);
 			}
 
+			public static bool operator ==(Status status1, Status status2) {
+				return status1 is null ? status2 is null : status1.Equals(status2);
+			}
+
+			public static bool operator !=(Status status1, Status status2) {
+				return !(status1 == status2);
+			}
+
 			public static implicit operator Status(string name) {
 				return new Status(name);
 			}

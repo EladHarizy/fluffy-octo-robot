@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using Lib.Extensions;
+using Lib.Exceptions;
 using Lib.Interfaces;
 
 namespace data {
@@ -47,9 +47,13 @@ namespace data {
 		}
 
 		// Given a key, returns an object of type TObj
-		public virtual TObj Get(TKey key) {
+		protected virtual TObj Get(TKey key) {
 			load_cache();
-			return clone(cache[key]);
+			try {
+				return clone(cache[key]);
+			} catch (KeyNotFoundException ex) {
+				throw new ObjectNotInDBException("Error: No object with ID + " + key.ToString() + " exists in the database.", ex);
+			}
 		}
 
 		// Loads XML into cache, if the cache is null

@@ -10,7 +10,7 @@ namespace Lib.Entities {
 			PasswordHash = password_hash;
 		}
 
-		public virtual ID ID { get; set; }
+		public virtual ID ID { get; private set; }
 
 		public virtual Email Email { get; set; }
 

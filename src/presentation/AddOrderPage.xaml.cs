@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -37,12 +38,16 @@ namespace presentation {
 		}
 
 		private void Send(object sender, RoutedEventArgs e) {
-			Unit unit = unit_combo_box.SelectedItem as Unit;
-			Order order = new Order(unit, GuestRequest, message.Text);
-			Business.AddOrder(order);
-			Business.EditOrder(order, "Sent email");
-			UiOrders.Add(order); // Update the UI Orders list
-			Frame.Navigate(new EditOrderPage(Business, Frame, order, UiUnits, new List<ObservableCollection<Order>> { UiOrders }));
+			try {
+				Unit unit = unit_combo_box.SelectedItem as Unit;
+				Order order = new Order(unit, GuestRequest, message.Text);
+				Business.AddOrder(order);
+				Business.EditOrder(order, "Sent email");
+				UiOrders.Add(order); // Update the UI Orders list
+				Frame.Navigate(new EditOrderPage(Business, Frame, order, UiUnits, new List<ObservableCollection<Order>> { UiOrders }));
+			} catch (Exception ex) {
+				MaterialDesignThemes.Wpf.DialogHost.Show(ex, "add_order_error_dialogue_host");
+			}
 		}
 	}
 }

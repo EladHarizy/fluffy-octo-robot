@@ -6,7 +6,7 @@ using Lib.Interfaces;
 
 namespace Lib.Entities {
 	public class GuestRequest : ICloneable<GuestRequest>, IEntity<ID> {
-		public ID ID { get; set; }
+		public ID ID { get; private set; }
 
 		public Guest Guest { get; }
 
@@ -94,7 +94,9 @@ namespace Lib.Entities {
 			desired_cities,
 			desired_unit_types,
 			desired_amenities
-		) {}
+		) {
+			StartDate = start_date;
+		}
 
 		// Constructor with all the values for restoring an old guest request from storage
 		public GuestRequest(
@@ -114,7 +116,8 @@ namespace Lib.Entities {
 			ID = id;
 			Guest = guest;
 			CreationDate = creation_date;
-			this.start_date = start_date; // If loading from database, may be in the past
+			// If loading from database, may be in the past
+			this.start_date = start_date;
 			EndDate = end_date;
 			Active = active;
 			Adults = adults;

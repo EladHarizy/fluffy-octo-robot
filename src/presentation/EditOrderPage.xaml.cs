@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -5,7 +6,6 @@ using System.Windows;
 using System.Windows.Controls;
 using business;
 using Lib.Entities;
-using Lib.Exceptions;
 
 namespace presentation {
 	public partial class EditOrderPage : Page {
@@ -35,7 +35,8 @@ namespace presentation {
 
 		private void ChangeStatus(object sender, RoutedEventArgs e) {
 			try {
-				IEnumerable<Order> affected_orders = Business.EditOrder(Order, order_status.SelectedItem as Order.Status).Where(order => order.Unit.Host.ID == Order.Unit.Host.ID);
+				// Get list of affected orders belonging to this host
+				IEnumerable<Order> affected_orders = Business.EditOrder(Order, order_status.SelectedItem as Order.Status).Where(order => order.Unit != null && order.Unit.Host.ID == Order.Unit.Host.ID);
 				foreach (Order order in affected_orders) {
 					foreach (ObservableCollection<Order> orders in UiOrders) {
 						int i = orders.IndexOf(order);
@@ -43,15 +44,17 @@ namespace presentation {
 						orders.Insert(i, order);
 					}
 				}
-				if (Order.OrderStatus == "Confirmed") {
+				if (Order.OrderStatus == "Confirmed" && Order.Unit != null) {
 					int i = UiUnits.IndexOf(Order.Unit);
 					UiUnits.RemoveAt(i);
 					UiUnits.Insert(i, Order.Unit);
 				}
 				Frame.GoBack();
-			} catch (OrderStatusChangedException ex) {
-				MaterialDesignThemes.Wpf.DialogHost.Show(ex);
+			} catch (Exception ex) {
+				MaterialDesignThemes.Wpf.DialogHost.Show(ex, "edit_order_error_dialogue_host");
 			}
+
+			order_status.SelectedItem = Order.OrderStatus;
 		}
 	}
 }

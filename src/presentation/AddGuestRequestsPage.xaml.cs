@@ -40,8 +40,12 @@ namespace presentation {
 			Cities = new CheckBoxList<City>(Business.Cities);
 
 			Validators = new List<IValidator>() {
-				new RequiredDateValidator(start_date, start_date_error),
-					new RequiredDateValidator(end_date, end_date_error),
+				new RequiredDateValidator(start_date, start_date_error,
+						control => control.SelectedDate < Date.Today ? "Error: Start date cannot be in the past." : ""
+					),
+					new RequiredDateValidator(end_date, end_date_error,
+						control => control.SelectedDate <= start_date.SelectedDate ? "Error: End date must be after start date." : ""
+					),
 					new IntValidator(number_of_adults, number_of_adults_error, true, 1, null),
 					new IntValidator(number_of_adults, number_of_children_error, true, 0, null),
 			};

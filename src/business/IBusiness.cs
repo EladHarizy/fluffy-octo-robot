@@ -24,13 +24,9 @@ namespace business {
 
 		Admin Admin(Email email);
 
-		Guest Guest(ID id);
-
 		Guest Guest(Email email);
 
 		void AddGuest(Guest guest);
-
-		Host Host(ID iD);
 
 		Host Host(Email email);
 
@@ -71,10 +67,6 @@ namespace business {
 		IEnumerable<Order> OrdersOlderThan(int days);
 
 		IEnumerable<GuestRequest> FilterGuestRequests(Func<GuestRequest, bool> condition);
-
-		int OrdersCount(GuestRequest guest_request);
-
-		int OrdersCount(Unit unit);
 
 		int UnitCount(Host host);
 

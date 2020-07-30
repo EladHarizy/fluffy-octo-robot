@@ -1,173 +1,200 @@
 <Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" TextElement.Foreground="{DynamicResource MaterialDesignBody}" TextElement.FontWeight="Medium" TextElement.FontSize="14" TextOptions.TextFormattingMode="Ideal" TextOptions.TextRenderingMode="Auto" Background="{DynamicResource MaterialDesignPaper}" FontFamily="{DynamicResource MaterialDesignFont}" x:Class="presentation.HostPage" Title="Hosting Units">
-	<md:DialogHost CloseOnClickAway="True" CloseOnClickAwayParameter="{StaticResource False}">
-		<ScrollViewer VerticalScrollBarVisibility="Auto">
-			<StackPanel Style="{StaticResource stack_of_cards}">
-				<md:Card Style="{StaticResource padded_stack_card}"><!-- Host Details -->
-					<StackPanel>
-						<ItemsControl Style="{StaticResource split_grid}">
-							<StackPanel Grid.Column="0" Orientation="Horizontal">
-								<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Welcome </TextBlock>
-								<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="{Binding Host.Name}"/>
+	<md:DialogHost CloseOnClickAway="True" CloseOnClickAwayParameter="{StaticResource False}" Identifier="confirm_unit_delete">
+		<md:DialogHost CloseOnClickAway="True" Identifier="unit_delete_error">
+			<ScrollViewer VerticalScrollBarVisibility="Auto">
+				<StackPanel Style="{StaticResource stack_of_cards}">
+					<md:Card Style="{StaticResource padded_stack_card}"><!-- Host Details -->
+						<StackPanel>
+							<ItemsControl Style="{StaticResource split_grid}">
+								<StackPanel Grid.Column="0" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}">Welcome </TextBlock>
+									<TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="{Binding Host.Name}"/>
+								</StackPanel>
+								<Button Grid.Column="2" Click="SignOut">
+									<StackPanel Orientation="Horizontal">
+										<md:PackIcon Kind="AccountCancel"/>
+										<TextBlock Margin="5 0 5 0">SIGN OUT</TextBlock>
+									</StackPanel>
+								</Button>
+							</ItemsControl>
+							<Separator Height="30"/>
+							<StackPanel MinWidth="350" HorizontalAlignment="Left">
+								<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="ID" Text="{Binding Host.ID, Mode=OneTime}" IsReadOnly="True"/>
+								<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Email" Text="{Binding Host.Email, Mode=OneTime}" IsReadOnly="True"/>
+								<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Phone" Text="{Binding Host.Phone, Mode=OneTime}" IsReadOnly="True"/>
+								<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Bank number" Text="{Binding Host.BankAccount.Branch.BankID, Mode=OneTime}" IsReadOnly="True"/>
+								<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Branch number" Text="{Binding Host.BankAccount.Branch.BranchID, Mode=OneTime}" IsReadOnly="True"/>
+								<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Account number" Text="{Binding Host.BankAccount.AccountNumber, Mode=OneTime}" IsReadOnly="True"/>
+								<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Debit authorisation" Text="{Binding Host.DebitAuthorisation, Mode=OneTime, Converter={StaticResource BoolYesNoConverter}}" IsReadOnly="True"/>
 							</StackPanel>
-							<Button Grid.Column="2" Click="SignOut">
-								<StackPanel Orientation="Horizontal">
-									<md:PackIcon Kind="AccountCancel"/>
-									<TextBlock Margin="5 0 5 0">SIGN OUT</TextBlock>
-								</StackPanel>
-							</Button>
-						</ItemsControl>
-						<Separator Height="30"/>
-						<StackPanel MinWidth="350" HorizontalAlignment="Left">
-							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="ID" Text="{Binding Host.ID, Mode=OneTime}" IsReadOnly="True"/>
-							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Email" Text="{Binding Host.Email, Mode=OneTime}" IsReadOnly="True"/>
-							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Phone" Text="{Binding Host.Phone, Mode=OneTime}" IsReadOnly="True"/>
-							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Bank number" Text="{Binding Host.BankAccount.Branch.BankID, Mode=OneTime}" IsReadOnly="True"/>
-							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Branch number" Text="{Binding Host.BankAccount.Branch.BranchID, Mode=OneTime}" IsReadOnly="True"/>
-							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Account number" Text="{Binding Host.BankAccount.AccountNumber, Mode=OneTime}" IsReadOnly="True"/>
-							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Debit authorisation" Text="{Binding Host.DebitAuthorisation, Mode=OneTime, Converter={StaticResource BoolYesNoConverter}}" IsReadOnly="True"/>
 						</StackPanel>
-					</StackPanel>
-				</md:Card>
-				<Separator/>
-				<md:Card Style="{StaticResource padded_stack_card}"><!-- Units Details -->
-					<StackPanel>
+					</md:Card>
+					<Separator/>
+					<md:Card Style="{StaticResource padded_stack_card}"><!-- Units Details -->
+						<StackPanel>
+							<ItemsControl Style="{StaticResource split_grid}">
+								<TextBlock Grid.Column="0" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Hosting Units</TextBlock>
+								<Button Grid.Column="2" Click="NewHostingUnit">
+									<StackPanel Orientation="Horizontal">
+										<md:PackIcon Kind="PlusCircle"/>
+										<TextBlock Margin="5 0 5 0">NEW HOSTING UNIT</TextBlock>
+									</StackPanel>
+								</Button>
+							</ItemsControl>
+							<Separator Height="30"/>
+							<Grid Visibility="Hidden"><!-- Hack to make a column take up the rest of the available space -->
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="20"/>
+								</Grid.ColumnDefinitions>
+								<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=unit_id_column}"/>
+								<Rectangle Grid.Column="1" Width="{Binding ActualWidth, ElementName=unit_name_column}"/>
+								<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=unit_city_column}"/>
+								<Rectangle Grid.Column="3" Width="{Binding ActualWidth, ElementName=unit_type_column}"/>
+								<Rectangle Grid.Column="4" Width="{Binding ActualWidth, ElementName=unit_occupied_column}"/>
+								<Rectangle Grid.Column="5" x:Name="unit_wide_column"/>
+								<Rectangle Grid.Column="6" Width="{Binding ActualWidth, ElementName=unit_view_column}"/>
+								<Rectangle Grid.Column="7" Width="{Binding ActualWidth, ElementName=unit_edit_column}"/>
+								<Rectangle Grid.Column="8" Width="{Binding ActualWidth, ElementName=unit_delete_column}"/>
+							</Grid>
+							<ListView ItemsSource="{Binding Units, Mode=OneWay}" PreviewMouseWheel="IgnorePreviewMouseWheel">
+								<ListView.View>
+									<GridView AllowsColumnReorder="false">
+										<GridViewColumn x:Name="unit_id_column" DisplayMemberBinding="{Binding ID}" Header="ID"/>
+										<GridViewColumn x:Name="unit_name_column" DisplayMemberBinding="{Binding Name}" Header="NAME"/>
+										<GridViewColumn x:Name="unit_city_column" DisplayMemberBinding="{Binding City}" Header="CITY"/>
+										<GridViewColumn x:Name="unit_type_column" DisplayMemberBinding="{Binding UnitType}" Header="TYPE"/>
+										<GridViewColumn x:Name="unit_occupied_column" Header="OCCUPIED">
+											<GridViewColumn.CellTemplate>
+												<DataTemplate>
+													<StackPanel Orientation="Horizontal">
+														<TextBlock Text="{Binding OccupiedDays}"/>
+														<TextBlock> Days</TextBlock>
+													</StackPanel>
+												</DataTemplate>
+											</GridViewColumn.CellTemplate>
+										</GridViewColumn>
+										<GridViewColumn DisplayMemberBinding="{Binding Amenities, Converter={StaticResource IEnumerableConverter}}" Header="AMENITIES" Width="{Binding ActualWidth, ElementName=unit_wide_column}"/>
+										<GridViewColumn x:Name="unit_view_column">
+											<GridViewColumn.CellTemplate>
+												<DataTemplate>
+													<Button Style="{StaticResource MaterialDesignToolButton}" Click="ViewUnit" CommandParameter="{Binding}" Height="14" Padding="0">
+														<md:PackIcon Kind="Eye"/>
+													</Button>
+												</DataTemplate>
+											</GridViewColumn.CellTemplate>
+										</GridViewColumn>
+										<GridViewColumn x:Name="unit_edit_column">
+											<GridViewColumn.CellTemplate>
+												<DataTemplate>
+													<Button Style="{StaticResource MaterialDesignToolButton}" Click="EditUnit" CommandParameter="{Binding}" Height="14" Padding="0">
+														<md:PackIcon Kind="Edit"/>
+													</Button>
+												</DataTemplate>
+											</GridViewColumn.CellTemplate>
+										</GridViewColumn>
+										<GridViewColumn x:Name="unit_delete_column">
+											<GridViewColumn.CellTemplate>
+												<DataTemplate>
+													<Button Style="{StaticResource MaterialDesignToolButton}" Click="DeleteUnit" CommandParameter="{Binding}" Height="14" Padding="0">
+														<md:PackIcon Kind="Delete"/>
+													</Button>
+												</DataTemplate>
+											</GridViewColumn.CellTemplate>
+										</GridViewColumn>
+									</GridView>
+								</ListView.View>
+							</ListView>
+						</StackPanel>
+					</md:Card>
+					<Separator/>
+					<md:Card Style="{StaticResource padded_stack_card}"><!-- Orders Details -->
+						<StackPanel>
+							<ItemsControl Style="{StaticResource split_grid}">
+								<TextBlock Grid.Column="0" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Orders</TextBlock>
+								<Button Grid.Column="2" Click="SearchRequests">
+									<StackPanel Orientation="Horizontal">
+										<md:PackIcon Kind="Search"/>
+										<TextBlock Margin="5 0 5 0">SEARCH REQUESTS</TextBlock>
+									</StackPanel>
+								</Button>
+							</ItemsControl>
+							<Separator Height="30"/>
+							<Grid Visibility="Hidden"><!-- Hack to make a column take up the rest of the available space -->
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="20"/>
+								</Grid.ColumnDefinitions>
+								<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=order_id_column}"/>
+								<Rectangle Grid.Column="1" Width="{Binding ActualWidth, ElementName=order_unit_column}"/>
+								<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=order_guest_column}"/>
+								<Rectangle Grid.Column="3" Width="{Binding ActualWidth, ElementName=order_status_column}"/>
+								<Rectangle Grid.Column="4" x:Name="order_wide_column"/>
+								<Rectangle Grid.Column="5" Width="{Binding ActualWidth, ElementName=order_edit_column}"/>
+							</Grid>
+							<ListView ItemsSource="{Binding Orders, Mode=OneWay}" PreviewMouseWheel="IgnorePreviewMouseWheel">
+								<ListView.View>
+									<GridView AllowsColumnReorder="false">
+										<GridViewColumn x:Name="order_id_column" DisplayMemberBinding="{Binding ID}" Header="ID"/>
+										<GridViewColumn x:Name="order_unit_column" DisplayMemberBinding="{Binding Unit.Name}" Header="HOSTING UNIT"/>
+										<GridViewColumn x:Name="order_guest_column" DisplayMemberBinding="{Binding GuestRequest.Guest.Name}" Header="GUEST"/>
+										<GridViewColumn x:Name="order_status_column" DisplayMemberBinding="{Binding OrderStatus}" Header="STATUS"/>
+										<GridViewColumn DisplayMemberBinding="{Binding CreationDate}" Header="CREATION DATE" Width="{Binding ActualWidth, ElementName=order_wide_column}"/>
+										<GridViewColumn x:Name="order_edit_column">
+											<GridViewColumn.CellTemplate>
+												<DataTemplate>
+													<Button Style="{StaticResource MaterialDesignToolButton}" Click="EditOrder" CommandParameter="{Binding}" Height="14" Padding="0">
+														<md:PackIcon Kind="Edit"/>
+													</Button>
+												</DataTemplate>
+											</GridViewColumn.CellTemplate>
+										</GridViewColumn>
+									</GridView>
+								</ListView.View>
+							</ListView>
+						</StackPanel>
+					</md:Card>
+				</StackPanel>
+			</ScrollViewer>
+			<md:DialogHost.DialogContentTemplate>
+				<DataTemplate DataType="s:Exception">
+					<StackPanel Margin="20" Width="350">
+						<TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}">Error</TextBlock>
+						<Separator Height="10"/>
+						<TextBlock Text="{Binding Message}" TextWrapping="Wrap"/>
+						<Rectangle Height="20"/>
+						<StackPanel Visibility="{Binding IsChecked, ElementName=show_more, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<TextBlock Text="{Binding InnerException.Message}" TextWrapping="Wrap"/>
+							<TextBlock Text="{Binding InnerException.InnerException.Message}" TextWrapping="Wrap"/>
+							<TextBlock Text="{Binding InnerException.InnerException.InnerException.Message}" TextWrapping="Wrap"/>
+							<Rectangle Height="20"/>
+						</StackPanel>
 						<ItemsControl Style="{StaticResource split_grid}">
-							<TextBlock Grid.Column="0" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Hosting Units</TextBlock>
-							<Button Grid.Column="2" Click="NewHostingUnit">
-								<StackPanel Orientation="Horizontal">
-									<md:PackIcon Kind="PlusCircle"/>
-									<TextBlock Margin="5 0 5 0">NEW HOSTING UNIT</TextBlock>
+							<ToggleButton x:Name="show_more" Grid.Column="0" Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}" Visibility="{Binding InnerException, Mode=OneTime, Converter={StaticResource NullVisibilityConverter}}">
+								<StackPanel>
+									<md:PackIcon x:Name="expand_less" Kind="ExpandLess" Height="30" Width="30" Visibility="{Binding IsChecked, ElementName=show_more, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+									<md:PackIcon Kind="ExpandMore" Height="30" Width="30" Visibility="{Binding Visibility, ElementName=expand_less, Converter={StaticResource VisibilityNegationConverter}}"/>
 								</StackPanel>
-							</Button>
+							</ToggleButton>
+							<Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static md:DialogHost.CloseDialogCommand}">OKAY</Button>
 						</ItemsControl>
-						<Separator Height="30"/>
-						<Grid Visibility="Hidden"><!-- Hack to make a column take up the rest of the available space -->
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition Width="*"/>
-								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition Width="20"/>
-							</Grid.ColumnDefinitions>
-							<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=unit_id_column}"/>
-							<Rectangle Grid.Column="1" Width="{Binding ActualWidth, ElementName=unit_name_column}"/>
-							<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=unit_city_column}"/>
-							<Rectangle Grid.Column="3" Width="{Binding ActualWidth, ElementName=unit_type_column}"/>
-							<Rectangle Grid.Column="4" Width="{Binding ActualWidth, ElementName=unit_occupied_column}"/>
-							<Rectangle Grid.Column="5" x:Name="unit_wide_column"/>
-							<Rectangle Grid.Column="6" Width="{Binding ActualWidth, ElementName=unit_view_column}"/>
-							<Rectangle Grid.Column="7" Width="{Binding ActualWidth, ElementName=unit_edit_column}"/>
-							<Rectangle Grid.Column="8" Width="{Binding ActualWidth, ElementName=unit_delete_column}"/>
-						</Grid>
-						<ListView ItemsSource="{Binding Units, Mode=OneWay}" PreviewMouseWheel="IgnorePreviewMouseWheel">
-							<ListView.View>
-								<GridView AllowsColumnReorder="false">
-									<GridViewColumn x:Name="unit_id_column" DisplayMemberBinding="{Binding ID}" Header="ID"/>
-									<GridViewColumn x:Name="unit_name_column" DisplayMemberBinding="{Binding Name}" Header="NAME"/>
-									<GridViewColumn x:Name="unit_city_column" DisplayMemberBinding="{Binding City}" Header="CITY"/>
-									<GridViewColumn x:Name="unit_type_column" DisplayMemberBinding="{Binding UnitType}" Header="TYPE"/>
-									<GridViewColumn x:Name="unit_occupied_column" Header="OCCUPIED">
-										<GridViewColumn.CellTemplate>
-											<DataTemplate>
-												<StackPanel Orientation="Horizontal">
-													<TextBlock Text="{Binding OccupiedDays}"/>
-													<TextBlock> Days</TextBlock>
-												</StackPanel>
-											</DataTemplate>
-										</GridViewColumn.CellTemplate>
-									</GridViewColumn>
-									<GridViewColumn DisplayMemberBinding="{Binding Amenities, Converter={StaticResource IEnumerableConverter}}" Header="AMENITIES" Width="{Binding ActualWidth, ElementName=unit_wide_column}"/>
-									<GridViewColumn x:Name="unit_view_column">
-										<GridViewColumn.CellTemplate>
-											<DataTemplate>
-												<Button Style="{StaticResource MaterialDesignToolButton}" Click="ViewUnit" CommandParameter="{Binding}" Height="14" Padding="0">
-													<md:PackIcon Kind="Eye"/>
-												</Button>
-											</DataTemplate>
-										</GridViewColumn.CellTemplate>
-									</GridViewColumn>
-									<GridViewColumn x:Name="unit_edit_column">
-										<GridViewColumn.CellTemplate>
-											<DataTemplate>
-												<Button Style="{StaticResource MaterialDesignToolButton}" Click="EditUnit" CommandParameter="{Binding}" Height="14" Padding="0">
-													<md:PackIcon Kind="Edit"/>
-												</Button>
-											</DataTemplate>
-										</GridViewColumn.CellTemplate>
-									</GridViewColumn>
-									<GridViewColumn x:Name="unit_delete_column">
-										<GridViewColumn.CellTemplate>
-											<DataTemplate>
-												<Button Style="{StaticResource MaterialDesignToolButton}" Click="DeleteUnit" CommandParameter="{Binding}" Height="14" Padding="0">
-													<md:PackIcon Kind="Delete"/>
-												</Button>
-											</DataTemplate>
-										</GridViewColumn.CellTemplate>
-									</GridViewColumn>
-								</GridView>
-							</ListView.View>
-						</ListView>
 					</StackPanel>
-				</md:Card>
-				<Separator/>
-				<md:Card Style="{StaticResource padded_stack_card}"><!-- Orders Details -->
-					<StackPanel>
-						<ItemsControl Style="{StaticResource split_grid}">
-							<TextBlock Grid.Column="0" Style="{StaticResource MaterialDesignHeadline4TextBlock}">Orders</TextBlock>
-							<Button Grid.Column="2" Click="SearchRequests">
-								<StackPanel Orientation="Horizontal">
-									<md:PackIcon Kind="Search"/>
-									<TextBlock Margin="5 0 5 0">SEARCH REQUESTS</TextBlock>
-								</StackPanel>
-							</Button>
-						</ItemsControl>
-						<Separator Height="30"/>
-						<Grid Visibility="Hidden"><!-- Hack to make a column take up the rest of the available space -->
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition Width="*"/>
-								<ColumnDefinition Width="Auto"/>
-								<ColumnDefinition Width="20"/>
-							</Grid.ColumnDefinitions>
-							<Rectangle Grid.Column="0" Width="{Binding ActualWidth, ElementName=order_id_column}"/>
-							<Rectangle Grid.Column="1" Width="{Binding ActualWidth, ElementName=order_unit_column}"/>
-							<Rectangle Grid.Column="2" Width="{Binding ActualWidth, ElementName=order_guest_column}"/>
-							<Rectangle Grid.Column="3" Width="{Binding ActualWidth, ElementName=order_status_column}"/>
-							<Rectangle Grid.Column="4" x:Name="order_wide_column"/>
-							<Rectangle Grid.Column="5" Width="{Binding ActualWidth, ElementName=order_edit_column}"/>
-						</Grid>
-						<ListView ItemsSource="{Binding Orders, Mode=OneWay}" PreviewMouseWheel="IgnorePreviewMouseWheel">
-							<ListView.View>
-								<GridView AllowsColumnReorder="false">
-									<GridViewColumn x:Name="order_id_column" DisplayMemberBinding="{Binding ID}" Header="ID"/>
-									<GridViewColumn x:Name="order_unit_column" DisplayMemberBinding="{Binding Unit.Name}" Header="HOSTING UNIT"/>
-									<GridViewColumn x:Name="order_guest_column" DisplayMemberBinding="{Binding GuestRequest.Guest.Name}" Header="GUEST"/>
-									<GridViewColumn x:Name="order_status_column" DisplayMemberBinding="{Binding OrderStatus}" Header="STATUS"/>
-									<GridViewColumn DisplayMemberBinding="{Binding CreationDate}" Header="CREATION DATE" Width="{Binding ActualWidth, ElementName=order_wide_column}"/>
-									<GridViewColumn x:Name="order_edit_column">
-										<GridViewColumn.CellTemplate>
-											<DataTemplate>
-												<Button Style="{StaticResource MaterialDesignToolButton}" Click="EditOrder" CommandParameter="{Binding}" Height="14" Padding="0">
-													<md:PackIcon Kind="Edit"/>
-												</Button>
-											</DataTemplate>
-										</GridViewColumn.CellTemplate>
-									</GridViewColumn>
-								</GridView>
-							</ListView.View>
-						</ListView>
-					</StackPanel>
-				</md:Card>
-			</StackPanel>
-		</ScrollViewer>
+				</DataTemplate>
+			</md:DialogHost.DialogContentTemplate>
+		</md:DialogHost>
 		<md:DialogHost.DialogContentTemplate>
 			<DataTemplate DataType="local:Unit">
 				<StackPanel Margin="20" Width="350">

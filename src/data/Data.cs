@@ -31,76 +31,76 @@ namespace data {
 		public DataAccessorReadOnly<string, Unit.Type> UnitType { get; }
 
 		public Data() {
-			FilesInitializer.InitializeAll();
+			DatabaseInitializer.InitializeDatabase();
 
 			Admin = new DataAccessor<Admin>(
-				Path.Combine(Config.BasePath, "data/admins.xml"),
+				Path.Combine(Config.BaseDataPath, "admins.xml"),
 				"admins",
 				new AdminXmlConverter(),
 				(admin) => admin.Clone()
 			);
 
 			Amenity = new DataAccessorReadOnly<string, Amenity>(
-				Path.Combine(Config.BasePath, "data/amenities.xml"),
+				Path.Combine(Config.BaseDataPath, "amenities.xml"),
 				"amenities",
 				new AmenityXmlConverter()
 			);
 
 			BankBranch = new DataAccessorReadOnly<Tuple<ID, ID>, BankBranch>(
-				Path.Combine(Config.BasePath, "data/bank_branches.xml"),
+				Path.Combine(Config.BaseDataPath, "bank_branches.xml"),
 				"BRANCHES",
 				new BankBranchXmlConverter()
 			);
 
 			City = new DataAccessorReadOnly<string, City>(
-				Path.Combine(Config.BasePath, "data/cities.xml"),
+				Path.Combine(Config.BaseDataPath, "cities.xml"),
 				"cities",
 				new CityXmlConverter()
 			);
 
 			Guest = new DataAccessor<Guest>(
-				Path.Combine(Config.BasePath, "data/guests.xml"),
+				Path.Combine(Config.BaseDataPath, "guests.xml"),
 				"guests",
 				new GuestXmlConverter(),
 				(guest) => guest.Clone()
 			);
 
 			GuestRequest = new DataAccessor<GuestRequest>(
-				Path.Combine(Config.BasePath, "data/guest_requests.xml"),
+				Path.Combine(Config.BaseDataPath, "guest_requests.xml"),
 				"guest_requests",
 				new GuestRequestXmlConverter(),
 				(guest_request) => guest_request.Clone()
 			);
 
 			Host = new DataAccessor<Host>(
-				Path.Combine(Config.BasePath, "data/hosts.xml"),
+				Path.Combine(Config.BaseDataPath, "hosts.xml"),
 				"hosts",
 				new HostXmlConverter(),
 				(host) => host.Clone()
 			);
 
 			Unit = new DataAccessor<Unit>(
-				Path.Combine(Config.BasePath, "data/units.xml"),
+				Path.Combine(Config.BaseDataPath, "units.xml"),
 				"units",
 				new UnitXmlConverter(),
 				(unit) => unit.Clone()
 			);
 
 			Order = new DataAccessor<Order>(
-				Path.Combine(Config.BasePath, "data/orders.xml"),
+				Path.Combine(Config.BaseDataPath, "orders.xml"),
 				"orders",
 				new OrderXmlConverter(),
 				(order) => order.Clone()
 			);
 
 			OrderStatus = new DataAccessorReadOnly<string, Order.Status>(
-				Path.Combine(Config.BasePath, "data/order_statuses.xml"),
+				Path.Combine(Config.BaseDataPath, "order_statuses.xml"),
 				"order_statuses",
 				new OrderStatusXmlConverter()
 			);
 
 			UnitType = new DataAccessorReadOnly<string, Unit.Type>(
-				Path.Combine(Config.BasePath, "data/unit_types.xml"),
+				Path.Combine(Config.BaseDataPath, "unit_types.xml"),
 				"unit_types",
 				new UnitTypeXmlConverter()
 			);

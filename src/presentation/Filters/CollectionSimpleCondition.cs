@@ -27,7 +27,7 @@ namespace presentation {
 			ObjToCollection = obj_to_collection;
 			CheckBoxItems = check_box_items;
 
-			FilterTypesCollection.Add(new FilterType("Contains some of", (obj_vals, checkbox_list) => obj_vals.Intersect(checkbox_list.SelectedItems).Count() != 0));
+			FilterTypesCollection.Add(new FilterType("Contains some of", (obj_vals, checkbox_list) => obj_vals.Intersect(checkbox_list.SelectedItems).Count() != 0 || obj_vals.Count() == 0));
 		}
 
 		public bool Test(TObj obj) {

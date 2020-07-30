@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using business;
 using Lib.Entities;
+using Lib.Exceptions;
 
 namespace presentation {
 	public partial class HostPage : Page {
@@ -56,9 +58,17 @@ namespace presentation {
 
 		private async void DeleteUnit(object sender, RoutedEventArgs e) {
 			Unit unit = (sender as Button).CommandParameter as Unit;
-			if ((bool) await MaterialDesignThemes.Wpf.DialogHost.Show(unit)) {
-				Business.DeleteUnit(unit);
-				Units.Remove(unit);
+			if ((bool) await MaterialDesignThemes.Wpf.DialogHost.Show(unit, "confirm_unit_delete")) {
+				try {
+					IList<Order> orders = Business.OrdersOf(unit).ToList();
+					Business.DeleteUnit(unit);
+					Units.Remove(unit);
+					for (int i = 0; i < orders.Count; ++i) {
+						Orders.Remove(orders[i]);
+					}
+				} catch (DeletingUnitWithConfirmedOrderException ex) {
+					await MaterialDesignThemes.Wpf.DialogHost.Show(ex, "unit_delete_error");
+				}
 			}
 		}
 

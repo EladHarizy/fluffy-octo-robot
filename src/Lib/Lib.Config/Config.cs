@@ -8,13 +8,15 @@ using Lib.DataTypes;
 
 namespace Lib.Config {
 	public static class Config {
-		public static string BasePath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "fluffy-octo-robot/");
+		public static string BaseConfigPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "fluffy-octo-robot/");
+
+		public static string BaseDataPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "fluffy-octo-robot/data/");
 
 		private static XElement root;
 		private static XElement Root {
 			get {
 				if (root == null) {
-					root = XElement.Load(Path.Combine(BasePath, "config.xml"));
+					root = XElement.Load(Path.Combine(BaseConfigPath, "config.xml"));
 				}
 				return root;
 			}
@@ -78,7 +80,7 @@ namespace Lib.Config {
 
 		public static void LatestID(string file_name, ID id) {
 			ConfigXml.Element("latest_ids").Element(Path.GetFileName(file_name)).Value = id;
-			Root.Save(Path.Combine(BasePath, "config.xml"));
+			Root.Save(Path.Combine(BaseConfigPath, "config.xml"));
 		}
 	}
 }

@@ -14,7 +14,7 @@
 					</ItemsControl>
 					<Separator Height="30"/>
 					<StackPanel Orientation="Horizontal">
-						<StackPanel MaxWidth="350">
+						<StackPanel Width="350">
 							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="ID" Text="{Binding Order.ID, Mode=OneTime}" IsReadOnly="true"/>
 							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Hosting unit" Text="{Binding Order.Unit, Mode=OneTime}" IsReadOnly="true"/>
 							<TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" md:HintAssist.Hint="Guest Request" Text="{Binding Order.GuestRequest, Mode=OneTime}" IsReadOnly="true"/>

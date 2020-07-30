@@ -6,11 +6,11 @@ using Lib.Interfaces;
 
 namespace Lib.Entities {
 	public partial class Order : ICloneable<Order>, IEntity<ID> {
-		public ID ID { get; set; }
+		public ID ID { get; private set; }
 
-		public Unit Unit { get; }
+		public Unit Unit { get; set; }
 
-		public GuestRequest GuestRequest { get; }
+		public GuestRequest GuestRequest { get; set; }
 
 		public Status OrderStatus { get; set; }
 
@@ -58,7 +58,7 @@ namespace Lib.Entities {
 		}
 
 		public Order Clone() {
-			return new Order(ID, Unit.Clone(), GuestRequest.Clone(), OrderStatus, CreationDate, EmailDeliveryDate, Message);
+			return new Order(ID, (Unit == null ? null : Unit.Clone()), (GuestRequest == null ? null : GuestRequest.Clone()), OrderStatus, CreationDate, EmailDeliveryDate, Message);
 		}
 
 		public override bool Equals(object obj) {

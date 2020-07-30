@@ -31,13 +31,13 @@ namespace presentation {
 			ControlToValue = control_to_value;
 
 			FilterTypes = new List<FilterType> {
-				new FilterType("Equals", (obj_val, control_1, control_2) => obj_val.CompareTo(ControlToValue(control_1)) == 0),
-				new FilterType("Less than", (obj_val, control_1, control_2) => obj_val.CompareTo(ControlToValue(control_1)) < 0),
-				new FilterType("Less than or equal", (obj_val, control_1, control_2) => obj_val.CompareTo(ControlToValue(control_1)) <= 0),
-				new FilterType("More than", (obj_val, control_1, control_2) => obj_val.CompareTo(ControlToValue(control_1)) > 0),
-				new FilterType("More than or equal", (obj_val, control_1, control_2) => obj_val.CompareTo(ControlToValue(control_1)) >= 0),
-				new FilterType("Between (exclusive)", (obj_val, control_1, control_2) => obj_val.CompareTo(ControlToValue(control_1)) > 0 && obj_val.CompareTo(ControlToValue(control_2)) < 0, Visibility.Visible),
-				new FilterType("Between (inclusive)", (obj_val, control_1, control_2) => obj_val.CompareTo(ControlToValue(control_1)) >= 0 && obj_val.CompareTo(ControlToValue(control_2)) <= 0, Visibility.Visible)
+				new FilterType("Equals", (obj_val, control_1, control_2) => obj_val != null && obj_val.CompareTo(ControlToValue(control_1)) == 0),
+				new FilterType("Less than", (obj_val, control_1, control_2) => obj_val != null && obj_val.CompareTo(ControlToValue(control_1)) < 0),
+				new FilterType("Less than or equal", (obj_val, control_1, control_2) => obj_val != null && obj_val.CompareTo(ControlToValue(control_1)) <= 0),
+				new FilterType("More than", (obj_val, control_1, control_2) => obj_val != null && obj_val.CompareTo(ControlToValue(control_1)) > 0),
+				new FilterType("More than or equal", (obj_val, control_1, control_2) => obj_val != null && obj_val.CompareTo(ControlToValue(control_1)) >= 0),
+				new FilterType("Between (exclusive)", (obj_val, control_1, control_2) => obj_val != null && obj_val.CompareTo(ControlToValue(control_1)) > 0 && obj_val != null && obj_val.CompareTo(ControlToValue(control_2)) < 0, Visibility.Visible),
+				new FilterType("Between (inclusive)", (obj_val, control_1, control_2) => obj_val != null && obj_val.CompareTo(ControlToValue(control_1)) >= 0 && obj_val != null && obj_val.CompareTo(ControlToValue(control_2)) <= 0, Visibility.Visible)
 			};
 		}
 

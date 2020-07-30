@@ -1,7 +1,5 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using business;
-using Lib.DataTypes;
 using Lib.Entities;
 
 namespace presentation {
@@ -23,6 +21,11 @@ namespace presentation {
 		private Session<Guest> GuestSession { get; }
 
 		public MainWindow() {
+			Application.Current.DispatcherUnhandledException += (_, e) => {
+				MaterialDesignThemes.Wpf.DialogHost.Show(e.Exception, "general_error_dialog_host");
+				e.Handled = true;
+			};
+
 			InitializeComponent();
 			OriginalTitle = Title;
 			Business = BusinessFactory.New();

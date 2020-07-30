@@ -64,7 +64,7 @@ namespace presentation {
 				guest_request_id_filter_toggle,
 				guest_request_id_filter_type,
 				guest_request_id_filter_value,
-				order => order.GuestRequest.ID,
+				order => order.GuestRequest == null ? null : order.GuestRequest.ID,
 				control => (control as TextBox).Text
 			);
 
@@ -72,7 +72,7 @@ namespace presentation {
 				guest_email_filter_toggle,
 				guest_email_filter_type,
 				guest_email_filter_value,
-				order => order.GuestRequest.Guest.Email,
+				order => order.GuestRequest == null ? null : order.GuestRequest.Guest.Email,
 				control => (control as TextBox).Text
 			);
 
@@ -80,7 +80,7 @@ namespace presentation {
 				unit_id_filter_toggle,
 				unit_id_filter_type,
 				unit_id_filter_value,
-				order => order.Unit.ID,
+				order => order.Unit == null ? null : order.Unit.ID,
 				control => (control as TextBox).Text
 			);
 
@@ -88,7 +88,7 @@ namespace presentation {
 				host_email_filter_toggle,
 				host_email_filter_type,
 				host_email_filter_value,
-				order => order.Unit.Host.Email,
+				order => order.Unit == null ? null : order.Unit.Host.Email,
 				control => (control as TextBox).Text
 			);
 
@@ -115,7 +115,7 @@ namespace presentation {
 				adults_filter_type,
 				adults_filter_value_1,
 				adults_filter_value_2,
-				order => order.GuestRequest.Adults,
+				order => order.GuestRequest == null ? -1 : order.GuestRequest.Adults,
 				control => int.Parse((control as TextBox).Text)
 			);
 
@@ -124,7 +124,7 @@ namespace presentation {
 				children_filter_type,
 				children_filter_value_1,
 				children_filter_value_2,
-				order => order.GuestRequest.Children,
+				order => order.GuestRequest == null ? -1 : order.GuestRequest.Children,
 				control => int.Parse((control as TextBox).Text)
 			);
 
@@ -132,14 +132,14 @@ namespace presentation {
 				cities_filter_toggle,
 				cities_filter_type,
 				Cities,
-				order => order.Unit.City
+				order => order.Unit == null ? null : order.Unit.City
 			);
 
 			UnitTypesCondition = new NominalCondition<Order, Unit.Type>(
 				unit_types_filter_toggle,
 				unit_types_filter_type,
 				UnitTypes,
-				order => order.Unit.UnitType
+				order => order.Unit == null ? null : order.Unit.UnitType
 			);
 
 			Filter = new Filter<Order>(IDCondition, GuestRequestIDCondition, GuestEmailCondition, UnitIDCondition, HostEmailCondition, StartDateCondition, EndDateCondition, AdultsCondition, ChildrenCondition, CitiesCondition, UnitTypesCondition);
