@@ -1,13 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using business;
-using Lib.DataTypes;
 using Lib.Entities;
-using Lib.Exceptions;
 
 namespace presentation {
 	public partial class AddGuestPage : ValidatedPage {
@@ -16,8 +13,6 @@ namespace presentation {
 		private Frame Frame { get; }
 
 		private GuestSignInPage GuestSignInPage { get; }
-
-		private BankBranch BankBranch { get; set; }
 
 		private IValidator EmailValidator { get; }
 

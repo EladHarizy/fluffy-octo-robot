@@ -17,12 +17,6 @@ namespace presentation {
 			CheckBoxItems = new HashSet<CheckBoxItem<T>>(source.Select(item => new CheckBoxItem<T>(item, selected.Contains(item))));
 		}
 
-		public void CheckAll() {
-			foreach (CheckBoxItem<T> item in CheckBoxItems) {
-				item.Selected = true;
-			}
-		}
-
 		public void CheckAll(IEnumerable<T> items) {
 			foreach (CheckBoxItem<T> item in CheckBoxItems) {
 				item.Selected = item.Selected || items.Contains(item.Object);

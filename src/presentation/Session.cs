@@ -27,10 +27,6 @@ namespace presentation {
 			private set;
 		}
 
-		public bool IsSignedIn {
-			get => User != null;
-		}
-
 		public Session(IBusiness business, Frame frame) {
 			Business = business;
 			Frame = frame;

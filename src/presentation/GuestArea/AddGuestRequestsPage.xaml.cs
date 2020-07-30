@@ -5,7 +5,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using business;
-using Lib.DataTypes;
 using Lib.Entities;
 
 namespace presentation {
