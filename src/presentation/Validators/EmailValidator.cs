@@ -7,9 +7,9 @@ namespace presentation {
 	internal class EmailValidator : RequiredTextValidator {
 		public EmailValidator(TextBox control, TextBlock error_block, params Func<TextBox, string>[] checks) : base(control, error_block) {
 			Checks.Add(
-				control => {
+				c => {
 					try {
-						control.Text = new Email(control.Text);
+						c.Text = new Email(c.Text);
 						return "";
 					} catch (InvalidEmailException ex) {
 						return ex.Message;

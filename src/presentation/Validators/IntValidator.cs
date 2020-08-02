@@ -20,13 +20,13 @@ namespace presentation {
 
 		public IntValidator(TextBox control, TextBlock error_block, bool required, int? min, int? max, params Func<TextBox, string>[] checks) : this(control, error_block, checks) {
 			if (required) {
-				Checks.Add(control => control.Text == "" ? "Error: This field is required." : "");
+				Checks.Add(c => c.Text == "" ? "Error: This field is required." : "");
 			}
 			if (min != null) {
-				Checks.Add(control => int.Parse(control.Text) < (int) min ? "Error: Number must be at least " + (int) min + '.' : "");
+				Checks.Add(c => int.Parse(c.Text) < (int) min ? "Error: Number must be at least " + (int) min + '.' : "");
 			}
 			if (max != null) {
-				Checks.Add(control => int.Parse(control.Text) > (int) max ? "Error: Number must be at most " + (int) max + '.' : "");
+				Checks.Add(c => int.Parse(c.Text) > (int) max ? "Error: Number must be at most " + (int) max + '.' : "");
 			}
 		}
 	}

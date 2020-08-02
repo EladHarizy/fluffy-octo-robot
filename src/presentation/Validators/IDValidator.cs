@@ -9,9 +9,9 @@ namespace presentation {
 		public IDValidator(TextBox control, TextBlock error_block, int digits, params Func<TextBox, string>[] checks) : base(control, error_block) {
 			Digits = digits;
 			Checks.Add(
-				control => {
+				c => {
 					try {
-						control.Text = new ID(control.Text, Digits);
+						c.Text = new ID(c.Text, Digits);
 						return "";
 					} catch (FormatException) {
 						return "Error: ID must contain only digits.";
