@@ -25,7 +25,7 @@ namespace presentation {
 			ControlToValue = control_to_value;
 
 			FilterTypes = new List<FilterType> {
-				new FilterType("Equals", (obj_val, control) => obj_val != null && obj_val.Equals(ControlToValue(control)))
+				new FilterType("Equals", (obj_val, c) => obj_val != null && obj_val.Equals(ControlToValue(c)))
 			};
 		}
 
