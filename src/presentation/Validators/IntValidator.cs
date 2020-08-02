@@ -5,9 +5,9 @@ namespace presentation {
 	internal class IntValidator : Validator<TextBox> {
 		public IntValidator(TextBox control, TextBlock error_block, params Func<TextBox, string>[] checks) : base(control, error_block, checks) {
 			Checks.Add(
-				control => {
+				c => {
 					try {
-						control.Text = string.IsNullOrWhiteSpace(control.Text) ? "" : int.Parse(control.Text).ToString();
+						c.Text = string.IsNullOrWhiteSpace(c.Text) ? "" : int.Parse(c.Text).ToString();
 						return "";
 					} catch (FormatException) {
 						return "Error: Input must be a number.";
